@@ -5,7 +5,7 @@
 	"type":              "project",
 	"license":           "Apache-2.0",
 	"version":           "0.1",
-	"homepage":          "http://alorel.github.io/alo-framework/",
+	"homepage":          "https://alorel.github.io/alo-framework/",
 	"keywords":          [
 		"PHP",
 		"framework",
