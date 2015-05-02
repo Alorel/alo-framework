@@ -1,0 +1,89 @@
+address, html, body, article, aside, audio, blockquote, canvas, dd, div, dl, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, header, noscript, output, p, pre, section, video {
+	display: block
+}
+
+b, big, i, small, tt, abbr, acronym, cite, code, dfn, em, kbd, strong, samp, var, a, bdo, br, img, map, object, q, span, sub, sup, button, input, label, select, textarea {
+	display: inline
+}
+
+tr, .table > div {
+	display: table-row
+}
+
+th, td, .table > div > div {
+	display: table-cell
+}
+
+h1, h2, h3, h4, h5, h6, th {
+	font-weight: bold
+}
+
+table, .table {
+	font-weight: normal
+}
+
+h1, h2, h3, h4, h5, h6 {
+	-webkit-margin-before: 0;
+	-webkit-margin-after:  0;
+	-webkit-margin-start:  0;
+	-webkit-margin-end:    0
+}
+
+thead, tbody {
+	vertical-align: middle
+}
+
+tr, .table > div, th, td, .table > div > div {
+	vertical-align: inherit
+}
+
+thead, tr, .table > div, tbody {
+	border-color: inherit
+}
+
+body {
+	margin: 8px
+}
+
+h1 {
+	margin:    8.04px 0 8.04px 0;
+	font-size: 24px
+}
+
+h2 {
+	margin: 9.96px 0 9.96px 0
+}
+
+h3 {
+	margin:    12px 0 12px 0;
+	font-size: 14.04px
+}
+
+h4 {
+	margin: 15.96px 0 15.96px 0
+}
+
+h5 {
+	margin: 20.04px 0 20.04px 0
+}
+
+h6 {
+	margin: 27.96px 0 27.96px 0
+}
+
+table, .table {
+	white-space:  normal;
+	line-height:  normal;
+	font-size:    medium;
+	font-variant: normal;
+	font-style:   normal;
+	text-align:   start
+}
+
+thead {
+	display: table-header-group
+}
+
+tbody {
+	display: table-row-group
+}

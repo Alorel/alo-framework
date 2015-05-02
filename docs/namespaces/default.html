@@ -1,0 +1,3450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>AloFramework Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">AloFramework Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Alo.html">\Alo</a></li>
+                                                        <li><a href="../namespaces/Controller.html">\Controller</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">323</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">7</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1536644450"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1536644450" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1740114364"></a>
+                                <a href="../namespaces/Alo.html" style="margin-left: 30px; padding-left: 0">Alo</a>
+            </div>
+            <div id="namespace-1740114364" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-946471617"></a>
+                                <a href="../namespaces/Alo.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
+            </div>
+            <div id="namespace-946471617" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Cache.AbstractCache.html">AbstractCache</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Cache.MemcachedWrapper.html">MemcachedWrapper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-196294528"></a>
+                                <a href="../namespaces/Alo.Controller.html" style="margin-left: 30px; padding-left: 0">Controller</a>
+            </div>
+            <div id="namespace-196294528" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Controller.AbstractController.html">AbstractController</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Controller.Error.html">Error</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Controller.Router.html">Router</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1700488217"></a>
+                                <a href="../namespaces/Alo.Db.html" style="margin-left: 30px; padding-left: 0">Db</a>
+            </div>
+            <div id="namespace-1700488217" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Db.AbstractDb.html">AbstractDb</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Db.MySQL.html">MySQL</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1540718267"></a>
+                                <a href="../namespaces/Alo.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1540718267" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Exception.AbstractException.html">AbstractException</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Exception.ControllerException.html">ControllerException</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Exception.CronException.html">CronException</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Exception.ExtensionException.html">ExtensionException</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Exception.FileException.html">FileException</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Exception.SFTPException.html">SFTPException</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Exception.TesterException.html">TesterException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1731486584"></a>
+                                <a href="../namespaces/Alo.Session.html" style="margin-left: 30px; padding-left: 0">Session</a>
+            </div>
+            <div id="namespace-1731486584" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Session.AbstractSession.html">AbstractSession</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Session.MemcachedSession.html">MemcachedSession</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Session.SQLSession.html">SQLSession</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1712473220"></a>
+                                <a href="../namespaces/Alo.Statics.html" style="margin-left: 30px; padding-left: 0">Statics</a>
+            </div>
+            <div id="namespace-1712473220" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Statics.Cookie.html">Cookie</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Statics.Format.html">Format</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2108296153"></a>
+                                <a href="../namespaces/Alo.Test.html" style="margin-left: 30px; padding-left: 0">Test</a>
+            </div>
+            <div id="namespace-2108296153" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Test.AbstractTester.html">AbstractTester</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Test.ClassTester.html">ClassTester</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-386052198"></a>
+                                <a href="../namespaces/Alo.Validators.html" style="margin-left: 30px; padding-left: 0">Validators</a>
+            </div>
+            <div id="namespace-386052198" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Validators.Form.html">Form</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.Cron.html">Cron</a></li>
+                                                    <li class="class"><a href="../classes/Alo.cURL.html">cURL</a></li>
+                                                    <li class="class"><a href="../classes/Alo.Email.html">Email</a></li>
+                                                    <li class="class"><a href="../classes/Alo.File.html">File</a></li>
+                                                    <li class="class"><a href="../classes/Alo.SFTP.html">SFTP</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1407704028"></a>
+                                <a href="../namespaces/Controller.html" style="margin-left: 30px; padding-left: 0">Controller</a>
+            </div>
+            <div id="namespace-1407704028" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Controller.Sample.html">Sample</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Alo.html">Alo</a></li>
+                                                    <li class="class"><a href="../classes/EasyPeasyICS.html">EasyPeasyICS</a></li>
+                                                    <li class="class"><a href="../classes/Kint.html">Kint</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Decorators_Concise.html">Kint_Decorators_Concise</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Decorators_Plain.html">Kint_Decorators_Plain</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Decorators_Rich.html">Kint_Decorators_Rich</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_ArrayObject.html">Kint_Parsers_ArrayObject</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_ClassMethods.html">Kint_Parsers_ClassMethods</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_ClassStatics.html">Kint_Parsers_ClassStatics</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_Color.html">Kint_Parsers_Color</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_Json.html">Kint_Parsers_Json</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_Microtime.html">Kint_Parsers_Microtime</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_SplFileInfo.html">Kint_Parsers_SplFileInfo</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_SplObjectStorage.html">Kint_Parsers_SplObjectStorage</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_Timestamp.html">Kint_Parsers_Timestamp</a></li>
+                                                    <li class="class"><a href="../classes/Kint_Parsers_Xml.html">Kint_Parsers_Xml</a></li>
+                                                    <li class="class"><a href="../classes/kintParser.html">kintParser</a></li>
+                                                    <li class="class"><a href="../classes/kintVariableData.html">kintVariableData</a></li>
+                                                    <li class="class"><a href="../classes/Log.html">Log</a></li>
+                                                    <li class="class"><a href="../classes/ntlm_sasl_client_class.html">ntlm_sasl_client_class</a></li>
+                                                    <li class="class"><a href="../classes/PHPMailer.html">PHPMailer</a></li>
+                                                    <li class="class"><a href="../classes/phpmailerException.html">phpmailerException</a></li>
+                                                    <li class="class"><a href="../classes/POP3.html">POP3</a></li>
+                                                    <li class="class"><a href="../classes/SMTP.html">SMTP</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content namespace">
+                    <nav>
+                                                
+                                            </nav>
+                    <h1><small></small>\</h1>
+
+                                        <h2>Namespaces</h2>
+                    <table class="table table-hover">
+                                                    <tr>
+                                <td><a href="../namespaces/Alo.html">Alo</a></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../namespaces/Controller.html">Controller</a></td>
+                            </tr>
+                                            </table>
+                    
+                    
+                    
+                                        <h2>Classes</h2>
+                    <table class="table table-hover">
+                                            <tr>
+                            <td><a href="../classes/Alo.html">Alo</a></td>
+                            <td><em>The global framework class</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/EasyPeasyICS.html">EasyPeasyICS</a></td>
+                            <td><em>Class EasyPeasyICS.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint.html">Kint</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Decorators_Concise.html">Kint_Decorators_Concise</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Decorators_Plain.html">Kint_Decorators_Plain</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Decorators_Rich.html">Kint_Decorators_Rich</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_ArrayObject.html">Kint_Parsers_ArrayObject</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_ClassMethods.html">Kint_Parsers_ClassMethods</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_ClassStatics.html">Kint_Parsers_ClassStatics</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_Color.html">Kint_Parsers_Color</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_Json.html">Kint_Parsers_Json</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_Microtime.html">Kint_Parsers_Microtime</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_SplFileInfo.html">Kint_Parsers_SplFileInfo</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_SplObjectStorage.html">Kint_Parsers_SplObjectStorage</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_Timestamp.html">Kint_Parsers_Timestamp</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Kint_Parsers_Xml.html">Kint_Parsers_Xml</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/kintParser.html">kintParser</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/kintVariableData.html">kintVariableData</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/Log.html">Log</a></td>
+                            <td><em>Logs messages</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/ntlm_sasl_client_class.html">ntlm_sasl_client_class</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/PHPMailer.html">PHPMailer</a></td>
+                            <td><em>PHPMailer - PHP email creation and transport class.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/phpmailerException.html">phpmailerException</a></td>
+                            <td><em>PHPMailer exception handler</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/POP3.html">POP3</a></td>
+                            <td><em>PHPMailer POP-Before-SMTP Authentication Class.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/SMTP.html">SMTP</a></td>
+                            <td><em>PHPMailer RFC821 SMTP email transport class.</em></td>
+                        </tr>
+                                        </table>
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                        <dt>Namespace hierarchy</dt>
+                        <dd class="hierarchy">
+                                                                                                                                                <div class="namespace-wrapper">\</div>
+                        </dd>
+                    </dl>
+                </aside>
+            </div>
+
+                        <div class="row-fluid">
+                <section class="span8 content namespace">
+                    <h2>Constants</h2>
+                </section>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_AUTH" name="constant_ALO_EMAIL_AUTH" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_AUTH" class="constant">
+                <h3 class="">ALO_EMAIL_AUTH</h3>
+                <pre class="signature">ALO_EMAIL_AUTH</pre>
+                <p><em>Whether to use authentication</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_ERR_LANG" name="constant_ALO_EMAIL_ERR_LANG" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_ERR_LANG" class="constant">
+                <h3 class="">ALO_EMAIL_ERR_LANG</h3>
+                <pre class="signature">ALO_EMAIL_ERR_LANG</pre>
+                <p><em>Default email error message language. See files at /sys/external/email/language</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_FROM_DEFAULT_ADDR" name="constant_ALO_EMAIL_FROM_DEFAULT_ADDR" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_FROM_DEFAULT_ADDR" class="constant">
+                <h3 class="">ALO_EMAIL_FROM_DEFAULT_ADDR</h3>
+                <pre class="signature">ALO_EMAIL_FROM_DEFAULT_ADDR</pre>
+                <p><em>Address messages will come from by default</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_FROM_DEFAULT_NAME" name="constant_ALO_EMAIL_FROM_DEFAULT_NAME" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_FROM_DEFAULT_NAME" class="constant">
+                <h3 class="">ALO_EMAIL_FROM_DEFAULT_NAME</h3>
+                <pre class="signature">ALO_EMAIL_FROM_DEFAULT_NAME</pre>
+                <p><em>Sender name by default</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_HOSTS" name="constant_ALO_EMAIL_HOSTS" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_HOSTS" class="constant">
+                <h3 class="">ALO_EMAIL_HOSTS</h3>
+                <pre class="signature">ALO_EMAIL_HOSTS</pre>
+                <p><em>Hosts as well as backup hosts to use, separated by semicolon</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_HTML_ENABLED" name="constant_ALO_EMAIL_HTML_ENABLED" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_HTML_ENABLED" class="constant">
+                <h3 class="">ALO_EMAIL_HTML_ENABLED</h3>
+                <pre class="signature">ALO_EMAIL_HTML_ENABLED</pre>
+                <p><em>Whether to enable HTML emails by defualt</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_PASSWORD" name="constant_ALO_EMAIL_PASSWORD" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_PASSWORD" class="constant">
+                <h3 class="">ALO_EMAIL_PASSWORD</h3>
+                <pre class="signature">ALO_EMAIL_PASSWORD</pre>
+                <p><em>Authentication password</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_PORT" name="constant_ALO_EMAIL_PORT" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_PORT" class="constant">
+                <h3 class="">ALO_EMAIL_PORT</h3>
+                <pre class="signature">ALO_EMAIL_PORT</pre>
+                <p><em>Email port</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_SECURE" name="constant_ALO_EMAIL_SECURE" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_SECURE" class="constant">
+                <h3 class="">ALO_EMAIL_SECURE</h3>
+                <pre class="signature">ALO_EMAIL_SECURE</pre>
+                <p><em>Security protocol to use</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_SUBJECT_DEFAULT" name="constant_ALO_EMAIL_SUBJECT_DEFAULT" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_SUBJECT_DEFAULT" class="constant">
+                <h3 class="">ALO_EMAIL_SUBJECT_DEFAULT</h3>
+                <pre class="signature">ALO_EMAIL_SUBJECT_DEFAULT</pre>
+                <p><em>Default subject to set</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_USE_SMTP" name="constant_ALO_EMAIL_USE_SMTP" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_USE_SMTP" class="constant">
+                <h3 class="">ALO_EMAIL_USE_SMTP</h3>
+                <pre class="signature">ALO_EMAIL_USE_SMTP</pre>
+                <p><em>Whether to use SMTP by default</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_EMAIL_USERNAME" name="constant_ALO_EMAIL_USERNAME" class="anchor"></a>
+            <article id="constant_ALO_EMAIL_USERNAME" class="constant">
+                <h3 class="">ALO_EMAIL_USERNAME</h3>
+                <pre class="signature">ALO_EMAIL_USERNAME</pre>
+                <p><em>Authentication username</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MEMCACHED_IP" name="constant_ALO_MEMCACHED_IP" class="anchor"></a>
+            <article id="constant_ALO_MEMCACHED_IP" class="constant">
+                <h3 class="">ALO_MEMCACHED_IP</h3>
+                <pre class="signature">ALO_MEMCACHED_IP</pre>
+                <p><em>The default Memcached IP to use</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MEMCACHED_PORT" name="constant_ALO_MEMCACHED_PORT" class="anchor"></a>
+            <article id="constant_ALO_MEMCACHED_PORT" class="constant">
+                <h3 class="">ALO_MEMCACHED_PORT</h3>
+                <pre class="signature">ALO_MEMCACHED_PORT</pre>
+                <p><em>The default Memcached port to use</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MYSQL_CACHE" name="constant_ALO_MYSQL_CACHE" class="anchor"></a>
+            <article id="constant_ALO_MYSQL_CACHE" class="constant">
+                <h3 class="">ALO_MYSQL_CACHE</h3>
+                <pre class="signature">ALO_MYSQL_CACHE</pre>
+                <p><em>Which caching class to use. These are found in sys/class/alo/cache</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MYSQL_CACHE_PREFIX" name="constant_ALO_MYSQL_CACHE_PREFIX" class="anchor"></a>
+            <article id="constant_ALO_MYSQL_CACHE_PREFIX" class="constant">
+                <h3 class="">ALO_MYSQL_CACHE_PREFIX</h3>
+                <pre class="signature">ALO_MYSQL_CACHE_PREFIX</pre>
+                <p><em>The prefix to use for DB cache keys</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MYSQL_DATABASE" name="constant_ALO_MYSQL_DATABASE" class="anchor"></a>
+            <article id="constant_ALO_MYSQL_DATABASE" class="constant">
+                <h3 class="">ALO_MYSQL_DATABASE</h3>
+                <pre class="signature">ALO_MYSQL_DATABASE</pre>
+                <p><em>The default database to connect to</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MYSQL_PORT" name="constant_ALO_MYSQL_PORT" class="anchor"></a>
+            <article id="constant_ALO_MYSQL_PORT" class="constant">
+                <h3 class="">ALO_MYSQL_PORT</h3>
+                <pre class="signature">ALO_MYSQL_PORT</pre>
+                <p><em>The default database port to use</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MYSQL_PW" name="constant_ALO_MYSQL_PW" class="anchor"></a>
+            <article id="constant_ALO_MYSQL_PW" class="constant">
+                <h3 class="">ALO_MYSQL_PW</h3>
+                <pre class="signature">ALO_MYSQL_PW</pre>
+                <p><em>The default password to use</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MYSQL_SERVER" name="constant_ALO_MYSQL_SERVER" class="anchor"></a>
+            <article id="constant_ALO_MYSQL_SERVER" class="constant">
+                <h3 class="">ALO_MYSQL_SERVER</h3>
+                <pre class="signature">ALO_MYSQL_SERVER</pre>
+                <p><em>The default database server IP/host to use</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_MYSQL_USER" name="constant_ALO_MYSQL_USER" class="anchor"></a>
+            <article id="constant_ALO_MYSQL_USER" class="constant">
+                <h3 class="">ALO_MYSQL_USER</h3>
+                <pre class="signature">ALO_MYSQL_USER</pre>
+                <p><em>The default username to use</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_SESSION_CLEANUP" name="constant_ALO_SESSION_CLEANUP" class="anchor"></a>
+            <article id="constant_ALO_SESSION_CLEANUP" class="constant">
+                <h3 class="">ALO_SESSION_CLEANUP</h3>
+                <pre class="signature">ALO_SESSION_CLEANUP</pre>
+                <p><em>Probability of a session cleanup. To be called on request. Entering 100
+would mean that there is a 1/100 chance.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_SESSION_COOKIE" name="constant_ALO_SESSION_COOKIE" class="anchor"></a>
+            <article id="constant_ALO_SESSION_COOKIE" class="constant">
+                <h3 class="">ALO_SESSION_COOKIE</h3>
+                <pre class="signature">ALO_SESSION_COOKIE</pre>
+                <p><em>The cookie name for sessions</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_SESSION_FINGERPRINT" name="constant_ALO_SESSION_FINGERPRINT" class="anchor"></a>
+            <article id="constant_ALO_SESSION_FINGERPRINT" class="constant">
+                <h3 class="">ALO_SESSION_FINGERPRINT</h3>
+                <pre class="signature">ALO_SESSION_FINGERPRINT</pre>
+                <p><em>The fingerprint variable key for sessions</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_SESSION_MC_PREFIX" name="constant_ALO_SESSION_MC_PREFIX" class="anchor"></a>
+            <article id="constant_ALO_SESSION_MC_PREFIX" class="constant">
+                <h3 class="">ALO_SESSION_MC_PREFIX</h3>
+                <pre class="signature">ALO_SESSION_MC_PREFIX</pre>
+                <p><em>The prefix for MemcachedSession keys</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ALO_SESSION_TIMEOUT" name="constant_ALO_SESSION_TIMEOUT" class="anchor"></a>
+            <article id="constant_ALO_SESSION_TIMEOUT" class="constant">
+                <h3 class="">ALO_SESSION_TIMEOUT</h3>
+                <pre class="signature">ALO_SESSION_TIMEOUT</pre>
+                <p><em>Session cookie timeout in seconds</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DIR_APP" name="constant_DIR_APP" class="anchor"></a>
+            <article id="constant_DIR_APP" class="constant">
+                <h3 class="">DIR_APP</h3>
+                <pre class="signature">DIR_APP</pre>
+                <p><em>Application directory</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DIR_INDEX" name="constant_DIR_INDEX" class="anchor"></a>
+            <article id="constant_DIR_INDEX" class="constant">
+                <h3 class="">DIR_INDEX</h3>
+                <pre class="signature">DIR_INDEX</pre>
+                <p><em>Index directory</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DIR_SYS" name="constant_DIR_SYS" class="anchor"></a>
+            <article id="constant_DIR_SYS" class="constant">
+                <h3 class="">DIR_SYS</h3>
+                <pre class="signature">DIR_SYS</pre>
+                <p><em>System directory</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DIR_TMP" name="constant_DIR_TMP" class="anchor"></a>
+            <article id="constant_DIR_TMP" class="constant">
+                <h3 class="">DIR_TMP</h3>
+                <pre class="signature">DIR_TMP</pre>
+                <p><em>The temp directory</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ENV_DEVELOPMENT" name="constant_ENV_DEVELOPMENT" class="anchor"></a>
+            <article id="constant_ENV_DEVELOPMENT" class="constant">
+                <h3 class="">ENV_DEVELOPMENT</h3>
+                <pre class="signature">ENV_DEVELOPMENT</pre>
+                <p><em>Defines the environment as &quot;development&quot;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ENV_PRODUCTION" name="constant_ENV_PRODUCTION" class="anchor"></a>
+            <article id="constant_ENV_PRODUCTION" class="constant">
+                <h3 class="">ENV_PRODUCTION</h3>
+                <pre class="signature">ENV_PRODUCTION</pre>
+                <p><em>Defines the environment as &quot;production&quot;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ENV_SETUP" name="constant_ENV_SETUP" class="anchor"></a>
+            <article id="constant_ENV_SETUP" class="constant">
+                <h3 class="">ENV_SETUP</h3>
+                <pre class="signature">ENV_SETUP</pre>
+                <p><em>Defines the environment as &quot;setup&quot;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ENVIRONMENT" name="constant_ENVIRONMENT" class="anchor"></a>
+            <article id="constant_ENVIRONMENT" class="constant">
+                <h3 class="">ENVIRONMENT</h3>
+                <pre class="signature">ENVIRONMENT</pre>
+                <p><em>The application environment. Valid values are &quot;setup&quot; &quot;dev</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_GEN_START" name="constant_GEN_START" class="anchor"></a>
+            <article id="constant_GEN_START" class="constant">
+                <h3 class="">GEN_START</h3>
+                <pre class="signature">GEN_START</pre>
+                <p><em>To calculate generation time</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_KINT_DIR" name="constant_KINT_DIR" class="anchor"></a>
+            <article id="constant_KINT_DIR" class="constant">
+                <h3 class="">KINT_DIR</h3>
+                <pre class="signature">KINT_DIR</pre>
+                <p><em>Kint is a zero-setup debugging tool to output information about variables and stack traces prettily and
+comfortably. https://github.com/raveren/kint</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LOG_INTENSE" name="constant_LOG_INTENSE" class="anchor"></a>
+            <article id="constant_LOG_INTENSE" class="constant">
+                <h3 class="">LOG_INTENSE</h3>
+                <pre class="signature">LOG_INTENSE</pre>
+                <p><em>If logging is set to intense, an entire debug backtrace will be appended to
+each row, otherwise it&#039;s just the last file and line number</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LOG_LEVEL" name="constant_LOG_LEVEL" class="anchor"></a>
+            <article id="constant_LOG_LEVEL" class="constant">
+                <h3 class="">LOG_LEVEL</h3>
+                <pre class="signature">LOG_LEVEL</pre>
+                <p><em>Defines the log level. Valid values are LOG_LEVEL_DEBUG, LOG_LEVEL_ERROR and LOG_LEVEL_NONE</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LOG_LEVEL_DEBUG" name="constant_LOG_LEVEL_DEBUG" class="anchor"></a>
+            <article id="constant_LOG_LEVEL_DEBUG" class="constant">
+                <h3 class="">LOG_LEVEL_DEBUG</h3>
+                <pre class="signature">LOG_LEVEL_DEBUG</pre>
+                <p><em>Defines a logging level as &quot;debug&quot;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LOG_LEVEL_ERROR" name="constant_LOG_LEVEL_ERROR" class="anchor"></a>
+            <article id="constant_LOG_LEVEL_ERROR" class="constant">
+                <h3 class="">LOG_LEVEL_ERROR</h3>
+                <pre class="signature">LOG_LEVEL_ERROR</pre>
+                <p><em>Defines a logging level as &quot;error&quot;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LOG_LEVEL_NONE" name="constant_LOG_LEVEL_NONE" class="anchor"></a>
+            <article id="constant_LOG_LEVEL_NONE" class="constant">
+                <h3 class="">LOG_LEVEL_NONE</h3>
+                <pre class="signature">LOG_LEVEL_NONE</pre>
+                <p><em>Defines a logging level as &quot;no logging&quot;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SASL_CONTINUE" name="constant_SASL_CONTINUE" class="anchor"></a>
+            <article id="constant_SASL_CONTINUE" class="constant">
+                <h3 class="">SASL_CONTINUE</h3>
+                <pre class="signature">SASL_CONTINUE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SASL_FAIL" name="constant_SASL_FAIL" class="anchor"></a>
+            <article id="constant_SASL_FAIL" class="constant">
+                <h3 class="">SASL_FAIL</h3>
+                <pre class="signature">SASL_FAIL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SASL_NTLM_STATE_DONE" name="constant_SASL_NTLM_STATE_DONE" class="anchor"></a>
+            <article id="constant_SASL_NTLM_STATE_DONE" class="constant">
+                <h3 class="">SASL_NTLM_STATE_DONE</h3>
+                <pre class="signature">SASL_NTLM_STATE_DONE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SASL_NTLM_STATE_IDENTIFY_DOMAIN" name="constant_SASL_NTLM_STATE_IDENTIFY_DOMAIN" class="anchor"></a>
+            <article id="constant_SASL_NTLM_STATE_IDENTIFY_DOMAIN" class="constant">
+                <h3 class="">SASL_NTLM_STATE_IDENTIFY_DOMAIN</h3>
+                <pre class="signature">SASL_NTLM_STATE_IDENTIFY_DOMAIN</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SASL_NTLM_STATE_RESPOND_CHALLENGE" name="constant_SASL_NTLM_STATE_RESPOND_CHALLENGE" class="anchor"></a>
+            <article id="constant_SASL_NTLM_STATE_RESPOND_CHALLENGE" class="constant">
+                <h3 class="">SASL_NTLM_STATE_RESPOND_CHALLENGE</h3>
+                <pre class="signature">SASL_NTLM_STATE_RESPOND_CHALLENGE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SASL_NTLM_STATE_START" name="constant_SASL_NTLM_STATE_START" class="anchor"></a>
+            <article id="constant_SASL_NTLM_STATE_START" class="constant">
+                <h3 class="">SASL_NTLM_STATE_START</h3>
+                <pre class="signature">SASL_NTLM_STATE_START</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_T_NS_SEPARATOR" name="constant_T_NS_SEPARATOR" class="anchor"></a>
+            <article id="constant_T_NS_SEPARATOR" class="constant">
+                <h3 class="">T_NS_SEPARATOR</h3>
+                <pre class="signature">T_NS_SEPARATOR</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                        <div class="row-fluid">
+                <section class="span8 content namespace">
+                    <h2>Functions</h2>
+                </section>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___autoload" name="method___autoload" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">__autoload()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__autoload(string  <span class="argument">$classname</span>) </pre>
+                <p><em>Fall back to traditional autoload for old PHP versions</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$classname </td>
+                                <td><p>The name of the class to load</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>PHPMailer</p>
+                                                                                            <p>PHPMailer</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_alo_error_handler" name="method_alo_error_handler" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">alo_error_handler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">alo_error_handler(integer  <span class="argument">$errno</span>, string  <span class="argument">$errstr</span>, string  <span class="argument">$errfile</span>, integer  <span class="argument">$errline</span>) </pre>
+                <p><em>The dev error handler</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$errno </td>
+                                <td><p>The level of the error raised</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$errstr </td>
+                                <td><p>The error message</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$errfile </td>
+                                <td><p>The filename that the error was raised in</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$errline </td>
+                                <td><p>The line number the error was raised at</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>Art <a href="mailto:a.molcanovas@gmail.com">a.molcanovas@gmail.com</a></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_autoloader_function" name="method_autoloader_function" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">autoloader_function()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">autoloader_function(string  <span class="argument">$name</span>) </pre>
+                <p><em>Used to automatically load class files</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Class name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>Art <a href="mailto:a.molcanovas@gmail.com">a.molcanovas@gmail.com</a></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_debug" name="method_debug" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">debug()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">debug() : string</pre>
+                <p><em>Returns a debug string of the passed on variables</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_escape" name="method_escape" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">escape()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">escape(String|array  <span class="argument">$item</span>) : String|array</pre>
+                <p><em>Escapes a string or array</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>String|array</td>
+                                <td>$item </td>
+                                <td><p>The item to be escaped</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    String|array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>Art <a href="mailto:a.molcanovas@gmail.com">a.molcanovas@gmail.com</a></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get" name="method_get" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get(mixed  <span class="argument">$var</span>) : mixed</pre>
+                <p><em>A shortcut to isset($var) ? $var : null</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$var </td>
+                                <td><p>The variable to &quot;return&quot;</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>Art <a href="mailto:a.molcanovas@gmail.com">a.molcanovas@gmail.com</a></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getFingerprint" name="method_getFingerprint" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">getFingerprint()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getFingerprint() : string</pre>
+                <p><em>Returns an unhashed browser/IP fingerprint</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>Art <a href="mailto:a.molcanovas@gmail.com">a.molcanovas@gmail.com</a></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getUniqid" name="method_getUniqid" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">getUniqid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getUniqid(string  <span class="argument">$hash = &#039;md5&#039;</span>, string|integer  <span class="argument">$prefix = null</span>, integer  <span class="argument">$entropy = 5</span>) : string</pre>
+                <p><em>Generates a unique identifier</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$hash </td>
+                                <td><p>Hash algorithm</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string|integer</td>
+                                <td>$prefix </td>
+                                <td><p>Prefix for the identifier</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$entropy </td>
+                                <td><p>Number of pseudo bytes used in entropy</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>Art <a href="mailto:a.molcanovas@gmail.com">a.molcanovas@gmail.com</a></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_HTMLFilter" name="method_HTMLFilter" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">HTMLFilter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">HTMLFilter(  <span class="argument">$body</span>,   <span class="argument">$trans_image_path</span>,   <span class="argument">$block_external_images = false</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$body </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$trans_image_path </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$block_external_images </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_kintLite" name="method_kintLite" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">kintLite()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">kintLite(  <span class="argument">$var</span>, integer  <span class="argument">$level</span>) : string</pre>
+                <p><em>lightweight version of Kint::dump(). Uses whitespace for formatting instead of html
+sadly not DRY yet</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$var </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$level </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_lite_debug" name="method_lite_debug" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">lite_debug()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">lite_debug() : string</pre>
+                <p><em>Returns a lite debug string of passed on variables</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_PHPMailerAutoload" name="method_PHPMailerAutoload" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">PHPMailerAutoload()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">PHPMailerAutoload(string  <span class="argument">$classname</span>) </pre>
+                <p><em>PHPMailer SPL autoloader.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$classname </td>
+                                <td><p>The name of the class to load</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>PHPMailer</p>
+                                                                                            <p>PHPMailer</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_timestamp_precise" name="method_timestamp_precise" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">timestamp_precise()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">timestamp_precise(float  <span class="argument">$microtime = null</span>) : string</pre>
+                <p><em>Returns a very precise timestamp</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>float</td>
+                                <td>$microtime </td>
+                                <td><p>Optionally, supply your own microtime</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Y-m-d H:i:s:{milliseconds}</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>Art <a href="mailto:a.molcanovas@gmail.com">a.molcanovas@gmail.com</a></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_body2div" name="method_tln_body2div" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_body2div()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_body2div(  <span class="argument">$attary</span>,   <span class="argument">$trans_image_path</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$attary </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$trans_image_path </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_casenormalize" name="method_tln_casenormalize" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_casenormalize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_casenormalize(string  <span class="argument">$val</span>) : void</pre>
+                <p><em>A small helper function to use with array_walk. Modifies a by-ref
+value and makes it lowercase.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$val </td>
+                                <td><p>a value passed by-ref.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_deent" name="method_tln_deent" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_deent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_deent(string  <span class="argument">$attvalue</span>, string  <span class="argument">$regex</span>, boolean  <span class="argument">$hex = false</span>) : boolean</pre>
+                <p><em>Translates entities into literal values so they can be checked.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$attvalue </td>
+                                <td><p>the by-ref value to check.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$regex </td>
+                                <td><p>the regular expression to check against.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$hex </td>
+                                <td><p>whether the entites are hexadecimal.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>True or False depending on whether there were matches.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_defang" name="method_tln_defang" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_defang()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_defang(string  <span class="argument">$attvalue</span>) : \Void,</pre>
+                <p><em>This function checks attribute values for entity-encoded values
+and returns them translated into 8-bit strings so we can run
+checks on them.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$attvalue </td>
+                                <td><p>A string to run entity check against.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Void,
+                                            &mdash; <p>modifies a reference value.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_findnxreg" name="method_tln_findnxreg" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_findnxreg()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_findnxreg(string  <span class="argument">$body</span>, integer  <span class="argument">$offset</span>, string  <span class="argument">$reg</span>) : array|boolean</pre>
+                <p><em>This function takes a PCRE-style regexp and tries to match it
+within the string.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$body </td>
+                                <td><p>The string to look for needle in.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$offset </td>
+                                <td><p>Start looking from here.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$reg </td>
+                                <td><p>A PCRE-style regex to match.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array|boolean
+                                            &mdash; <p>Returns a false if no matches found, or an array
+with the following members:</p>
+<ul>
+<li>integer with the location of the match within $body</li>
+<li>string with whatever content between offset and the match</li>
+<li>string with whatever it is we matched</li>
+</ul>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_findnxstr" name="method_tln_findnxstr" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_findnxstr()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_findnxstr(string  <span class="argument">$body</span>, integer  <span class="argument">$offset</span>, string  <span class="argument">$needle</span>) : integer</pre>
+                <p><em>This function looks for the next character within a string.	It&#039;s
+really just a glorified &quot;strpos&quot;, except it catches the failures
+nicely.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$body </td>
+                                <td><p>The string to look for needle in.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$offset </td>
+                                <td><p>Start looking from this position.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$needle </td>
+                                <td><p>The character/string to look for.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                            &mdash; <p>location of the next occurrence of the needle, or
+strlen($body) if needle wasn't found.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_fixatts" name="method_tln_fixatts" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_fixatts()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_fixatts(string  <span class="argument">$tagname</span>, array  <span class="argument">$attary</span>, array  <span class="argument">$rm_attnames</span>, array  <span class="argument">$bad_attvals</span>, array  <span class="argument">$add_attr_to_tag</span>, string  <span class="argument">$trans_image_path</span>, boolean  <span class="argument">$block_external_images</span>) : Array</pre>
+                <p><em>This function runs various checks against the attributes.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$tagname </td>
+                                <td><p>String with the name of the tag.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$attary </td>
+                                <td><p>Array with all tag attributes.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$rm_attnames </td>
+                                <td><p>See description for tln_sanitize</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bad_attvals </td>
+                                <td><p>See description for tln_sanitize</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$add_attr_to_tag </td>
+                                <td><p>See description for tln_sanitize</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$trans_image_path </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$block_external_images </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    Array
+                                            &mdash; <p>with modified attributes.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_fixstyle" name="method_tln_fixstyle" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_fixstyle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_fixstyle(  <span class="argument">$body</span>,   <span class="argument">$pos</span>,   <span class="argument">$trans_image_path</span>,   <span class="argument">$block_external_images</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$body </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$pos </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$trans_image_path </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$block_external_images </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_fixurl" name="method_tln_fixurl" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_fixurl()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_fixurl(  <span class="argument">$attname</span>,   <span class="argument">$attvalue</span>,   <span class="argument">$trans_image_path</span>,   <span class="argument">$block_external_images</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$attname </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$attvalue </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$trans_image_path </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$block_external_images </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_getnxtag" name="method_tln_getnxtag" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_getnxtag()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_getnxtag(string  <span class="argument">$body</span>, integer  <span class="argument">$offset</span>) : array|boolean</pre>
+                <p><em>This function looks for the next tag.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$body </td>
+                                <td><p>String where to look for the next tag.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$offset </td>
+                                <td><p>Start looking from here.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array|boolean
+                                            &mdash; <p>false if no more tags exist in the body, or
+an array with the following members:</p>
+<ul>
+<li>string with the name of the tag</li>
+<li>array with attributes and their values</li>
+<li>integer with tag type (1, 2, or 3)</li>
+<li>integer where the tag starts (starting &quot;&lt;&quot;)</li>
+<li>integer where the tag ends (ending &quot;&gt;&quot;)
+first three members will be false, if the tag is invalid.</li>
+</ul>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_sanitize" name="method_tln_sanitize" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_sanitize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_sanitize(string  <span class="argument">$body</span>, array  <span class="argument">$tag_list</span>, array  <span class="argument">$rm_tags_with_content</span>, array  <span class="argument">$self_closing_tags</span>, boolean  <span class="argument">$force_tag_closing</span>, array  <span class="argument">$rm_attnames</span>, array  <span class="argument">$bad_attvals</span>, array  <span class="argument">$add_attr_to_tag</span>, string  <span class="argument">$trans_image_path</span>, boolean  <span class="argument">$block_external_images</span>) : string</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$body </td>
+                                <td><p>The HTML you wish to filter</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$tag_list </td>
+                                <td><p>see description above</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$rm_tags_with_content </td>
+                                <td><p>see description above</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$self_closing_tags </td>
+                                <td><p>see description above</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$force_tag_closing </td>
+                                <td><p>see description above</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$rm_attnames </td>
+                                <td><p>see description above</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bad_attvals </td>
+                                <td><p>see description above</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$add_attr_to_tag </td>
+                                <td><p>see description above</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$trans_image_path </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$block_external_images </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Sanitized html safe to show on your pages.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_skipspace" name="method_tln_skipspace" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_skipspace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_skipspace(string  <span class="argument">$body</span>, integer  <span class="argument">$offset</span>) : integer</pre>
+                <p><em>This function skips any whitespace from the current position within
+a string and to the next non-whitespace value.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$body </td>
+                                <td><p>the string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$offset </td>
+                                <td><p>the offset within the string where we should start
+looking for the next non-whitespace character.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                            &mdash; <p>the location within the $body where the next
+non-whitespace char is located.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_tagprint" name="method_tln_tagprint" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_tagprint()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_tagprint(string  <span class="argument">$tagname</span>, array  <span class="argument">$attary</span>, integer  <span class="argument">$tagtype</span>) : string</pre>
+                <p><em>This function returns the final tag out of the tag name, an array
+of attributes, and the type of the tag. This function is called by
+tln_sanitize internally.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$tagname </td>
+                                <td><p>the name of the tag.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$attary </td>
+                                <td><p>the array of attributes and their values</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$tagtype </td>
+                                <td><p>The type of the tag (see in comments).</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>A string with the final tag representation.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tln_unspace" name="method_tln_unspace" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">tln_unspace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tln_unspace(string  <span class="argument">$attvalue</span>) : \Void,</pre>
+                <p><em>Kill any tabs, newlines, or carriage returns. Our friends the
+makers of the browser with 95% market value decided that it&#039;d
+be funny to make &quot;java[tab]script&quot; be just as good as &quot;javascript&quot;.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$attvalue </td>
+                                <td><p>The attribute value before extraneous spaces removed.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Void,
+                                            &mdash; <p>modifies a reference value.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper"></div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+        </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Alo.html">\Alo</a></li>
+                                                                            <li><a href="../namespaces/Controller.html">\Controller</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on May 2nd, 2015 at 18:33.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

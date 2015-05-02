@@ -1,0 +1,76 @@
+$em: 12px;
+
+%display-block {
+	display: block;
+}
+
+%display-inline {
+	display: inline;
+}
+
+%display-inline-block {
+	display: inline-block;
+}
+
+%display-table {
+	display: table;
+}
+
+%display-table-row {
+	display: table-row;
+}
+
+%display-table-cell {
+	display: table-cell;
+}
+
+%font-weight-bold {
+	font-weight: bold;
+}
+
+%font-weight-normal {
+	font-weight: normal;
+}
+
+%remove-webkit-margin {
+	-webkit-margin-before: 0;
+	-webkit-margin-after:  0;
+	-webkit-margin-start:  0;
+	-webkit-margin-end:    0;
+}
+
+%vertical-align-middle {
+	vertical-align: middle;
+}
+
+%verticla-align-top {
+	vertical-align: top;
+}
+
+%verticla-align-bottom {
+	vertical-align: bottom;
+}
+
+%align-left {
+	text-align: left;
+}
+
+%align-center {
+	text-align: center;
+}
+
+%align-right {
+	text-align: right;
+}
+
+%align-justify {
+	text-align: justify;
+}
+
+%vertical-align-inherit {
+	vertical-align: inherit;
+}
+
+%border-color-inherit {
+	border-color: inherit;
+}

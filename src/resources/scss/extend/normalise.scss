@@ -1,0 +1,94 @@
+@import "var-shape.scss";
+
+address, html, body, article, aside, audio, blockquote, canvas, dd, div, dl, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, header, noscript, output, p, pre, section, video {
+	@extend %display-block;
+}
+
+b, big, i, small, tt, abbr, acronym, cite, code, dfn, em, kbd, strong, samp, var, a, bdo, br, img, map, object, q, span, sub, sup, button, input, label, select, textarea {
+	@extend %display-inline;
+}
+
+body {
+	margin: 8px;
+}
+
+h1 {
+	margin:    $em * 0.67 0 $em * 0.67 0;
+	font-size: $em * 2;
+	@extend %font-weight-bold;
+	@extend %remove-webkit-margin;
+}
+
+h2 {
+	margin: $em * 0.83 0 $em * 0.83 0;
+	$font-size: $em * 1.5;
+	@extend %font-weight-bold;
+	@extend %remove-webkit-margin;
+}
+
+h3 {
+	margin:    $em 0 $em 0;
+	font-size: $em * 1.17;
+	@extend %font-weight-bold;
+	@extend %remove-webkit-margin;
+}
+
+h4 {
+	margin: $em * 1.33 0 $em * 1.33 0;
+	$font-size: $em;
+	@extend %font-weight-bold;
+	@extend %remove-webkit-margin;
+}
+
+h5 {
+	margin: $em * 1.67 0 $em * 1.67 0;
+	$font-size: $em * 0.83;
+	@extend %font-weight-bold;
+	@extend %remove-webkit-margin;
+}
+
+h6 {
+	margin: $em * 2.33 0 $em * 2.33 0;
+	$font-size: $em * 0.67;
+	@extend %font-weight-bold;
+	@extend %remove-webkit-margin;
+}
+
+table, .table {
+	@extend %font-weight-normal;
+	white-space:  normal;
+	line-height:  normal;
+	font-size:    medium;
+	font-variant: normal;
+	font-style:   normal;
+	text-align:   start;
+}
+
+thead {
+	@extend %vertical-align-middle;
+	display: table-header-group;
+	@extend %border-color-inherit;
+}
+
+tr, .table > div {
+	@extend %display-table-row;
+	@extend %vertical-align-inherit;
+	@extend %border-color-inherit;
+}
+
+th {
+	@extend %font-weight-bold;
+	@extend %vertical-align-inherit;
+	@extend %display-table-cell;
+}
+
+tbody {
+	display: table-row-group;
+	@extend %vertical-align-middle;
+	@extend %border-color-inherit;
+}
+
+td, .table > div > div {
+	@extend %display-table-cell;
+	@extend %vertical-align-inherit;
+}

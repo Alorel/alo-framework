@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteBase /
+
+RewriteRule ^sys - [F,NC,L]
+
+RewriteCond $1 !^(index\.php|resources)
+RewriteRule ^(.*)$ index.php/$1 [NC,L,QSA]
