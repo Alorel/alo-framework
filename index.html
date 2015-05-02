@@ -56,6 +56,8 @@
 <li>Remote SFTP file manager</li>
 </ul>
 
+<hr>
+
 <h1>
 <a id="structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h1>
 
@@ -82,6 +84,8 @@ In <strong>src</strong> the main components are <strong>app<em>, *</em>resources
 <a id="namespaces" class="anchor" href="#namespaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Namespaces</h2>
 
 <p>The <strong>class</strong> and <strong>interface</strong> directories found under <em>src/app</em> and <em>src/sys</em> follow a namespaced structure, e.g. the class <strong>Alo\Db\MySQL</strong> would be found in the file <em>class/alo/db/mysql.php</em>. Please not that *<em>all directory and file names should be lowercase</em>.</p>
+
+<hr>
 
 <h1>
 <a id="workflow" class="anchor" href="#workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Workflow</h1>
@@ -143,10 +147,14 @@ class Home extends AbstractController {
 
 <p>This will load a view under <strong>app/view/$name.php</strong>. You can provide parameters to pass on to the view via <strong>$params</strong>, e.g. if you pass on <strong>['foo' =&gt; 'bar']</strong> and echo <strong>$foo</strong> in the view, the output will be <strong>bar</strong>. If instead of echoing the output you want to retrieve it, provide <strong>$return</strong> with <strong>true</strong>. Each view can be reused during the same execution.</p>
 
+<hr>
+
 <h1>
 <a id="logging" class="anchor" href="#logging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logging</h1>
 
 <p>All logging is done via the global static class <strong>\Log</strong>'s public methods - please refer to the documentation. You will can set the logging level (during the <a href="#initial-setup">Initial Setup</a> phase described below).</p>
+
+<hr>
 
 <h1>
 <a id="initial-setup" class="anchor" href="#initial-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initial setup</h1>
@@ -155,6 +163,8 @@ class Home extends AbstractController {
 <li>You will want to copy the contents of <strong>sys/config</strong> into <strong>app/config</strong>. Open them and set the values as appropriate. Next, open <strong>index.php</strong>, scroll to <strong>// ===== General setup BEGIN =====</strong> and set the values as you please.</li>
 <li>Next you'll want to run the appropriate files under <strong>setup</strong> if you are using that functionality.</li>
 </ul>
+
+<hr>
 
 <h1>
 <a id="updating" class="anchor" href="#updating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating</h1>
@@ -171,6 +181,8 @@ class Home extends AbstractController {
 </li>
 </ol>
 
+<hr>
+
 <h1>
 <a id="external-libraries" class="anchor" href="#external-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>External Libraries</h1>
 
@@ -186,6 +198,16 @@ class Home extends AbstractController {
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-62540988-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
