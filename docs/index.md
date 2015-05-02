@@ -1,4 +1,4 @@
-[http://alorel.github.io/alo-framework/](View this prettified)
+[View this prettified](http://alorel.github.io/alo-framework/)
 
 ----------
 
