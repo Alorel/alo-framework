@@ -29,6 +29,6 @@
 		"phpdocumentor/template-phpcr": "dev-master"
 	},
 	"require":           {
-		"phpmailer/phpmailer": "v5.2.*"
+		"phpmailer/phpmailer": "v5.2.9"
 	}
 }
