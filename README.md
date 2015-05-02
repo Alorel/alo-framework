@@ -76,7 +76,7 @@ Any view can be loaded via **Alo\Controller\AbstractController**'s protected met
 This will load a view under **app/view/$name.php**. You can provide parameters to pass on to the view via **$params**, e.g. if you pass on **['foo' => 'bar']** and echo **$foo** in the view, the output will be **bar**. If instead of echoing the output you want to retrieve it, provide **$return** with **true**. Each view can be reused during the same execution.
 
 # Logging #
-All logging is done via the global static class **\Log**'s public methods - please refer to the documentation. You will can set the logging level (during the Initial Setup phase described below).
+All logging is done via the global static class **\Log**'s public methods - please refer to the documentation. You will can set the logging level (during the [Initial Setup](#initial-setup) phase described below).
 
 # Initial setup #
 * You will want to copy the contents of **sys/config** into **app/config**. Open them and set the values as appropriate. Next, open **index.php**, scroll to **// ===== General setup BEGIN =====** and set the values as you please.
