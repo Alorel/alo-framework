@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Alo-framework by Alorel</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/Alorel/alo-framework">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/Alorel/alo-framework/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/Alorel/alo-framework/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Alo-framework</h1>
+          <p>AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.3+</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/Alorel">Alorel</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="what-is-this" class="anchor" href="#what-is-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is this?</h1>
+
+<p>AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.3+. It has a lot of built-in functionality including but not limited to:</p>
+
+<ul>
+<li>Memcached wrapper</li>
+<li>Database connection class</li>
+<li>MySQL or Memcached-based session manager</li>
+<li>HTML form validator</li>
+<li>Code testing suite</li>
+<li>Email sender</li>
+<li>Crontab editor</li>
+<li>Object-oriented cURL wrapper</li>
+<li>Object-oriented file manager</li>
+<li>Remote SFTP file manager</li>
+</ul>
+
+<h1>
+<a id="structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h1>
+
+<h2>
+<a id="general" class="anchor" href="#general" aria-hidden="true"><span class="octicon octicon-link"></span></a>General</h2>
+
+<p>You will find code documentation under the <strong>docs</strong> directory, some setup scripts under <strong>setup</strong> and source files under <strong>src</strong>.
+In <strong>src</strong> the main components are <strong>app<em>, *</em>resources</strong>, <strong>sys</strong> and files under the directory root.</p>
+
+<ul>
+<li>
+<strong>sys</strong> contains all the framework files</li>
+<li>
+<strong>resources</strong> is where you're meant to put all your images, css and whatnot</li>
+<li>
+<strong>app</strong> is where your code should go</li>
+<li>
+<strong>.htaccess</strong> makes sure requests get routed correctly</li>
+<li>
+<strong>index.php</strong> contains some core constants</li>
+</ul>
+
+<h2>
+<a id="namespaces" class="anchor" href="#namespaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Namespaces</h2>
+
+<p>The <strong>class</strong> and <strong>interface</strong> directories found under <em>src/app</em> and <em>src/sys</em> follow a namespaced structure, e.g. the class <strong>Alo\Db\MySQL</strong> would be found in the file <em>class/alo/db/mysql.php</em>. Please not that *<em>all directory and file names should be lowercase</em>.</p>
+
+<h1>
+<a id="workflow" class="anchor" href="#workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Workflow</h1>
+
+<h2>
+<a id="main-concept" class="anchor" href="#main-concept" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main concept</h2>
+
+<p>For most projects, you will want to write your own classes that extend those of the framework's. That way you will be completely safe from losing any code during a framework upgrade. The built-in autoloader will automatically load any required interfaces found in <strong>app/class</strong>, <strong>app/interface</strong>, <strong>sys/class</strong> and <strong>sys/interface</strong>.</p>
+
+<h2>
+<a id="the-global-alo-class" class="anchor" href="#the-global-alo-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>The global Alo class</h2>
+
+<p>This class is always loaded by default and contains static references to objects which are <em>in most cases</em> used as singletons. You should try to load most of your classes into its static properties, e.g. you will usually only need one database connection, so you can assign it to Alo::$db and access it from anywhere in your code.</p>
+
+<h2>
+<a id="controllers" class="anchor" href="#controllers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controllers</h2>
+
+<p>All controllers must go under <strong>app/class/controller</strong>, have the <strong>Controller</strong> namespace and extend the class <strong>Alo\Controller\AbstractController</strong>. To make this easier, you can write your own Abstract controller and extend that of Alo\ from within, for example:</p>
+
+<p><strong>app/class/controller/abstractcontroller.php</strong></p>
+
+<pre><code>namespace Controller;
+
+class AbstractController extends Alo\Controller\AbstractController {
+   //Your code
+}
+</code></pre>
+
+<p><strong>app/class/controller/home.php</strong></p>
+
+<pre><code>namespace Controller;
+
+class Home extends AbstractController {
+   //Your code
+}
+</code></pre>
+
+<p>Only <strong>public, non-abstract, non-static methods will be used for routing</strong>. The default method for most controllers is <strong>index()</strong>;</p>
+
+<h2>
+<a id="views" class="anchor" href="#views" aria-hidden="true"><span class="octicon octicon-link"></span></a>Views</h2>
+
+<p>Any view can be loaded via <strong>Alo\Controller\AbstractController</strong>'s protected method <strong>loadView</strong>:</p>
+
+<pre><code>/**
+  * Loads a view
+  *
+  * @author Art &lt;a.molcanovas@gmail.com&gt;
+  * @param string  $name   The name of the view without ".php".
+  * @param array   $params Associative array of parameters to pass on to the view
+  * @param boolean $return If set to TRUE, will return the view, if FALSE,
+  *                        will echo it
+  * @return null|string
+  */
+  protected function loadView($name, $params = [], $return = false) {
+     // Code
+  }
+</code></pre>
+
+<p>This will load a view under <strong>app/view/$name.php</strong>. You can provide parameters to pass on to the view via <strong>$params</strong>, e.g. if you pass on <strong>['foo' =&gt; 'bar']</strong> and echo <strong>$foo</strong> in the view, the output will be <strong>bar</strong>. If instead of echoing the output you want to retrieve it, provide <strong>$return</strong> with <strong>true</strong>. Each view can be reused during the same execution.</p>
+
+<h1>
+<a id="logging" class="anchor" href="#logging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logging</h1>
+
+<p>All logging is done via the global static class <strong>\Log</strong>'s public methods - please refer to the documentation. You will can set the logging level (during the <a href="#initial-setup">Initial Setup</a> phase described below).</p>
+
+<h1>
+<a id="initial-setup" class="anchor" href="#initial-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initial setup</h1>
+
+<ul>
+<li>You will want to copy the contents of <strong>sys/config</strong> into <strong>app/config</strong>. Open them and set the values as appropriate. Next, open <strong>index.php</strong>, scroll to <strong>// ===== General setup BEGIN =====</strong> and set the values as you please.</li>
+<li>Next you'll want to run the appropriate files under <strong>setup</strong> if you are using that functionality.</li>
+</ul>
+
+<h1>
+<a id="updating" class="anchor" href="#updating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating</h1>
+
+<p>Updates are applied by following these 6 steps:</p>
+
+<ol>
+<li>Look through the changelog for to see if any changes will cause issues (e.g. a deprecated method being removed), prepare your code if necessary.</li>
+<li>Make a copy of your <strong>index.php</strong> and <strong>.htaccess</strong> files as well as the <strong>resources</strong> directory.</li>
+<li>Delete the above, as well as the <strong>sys</strong> directory.</li>
+<li>Extract the new code. It will never contain files other than blank <strong>index.html</strong>s and <strong>sample.php</strong>s under <strong>app/</strong>, so no application code will be overwritten.</li>
+<li>If there are any changes to <strong>.htaccess</strong>, merge them with your version.</li>
+<li>Re-apply your personal settings under <strong>index.php</strong>'s <strong>// ===== General setup BEGIN =====</strong>
+</li>
+</ol>
+
+<h1>
+<a id="external-libraries" class="anchor" href="#external-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>External Libraries</h1>
+
+<p>AloFramework uses the following external libraries for its functionality:</p>
+
+<ul>
+<li>
+<a href="https://github.com/PHPMailer/PHPMailer/">PHPMailer</a> 5.2.9+ for email support</li>
+<li>
+<a href="http://raveren.github.io/kint/">Kint</a> for debug output</li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
