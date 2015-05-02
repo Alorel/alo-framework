@@ -3,7 +3,7 @@
 	"description":       "AloFramework is an incredibly lightweight and flexible MVC framework for PHP.",
 	"minimum-stability": "stable",
 	"type":              "project",
-	"license":           "Apache-2.0",
+	"license":           "GPL-3.0+",
 	"version":           "0.1",
 	"homepage":          "https://alorel.github.io/alo-framework/",
 	"keywords":          [
