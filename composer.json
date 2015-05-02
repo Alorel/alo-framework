@@ -1,0 +1,34 @@
+{
+	"name":              "alorel/alo-framework",
+	"description":       "AloFramework is an incredibly lightweight and flexible MVC framework for PHP.",
+	"minimum-stability": "stable",
+	"type":              "project",
+	"license":           "Apache-2.0",
+	"version":           "0.1",
+	"homepage":          "http://alorel.github.io/alo-framework/",
+	"keywords":          [
+		"PHP",
+		"framework",
+		"MVC",
+		"lightweight"
+	],
+	"authors":           [
+		{
+			"name":  "Art",
+			"email": "a.molcanovas@gmail.com",
+			"role":  "Developer"
+		}
+	],
+	"support":           {
+		"wiki":   "https://github.com/Alorel/alo-framework/wiki",
+		"issues": "https://github.com/Alorel/alo-framework/issues"
+	},
+	"require-dev":       {
+		"phpdocumentor/phpdocumentor":  "dev-master",
+		"phpdocumentor/plugin-twig":    "dev-master",
+		"phpdocumentor/template-phpcr": "dev-master"
+	},
+	"require":           {
+		"phpmailer/phpmailer": "v5.2.*"
+	}
+}
