@@ -38,8 +38,6 @@ All controllers must go under **app/class/controller**, have the **Controller** 
 
 **app/class/controller/abstractcontroller.php**
 ```
-#!php
-
 namespace Controller;
 
 class AbstractController extends Alo\Controller\AbstractController {
@@ -49,8 +47,6 @@ class AbstractController extends Alo\Controller\AbstractController {
 
 **app/class/controller/home.php**
 ```
-#!php
-
 namespace Controller;
 
 class Home extends AbstractController {
@@ -63,8 +59,6 @@ Only **public, non-abstract, non-static methods will be used for routing**. The 
 ## Views ##
 Any view can be loaded via **Alo\Controller\AbstractController**'s protected method **loadView**:
 ```
-#!php
-
 /**
   * Loads a view
   *
