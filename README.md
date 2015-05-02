@@ -22,6 +22,11 @@ AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.3
 
 ----------
 
+# Licence #
+This product is licenced under the [GNU General Public Licence Version 3](https://www.gnu.org/copyleft/gpl.html)
+
+----------
+
 # Structure #
 ## General ##
 You will find code documentation under the **docs** directory, some setup scripts under **setup** and source files under **src**.
