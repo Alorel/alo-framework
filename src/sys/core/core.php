@@ -6,8 +6,8 @@
    }
 
    ob_start();
-   require_once DIR_SYS . 'core/log.php';
-   include_once DIR_SYS . 'external/kint/_main.php';
+   require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'log.php';
+   include_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'kint' . DIRECTORY_SEPARATOR . '_main.php';
 
    /**
     * A shortcut to isset($var) ? $var : null
