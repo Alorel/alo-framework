@@ -6,8 +6,8 @@
 1. [What is this?](#what-is-this)
 2. [Licence](#licence)
 3. [Structure](#structure)
-   3.1. [General](#general)
-   3.2. [Namespaces](#namespaces)
+3.1. [General](#general)
+3.2. [Namespaces](#namespaces)
 4. [Workflow](#workflow)
 
 ----------
