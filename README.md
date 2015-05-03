@@ -119,7 +119,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 • Trait support added - see app/traits
 • Kint external library updated
 • Slashes in paths replaced with DIRECTORY_SEPARATOR
-• Again
+• Profiling class added
 
 ----------
 

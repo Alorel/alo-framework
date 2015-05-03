@@ -60,8 +60,8 @@
        * @author Art <a.molcanovas@gmail.com>
        * @param string $first_mark  The first mark identifier
        * @param string $second_mark The second mark identifier
-       * @return float
        * @throws PE When one of the marks cannot be found
+       * @return float
        */
       function timeBetween($first_mark, $second_mark) {
          if (!isset($this->marks[$first_mark])) {
@@ -69,7 +69,7 @@
          } elseif (!isset($this->marks[$second_mark])) {
             throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
          } else {
-            return abs($this->marks[$first_mark] - $this->marks[$second_mark]);
+            return abs($this->marks[$first_mark][self::P_MICROTIME] - $this->marks[$second_mark][self::P_MICROTIME]);
          }
       }
 
