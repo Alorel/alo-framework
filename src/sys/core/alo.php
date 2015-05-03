@@ -5,6 +5,14 @@
    use Alo\Controller\Router;
    use Alo\Db\AbstractDb;
    use Alo\Session\AbstractSession;
+   use Alo\SFTP;
+   use Alo\Profiler;
+   use Alo\File;
+   use Alo\Email;
+   use Alo\cURL;
+   use Alo\Cron;
+   use Alo\Validators\Form;
+   use Alo\Test\AbstractTester;
 
    if (!defined('GEN_START')) {
       http_response_code(404);
@@ -31,6 +39,62 @@
        * @var string
        */
       const SESS_MEMCACHED = 'MemcachedSession';
+
+      /**
+       * SFTP connection manager
+       *
+       * @var SFTP
+       */
+      static $sftp;
+
+      /**
+       * Code profiler
+       *
+       * @var Profiler
+       */
+      static $profiler;
+
+      /**
+       * File manager
+       *
+       * @var File
+       */
+      static $file;
+
+      /**
+       * Email manager
+       *
+       * @var Email
+       */
+      static $email;
+
+      /**
+       * Object-oriented cURL wrapper
+       *
+       * @var cURL
+       */
+      static $curl;
+
+      /**
+       * Crontab manager
+       *
+       * @var Cron
+       */
+      static $cron;
+
+      /**
+       * HTML form validator
+       *
+       * @var Form
+       */
+      static $form_validator;
+
+      /**
+       * Code tester
+       *
+       * @var AbstractTester
+       */
+      static $tester;
 
       /**
        * Database connection

@@ -8,3 +8,4 @@
 * Error, autoloading and exception handlers moved to \Alo\Handler
 * Committed function tester (forgot about it earlier)
 * Fixed an error where any uncaught exception would force the 404 error page.
+* Many more statics added to \Alo
