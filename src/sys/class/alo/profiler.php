@@ -159,7 +159,7 @@
             self::P_REQUEST_SCHEME    => $r->getRequestScheme(),
             self::P_SERVER_ADDR       => $r->getServerAddr(),
             self::P_SERVER_NAME       => $r->getServerName(),
-            self::P_HEADERS           => getallheaders()
+            self::P_HEADERS           => \getallheaders()
          ];
 
          return $this;
@@ -181,6 +181,31 @@
             throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
          } else {
             return abs($this->marks[$first_mark][self::P_MICROTIME] - $this->marks[$second_mark][self::P_MICROTIME]);
+         }
+      }
+
+      /**
+       * Returns the difference between the two marks, i.e. all key/value pairs in $second_mark that differ from those
+       * of $first_mark
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $first_mark  The first mark identifier
+       * @param string $second_mark The second mark identifier
+       * @throws PE When one of the marks cannot be found
+       * @return array
+       */
+      function diff($first_mark, $second_mark) {
+         if (!isset($this->marks[$first_mark])) {
+            throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
+         } elseif (!isset($this->marks[$second_mark])) {
+            throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
+         } else {
+            //Suppress illogical array to string conversion notices
+            ob_start();
+            $diff = array_diff_assoc($this->marks[$second_mark], $this->marks[$first_mark]);
+            ob_end_clean();
+
+            return $diff;
          }
       }
 

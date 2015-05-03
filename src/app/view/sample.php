@@ -6,4 +6,4 @@
    usleep(1000);
    $pr->mark('bar');
 
-   echo debug($pr->getMarks(), $pr->timeBetween('bar', 'foo'));
+   echo debug($pr->getMarks(), $pr->timeBetween('bar', 'foo'), $pr->diff('foo', 'bar'));
