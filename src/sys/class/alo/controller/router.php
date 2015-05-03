@@ -380,7 +380,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return string
        */
-      public function getMethod() {
+      function getMethod() {
          return $this->method;
       }
 
@@ -390,7 +390,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return string
        */
-      public function getController() {
+      function getController() {
          return $this->controller;
       }
 
@@ -400,7 +400,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return int
        */
-      public function getPort() {
+      function getPort() {
          return $this->port;
       }
 
@@ -410,7 +410,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return string
        */
-      public function getRemoteAddr() {
+      function getRemoteAddr() {
          return $this->remote_addr;
       }
 
@@ -420,7 +420,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return string
        */
-      public function getRequestMethod() {
+      function getRequestMethod() {
          return $this->request_method;
       }
 
@@ -430,7 +430,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return string
        */
-      public function getRequestScheme() {
+      function getRequestScheme() {
          return $this->request_scheme;
       }
 
@@ -440,7 +440,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return string
        */
-      public function getServerAddr() {
+      function getServerAddr() {
          return $this->server_addr;
       }
 
@@ -450,7 +450,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return string
        */
-      public function getServerName() {
+      function getServerName() {
          return $this->server_name;
       }
 
