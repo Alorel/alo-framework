@@ -139,7 +139,7 @@
                $func .= $v['function'] . '()';
             }
             if (!$func) {
-               $func = 'unknown';
+               $func = '[unknown]';
             }
 
             if (isset($v['file'])) {
@@ -152,7 +152,7 @@
             echo '<tr>'
                . '<td>' . $k . '</td>'
                . '<td>' . $func . '</td>'
-               . '<td style="text-align:left">' . ($v['args'] ? '<pre>' . preg_replace("/\n(\s*)(\t*)\(/i", "$1$2(", print_r($v['args'], true)) . '</pre>' : '') . '</td>'
+               . '<td style="text-align:left">' . (isset($v['args']) && $v['args'] ? '<pre>' . preg_replace("/\n(\s*)(\t*)\(/i", "$1$2(", print_r($v['args'], true)) . '</pre>' : '') . '</td>'
                . '<td>' . $loc . '</td>'
                . '<td>' . $line . '</td>'
                . '</tr>';
@@ -176,7 +176,7 @@
          echo '<div style="text-align:center;margin:12px auto 12px auto">'
             . '<div style="text-align:left;display:inline-block;padding:2px;background:#FD8C7F;border:2px solid #F00;color:#000">'
             . '<div style="font-weight:bold;margin-bottom:1em">'
-            . $e->getCode() . ' : ' . $e->getMessage();
+            . '[' . $e->getCode() . '] uncaught exception: ' . $e->getMessage();
 
          self::echo_previous_exceptions($e->getPrevious());
 
@@ -191,6 +191,6 @@
 
          $trace = $e->getTrace();
          array_shift($trace);
-         Log::error($msg, $trace);
+         \Log::error($msg, $trace);
       }
    }

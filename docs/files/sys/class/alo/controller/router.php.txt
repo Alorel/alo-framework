@@ -241,7 +241,7 @@
             } else {
                $this->forceError();
             }
-         } catch (\Exception $ex) {
+         } catch (\ReflectionException $ex) {
             $this->forceError($ex->getMessage());
          }
 

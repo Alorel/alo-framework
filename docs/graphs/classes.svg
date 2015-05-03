@@ -192,7 +192,7 @@
 <text text-anchor="middle" x="700" y="-2453.2" font-family="Courier,monospace" font-size="11.00">SFTPException</text>
 </g>
 <!-- \\Alo\\Exception\\SFTPException&#45;&gt;\\Alo\\Exception\\FileException -->
-<g id="edge45" class="edge"><title>\\Alo\\Exception\\SFTPException&#45;&gt;\\Alo\\Exception\\FileException</title>
+<g id="edge47" class="edge"><title>\\Alo\\Exception\\SFTPException&#45;&gt;\\Alo\\Exception\\FileException</title>
 <path fill="none" stroke="black" d="M647.709,-2456C608.121,-2456 553.216,-2456 511.309,-2456"/>
 <polygon fill="none" stroke="black" points="511.225,-2452.5 501.224,-2456 511.224,-2459.5 511.225,-2452.5"/>
 </g>
@@ -202,7 +202,7 @@
 <text text-anchor="middle" x="449" y="-2399.2" font-family="Courier,monospace" font-size="11.00">CronException</text>
 </g>
 <!-- \\Alo\\Exception\\CronException&#45;&gt;\\Alo\\Exception\\AbstractException -->
-<g id="edge49" class="edge"><title>\\Alo\\Exception\\CronException&#45;&gt;\\Alo\\Exception\\AbstractException</title>
+<g id="edge51" class="edge"><title>\\Alo\\Exception\\CronException&#45;&gt;\\Alo\\Exception\\AbstractException</title>
 <path fill="none" stroke="black" d="M396.873,-2415.21C372.01,-2421.63 341.638,-2429.48 314.198,-2436.57"/>
 <polygon fill="none" stroke="black" points="313.043,-2433.25 304.237,-2439.14 314.794,-2440.03 313.043,-2433.25"/>
 </g>
@@ -212,7 +212,7 @@
 <text text-anchor="middle" x="449" y="-2345.2" font-family="Courier,monospace" font-size="11.00">TesterException</text>
 </g>
 <!-- \\Alo\\Exception\\TesterException&#45;&gt;\\Alo\\Exception\\AbstractException -->
-<g id="edge59" class="edge"><title>\\Alo\\Exception\\TesterException&#45;&gt;\\Alo\\Exception\\AbstractException</title>
+<g id="edge61" class="edge"><title>\\Alo\\Exception\\TesterException&#45;&gt;\\Alo\\Exception\\AbstractException</title>
 <path fill="none" stroke="black" d="M389.728,-2365.7C383.243,-2368.47 376.868,-2371.56 371,-2375 339.3,-2393.56 338.312,-2411.3 305.232,-2432.69"/>
 <polygon fill="none" stroke="black" points="303.362,-2429.73 296.625,-2437.91 306.991,-2435.72 303.362,-2429.73"/>
 </g>
@@ -233,7 +233,7 @@
 <text text-anchor="middle" x="700" y="-1783.2" font-family="Courier,monospace" font-size="11.00">Error</text>
 </g>
 <!-- \\Alo\\Controller\\Error&#45;&gt;\\Alo\\Controller\\AbstractController -->
-<g id="edge65" class="edge"><title>\\Alo\\Controller\\Error&#45;&gt;\\Alo\\Controller\\AbstractController</title>
+<g id="edge67" class="edge"><title>\\Alo\\Controller\\Error&#45;&gt;\\Alo\\Controller\\AbstractController</title>
 <path fill="none" stroke="black" d="M672.823,-1786C638.888,-1786 578.196,-1786 528.715,-1786"/>
 <polygon fill="none" stroke="black" points="528.66,-1782.5 518.66,-1786 528.66,-1789.5 528.66,-1782.5"/>
 </g>
@@ -285,25 +285,25 @@
 <text text-anchor="start" x="415" y="-2030.7" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
 <text text-anchor="start" x="401.5" y="-2019.7" font-family="Courier,monospace" font-size="11.00">AbstractTester</text>
 </g>
-<!-- \\Alo\\Test\\ClassTester -->
-<g id="node25" class="node"><title>\\Alo\\Test\\ClassTester</title>
-<polygon fill="none" stroke="black" points="745.5,-2072 654.5,-2072 654.5,-2036 745.5,-2036 745.5,-2072"/>
-<text text-anchor="middle" x="700" y="-2051.2" font-family="Courier,monospace" font-size="11.00">ClassTester</text>
-</g>
-<!-- \\Alo\\Test\\ClassTester&#45;&gt;\\Alo\\Test\\AbstractTester -->
-<g id="edge67" class="edge"><title>\\Alo\\Test\\ClassTester&#45;&gt;\\Alo\\Test\\AbstractTester</title>
-<path fill="none" stroke="black" d="M654.484,-2049.17C615.681,-2044.97 558.901,-2038.81 515.014,-2034.05"/>
-<polygon fill="none" stroke="black" points="515.327,-2030.56 505.008,-2032.96 514.572,-2037.52 515.327,-2030.56"/>
-</g>
 <!-- \\Alo\\Test\\FunctionTester -->
-<g id="node26" class="node"><title>\\Alo\\Test\\FunctionTester</title>
-<polygon fill="none" stroke="black" points="755.5,-2018 644.5,-2018 644.5,-1982 755.5,-1982 755.5,-2018"/>
-<text text-anchor="middle" x="700" y="-1997.2" font-family="Courier,monospace" font-size="11.00">FunctionTester</text>
+<g id="node25" class="node"><title>\\Alo\\Test\\FunctionTester</title>
+<polygon fill="none" stroke="black" points="755.5,-2072 644.5,-2072 644.5,-2036 755.5,-2036 755.5,-2072"/>
+<text text-anchor="middle" x="700" y="-2051.2" font-family="Courier,monospace" font-size="11.00">FunctionTester</text>
 </g>
 <!-- \\Alo\\Test\\FunctionTester&#45;&gt;\\Alo\\Test\\AbstractTester -->
-<g id="edge75" class="edge"><title>\\Alo\\Test\\FunctionTester&#45;&gt;\\Alo\\Test\\AbstractTester</title>
-<path fill="none" stroke="black" d="M644.356,-2005.93C606.347,-2010.05 555.496,-2015.56 515.341,-2019.91"/>
-<polygon fill="none" stroke="black" points="514.942,-2016.44 505.377,-2021 515.696,-2023.4 514.942,-2016.44"/>
+<g id="edge45" class="edge"><title>\\Alo\\Test\\FunctionTester&#45;&gt;\\Alo\\Test\\AbstractTester</title>
+<path fill="none" stroke="black" d="M644.356,-2048.07C606.347,-2043.95 555.496,-2038.44 515.341,-2034.09"/>
+<polygon fill="none" stroke="black" points="515.696,-2030.6 505.377,-2033 514.942,-2037.56 515.696,-2030.6"/>
+</g>
+<!-- \\Alo\\Test\\ClassTester -->
+<g id="node26" class="node"><title>\\Alo\\Test\\ClassTester</title>
+<polygon fill="none" stroke="black" points="745.5,-2018 654.5,-2018 654.5,-1982 745.5,-1982 745.5,-2018"/>
+<text text-anchor="middle" x="700" y="-1997.2" font-family="Courier,monospace" font-size="11.00">ClassTester</text>
+</g>
+<!-- \\Alo\\Test\\ClassTester&#45;&gt;\\Alo\\Test\\AbstractTester -->
+<g id="edge69" class="edge"><title>\\Alo\\Test\\ClassTester&#45;&gt;\\Alo\\Test\\AbstractTester</title>
+<path fill="none" stroke="black" d="M654.484,-2004.83C615.681,-2009.03 558.901,-2015.19 515.014,-2019.95"/>
+<polygon fill="none" stroke="black" points="514.572,-2016.48 505.008,-2021.04 515.327,-2023.44 514.572,-2016.48"/>
 </g>
 <!-- \\Alo\\Cache\\AbstractCache -->
 <g id="node28" class="node"><title>\\Alo\\Cache\\AbstractCache</title>
@@ -317,7 +317,7 @@
 <text text-anchor="middle" x="700" y="-1917.2" font-family="Courier,monospace" font-size="11.00">MemcachedWrapper</text>
 </g>
 <!-- \\Alo\\Cache\\MemcachedWrapper&#45;&gt;\\Alo\\Cache\\AbstractCache -->
-<g id="edge73" class="edge"><title>\\Alo\\Cache\\MemcachedWrapper&#45;&gt;\\Alo\\Cache\\AbstractCache</title>
+<g id="edge75" class="edge"><title>\\Alo\\Cache\\MemcachedWrapper&#45;&gt;\\Alo\\Cache\\AbstractCache</title>
 <path fill="none" stroke="black" d="M637.449,-1920C599.111,-1920 549.965,-1920 511.614,-1920"/>
 <polygon fill="none" stroke="black" points="511.607,-1916.5 501.607,-1920 511.607,-1923.5 511.607,-1916.5"/>
 </g>
@@ -485,7 +485,7 @@
 <text text-anchor="middle" x="700" y="-517.2" font-family="Courier,monospace" font-size="11.00">Kint_Parsers_ArrayObject</text>
 </g>
 <!-- \\Kint_Parsers_ArrayObject&#45;&gt;\\kintParser -->
-<g id="edge47" class="edge"><title>\\Kint_Parsers_ArrayObject&#45;&gt;\\kintParser</title>
+<g id="edge49" class="edge"><title>\\Kint_Parsers_ArrayObject&#45;&gt;\\kintParser</title>
 <path fill="none" stroke="black" d="M611.656,-538.064C605.499,-540.656 599.543,-543.617 594,-547 537.145,-581.696 490.072,-645.857 466.433,-682.152"/>
 <polygon fill="none" stroke="black" points="463.377,-680.434 460.936,-690.744 469.274,-684.207 463.377,-680.434"/>
 </g>
@@ -495,7 +495,7 @@
 <text text-anchor="middle" x="700" y="-193.2" font-family="Courier,monospace" font-size="11.00">Kint_Decorators_Rich</text>
 </g>
 <!-- \\Kint_Decorators_Rich&#45;&gt;\\Kint -->
-<g id="edge51" class="edge"><title>\\Kint_Decorators_Rich&#45;&gt;\\Kint</title>
+<g id="edge53" class="edge"><title>\\Kint_Decorators_Rich&#45;&gt;\\Kint</title>
 <path fill="none" stroke="black" d="M623.812,-211.053C613.531,-214.334 603.318,-218.278 594,-223 557.097,-241.703 558.474,-262.474 522,-282 510.949,-287.916 498.072,-292.487 486.29,-295.891"/>
 <polygon fill="none" stroke="black" points="485.035,-292.604 476.29,-298.586 486.856,-299.363 485.035,-292.604"/>
 </g>
@@ -505,7 +505,7 @@
 <text text-anchor="middle" x="700" y="-463.2" font-family="Courier,monospace" font-size="11.00">Kint_Parsers_Color</text>
 </g>
 <!-- \\Kint_Parsers_Color&#45;&gt;\\kintParser -->
-<g id="edge53" class="edge"><title>\\Kint_Parsers_Color&#45;&gt;\\kintParser</title>
+<g id="edge55" class="edge"><title>\\Kint_Parsers_Color&#45;&gt;\\kintParser</title>
 <path fill="none" stroke="black" d="M630.823,-475.803C617.827,-479.744 604.898,-485.265 594,-493 525.005,-541.969 479.765,-635.27 460.542,-681.554"/>
 <polygon fill="none" stroke="black" points="457.247,-680.364 456.731,-690.946 463.734,-682.995 457.247,-680.364"/>
 </g>
@@ -515,7 +515,7 @@
 <text text-anchor="middle" x="700" y="-409.2" font-family="Courier,monospace" font-size="11.00">Kint_Parsers_SplFileInfo</text>
 </g>
 <!-- \\Kint_Parsers_SplFileInfo&#45;&gt;\\kintParser -->
-<g id="edge55" class="edge"><title>\\Kint_Parsers_SplFileInfo&#45;&gt;\\kintParser</title>
+<g id="edge57" class="edge"><title>\\Kint_Parsers_SplFileInfo&#45;&gt;\\kintParser</title>
 <path fill="none" stroke="black" d="M610.414,-428.774C604.578,-431.664 599.031,-435.045 594,-439 512.588,-503.006 471.665,-626.091 456.774,-681.168"/>
 <polygon fill="none" stroke="black" points="453.364,-680.375 454.216,-690.935 460.136,-682.148 453.364,-680.375"/>
 </g>
@@ -525,7 +525,7 @@
 <text text-anchor="middle" x="700" y="-1057.2" font-family="Courier,monospace" font-size="11.00">Kint_Parsers_Xml</text>
 </g>
 <!-- \\Kint_Parsers_Xml&#45;&gt;\\kintParser -->
-<g id="edge57" class="edge"><title>\\Kint_Parsers_Xml&#45;&gt;\\kintParser</title>
+<g id="edge59" class="edge"><title>\\Kint_Parsers_Xml&#45;&gt;\\kintParser</title>
 <path fill="none" stroke="black" d="M637.39,-1053.78C621.894,-1049.78 606.215,-1043.33 594,-1033 500.04,-953.516 465.012,-800.562 454.175,-737.378"/>
 <polygon fill="none" stroke="black" points="457.602,-736.647 452.531,-727.345 450.694,-737.779 457.602,-736.647"/>
 </g>
@@ -535,7 +535,7 @@
 <text text-anchor="middle" x="700" y="-1003.2" font-family="Courier,monospace" font-size="11.00">Kint_Parsers_SplObjectStorage</text>
 </g>
 <!-- \\Kint_Parsers_SplObjectStorage&#45;&gt;\\kintParser -->
-<g id="edge61" class="edge"><title>\\Kint_Parsers_SplObjectStorage&#45;&gt;\\kintParser</title>
+<g id="edge63" class="edge"><title>\\Kint_Parsers_SplObjectStorage&#45;&gt;\\kintParser</title>
 <path fill="none" stroke="black" d="M607.859,-987.919C602.957,-985.329 598.291,-982.374 594,-979 512.588,-914.994 471.665,-791.909 456.774,-736.832"/>
 <polygon fill="none" stroke="black" points="460.136,-735.852 454.216,-727.065 453.364,-737.625 460.136,-735.852"/>
 </g>
@@ -550,7 +550,7 @@
 <text text-anchor="middle" x="700" y="-355.2" font-family="Courier,monospace" font-size="11.00">Kint_Decorators_Plain</text>
 </g>
 <!-- \\Kint_Decorators_Plain&#45;&gt;\\Kint -->
-<g id="edge63" class="edge"><title>\\Kint_Decorators_Plain&#45;&gt;\\Kint</title>
+<g id="edge65" class="edge"><title>\\Kint_Decorators_Plain&#45;&gt;\\Kint</title>
 <path fill="none" stroke="black" d="M620.898,-341.062C575.724,-331.265 521.04,-319.406 485.9,-311.785"/>
 <polygon fill="none" stroke="black" points="486.607,-308.358 476.093,-309.659 485.124,-315.199 486.607,-308.358"/>
 </g>
@@ -565,7 +565,7 @@
 <text text-anchor="middle" x="238" y="-706.2" font-family="Courier,monospace" font-size="11.00">kintVariableData</text>
 </g>
 <!-- \\kintParser&#45;&gt;\\kintVariableData -->
-<g id="edge69" class="edge"><title>\\kintParser&#45;&gt;\\kintVariableData</title>
+<g id="edge71" class="edge"><title>\\kintParser&#45;&gt;\\kintVariableData</title>
 <path fill="none" stroke="black" d="M406.458,-709C379.174,-709 342.761,-709 310.859,-709"/>
 <polygon fill="none" stroke="black" points="310.677,-705.5 300.677,-709 310.677,-712.5 310.677,-705.5"/>
 </g>
@@ -575,7 +575,7 @@
 <text text-anchor="middle" x="700" y="-85.2" font-family="Courier,monospace" font-size="11.00">phpmailerException</text>
 </g>
 <!-- \\phpmailerException&#45;&gt;\\Exception -->
-<g id="edge71" class="edge"><title>\\phpmailerException&#45;&gt;\\Exception</title>
+<g id="edge73" class="edge"><title>\\phpmailerException&#45;&gt;\\Exception</title>
 <path fill="none" stroke="black" d="M630.747,-101.557C618.228,-105.154 605.495,-109.589 594,-115 483.164,-167.176 452.046,-185.138 371,-277 235.057,-431.086 214.158,-487.459 148,-682 71.7556,-906.199 55.2243,-1195.61 51.8316,-1285.86"/>
 <polygon fill="none" stroke="black" points="48.3336,-1285.75 51.4798,-1295.86 55.3292,-1285.99 48.3336,-1285.75"/>
 </g>

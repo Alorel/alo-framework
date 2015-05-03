@@ -26,6 +26,7 @@
          $dir = defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP;
          $path = $dir . 'error' . DIRECTORY_SEPARATOR . $code . '.html';
 
+         echo \debug(debug_backtrace());
          if (file_exists($path)) {
             include $path;
          } else {
