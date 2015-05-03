@@ -37,11 +37,8 @@
             $delim_string = 'See [changelog.md](changelog.md) for a full changelog of previous versions.';
             $contents_exploded = explode($delim_string, $contents);
 
-            $contents_exploded[1] = "\n## $first_changelog_title ##\n\n$first_changelog_contents\n";
-
-            if (substr($contents_exploded[1], -2) != "\n\n") {
-               $contents_exploded[1] .= "\n";
-            }
+            $contents_exploded[1] = "\n## $first_changelog_title ##\n\n$first_changelog_contents\n\n"
+               . "^[TOC](#table-of-contents)\n\n";
 
             $contents = implode($delim_string, $contents_exploded);
 
