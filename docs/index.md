@@ -6,7 +6,12 @@
 1. [What is this?](#what-is-this)
 2. [Licence](#licence)
 3. [Structure](#structure) [[General](#general) | [Namespaces](#namespaces)] 
-4. [Workflow](#workflow)
+4. [Workflow](#workflow) [[Main Concept](#main-concept) | [The global Alo class](#the-global-alo-class) [Controllers](#controllers) | [Views](#views)]
+5. [Logging](#logging)
+6. [Initial setup](#initial-setup)
+7. [Updating](#updating)
+8. [Latest Changes](#latest-changes)
+9. [External Libraries](#external-libraries)
 
 ----------
 
