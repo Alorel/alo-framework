@@ -2,6 +2,11 @@
 
 ----------
 
+# Table of Contents #
+1. [What is this?](#what-is-this)
+
+----------
+
 # What is this? #
 AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.3+. It has a lot of built-in functionality including but not limited to:
 
@@ -15,6 +20,10 @@ AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.3
 * Object-oriented cURL wrapper
 * Object-oriented file manager
 * Remote SFTP file manager
+* Code testing suite
+* Code profiler
+
+^[TOC](#table-of-contents)
 
 ----------
 
