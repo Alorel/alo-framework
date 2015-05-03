@@ -8,7 +8,7 @@
    }
 
    /**
-    * Abstrace framework exception
+    * Abstract framework exception
     *
     * @author Art <a.molcanovas@gmail.com>
     */
