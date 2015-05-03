@@ -38,11 +38,26 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <p><a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/license" alt="License"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/version" alt="Latest Stable Version"></a> <a href="//packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/unstable" alt="Latest Unstable Version"></a>
-<a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/downloads" alt="Total Downloads"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/d/monthly" alt="Monthly Downloads"></a> <a href="https://packagist.org/packages/phpunit/phpunit"><img src="https://poser.pugx.org/alorel/alo-framework/d/daily" alt="Daily Downloads"></a>
-<a href="https://alo-framework.readthedocs.org"><img src="https://readthedocs.org/projects/alo-framework/badge/?version=latest" alt="Docs"></a></p>
+        <p><a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/downloads" alt="Total Downloads"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/unstable" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/license" alt="License"></a> <a href="https://alo-framework.readthedocs.org"><img src="https://readthedocs.org/projects/alo-framework/badge/?version=latest" alt="Docs"></a></p>
 
-<p>View on: <a href="https://packagist.org/packages/alorel/alo-framework">Packagist</a> | <a href="https://alo-framework.readthedocs.org">ReadTheDocs</a></p>
+<hr>
+
+<h1>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of Contents</h1>
+
+<ol>
+<li><a href="#what-is-this">What is this?</a></li>
+<li><a href="#licence">Licence</a></li>
+<li>
+<a href="#structure">Structure</a> [<a href="#general">General</a> | <a href="#namespaces">Namespaces</a>] </li>
+<li>
+<a href="#workflow">Workflow</a> [<a href="#main-concept">Main Concept</a> | <a href="#the-global-alo-class">The global Alo class</a> <a href="#controllers">Controllers</a> | <a href="#views">Views</a>]</li>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#initial-setup">Initial setup</a></li>
+<li><a href="#updating">Updating</a></li>
+<li><a href="#latest-changes">Latest Changes</a></li>
+<li><a href="#external-libraries">External Libraries</a></li>
+</ol>
 
 <hr>
 
@@ -62,7 +77,20 @@
 <li>Object-oriented cURL wrapper</li>
 <li>Object-oriented file manager</li>
 <li>Remote SFTP file manager</li>
+<li>Code testing suite</li>
+<li>Code profiler</li>
 </ul>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
+
+<hr>
+
+<h1>
+<a id="licence" class="anchor" href="#licence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Licence</h1>
+
+<p>This product is licenced under the <a href="https://www.gnu.org/copyleft/gpl.html">GNU General Public Licence Version 3</a></p>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
 
 <hr>
 
@@ -88,10 +116,14 @@ In <strong>src</strong> the main components are <strong>app<em>, *</em>resources
 <strong>index.php</strong> contains some core constants</li>
 </ul>
 
+<p>^<a href="#table-of-contents">TOC</a></p>
+
 <h2>
 <a id="namespaces" class="anchor" href="#namespaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Namespaces</h2>
 
-<p>The <strong>class</strong> and <strong>interface</strong> directories found under <em>src/app</em> and <em>src/sys</em> follow a namespaced structure, e.g. the class <strong>Alo\Db\MySQL</strong> would be found in the file <em>class/alo/db/mysql.php</em>. Please not that *<em>all directory and file names should be lowercase</em>.</p>
+<p>The <strong>class</strong>, <strong>trait</strong> and <strong>interface</strong> directories found under <em>src/app</em> and <em>src/sys</em> follow a namespaced structure, e.g. the class <strong>Alo\Db\MySQL</strong> would be found in the file <em>class/alo/db/mysql.php</em>. Please not that *<em>all directory and file names should be lowercase</em>.</p>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
 
 <hr>
 
@@ -103,10 +135,14 @@ In <strong>src</strong> the main components are <strong>app<em>, *</em>resources
 
 <p>For most projects, you will want to write your own classes that extend those of the framework's. That way you will be completely safe from losing any code during a framework upgrade. The built-in autoloader will automatically load any required interfaces found in <strong>app/class</strong>, <strong>app/interface</strong>, <strong>sys/class</strong> and <strong>sys/interface</strong>.</p>
 
+<p>^<a href="#table-of-contents">TOC</a></p>
+
 <h2>
 <a id="the-global-alo-class" class="anchor" href="#the-global-alo-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>The global Alo class</h2>
 
 <p>This class is always loaded by default and contains static references to objects which are <em>in most cases</em> used as singletons. You should try to load most of your classes into its static properties, e.g. you will usually only need one database connection, so you can assign it to Alo::$db and access it from anywhere in your code.</p>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
 
 <h2>
 <a id="controllers" class="anchor" href="#controllers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controllers</h2>
@@ -133,6 +169,8 @@ class Home extends AbstractController {
 
 <p>Only <strong>public, non-abstract, non-static methods will be used for routing</strong>. The default method for most controllers is <strong>index()</strong>;</p>
 
+<p>^<a href="#table-of-contents">TOC</a></p>
+
 <h2>
 <a id="views" class="anchor" href="#views" aria-hidden="true"><span class="octicon octicon-link"></span></a>Views</h2>
 
@@ -155,12 +193,16 @@ class Home extends AbstractController {
 
 <p>This will load a view under <strong>app/view/$name.php</strong>. You can provide parameters to pass on to the view via <strong>$params</strong>, e.g. if you pass on <strong>['foo' =&gt; 'bar']</strong> and echo <strong>$foo</strong> in the view, the output will be <strong>bar</strong>. If instead of echoing the output you want to retrieve it, provide <strong>$return</strong> with <strong>true</strong>. Each view can be reused during the same execution.</p>
 
+<p>^<a href="#table-of-contents">TOC</a></p>
+
 <hr>
 
 <h1>
 <a id="logging" class="anchor" href="#logging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logging</h1>
 
 <p>All logging is done via the global static class <strong>\Log</strong>'s public methods - please refer to the documentation. You will can set the logging level (during the <a href="#initial-setup">Initial Setup</a> phase described below).</p>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
 
 <hr>
 
@@ -172,6 +214,8 @@ class Home extends AbstractController {
 <li>Next you'll want to run the appropriate files under <strong>setup</strong> if you are using that functionality.</li>
 </ul>
 
+<p>^<a href="#table-of-contents">TOC</a></p>
+
 <hr>
 
 <h1>
@@ -181,13 +225,40 @@ class Home extends AbstractController {
 
 <ol>
 <li>Look through the changelog for to see if any changes will cause issues (e.g. a deprecated method being removed), prepare your code if necessary.</li>
-<li>Make a copy of your <strong>index.php</strong> and <strong>.htaccess</strong> files as well as the <strong>resources</strong> directory.</li>
+<li>Make a copy of your <strong>index.php</strong> and <strong>.htaccess</strong> files.</li>
 <li>Delete the above, as well as the <strong>sys</strong> directory.</li>
 <li>Extract the new code. It will never contain files other than blank <strong>index.html</strong>s and <strong>sample.php</strong>s under <strong>app/</strong>, so no application code will be overwritten.</li>
 <li>If there are any changes to <strong>.htaccess</strong>, merge them with your version.</li>
 <li>Re-apply your personal settings under <strong>index.php</strong>'s <strong>// ===== General setup BEGIN =====</strong>
 </li>
 </ol>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
+
+<hr>
+
+<h1>
+<a id="latest-changes" class="anchor" href="#latest-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Latest changes</h1>
+
+<p>See <a href="changelog.md">changelog.md</a> for a full changelog of previous versions.</p>
+
+<h2>
+<a id="02-2015-05-04-0018" class="anchor" href="#02-2015-05-04-0018" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.2 (2015-05-04 00:18)</h2>
+
+<ul>
+<li>Trait support added - see app/traits</li>
+<li>Kint external library updated</li>
+<li>Slashes in paths replaced with DIRECTORY_SEPARATOR</li>
+<li>Profiling class added</li>
+<li>The Router now has a lot more getters</li>
+<li>Error, autoloading and exception handlers moved to \Alo\Handler</li>
+<li>Committed function tester (forgot about it earlier)</li>
+<li>Fixed an error where any uncaught exception would force the 404 error page.</li>
+<li>Many more statics added to \Alo</li>
+<li>Error divs prettified</li>
+</ul>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
 
 <hr>
 
@@ -198,10 +269,12 @@ class Home extends AbstractController {
 
 <ul>
 <li>
-<a href="https://github.com/PHPMailer/PHPMailer/">PHPMailer</a> 5.2.9+ for email support</li>
+<a href="https://github.com/PHPMailer/PHPMailer/">PHPMailer</a> for email support</li>
 <li>
 <a href="http://raveren.github.io/kint/">Kint</a> for debug output</li>
 </ul>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
       </section>
 
     </div>
