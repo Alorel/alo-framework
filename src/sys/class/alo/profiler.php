@@ -108,6 +108,13 @@
       const P_SERVER_NAME = 'server_name';
 
       /**
+       * Request headers set
+       *
+       * @var string
+       */
+      const P_HEADERS = 'headers';
+
+      /**
        * Marks set
        *
        * @var array
@@ -151,7 +158,8 @@
             self::P_REQUEST_METHOD    => $r->getRequestMethod(),
             self::P_REQUEST_SCHEME    => $r->getRequestScheme(),
             self::P_SERVER_ADDR       => $r->getServerAddr(),
-            self::P_SERVER_NAME       => $r->getServerName()
+            self::P_SERVER_NAME       => $r->getServerName(),
+            self::P_HEADERS           => getallheaders()
          ];
 
          return $this;
