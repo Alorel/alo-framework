@@ -199,7 +199,7 @@
       function scandir($sorting_order = self::SORT_ASC) {
          $this->checkSubsystem();
 
-         $dir = scandir('ssh2.sftp://' . $this->sftp . '/' . $this->dir, $sorting_order);
+         $dir = scandir('ssh2.sftp://' . $this->sftp . DIRECTORY_SEPARATOR . $this->dir, $sorting_order);
          $r = [
             'dirs'  => [],
             'files' => []
@@ -386,7 +386,7 @@
        * @return string The resolved path
        */
       protected function resolvePath($item) {
-         return (stripos($item, '/') === 0) ? substr($item, 1) : $this->dir . '/' . $item;
+         return (stripos($item, DIRECTORY_SEPARATOR) === 0) ? substr($item, 1) : $this->dir . DIRECTORY_SEPARATOR . $item;
       }
 
       /**
@@ -423,7 +423,7 @@
          $this->checkSubsystem();
          $remoteFile = $this->resolvePath($file);
 
-         if (!$fp = @fopen('ssh2.sftp://' . $this->sftp . '/' . $remoteFile, File::M_WRITE_TRUNCATE_BEGIN)) {
+         if (!$fp = @fopen('ssh2.sftp://' . $this->sftp . DIRECTORY_SEPARATOR . $remoteFile, File::M_WRITE_TRUNCATE_BEGIN)) {
             throw new SE('Failed to remotely fopen ' . $remoteFile, SE::E_FILE_CREATE_FAIL);
          } else {
             flock($fp, LOCK_EX);
@@ -471,7 +471,7 @@
        * @return string
        */
       function __toString() {
-         return 'User: ' . $this->user . '; PrivKey:' . $this->privkey . '; PubKey: ' . $this->pubkey . '; hash: ' . get($this->pw) ? md5($this->pw) : 'NO HASH CONTENT SET';
+         return 'User: ' . $this->user . '; PrivKey:' . $this->privkey . '; PubKey: ' . $this->pubkey . '; Password hash: ' . get($this->pw) ? md5($this->pw) : 'NO HASH CONTENT SET';
       }
 
       /**

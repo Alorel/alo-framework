@@ -9,8 +9,8 @@
       die();
    }
 
-   require_once DIR_SYS . 'external/class.phpmailer.php';
-   require_once DIR_SYS . 'external/PHPMailerAutoload.php';
+   require_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'email' . DIRECTORY_SEPARATOR . 'class.phpmailer.php';
+   require_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'email' . DIRECTORY_SEPARATOR . 'PHPMailerAutoload.php';
 
    \Alo::loadConfig('email');
 

@@ -105,4 +105,4 @@
     */
    define('DIR_SYS', DIR_INDEX . 'sys' . DIRECTORY_SEPARATOR);
 
-   require_once DIR_SYS . 'core/core.php';
+   require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'core.php';

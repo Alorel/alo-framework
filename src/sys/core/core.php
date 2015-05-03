@@ -6,8 +6,8 @@
    }
 
    ob_start();
-   require_once DIR_SYS . 'core/log.php';
-   include_once DIR_SYS . 'external/kint/Kint.class.php';
+   require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'log.php';
+   include_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'kint' . DIRECTORY_SEPARATOR . 'Kint.class.php';
 
    /**
     * A shortcut to isset($var) ? $var : null
@@ -133,7 +133,7 @@
     * @param string $name Class name
     */
    function autoloader_function($name) {
-      $name = ltrim(strtolower(str_replace('\\', DIRECTORY_SEPARATOR, $name)), '/') . '.php';
+      $name = ltrim(strtolower(str_replace('\\', DIRECTORY_SEPARATOR, $name)), DIRECTORY_SEPARATOR) . '.php';
       $locations = [
          DIR_APP . 'class',
          DIR_APP . 'interface',
@@ -249,6 +249,6 @@
    spl_autoload_register('autoloader_function');
    set_error_handler('alo_error_handler', ini_get('error_reporting'));
 
-   require_once DIR_SYS . 'core/alo.php';
+   require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
    Alo::$router = new Alo\Controller\Router();
    Alo::$router->init();

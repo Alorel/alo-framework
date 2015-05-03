@@ -145,7 +145,7 @@
        */
       function init() {
          $this->is_cli_request = php_sapi_name() == 'cli' || defined('STDIN');
-         $this->is_ajax_request = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
+         $this->is_ajax_request = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
 
          return $this->init_server_vars()
             ->init_path()
@@ -266,10 +266,10 @@
             //Check if there's a route
             foreach ($this->routes as $source => $dest) {
                $source_replace = trim(str_replace(self::PREG_DELIMITER, '\\'
-                  . self::PREG_DELIMITER, $source), '/');
+                  . self::PREG_DELIMITER, $source), DIRECTORY_SEPARATOR);
 
-               if (preg_match('~^' . $source_replace . '/?$~is', $this->path)) {
-                  $replace = explode('/', preg_replace('~^' . $source_replace . '/?$~is', $dest, $this->path));
+               if (preg_match(self::PREG_DELIMITER . '^' . $source_replace . DIRECTORY_SEPARATOR . '?$' . self::PREG_DELIMITER . 'is', $this->path)) {
+                  $replace = explode(DIRECTORY_SEPARATOR, preg_replace(self::PREG_DELIMITER . '^' . $source_replace . DIRECTORY_SEPARATOR . '?$' . self::PREG_DELIMITER . 'is', $dest, $this->path));
                   $resolved = true;
 
                   $this->controller = self::CONTROLLER_NAMESPACE . array_shift($replace);
@@ -349,7 +349,7 @@
          } elseif (isset($_SERVER['argv'])) {
             //Shift off the "index.php" bit
             array_shift($_SERVER['argv']);
-            $this->path = join('/', $_SERVER['argv']);
+            $this->path = join(DIRECTORY_SEPARATOR, $_SERVER['argv']);
          } else {
             $this->path = '';
          }

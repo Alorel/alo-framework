@@ -24,7 +24,7 @@
       function error($code = 404, $message = null) {
          http_response_code((int)$code);
          $dir = defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP;
-         $path = $dir . 'error/' . $code . '.html';
+         $path = $dir . 'error' . DIRECTORY_SEPARATOR . $code . '.html';
 
          if (file_exists($path)) {
             include $path;
