@@ -6,3 +6,4 @@
 * Profiling class added
 * The Router now has a lot more getters
 * Error, autoloading and exception handlers moved to \Alo\Handler
+* Committed function tester (forgot about it earlier)
