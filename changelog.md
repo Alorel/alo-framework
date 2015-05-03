@@ -1,4 +1,4 @@
-# 0.2 (pending) #
+# 0.2 (2015-05-04 00:18) #
 
 * Trait support added - see app/traits
 * Kint external library updated

@@ -152,7 +152,7 @@ Updates are applied by following these 6 steps:
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 0.2 (pending) ##
+## 0.2 (2015-05-04 00:18) ##
 
 * Trait support added - see app/traits
 * Kint external library updated

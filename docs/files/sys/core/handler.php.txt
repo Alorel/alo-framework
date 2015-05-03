@@ -15,6 +15,27 @@
    abstract class Handler {
 
       /**
+       * Whether CSS has been injected yet
+       *
+       * @var bool
+       */
+      protected static $css_injected = false;
+
+      /**
+       * Injects CSS into the page to preffity our output
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       */
+      protected static function inject_css() {
+         if (!self::$css_injected) {
+            self::$css_injected = true;
+            echo '<style>';
+            include DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'error.css.php';
+            echo '</style>';
+         }
+      }
+
+      /**
        * The error handler
        *
        * @author Art <a.molcanovas@gmail.com>
@@ -24,6 +45,7 @@
        * @param int    $errline The line number the error was raised at
        */
       static function error($errno, $errstr, $errfile, $errline) {
+         self::inject_css();
          $type = $errno;
 
          switch ($errno) {
@@ -47,12 +69,12 @@
 
          $f = explode(DIR_INDEX, $errfile)[1];
 
-         echo '<div style="text-align:center;margin:12px auto 12px auto">'
-            . '<div style="text-align:left;display:inline-block;padding:2px;background:#FD8C7F;border:2px solid #F00;color:#000">'
-            . '<div style="font-weight:bold;margin-bottom:1em">'
+         echo '<div class="alo-error-wrapper">'
+            . '<div class="alo-error-container">'
+            . '<div class="alo-error-type alo-bold">'
             . $type . ' : ' . $errstr
             . '</div>'
-            . '<div>Raised in <span style="font-weight:bold">' . $f . ': ' . $errline . '</span></div>'
+            . '<div>Raised in <span class="alo-bold">' . $f . ': ' . $errline . '</span></div>'
             . '<div>Backtrace:</div>';
 
          $trace = array_reverse(debug_backtrace());
@@ -114,7 +136,7 @@
        * @param array $trace The backtrace
        */
       protected static function echo_trace($trace) {
-         echo '<table cellpadding="2" border="1" style="border-collapse:collapse;width:100%;text-align:center">'
+         echo '<table cellpadding="2" border="1" class="alo-trace-table">'
             . '<thead>'
             . '<tr>'
             . '<th>#</th>'
@@ -169,19 +191,20 @@
        * @param \Exception $e The exception
        */
       static function ecxeption(\Exception $e) {
+         self::inject_css();
          $msg = $e->getMessage();
          $trace = $e->getTrace();
          array_pop($trace);
 
-         echo '<div style="text-align:center;margin:12px auto 12px auto">'
-            . '<div style="text-align:left;display:inline-block;padding:2px;background:#FD8C7F;border:2px solid #F00;color:#000">'
-            . '<div style="font-weight:bold;margin-bottom:1em">'
+         echo '<div class="alo-error-wrapper">'
+            . '<div class="alo-error-container">'
+            . '<div class="alo-error-type alo-bold">'
             . '[' . $e->getCode() . '] uncaught exception: ' . $e->getMessage();
 
          self::echo_previous_exceptions($e->getPrevious());
 
          echo '</div>'
-            . '<div>Raised in <span style="font-weight:bold">' . $e->getFile() . ': ' . $e->getLine() . '</span></div>'
+            . '<div>Raised in <span class="alo-bold">' . $e->getFile() . ': ' . $e->getLine() . '</span></div>'
             . '<div>Backtrace:</div>';
 
          self::echo_trace($trace);
