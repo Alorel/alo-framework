@@ -1,6 +1,4 @@
-[![License](https://poser.pugx.org/alorel/alo-framework/license)](https://packagist.org/packages/alorel/alo-framework) [![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/version)](https://packagist.org/packages/alorel/alo-framework) [![Latest Unstable Version](https://poser.pugx.org/alorel/alo-framework/v/unstable)](//packagist.org/packages/alorel/alo-framework)
-[![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads)](https://packagist.org/packages/alorel/alo-framework) [![Monthly Downloads](https://poser.pugx.org/alorel/alo-framework/d/monthly)](https://packagist.org/packages/alorel/alo-framework) [![Daily Downloads](https://poser.pugx.org/alorel/alo-framework/d/daily)](https://packagist.org/packages/phpunit/phpunit)
-[![Docs](https://readthedocs.org/projects/alo-framework/badge/?version=latest)](https://alo-framework.readthedocs.org)
+[![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/v/stable)](https://packagist.org/packages/alorel/alo-framework) [![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads)](https://packagist.org/packages/alorel/alo-framework) [![Latest Unstable Version](https://poser.pugx.org/alorel/alo-framework/v/unstable)](https://packagist.org/packages/alorel/alo-framework) [![License](https://poser.pugx.org/alorel/alo-framework/license)](https://packagist.org/packages/alorel/alo-framework)
 
 View on: [Packagist](https://packagist.org/packages/alorel/alo-framework) | [ReadTheDocs](https://alo-framework.readthedocs.org)
 
