@@ -10,7 +10,7 @@
       die();
    }
 
-   \Alo::loadConfig('db/mysql');
+   \Alo::loadConfig('db' . DIRECTORY_SEPARATOR . 'mysql');
 
    /**
     * MySQL database manager
