@@ -108,11 +108,18 @@
       const P_SERVER_NAME = 'server_name';
 
       /**
-       * Request headers set
+       * Defines a parameter as "Request headers set"
        *
        * @var string
        */
       const P_HEADERS = 'headers';
+
+      /**
+       * Defines a parameter as "request path"
+       *
+       * @var string
+       */
+      const P_REQUEST_PATH = 'request_path';
 
       /**
        * Marks set
@@ -159,7 +166,8 @@
             self::P_REQUEST_SCHEME    => $r->getRequestScheme(),
             self::P_SERVER_ADDR       => $r->getServerAddr(),
             self::P_SERVER_NAME       => $r->getServerName(),
-            self::P_HEADERS           => \getallheaders()
+            self::P_HEADERS           => \getallheaders(),
+            self::P_REQUEST_PATH      => $r->getPath()
          ];
 
          return $this;
@@ -200,7 +208,7 @@
          } elseif (!isset($this->marks[$second_mark])) {
             throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
          } else {
-            //Suppress illogical array to string conversion notices
+            //Hide illogical array to string conversion notices
             ob_start();
             $diff = array_diff_assoc($this->marks[$second_mark], $this->marks[$first_mark]);
             ob_end_clean();

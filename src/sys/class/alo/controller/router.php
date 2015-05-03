@@ -455,6 +455,16 @@
       }
 
       /**
+       * Returns the request path
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      function getPath() {
+         return $this->path;
+      }
+
+      /**
        * Returns a string representation of the object data
        *
        * @author Art <a.molcanovas@gmail.com>
