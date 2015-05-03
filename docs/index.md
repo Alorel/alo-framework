@@ -1,7 +1,5 @@
 [![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/v/stable)](https://packagist.org/packages/alorel/alo-framework) [![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads)](https://packagist.org/packages/alorel/alo-framework) [![Latest Unstable Version](https://poser.pugx.org/alorel/alo-framework/v/unstable)](https://packagist.org/packages/alorel/alo-framework) [![License](https://poser.pugx.org/alorel/alo-framework/license)](https://packagist.org/packages/alorel/alo-framework)
 
-View on: [Packagist](https://packagist.org/packages/alorel/alo-framework) | [ReadTheDocs](https://alo-framework.readthedocs.org)
-
 ----------
 
 # What is this? #
@@ -37,7 +35,7 @@ In **src** the main components are **app*, **resources**, **sys** and files unde
 * **index.php** contains some core constants
 
 ## Namespaces ##
-The **class** and **interface** directories found under *src/app* and *src/sys* follow a namespaced structure, e.g. the class **Alo\Db\MySQL** would be found in the file *class/alo/db/mysql.php*. Please not that **all directory and file names should be lowercase*.
+The **class**, **trait** and **interface** directories found under *src/app* and *src/sys* follow a namespaced structure, e.g. the class **Alo\Db\MySQL** would be found in the file *class/alo/db/mysql.php*. Please not that **all directory and file names should be lowercase*.
 
 ----------
 
@@ -107,7 +105,7 @@ All logging is done via the global static class **\Log**'s public methods - plea
 Updates are applied by following these 6 steps:
 
 1. Look through the changelog for to see if any changes will cause issues (e.g. a deprecated method being removed), prepare your code if necessary.
-2. Make a copy of your **index.php** and **.htaccess** files as well as the **resources** directory.
+2. Make a copy of your **index.php** and **.htaccess** files.
 3. Delete the above, as well as the **sys** directory.
 4. Extract the new code. It will never contain files other than blank **index.html**s and **sample.php**s under **app/**, so no application code will be overwritten.
 5. If there are any changes to **.htaccess**, merge them with your version.
@@ -115,8 +113,18 @@ Updates are applied by following these 6 steps:
 
 ----------
 
+# Latest changes #
+See [changelog.md](changelog.md) for a full changelog of previous versions.
+## 0.2 (pending) ##
+• Trait support added - see app/traits
+• Kint external library updated
+• Slashes in paths replaced with DIRECTORY_SEPARATOR
+• Again
+
+----------
+
 # External Libraries #
 AloFramework uses the following external libraries for its functionality:
 
-* [PHPMailer](https://github.com/PHPMailer/PHPMailer/) 5.2.9+ for email support
+* [PHPMailer](https://github.com/PHPMailer/PHPMailer/) for email support
 * [Kint](http://raveren.github.io/kint/) for debug output
