@@ -4,7 +4,6 @@
 	"minimum-stability": "stable",
 	"type":              "project",
 	"license":           "GPL-3.0+",
-	"version":           "0.1",
 	"homepage":          "https://alorel.github.io/alo-framework/",
 	"keywords":          [
 		"PHP",
@@ -30,6 +29,6 @@
 	},
 	"require":           {
 		"phpmailer/phpmailer": "v5.2.9",
-		"raveren/kint": "dev-master"
+		"raveren/kint":        "dev-master"
 	}
 }
