@@ -121,6 +121,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 • Slashes in paths replaced with DIRECTORY_SEPARATOR
 • Profiling class added
 • The Router now has a lot more getters
+• Error, autoloading and exception handlers moved to \Alo\Handler
 
 ----------
 

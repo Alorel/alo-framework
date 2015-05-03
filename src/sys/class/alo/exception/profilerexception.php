@@ -20,4 +20,11 @@
        * @var int
        */
       const E_MARK_NOT_SET = 100;
+
+      /**
+       * Code when a specified key is invalid
+       *
+       * @var int
+       */
+      const E_KEY_INVALID = 101;
    }

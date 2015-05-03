@@ -122,6 +122,27 @@
       const P_REQUEST_PATH = 'request_path';
 
       /**
+       * Defines a parameter as "memory allocated to PHP script via emalloc()"
+       *
+       * @var string
+       */
+      const P_MEMORY_USAGE = 'memory_usage';
+
+      /**
+       * Defines a parameter as "real memory allocated to PHP script"
+       *
+       * @var string
+       */
+      const P_REAL_MEMORY_USAGE = 'real_memory_usage';
+
+      /**
+       * Defines a parameter as "diff"
+       *
+       * @var string
+       */
+      const P_DIFF = '_diff';
+
+      /**
        * Marks set
        *
        * @var array
@@ -135,10 +156,6 @@
        */
       function __construct() {
          $this->marks = [];
-      }
-
-      function __destruct() {
-         echo \debug($GLOBALS);
       }
 
       /**
@@ -167,7 +184,9 @@
             self::P_SERVER_ADDR       => $r->getServerAddr(),
             self::P_SERVER_NAME       => $r->getServerName(),
             self::P_HEADERS           => \getallheaders(),
-            self::P_REQUEST_PATH      => $r->getPath()
+            self::P_REQUEST_PATH      => $r->getPath(),
+            self::P_MEMORY_USAGE      => memory_get_usage(false),
+            self::P_REAL_MEMORY_USAGE => memory_get_usage(true)
          ];
 
          return $this;
@@ -214,6 +233,33 @@
             ob_end_clean();
 
             return $diff;
+         }
+      }
+
+      function diff_on_key($key, $first_mark, $second_mark) {
+         if (!isset($this->marks[$first_mark])) {
+            throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
+         } elseif (!isset($this->marks[$second_mark])) {
+            throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
+         } elseif (!isset($this->marks[$first_mark][$key])) {
+            throw new PE('Invalid $key.', PE::E_KEY_INVALID);
+         } else {
+            $fm = $this->marks[$first_mark][$key];
+            $sm = $this->marks[$second_mark][$key];
+
+            $ret = [$first_mark  => $fm,
+                    $second_mark => $sm
+            ];
+
+            if (is_numeric($fm)) {
+               $ret[self::P_DIFF] = abs($fm - $sm);
+            } elseif (is_array($fm)) {
+               $ret[self::P_DIFF] = array_diff_assoc($sm, $fm);
+            } else {
+               $ret[self::P_DIFF] = '[values not numeric or arrays]';
+            }
+
+            return $ret;
          }
       }
 

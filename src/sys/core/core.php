@@ -8,6 +8,11 @@
    ob_start();
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'log.php';
    include_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'kint' . DIRECTORY_SEPARATOR . '_main.php';
+   require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'handler.php';
+
+   spl_autoload_register('\Alo\Handler::autoloader');
+   set_error_handler('\Alo\Handler::error', ini_get('error_reporting'));
+   set_exception_handler('\Alo\Handler::ecxeption');
 
    /**
     * A shortcut to isset($var) ? $var : null
@@ -145,129 +150,6 @@
          return $headers;
       }
    }
-
-   /**
-    * Used to automatically load class files
-    *
-    * @author Art <a.molcanovas@gmail.com>
-    * @param string $name Class name
-    */
-   function alo_autoloader($name) {
-      $name = ltrim(strtolower(str_replace('\\', DIRECTORY_SEPARATOR, $name)), '/') . '.php';
-      $locations = [
-         DIR_APP . 'class',
-         DIR_SYS . 'class',
-         DIR_APP . 'interface',
-         DIR_APP . 'traits'
-      ];
-
-      foreach ($locations as $l) {
-         if (file_exists($l . DIRECTORY_SEPARATOR . $name)) {
-            include_once $l . DIRECTORY_SEPARATOR . $name;
-            break;
-         }
-      }
-   }
-
-   /**
-    * The dev error handler
-    *
-    * @author Art <a.molcanovas@gmail.com>
-    * @param int    $errno   The level of the error raised
-    * @param string $errstr  The error message
-    * @param string $errfile The filename that the error was raised in
-    * @param int    $errline The line number the error was raised at
-    */
-   function alo_error_handler($errno, $errstr, $errfile, $errline) {
-      $type = $errno;
-
-      switch ($errno) {
-         case E_NOTICE:
-         case E_USER_NOTICE:
-            $type = 'NOTICE';
-            break;
-         case E_ERROR:
-         case E_USER_ERROR:
-         case E_COMPILE_ERROR:
-         case E_RECOVERABLE_ERROR:
-         case E_CORE_ERROR:
-            $type = 'ERROR';
-            break;
-         case E_WARNING:
-         case E_USER_WARNING:
-         case E_CORE_WARNING:
-            $type = 'WARNING';
-            break;
-      }
-
-      $f = explode(DIR_INDEX, $errfile)[1];
-
-      echo '<div style="text-align:center;margin:12px auto 12px auto">'
-         . '<div style="text-align:left;display:inline-block;padding:2px;background:#FD8C7F;border:2px solid #F00;color:#000">'
-         . '<div style="font-weight:bold;margin-bottom:1em">'
-         . $type . ' : ' . $errstr
-         . '</div>'
-         . '<div>Raised in <span style="font-weight:bold">' . $f . ': ' . $errline . '</span></div>'
-         . '<div>Backtrace:</div>'
-         . '<table cellpadding="2" border="1" style="border-collapse:collapse;width:100%;text-align:center">'
-         . '<thead>'
-         . '<tr>'
-         . '<th>#</th>'
-         . '<th>Function</th>'
-         . '<th>Args</th>'
-         . '<th>Location</th>'
-         . '<th>Line</th>'
-         . '</tr>'
-         . '</thead>'
-         . '<tbody>';
-
-      $trace = array_reverse(debug_backtrace());
-      array_pop($trace);
-
-      foreach ($trace as $k => $v) {
-         $func = $loc = $line = '';
-
-         if (isset($v['class'])) {
-            $func = $v['class'];
-         }
-         if (isset($v['type'])) {
-            $func .= $v['type'];
-         }
-         if (isset($v['function'])) {
-            $func .= $v['function'] . '()';
-         }
-         if (!$func) {
-            $func = 'unknown';
-         }
-
-         if (isset($v['file'])) {
-            $loc = explode(DIR_INDEX, $v['file'])[1];
-         }
-         if (isset($v['line'])) {
-            $line .= $v['line'];
-         }
-
-         echo '<tr>'
-            . '<td>' . $k . '</td>'
-            . '<td>' . $func . '</td>'
-            . '<td style="text-align:left">' . ($v['args'] ? '<pre>' . preg_replace("/\n(\s*)(\t*)\(/i", "$1$2(", print_r($v['args'], true)) . '</pre>' : '') . '</td>'
-            . '<td>' . $loc . '</td>'
-            . '<td>' . $line . '</td>'
-            . '</tr>';
-      }
-
-      echo '</tbody>'
-         . '</table>'
-         . '</div>'
-         . '</div>';
-
-      $trace = debug_backtrace();
-      array_shift($trace);
-      Log::error($errstr, $trace);
-   }
-
-   spl_autoload_register('alo_autoloader');
-   set_error_handler('alo_error_handler', ini_get('error_reporting'));
 
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
    Alo::$router = new Alo\Controller\Router();
