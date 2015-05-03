@@ -1,56 +1,54 @@
 <?php
+class Kint_Parsers_ClassStatics extends kintParser
+{
+	protected function _parse( & $variable )
+	{
+		if ( !is_object( $variable ) ) return false;
 
-   class Kint_Parsers_ClassStatics extends kintParser {
+		$extendedValue = array();
 
-      protected function _parse(& $variable) {
-         if (!is_object($variable))
-            return false;
+		$reflection = new ReflectionClass( $variable );
+		// first show static values
+		foreach ( $reflection->getProperties( ReflectionProperty::IS_STATIC ) as $property ) {
+			if ( $property->isPrivate() ) {
+				if ( !method_exists( $property, 'setAccessible' ) ) {
+					break;
+				}
+				$property->setAccessible( true );
+				$access = "private";
+			} elseif ( $property->isProtected() ) {
+				$property->setAccessible( true );
+				$access = "protected";
+			} else {
+				$access = 'public';
+			}
 
-         $extendedValue = [];
+			if ( Kint::$keyFilterCallback
+				&& call_user_func( Kint::$keyFilterCallback, $property->getName(), $property->getValue() ) === false
+			) {
+				continue;
+			}
 
-         $reflection = new ReflectionClass($variable);
-         // first show static values
-         foreach ($reflection->getProperties(ReflectionProperty::IS_STATIC) as $property) {
-            if ($property->isPrivate()) {
-               if (!method_exists($property, 'setAccessible')) {
-                  break;
-               }
-               $property->setAccessible(true);
-               $access = "private";
-            } elseif ($property->isProtected()) {
-               $property->setAccessible(true);
-               $access = "protected";
-            } else {
-               $access = 'public';
-            }
+			$_      = $property->getValue();
+			$output = kintParser::factory( $_, '$' . $property->getName() );
 
-            if (Kint::$keyFilterCallback && call_user_func(Kint::$keyFilterCallback, $property->getName(), $property->getValue()) === false
-            ) {
-               continue;
-            }
+			$output->access   = $access;
+			$output->operator = '::';
+			$extendedValue[]  = $output;
+		}
 
-            $_ = $property->getValue();
-            $output = kintParser::factory($_, '$' . $property->getName());
+		foreach ( $reflection->getConstants() as $constant => $val ) {
+			$output = kintParser::factory( $val, $constant );
 
-            $output->access = $access;
-            $output->operator = '::';
-            $extendedValue[] = $output;
-         }
+			$output->access   = 'constant';
+			$output->operator = '::';
+			$extendedValue[]  = $output;
+		}
 
-         foreach ($reflection->getConstants() as $constant => $val) {
-            $output = kintParser::factory($val, $constant);
+		if ( empty( $extendedValue ) ) return false;
 
-            $output->access = 'constant';
-            $output->operator = '::';
-            $extendedValue[] = $output;
-         }
-
-         if (empty($extendedValue))
-            return false;
-
-         $this->value = $extendedValue;
-         $this->type = 'Static class properties';
-         $this->size = count($extendedValue);
-      }
-
-   }
+		$this->value = $extendedValue;
+		$this->type  = 'Static class properties';
+		$this->size  = count( $extendedValue );
+	}
+}

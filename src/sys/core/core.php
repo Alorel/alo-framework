@@ -6,8 +6,8 @@
    }
 
    ob_start();
-   require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'log.php';
-   include_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'kint' . DIRECTORY_SEPARATOR . 'Kint.class.php';
+   require_once DIR_SYS . 'core/log.php';
+   include_once DIR_SYS . 'external/kint/_main.php';
 
    /**
     * A shortcut to isset($var) ? $var : null
@@ -132,13 +132,13 @@
     * @author Art <a.molcanovas@gmail.com>
     * @param string $name Class name
     */
-   function autoloader_function($name) {
-      $name = ltrim(strtolower(str_replace('\\', DIRECTORY_SEPARATOR, $name)), DIRECTORY_SEPARATOR) . '.php';
+   function alo_autoloader($name) {
+      $name = ltrim(strtolower(str_replace('\\', DIRECTORY_SEPARATOR, $name)), '/') . '.php';
       $locations = [
          DIR_APP . 'class',
-         DIR_APP . 'interface',
          DIR_SYS . 'class',
-         DIR_SYS . 'interface'
+         DIR_APP . 'interface',
+         DIR_APP . 'traits'
       ];
 
       foreach ($locations as $l) {
@@ -246,7 +246,7 @@
       Log::error($errstr, $trace);
    }
 
-   spl_autoload_register('autoloader_function');
+   spl_autoload_register('alo_autoloader');
    set_error_handler('alo_error_handler', ini_get('error_reporting'));
 
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';

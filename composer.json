@@ -29,6 +29,7 @@
 		"phpdocumentor/template-phpcr": "dev-master"
 	},
 	"require":           {
-		"phpmailer/phpmailer": "v5.2.9"
+		"phpmailer/phpmailer": "v5.2.9",
+		"raveren/kint": "dev-master"
 	}
 }

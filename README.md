@@ -1,6 +1,4 @@
-[![License](https://poser.pugx.org/alorel/alo-framework/license)](https://packagist.org/packages/alorel/alo-framework) [![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/version)](https://packagist.org/packages/alorel/alo-framework) [![Latest Unstable Version](https://poser.pugx.org/alorel/alo-framework/v/unstable)](//packagist.org/packages/alorel/alo-framework)
-[![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads)](https://packagist.org/packages/alorel/alo-framework) [![Monthly Downloads](https://poser.pugx.org/alorel/alo-framework/d/monthly)](https://packagist.org/packages/alorel/alo-framework) [![Daily Downloads](https://poser.pugx.org/alorel/alo-framework/d/daily)](https://packagist.org/packages/phpunit/phpunit)
-[![Docs](https://readthedocs.org/projects/alo-framework/badge/?version=latest)](https://alo-framework.readthedocs.org)
+[![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/v/stable)](https://packagist.org/packages/alorel/alo-framework) [![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads)](https://packagist.org/packages/alorel/alo-framework) [![Latest Unstable Version](https://poser.pugx.org/alorel/alo-framework/v/unstable)](https://packagist.org/packages/alorel/alo-framework) [![License](https://poser.pugx.org/alorel/alo-framework/license)](https://packagist.org/packages/alorel/alo-framework)
 
 View on: [Packagist](https://packagist.org/packages/alorel/alo-framework) | [ReadTheDocs](https://alo-framework.readthedocs.org)
 
@@ -114,6 +112,11 @@ Updates are applied by following these 6 steps:
 4. Extract the new code. It will never contain files other than blank **index.html**s and **sample.php**s under **app/**, so no application code will be overwritten.
 5. If there are any changes to **.htaccess**, merge them with your version.
 6. Re-apply your personal settings under **index.php**'s **// ===== General setup BEGIN =====**
+
+----------
+
+# Changelog #
+See [changelog.md](changelog.md)
 
 ----------
 
