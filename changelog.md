@@ -3,3 +3,4 @@
 • Kint external library updated
 • Slashes in paths replaced with DIRECTORY_SEPARATOR
 • Profiling class added
+• The Router now has a lot more getters

@@ -375,6 +375,86 @@
       }
 
       /**
+       * Returns the controller method name
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      public function getMethod() {
+         return $this->method;
+      }
+
+      /**
+       * Returns the controller name
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      public function getController() {
+         return $this->controller;
+      }
+
+      /**
+       * Returns the request port used
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return int
+       */
+      public function getPort() {
+         return $this->port;
+      }
+
+      /**
+       * Returns the request remote IP
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      public function getRemoteAddr() {
+         return $this->remote_addr;
+      }
+
+      /**
+       * Returns the request method used
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      public function getRequestMethod() {
+         return $this->request_method;
+      }
+
+      /**
+       * Returns the request scheme used
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      public function getRequestScheme() {
+         return $this->request_scheme;
+      }
+
+      /**
+       * Returns the server internal IP
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      public function getServerAddr() {
+         return $this->server_addr;
+      }
+
+      /**
+       * Returns the server name
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      public function getServerName() {
+         return $this->server_name;
+      }
+
+      /**
        * Returns a string representation of the object data
        *
        * @author Art <a.molcanovas@gmail.com>

@@ -24,6 +24,90 @@
       const P_MICROTIME = 'microtime';
 
       /**
+       * Defines a parameter as "session data"
+       *
+       * @var string
+       */
+      const P_SESSION_DATA = 'session_data';
+
+      /**
+       * Defines a parameter as "$_GET data set"
+       *
+       * @var string
+       */
+      const P_GET = '$_GET';
+
+      /**
+       * Defines a parameter as "$_POST data set"
+       *
+       * @var string
+       */
+      const P_POST = '$_POST';
+
+      /**
+       * Defines a parameter as "$_FILES data set"
+       *
+       * @var string
+       */
+      const P_FILES = '$_FILES';
+
+      /**
+       * Defines a parameter as "controller in use"
+       *
+       * @var string
+       */
+      const P_CONTROLLER = 'controller';
+
+      /**
+       * Defines a parameter as "controller method in use"
+       *
+       * @var string
+       */
+      const P_CONTROLLER_METHOD = 'controller_method';
+
+      /**
+       * Defines a parameter as "port in use"
+       *
+       * @var string
+       */
+      const P_PORT = 'port';
+
+      /**
+       * Defines a parameter as "request IP"
+       *
+       * @var string
+       */
+      const P_REMOTE_ADDR = 'remote_addr';
+
+      /**
+       * Defines a parameter as "request method"
+       *
+       * @var string
+       */
+      const P_REQUEST_METHOD = 'request_method';
+
+      /**
+       * Defines a parameter as "request scheme"
+       *
+       * @var string
+       */
+      const P_REQUEST_SCHEME = 'request_scheme';
+
+      /**
+       * Defines a parameter as "server internal IP"
+       *
+       * @var string
+       */
+      const P_SERVER_ADDR = 'server_addr';
+
+      /**
+       * Defines a parameter as "server name"
+       *
+       * @var string
+       */
+      const P_SERVER_NAME = 'server_name';
+
+      /**
        * Marks set
        *
        * @var array
@@ -39,6 +123,10 @@
          $this->marks = [];
       }
 
+      function __destruct() {
+         echo \debug($GLOBALS);
+      }
+
       /**
        * Sets a profiler mark
        *
@@ -48,8 +136,23 @@
        */
       function mark($identifier) {
          $m = &$this->marks[$identifier];
+         $r = &\Alo::$router;
 
-         $m[self::P_MICROTIME] = microtime(true);
+         $m = [
+            self::P_MICROTIME         => microtime(true),
+            self::P_SESSION_DATA      => \Alo::$session ? \Alo::$session->getAll() : false,
+            self::P_GET               => $_GET,
+            self::P_POST              => $_POST,
+            self::P_FILES             => $_FILES,
+            self::P_CONTROLLER        => $r->getController(),
+            self::P_CONTROLLER_METHOD => $r->getMethod(),
+            self::P_PORT              => $r->getPort(),
+            self::P_REMOTE_ADDR       => $r->getRemoteAddr(),
+            self::P_REQUEST_METHOD    => $r->getRequestMethod(),
+            self::P_REQUEST_SCHEME    => $r->getRequestScheme(),
+            self::P_SERVER_ADDR       => $r->getServerAddr(),
+            self::P_SERVER_NAME       => $r->getServerName()
+         ];
 
          return $this;
       }

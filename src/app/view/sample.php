@@ -3,7 +3,7 @@
 
    $pr = new \Alo\Profiler();
    $pr->mark('foo');
-   sleep(2);
+   usleep(1000);
    $pr->mark('bar');
 
    echo debug($pr->getMarks(), $pr->timeBetween('bar', 'foo'));
