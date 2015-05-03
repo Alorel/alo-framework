@@ -1,7 +1,8 @@
 # 0.2 (pending) #
-• Trait support added - see app/traits
-• Kint external library updated
-• Slashes in paths replaced with DIRECTORY_SEPARATOR
-• Profiling class added
-• The Router now has a lot more getters
-• Error, autoloading and exception handlers moved to \Alo\Handler
+
+* Trait support added - see app/traits
+* Kint external library updated
+* Slashes in paths replaced with DIRECTORY_SEPARATOR
+* Profiling class added
+* The Router now has a lot more getters
+* Error, autoloading and exception handlers moved to \Alo\Handler
