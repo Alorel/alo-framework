@@ -1,5 +1,4 @@
 <?php
-
    /**
     * To calculate generation time
     *
@@ -111,3 +110,7 @@
    }
 
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'core.php';
+
+   $x = new \Alo\Cache\MemcachedWrapper();
+
+   die();

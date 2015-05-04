@@ -154,6 +154,10 @@ Updates are applied by following these 6 steps:
 See [changelog.md](changelog.md) for a full changelog of previous versions.
 ## 1.0 (pending) ##
 
+Major bugfixes
+
+* Fixed error where config files wouldn't be loaded correctly
+
 Misc bugfixes
 
 * Fixed router so it doesn't mistake an in-app ReflectionException with one that's caused by trying to initialise an invalid controller/method
