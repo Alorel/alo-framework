@@ -220,6 +220,8 @@
        * @uses   self::forceError()
        */
       protected function tryCall() {
+         $rc = $rm = $init = false;
+
          try {
             $rc = new ReflectionClass($this->controller);
 
@@ -232,9 +234,7 @@
                //And a public method
                if ($rm->isPublic() && !$rm->isAbstract() && !$rm->isStatic()) {
                   //Excellent. Instantiate!
-                  \Log::debug('Initialising controller');
-                  Alo::$controller = new $this->controller;
-                  call_user_func_array([Alo::$controller, $this->method], $this->method_args);
+                  $init = true;
                } else {
                   $this->forceError();
                }
@@ -243,6 +243,12 @@
             }
          } catch (\ReflectionException $ex) {
             $this->forceError($ex->getMessage());
+         }
+
+         if ($init) {
+            @\Log::debug('Initialising controller ' . $this->controller . '->' . $this->method . '(' . @implode(',', $this->method_args) . ')');
+            Alo::$controller = new $this->controller;
+            call_user_func_array([Alo::$controller, $this->method], $this->method_args);
          }
 
          return $this;
