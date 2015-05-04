@@ -15,11 +15,10 @@ matrix:
 
 before_install:
   - sudo apt-get update -qq
+  - sudo apt-get install memcached -y -qq
+  - sudo /etc/init.d/memcached start
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
-
-services:
-  - memcached
 
 before_script:
   - phpenv config-add phpunit.cnf.ini
