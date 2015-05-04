@@ -158,6 +158,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 Major bugfixes
 
 * Fixed error where config files wouldn't be loaded correctly
+* Fixed errors with the legacy Memcache getAll() alternative
 
 Misc bugfixes
 

@@ -18,6 +18,7 @@
          $mc = new MemcachedWrapper();
 
          $mc->set('foo', 1);
+         $mc->purge();
 
          $this->assertEmpty($mc->getAll());
       }
