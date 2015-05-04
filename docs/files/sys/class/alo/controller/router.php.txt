@@ -379,12 +379,12 @@
        * @return Router
        */
       protected function init_server_vars() {
-         $this->port = get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
-         $this->remote_addr = get($_SERVER['REMOTE_ADDR']);
-         $this->request_scheme = get($_SERVER['REQUEST_SCHEME']);
-         $this->request_method = get($_SERVER['REQUEST_METHOD']);
-         $this->server_addr = get($_SERVER['SERVER_ADDR']);
-         $this->server_name = get($_SERVER['SERVER_NAME']);
+         $this->port = \get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
+         $this->remote_addr = \get($_SERVER['REMOTE_ADDR']);
+         $this->request_scheme = \get($_SERVER['REQUEST_SCHEME']);
+         $this->request_method = \get($_SERVER['REQUEST_METHOD']);
+         $this->server_addr = \get($_SERVER['SERVER_ADDR']);
+         $this->server_name = \get($_SERVER['SERVER_NAME']);
 
          return $this;
       }

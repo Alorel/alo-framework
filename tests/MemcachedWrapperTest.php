@@ -2,29 +2,38 @@
 
    namespace Alo\Cache;
 
+   use \Alo;
+
    class MemcachedWrapperTest extends \PHPUnit_Framework_TestCase {
+
+      protected static function mc() {
+         if (!Alo::$cache) {
+            Alo::$cache = new MemcachedWrapper();
+         }
+
+         return Alo::$cache;
+      }
 
       /**
        * @dataProvider provideTestValueSet
        */
       function testValueSet($key, $val) {
-         $mc = new MemcachedWrapper();
+         $mc = self::mc();
 
          $mc->set($key, $val);
          $this->assertEquals($val, $mc->get($key));
       }
 
       function testPurge() {
-         $mc = new MemcachedWrapper();
+         $mc = self::mc();
 
          $mc->set('foo', 1);
-         $mc->purge();
 
-         $this->assertEmpty($mc->getAll());
+         $this->assertTrue($mc->purge());
       }
 
       function testDelete() {
-         $mc = new MemcachedWrapper();
+         $mc = self::mc();
 
          $mc->set('test_del', 1);
          $mc->delete('test_del');
