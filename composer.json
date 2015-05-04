@@ -23,18 +23,13 @@
 		"issues": "https://github.com/Alorel/alo-framework/issues"
 	},
 	"require-dev":       {
-		"phpdocumentor/phpdocumentor":        "dev-master",
-		"phpdocumentor/plugin-twig":          "dev-master",
-		"phpdocumentor/template-phpcr":       "dev-master",
-		"phpunit/phpunit":                    "dev-master",
-		"phpunit/phpunit-dom-assertions":     "dev-master",
-		"phpunit/phpunit-mock-objects":       "dev-master",
-		"phpunit/phpunit-selenium":           "dev-master",
-		"phpunit/phpunit-skeleton-generator": "dev-master",
-		"phpunit/phpunit-story":              "dev-master"
+		"phpdocumentor/phpdocumentor":  "dev-master",
+		"phpdocumentor/plugin-twig":    "dev-master",
+		"phpdocumentor/template-phpcr": "dev-master",
+		"phpunit/phpunit":              "dev-master"
 	},
 	"require":           {
 		"phpmailer/phpmailer": "5.2.10",
-		"raveren/kint":        "dev-master"
+		"raveren/kint": "dev-master"
 	}
 }
