@@ -1,4 +1,5 @@
 [![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/v/stable)](https://packagist.org/packages/alorel/alo-framework) [![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads)](https://packagist.org/packages/alorel/alo-framework) [![Latest Unstable Version](https://poser.pugx.org/alorel/alo-framework/v/unstable)](https://packagist.org/packages/alorel/alo-framework) [![License](https://poser.pugx.org/alorel/alo-framework/license)](https://packagist.org/packages/alorel/alo-framework)
+
 Dev: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework) Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
@@ -177,7 +178,7 @@ Added features
 Other
 
 * PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.
-* Realised that array shorthands were introduced in 5.4, not 5.3, so the description needs some updating...
+* Realised that array shorthands were introduced in 5.4, not 5.3, so the framework description needs some updating...
 
 Code style improvements
 

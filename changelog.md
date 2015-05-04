@@ -20,7 +20,7 @@ Added features
 Other
 
 * PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.
-* Realised that array shorthands were introduced in 5.4, not 5.3, so the description needs some updating...
+* Realised that array shorthands were introduced in 5.4, not 5.3, so the framework description needs some updating...
 
 Code style improvements
 
