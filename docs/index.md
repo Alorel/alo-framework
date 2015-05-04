@@ -174,6 +174,7 @@ Code style improvements
 Other
 
 * PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.
+* Added an option in the router to initialise without attempting to call the controller
 
 
 

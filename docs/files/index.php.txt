@@ -1,5 +1,4 @@
 <?php
-
    /**
     * To calculate generation time
     *
@@ -56,6 +55,13 @@
    // ===== General setup BEGIN =====
 
    /**
+    * You should set this to true when you run PHPUnit tests as it alters the base workflow of the framework
+    *
+    * @var bool
+    */
+   define('PHPUNIT_RUNNING', true);
+
+   /**
     * Defines the log level. Valid values are LOG_LEVEL_DEBUG, LOG_LEVEL_ERROR and LOG_LEVEL_NONE
     *
     * @var string
@@ -104,5 +110,10 @@
     * @var string
     */
    define('DIR_SYS', DIR_INDEX . 'sys' . DIRECTORY_SEPARATOR);
+
+   // Change dir to make sure CLI requests are correct
+   if (defined('STDIN')) {
+      chdir(dirname(__FILE__));
+   }
 
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'core.php';
