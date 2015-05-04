@@ -56,7 +56,7 @@ In **src** the main components are **app*, **resources**, **sys** and files unde
 ^[TOC](#table-of-contents)
 
 ## Namespaces ##
-The **class**, **trait** and **interface** directories found under *src/app* and *src/sys* follow a namespaced structure, e.g. the class **Alo\Db\MySQL** would be found in the file *class/alo/db/mysql.php*. Please not that **all directory and file names should be lowercase*.
+The **class**, **trait** and **interface** directories found under *src/app* and *src/sys* follow a namespaced structure, e.g. the class **Alo\Db\MySQL** would be found in the file *class/alo/db/mysql.php*. Please not that **all directory and file names should be lowercase**.
 
 ^[TOC](#table-of-contents)
 
