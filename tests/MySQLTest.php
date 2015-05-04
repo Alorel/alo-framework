@@ -87,6 +87,11 @@
 
          $last_hash = $db->getLastHash();
 
+         print_r([
+            'hash'   => $last_hash,
+            'getAll' => $mc->getAll()
+         ]);
+
          $this->assertArrayHasKey($last_hash, $mc->getAll());
          $this->assertEquals($agg, $mc->get($last_hash));
 
