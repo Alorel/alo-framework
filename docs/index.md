@@ -157,6 +157,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 Misc bugfixes
 
 * Fixed router so it doesn't mistake an in-app ReflectionException with one that's caused by trying to initialise an invalid controller/method
+* Added chdir() in index.php if it's a CLI request to be completely sure the path is correct for CLI requests.
 
 
 
