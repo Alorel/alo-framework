@@ -16,7 +16,7 @@
 ----------
 
 # What is this? #
-AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.3+. It has a lot of built-in functionality including but not limited to:
+AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.4+. It has a lot of built-in functionality including but not limited to:
 
 * Memcached wrapper
 * Database connection class
