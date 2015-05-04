@@ -16,7 +16,7 @@
 ----------
 
 # What is this? #
-AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.3+. It has a lot of built-in functionality including but not limited to:
+AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.4+. It has a lot of built-in functionality including but not limited to:
 
 * Memcached wrapper
 * Database connection class
@@ -175,6 +175,7 @@ Other
 
 * PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.
 * Added an option in the router to initialise without attempting to call the controller
+* Realised that array shorthands were introduced in 5.4, not 5.3, so the description needs some updating...
 
 
 

@@ -19,6 +19,7 @@ Other
 
 * PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.
 * Added an option in the router to initialise without attempting to call the controller
+* Realised that array shorthands were introduced in 5.4, not 5.3, so the description needs some updating...
 
 # 0.2 (2015-05-04) #
 
