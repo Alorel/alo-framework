@@ -23,6 +23,15 @@
          $this->assertEmpty($mc->getAll());
       }
 
+      function testDelete() {
+         $mc = new MemcachedWrapper();
+
+         $mc->set('test_del', 1);
+         $mc->delete('test_del');
+
+         $this->assertEmpty($mc->get('test_del'));
+      }
+
       function provideTestValueSet() {
          return [
             ['val_string', 'str'],

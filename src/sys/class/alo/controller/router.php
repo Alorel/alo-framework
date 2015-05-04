@@ -144,14 +144,23 @@
        * @return Router
        */
       function init() {
+         return $this->initNoCall()->tryCall();
+      }
+
+      /**
+       * Same as init(), but without attempting to call the controller
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return Router
+       */
+      function initNoCall() {
          $this->is_cli_request = php_sapi_name() == 'cli' || defined('STDIN');
          $this->is_ajax_request = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
 
          return $this->init_server_vars()
             ->init_path()
             ->init_routes()
-            ->resolvePath()
-            ->tryCall();
+            ->resolvePath();
       }
 
       /**
