@@ -55,6 +55,13 @@
    // ===== General setup BEGIN =====
 
    /**
+    * You should set this to true when you run PHPUnit tests as it alters the base workflow of the framework
+    *
+    * @var bool
+    */
+   define('PHPUNIT_RUNNING', true);
+
+   /**
     * Defines the log level. Valid values are LOG_LEVEL_DEBUG, LOG_LEVEL_ERROR and LOG_LEVEL_NONE
     *
     * @var string
@@ -110,7 +117,3 @@
    }
 
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'core.php';
-
-   $x = new \Alo\Cache\MemcachedWrapper();
-
-   die();

@@ -161,7 +161,6 @@
 
                      foreach ($d as $data) {
                         foreach ($data as $mc_key => $row) {
-                           echo \debug($mc_key, $row);
                            $dump[$mc_key] = $row[0];
                         }
                      }

@@ -14,6 +14,14 @@
          $this->assertEquals($val, $mc->get($key));
       }
 
+      function testPurge() {
+         $mc = new MemcachedWrapper();
+
+         $mc->set('foo', 1);
+
+         $this->assertEmpty($mc->getAll());
+      }
+
       function provideTestValueSet() {
          return [
             ['val_string', 'str'],

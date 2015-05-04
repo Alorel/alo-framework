@@ -15,6 +15,11 @@
       }
    }
 
-   _load_classes(__DIR__ . DIRECTORY_SEPARATOR . 'src');
+   // ========== Autoload classes ==========
+   _load_classes(DIR_SYS . 'core');
+   _load_classes(DIR_SYS . 'class');
+   _load_classes(DIR_APP . 'class');
+   _load_classes(DIR_APP . 'interface');
+   _load_classes(DIR_APP . 'traits');
 
    include __DIR__ . '/vendor/autoload.php';

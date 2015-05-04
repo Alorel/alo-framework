@@ -129,7 +129,8 @@ All logging is done via the global static class **\Log**'s public methods - plea
 ----------
 
 # Initial setup #
-* You will want to copy the contents of **sys/config** into **app/config**. Open them and set the values as appropriate. Next, open **index.php**, scroll to **// ===== General setup BEGIN =====** and set the values as you please.
+* You will want to copy the contents of **sys/config** into **app/config**. Open them and set the values as appropriate.
+* Open **index.php**, scroll to **// ===== General setup BEGIN =====** and set the values as you please. Make sure to set PHPUNIT_RUNNING to false when you're not running tests
 * Next you'll want to run the appropriate files under **setup** if you are using that functionality.
 
 ^[TOC](#table-of-contents)
@@ -163,10 +164,15 @@ Misc bugfixes
 * Fixed router so it doesn't mistake an in-app ReflectionException with one that's caused by trying to initialise an invalid controller/method
 * Added chdir() in index.php if it's a CLI request to be completely sure the path is correct for CLI requests.
 * Debug backtrace removed from error controller
+* \debug() output removed from MemcachedWrapper->getAllMemcache()
 
 Code style improvements
 
 * Indentation changed in router config sample file
+
+Other
+
+* PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.
 
 
 
