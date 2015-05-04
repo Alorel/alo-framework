@@ -105,4 +105,9 @@
     */
    define('DIR_SYS', DIR_INDEX . 'sys' . DIRECTORY_SEPARATOR);
 
+   // Change dir to make sure CLI requests are correct
+   if (defined('STDIN')) {
+      chdir(dirname(__FILE__));
+   }
+
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'core.php';
