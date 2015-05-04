@@ -5,11 +5,13 @@
       die();
    }
 
-//Controller class called for error page handling
+   //Controller class called for error page handling
    $error_controller_class = '\Alo\Controller\Error';
+
+   //The default controller if one isn't supplied
    $default_controller = 'sample';
 
-//Routes array
+   //Routes array
    $routes = [
       'foo/([a-z\s]+)' => 'foo/$1'
    ];
