@@ -1,3 +1,8 @@
+# 0.1 (pending) #
+Misc bugfixes
+
+* Fixed router so it doesn't mistake an in-app ReflectionException with one that's caused by trying to initialise an invalid controller/method
+
 # 0.2 (2015-05-04 00:18) #
 
 * Trait support added - see app/traits

@@ -152,18 +152,13 @@ Updates are applied by following these 6 steps:
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 0.2 (2015-05-04 00:18) ##
+## 0.1 (pending) ##
 
-* Trait support added - see app/traits
-* Kint external library updated
-* Slashes in paths replaced with DIRECTORY_SEPARATOR
-* Profiling class added
-* The Router now has a lot more getters
-* Error, autoloading and exception handlers moved to \Alo\Handler
-* Committed function tester (forgot about it earlier)
-* Fixed an error where any uncaught exception would force the 404 error page.
-* Many more statics added to \Alo
-* Error divs prettified
+Misc bugfixes
+
+* Fixed router so it doesn't mistake an in-app ReflectionException with one that's caused by trying to initialise an invalid controller/method
+
+
 
 ^[TOC](#table-of-contents)
 
