@@ -67,7 +67,7 @@
                break;
          }
 
-         $f = explode(DIR_INDEX, $errfile)[1];
+         $f = \get(explode(DIR_INDEX, $errfile)[1]);
 
          echo '<div class="alo-error-wrapper">'
             . '<div class="alo-error-container">'
