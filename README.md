@@ -152,7 +152,7 @@ Updates are applied by following these 6 steps:
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 0.1 (pending) ##
+## 1.0 (pending) ##
 
 Misc bugfixes
 
