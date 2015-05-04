@@ -165,7 +165,7 @@
             }
 
             if (isset($v['file'])) {
-               $loc = explode(DIR_INDEX, $v['file'])[1];
+               $loc = \get(explode(DIR_INDEX, $v['file'])[1]);
             }
             if (isset($v['line'])) {
                $line .= $v['line'];
