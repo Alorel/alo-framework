@@ -132,7 +132,7 @@ All logging is done via the global static class **\Log**'s public methods - plea
 
 # Initial setup #
 * You will want to copy the contents of **sys/config** into **app/config**. Open them and set the values as appropriate.
-* Open **index.php**, scroll to **// ===== General setup BEGIN =====** and set the values as you please. Make sure to set PHPUNIT_RUNNING to false when you're not running tests
+* Open **index.php**, scroll to **// ===== General setup BEGIN =====** and set the values as you please. Make sure to set **PHPUNIT_RUNNING** to false when you're not running tests
 * Next you'll want to run the appropriate files under **setup** if you are using that functionality.
 
 ^[TOC](#table-of-contents)
