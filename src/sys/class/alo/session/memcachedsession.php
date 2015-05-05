@@ -13,7 +13,7 @@
    }
 
    /**
-    * The SQL-based session handler. ALO_SESSION_CLEANUP is not used here as
+    * The Memcached-based session handler. ALO_SESSION_CLEANUP is not used here as
     * cleanup is handled by the MySQL event handler
     *
     * @author  Art <a.molcanovas@gmail.com>
