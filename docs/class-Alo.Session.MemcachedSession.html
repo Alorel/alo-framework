@@ -6,16 +6,56 @@
 
 	<title>Class Alo\Session\MemcachedSession | AloFramework documentation</title>
 
-	<script type="text/javascript" src="resources/combined.js?2171692866"></script>
+	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
 	<script type="text/javascript" src="elementlist.js?2099080705"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
 </head>
 
 <body>
-<div id="left">
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework documentation</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Alo.Session.html" title="Summary of Alo\Session"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
 	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
 
 
 		<div id="groups">
@@ -49,8 +89,6 @@
 			</ul>
 		</div>
 
-		<hr />
-
 
 		<div id="elements">
 			<h3>Classes</h3>
@@ -71,43 +109,7 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-Alo.Session.html" title="Summary of Alo\Session"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
-			</li>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Class MemcachedSession</h1>
 
@@ -119,7 +121,7 @@ cleanup is handled by the MySQL event handler</p>
 
 	</div>
 
-	<dl class="tree">
+	<dl class="tree well">
 		<dd style="padding-left:0px">
 			<a href="class-Alo.Session.AbstractSession.html"><span>Alo\Session\AbstractSession</span></a>
 			
@@ -141,7 +143,7 @@ cleanup is handled by the MySQL event handler</p>
 
 
 
-	<div class="info">
+	<div class="alert alert-info">
 		
 		
 		<b>Namespace:</b> <a href="namespace-Alo.html">Alo</a>\<a href="namespace-Alo.Session.html">Session</a><br />
@@ -155,273 +157,262 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 
-	<table class="summary" id="methods">
-	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Alo.Session.MemcachedSession.html#31-49" title="Go to source code">__construct</a>( )</code>
-
-		<div class="description short">
-			
-<p>Instantiates the class</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Instantiates the class</p>
-
-
-
-
-
-				<h4>Throws</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Exception.ExtensionException.html">Alo\Exception\ExtensionException</a></code></code><br>When a caching class is not available<br />
-				</div>
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-Alo.Session.AbstractSession.html#___construct">Alo\Session\AbstractSession::__construct()</a></code></div>
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="write" id="_write">
-
-		<td class="attributes"><code>
-			 protected 
-			<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_write">#</a>
-		<code><a href="source-class-Alo.Session.MemcachedSession.html#51-56" title="Go to source code">write</a>( )</code>
-
-		<div class="description short">
-			
-<p>Saves session data</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Saves session data</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="fetch" id="_fetch">
-
-		<td class="attributes"><code>
-			 protected 
-			<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_fetch">#</a>
-		<code><a href="source-class-Alo.Session.MemcachedSession.html#58-68" title="Go to source code">fetch</a>( )</code>
-
-		<div class="description short">
-			
-<p>Fetches session data</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Fetches session data</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="terminate" id="_terminate">
-
-		<td class="attributes"><code>
-			 public 
-			<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_terminate">#</a>
-		<code><a href="source-class-Alo.Session.MemcachedSession.html#70-74" title="Go to source code">terminate</a>( )</code>
-
-		<div class="description short">
-			
-<p>Terminates the session</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Terminates the session</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-Alo.Session.AbstractSession.html#_terminate">Alo\Session\AbstractSession::terminate()</a></code></div>
-
-		</div>
-		</div></td>
-	</tr>
-	</table>
-
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Alo.Session.AbstractSession.html#methods">Alo\Session\AbstractSession</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Alo.Session.AbstractSession.html#___destruct">__destruct()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#___get">__get()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#___set">__set()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#___toString">__toString()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#_delete">delete()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#_expire">expire()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#_getAll">getAll()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#_getID">getID()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#_identityCheck">identityCheck()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#_removeExpired">removeExpired()</a>, 
-			<a href="class-Alo.Session.AbstractSession.html#_setID">setID()</a>
-		</code></td>
-	</tr>
-	</table>
-
-
-
-
-
-
-
-
-	<table class="summary inherited">
-	<caption>Constants inherited from <a href="class-Alo.Session.AbstractSession.html#constants">Alo\Session\AbstractSession</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Alo.Session.AbstractSession.html#EXPIRE_KEY"><b>EXPIRE_KEY</b></a>, 
-			<a href="class-Alo.Session.AbstractSession.html#HASH_ALGO"><b>HASH_ALGO</b></a>
-		</code></td>
-	</tr>
-	</table>
-
-
-
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="mc" id="$mc">
-		<td class="attributes"><code>
-			protected  
-			<code><a href="class-Alo.Cache.AbstractCache.html">Alo\Cache\AbstractCache</a></code>
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Alo.Session.MemcachedSession.html#24-29" title="Go to source code"><var>$mc</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$mc" class="anchor">#</a>
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Alo.Session.MemcachedSession.html#31-49" title="Go to source code">__construct</a>( )</code>
 
 			<div class="description short">
 				
-<p>Reference to database instance</p>
+<p>Instantiates the class</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Reference to database instance</p>
+<p>Instantiates the class</p>
+
+
+
+
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.ExtensionException.html">Alo\Exception\ExtensionException</a></code></code><br>When a caching class is not available<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Alo.Session.AbstractSession.html#___construct">Alo\Session\AbstractSession::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="write" id="_write">
+
+			<td class="attributes"><code>
+				 protected 
+				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_write">#</a>
+			<code><a href="source-class-Alo.Session.MemcachedSession.html#51-56" title="Go to source code">write</a>( )</code>
+
+			<div class="description short">
+				
+<p>Saves session data</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Saves session data</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
 
 
 			</div>
-		</div></td>
-	</tr>
-	</table>
+			</div></td>
+		</tr>
+		<tr data-order="fetch" id="_fetch">
 
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-Alo.Session.AbstractSession.html#properties">Alo\Session\AbstractSession</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Alo.Session.AbstractSession.html#$data"><var>$data</var></a>, 
-			<a href="class-Alo.Session.AbstractSession.html#$id"><var>$id</var></a>, 
-			<a href="class-Alo.Session.AbstractSession.html#$save"><var>$save</var></a>, 
-			<a href="class-Alo.Session.AbstractSession.html#$time"><var>$time</var></a>
-		</code></td>
-	</tr>
-	</table>
+			<td class="attributes"><code>
+				 protected 
+				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fetch">#</a>
+			<code><a href="source-class-Alo.Session.MemcachedSession.html#58-68" title="Go to source code">fetch</a>( )</code>
+
+			<div class="description short">
+				
+<p>Fetches session data</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Fetches session data</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="terminate" id="_terminate">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_terminate">#</a>
+			<code><a href="source-class-Alo.Session.MemcachedSession.html#70-74" title="Go to source code">terminate</a>( )</code>
+
+			<div class="description short">
+				
+<p>Terminates the session</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Terminates the session</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Alo.Session.AbstractSession.html#_terminate">Alo\Session\AbstractSession::terminate</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Alo.Session.AbstractSession.html#methods">Alo\Session\AbstractSession</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Session.AbstractSession.html#___destruct">__destruct()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#___get">__get()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#___set">__set()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#___toString">__toString()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#_delete">delete()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#_expire">expire()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#_getAll">getAll()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#_getID">getID()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#_identityCheck">identityCheck()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#_removeExpired">removeExpired()</a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#_setID">setID()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+
+		<h3>Constants inherited from <a href="class-Alo.Session.AbstractSession.html#constants">Alo\Session\AbstractSession</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Session.AbstractSession.html#EXPIRE_KEY"><b>EXPIRE_KEY</b></a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#HASH_ALGO"><b>HASH_ALGO</b></a></code>
+		</p>
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="mc" id="$mc">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Alo.Cache.AbstractCache.html">Alo\Cache\AbstractCache</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.Session.MemcachedSession.html#24-29" title="Go to source code"><var>$mc</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$mc" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Reference to database instance</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Reference to database instance</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Properties inherited from <a href="class-Alo.Session.AbstractSession.html#properties">Alo\Session\AbstractSession</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Session.AbstractSession.html#$data"><var>$data</var></a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#$id"><var>$id</var></a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#$save"><var>$save</var></a></code>, 
+			<code><a href="class-Alo.Session.AbstractSession.html#$time"><var>$time</var></a></code>
+		</p>
 
 
 
 
 
 </div>
+	</div>
 
 	<div id="footer">
 		AloFramework documentation API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
-</div>
 </div>
 </body>
 </html>

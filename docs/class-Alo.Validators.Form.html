@@ -6,16 +6,56 @@
 
 	<title>Class Alo\Validators\Form | AloFramework documentation</title>
 
-	<script type="text/javascript" src="resources/combined.js?2171692866"></script>
+	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
 	<script type="text/javascript" src="elementlist.js?2099080705"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
 </head>
 
 <body>
-<div id="left">
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework documentation</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Alo.Validators.html" title="Summary of Alo\Validators"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
 	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
 
 
 		<div id="groups">
@@ -49,8 +89,6 @@
 			</ul>
 		</div>
 
-		<hr />
-
 
 		<div id="elements">
 			<h3>Classes</h3>
@@ -69,43 +107,7 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-Alo.Validators.html" title="Summary of Alo\Validators"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
-			</li>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Class Form</h1>
 
@@ -124,7 +126,7 @@
 
 
 
-	<div class="info">
+	<div class="alert alert-info">
 		
 		
 		<b>Namespace:</b> <a href="namespace-Alo.html">Alo</a>\<a href="namespace-Alo.Validators.html">Validators</a><br />
@@ -138,761 +140,759 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 
-	<table class="summary" id="methods">
-	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
 
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Alo.Validators.Form.html#133-146" title="Go to source code">__construct</a>( <span>array <var>$input</var></span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Alo.Validators.Form.html#133-146" title="Go to source code">__construct</a>( <span>array <var>$input</var></span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Instantiates the class and loads the input array</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Instantiates the class and loads the input array</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$input</var></dt>
-					<dd><code>array</code><br>$input The input array</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$input</var></dt>
+						<dd><code>array</code><br>$input The input array</dd>
+					</dl></div>
 
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="evaluate" id="_evaluate">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="evaluate" id="_evaluate">
 
-		<td class="attributes"><code>
-			 public 
-			<code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code>
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code>
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_evaluate">#</a>
-		<code><a href="source-class-Alo.Validators.Form.html#148-188" title="Go to source code">evaluate</a>( )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_evaluate">#</a>
+			<code><a href="source-class-Alo.Validators.Form.html#148-188" title="Go to source code">evaluate</a>( )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Evaluates the data</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Evaluates the data</p>
 
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code></code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code></code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="eval_param" id="_eval_param">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="eval_param" id="_eval_param">
 
-		<td class="attributes"><code>
-			 protected static
-			boolean
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 protected static
+				boolean
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_eval_param">#</a>
-		<code><a href="source-class-Alo.Validators.Form.html#190-234" title="Go to source code">eval_param</a>( <span>string <var>$data_value</var></span>, <span>integer <var>$bind_key</var></span>, <span>mixed <var>$bind_value</var></span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_eval_param">#</a>
+			<code><a href="source-class-Alo.Validators.Form.html#190-234" title="Go to source code">eval_param</a>( <span>string <var>$data_value</var></span>, <span>integer <var>$bind_key</var></span>, <span>mixed <var>$bind_value</var></span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Evaluates an element against a requirement</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Evaluates an element against a requirement</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$data_value</var></dt>
-					<dd><code>string</code><br>$data_value Element value</dd>
-					<dt><var>$bind_key</var></dt>
-					<dd><code>integer</code><br>$bind_key The requirement identifier constant</dd>
-					<dt><var>$bind_value</var></dt>
-					<dd><code>mixed</code><br>$bind_value The requirement specs if applicable</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data_value</var></dt>
+						<dd><code>string</code><br>$data_value Element value</dd>
+						<dt><var>$bind_key</var></dt>
+						<dd><code>integer</code><br>$bind_key The requirement identifier constant</dd>
+						<dt><var>$bind_value</var></dt>
+						<dd><code>mixed</code><br>$bind_value The requirement specs if applicable</dd>
+					</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>boolean</code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="bind" id="_bind">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="bind" id="_bind">
 
-		<td class="attributes"><code>
-			 public 
-			<code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code>
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code>
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_bind">#</a>
-		<code><a href="source-class-Alo.Validators.Form.html#236-253" title="Go to source code">bind</a>( <span>string <var>$element</var></span>, <span>array <var>$requirements</var></span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_bind">#</a>
+			<code><a href="source-class-Alo.Validators.Form.html#236-253" title="Go to source code">bind</a>( <span>string <var>$element</var></span>, <span>array <var>$requirements</var></span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Binds a set of requirements to an element</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Binds a set of requirements to an element</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$element</var></dt>
-					<dd><code>string</code><br>$element The element key</dd>
-					<dt><var>$requirements</var></dt>
-					<dd><code>array</code><br>$requirements Associative array of requirements</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$element</var></dt>
+						<dd><code>string</code><br>$element The element key</dd>
+						<dt><var>$requirements</var></dt>
+						<dd><code>array</code><br>$requirements Associative array of requirements</dd>
+					</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code></code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code></code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getEvaluation" id="_getEvaluation">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getEvaluation" id="_getEvaluation">
 
-		<td class="attributes"><code>
-			 public 
-			array
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_getEvaluation">#</a>
-		<code><a href="source-class-Alo.Validators.Form.html#255-263" title="Go to source code">getEvaluation</a>( )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_getEvaluation">#</a>
+			<code><a href="source-class-Alo.Validators.Form.html#255-263" title="Go to source code">getEvaluation</a>( )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Returns the evaluation array</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Returns the evaluation array</p>
 
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array</code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getBinds" id="_getBinds">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getBinds" id="_getBinds">
 
-		<td class="attributes"><code>
-			 public 
-			array
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_getBinds">#</a>
-		<code><a href="source-class-Alo.Validators.Form.html#265-273" title="Go to source code">getBinds</a>( )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_getBinds">#</a>
+			<code><a href="source-class-Alo.Validators.Form.html#265-273" title="Go to source code">getBinds</a>( )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Returns the binds set</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Returns the binds set</p>
 
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array</code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+		<table class="summary table table-bordered table-striped" id="constants">
+		<tr data-order="R_EMAIL" id="R_EMAIL">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#18-23" title="Go to source code"><b>R_EMAIL</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">101</span></code></td>
+			<td class="description"><div>
+				<a href="#R_EMAIL" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Defines a requirement as "email format"</p>
+
 				</div>
 
-
-		</div>
-		</div></td>
-	</tr>
-	</table>
-
-
-
-
-
-
-
-
-	<table class="summary" id="constants">
-	<caption>Constants summary</caption>
-	<tr data-order="R_EMAIL" id="R_EMAIL">
-
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#18-23" title="Go to source code"><b>R_EMAIL</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">101</span></code></td>
-		<td class="description"><div>
-			<a href="#R_EMAIL" class="anchor">#</a>
-
-			<div class="description short">
-				
-<p>Defines a requirement as "email format"</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "email format"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_REQUIRED" id="R_REQUIRED">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_REQUIRED" id="R_REQUIRED">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#24-29" title="Go to source code"><b>R_REQUIRED</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">102</span></code></td>
-		<td class="description"><div>
-			<a href="#R_REQUIRED" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#24-29" title="Go to source code"><b>R_REQUIRED</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">102</span></code></td>
+			<td class="description"><div>
+				<a href="#R_REQUIRED" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "value required"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "value required"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_NUMERIC" id="R_NUMERIC">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_NUMERIC" id="R_NUMERIC">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#30-35" title="Go to source code"><b>R_NUMERIC</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">103</span></code></td>
-		<td class="description"><div>
-			<a href="#R_NUMERIC" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#30-35" title="Go to source code"><b>R_NUMERIC</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">103</span></code></td>
+			<td class="description"><div>
+				<a href="#R_NUMERIC" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "must be numeric"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "must be numeric"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_LENGTH_MIN" id="R_LENGTH_MIN">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_LENGTH_MIN" id="R_LENGTH_MIN">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#36-41" title="Go to source code"><b>R_LENGTH_MIN</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">104</span></code></td>
-		<td class="description"><div>
-			<a href="#R_LENGTH_MIN" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#36-41" title="Go to source code"><b>R_LENGTH_MIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">104</span></code></td>
+			<td class="description"><div>
+				<a href="#R_LENGTH_MIN" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "minimum length"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "minimum length"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_LENGTH_MAX" id="R_LENGTH_MAX">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_LENGTH_MAX" id="R_LENGTH_MAX">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#42-47" title="Go to source code"><b>R_LENGTH_MAX</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">105</span></code></td>
-		<td class="description"><div>
-			<a href="#R_LENGTH_MAX" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#42-47" title="Go to source code"><b>R_LENGTH_MAX</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">105</span></code></td>
+			<td class="description"><div>
+				<a href="#R_LENGTH_MAX" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "maximum length"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "maximum length"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_REGEX" id="R_REGEX">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_REGEX" id="R_REGEX">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#48-53" title="Go to source code"><b>R_REGEX</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">106</span></code></td>
-		<td class="description"><div>
-			<a href="#R_REGEX" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#48-53" title="Go to source code"><b>R_REGEX</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">106</span></code></td>
+			<td class="description"><div>
+				<a href="#R_REGEX" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "must match regular expression"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "must match regular expression"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_CONTAIN_UPPERCASE" id="R_CONTAIN_UPPERCASE">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_CONTAIN_UPPERCASE" id="R_CONTAIN_UPPERCASE">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#54-59" title="Go to source code"><b>R_CONTAIN_UPPERCASE</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">107</span></code></td>
-		<td class="description"><div>
-			<a href="#R_CONTAIN_UPPERCASE" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#54-59" title="Go to source code"><b>R_CONTAIN_UPPERCASE</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">107</span></code></td>
+			<td class="description"><div>
+				<a href="#R_CONTAIN_UPPERCASE" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "must contain uppercase character"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "must contain uppercase character"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_CONTAIN_LOWERCASE" id="R_CONTAIN_LOWERCASE">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_CONTAIN_LOWERCASE" id="R_CONTAIN_LOWERCASE">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#60-65" title="Go to source code"><b>R_CONTAIN_LOWERCASE</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">108</span></code></td>
-		<td class="description"><div>
-			<a href="#R_CONTAIN_LOWERCASE" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#60-65" title="Go to source code"><b>R_CONTAIN_LOWERCASE</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">108</span></code></td>
+			<td class="description"><div>
+				<a href="#R_CONTAIN_LOWERCASE" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "must contain lowercase character"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "must contain lowercase character"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_CONTAIN_NUMBER" id="R_CONTAIN_NUMBER">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_CONTAIN_NUMBER" id="R_CONTAIN_NUMBER">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#66-71" title="Go to source code"><b>R_CONTAIN_NUMBER</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">109</span></code></td>
-		<td class="description"><div>
-			<a href="#R_CONTAIN_NUMBER" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#66-71" title="Go to source code"><b>R_CONTAIN_NUMBER</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">109</span></code></td>
+			<td class="description"><div>
+				<a href="#R_CONTAIN_NUMBER" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "must contain number"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "must contain number"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_CONTAIN_NONALPHANUM" id="R_CONTAIN_NONALPHANUM">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_CONTAIN_NONALPHANUM" id="R_CONTAIN_NONALPHANUM">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#72-77" title="Go to source code"><b>R_CONTAIN_NONALPHANUM</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">110</span></code></td>
-		<td class="description"><div>
-			<a href="#R_CONTAIN_NONALPHANUM" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#72-77" title="Go to source code"><b>R_CONTAIN_NONALPHANUM</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">110</span></code></td>
+			<td class="description"><div>
+				<a href="#R_CONTAIN_NONALPHANUM" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "must contain non-alphanumeric character"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "must contain non-alphanumeric character"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_VAL_LT" id="R_VAL_LT">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_VAL_LT" id="R_VAL_LT">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#78-83" title="Go to source code"><b>R_VAL_LT</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">111</span></code></td>
-		<td class="description"><div>
-			<a href="#R_VAL_LT" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#78-83" title="Go to source code"><b>R_VAL_LT</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">111</span></code></td>
+			<td class="description"><div>
+				<a href="#R_VAL_LT" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "numeric value must be lower than"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "numeric value must be lower than"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_VAL_GT" id="R_VAL_GT">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_VAL_GT" id="R_VAL_GT">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#84-89" title="Go to source code"><b>R_VAL_GT</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">112</span></code></td>
-		<td class="description"><div>
-			<a href="#R_VAL_GT" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#84-89" title="Go to source code"><b>R_VAL_GT</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">112</span></code></td>
+			<td class="description"><div>
+				<a href="#R_VAL_GT" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "numeric value must be greater than"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "numeric value must be greater than"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_VAL_RANGE" id="R_VAL_RANGE">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_VAL_RANGE" id="R_VAL_RANGE">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#90-95" title="Go to source code"><b>R_VAL_RANGE</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">113</span></code></td>
-		<td class="description"><div>
-			<a href="#R_VAL_RANGE" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#90-95" title="Go to source code"><b>R_VAL_RANGE</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">113</span></code></td>
+			<td class="description"><div>
+				<a href="#R_VAL_RANGE" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "must be within a supplied range of values"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "must be within a supplied range of values"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_VAL_LTE" id="R_VAL_LTE">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_VAL_LTE" id="R_VAL_LTE">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#96-101" title="Go to source code"><b>R_VAL_LTE</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">114</span></code></td>
-		<td class="description"><div>
-			<a href="#R_VAL_LTE" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#96-101" title="Go to source code"><b>R_VAL_LTE</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">114</span></code></td>
+			<td class="description"><div>
+				<a href="#R_VAL_LTE" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "numeric value must be lower than or equal to"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "numeric value must be lower than or equal to"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="R_VAL_GTE" id="R_VAL_GTE">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="R_VAL_GTE" id="R_VAL_GTE">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#102-107" title="Go to source code"><b>R_VAL_GTE</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">115</span></code></td>
-		<td class="description"><div>
-			<a href="#R_VAL_GTE" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#102-107" title="Go to source code"><b>R_VAL_GTE</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">115</span></code></td>
+			<td class="description"><div>
+				<a href="#R_VAL_GTE" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a requirement as "numeric value must be greater than or equal to"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a requirement as "numeric value must be greater than or equal to"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="E_NONSCALAR" id="E_NONSCALAR">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="E_NONSCALAR" id="E_NONSCALAR">
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Validators.Form.html#108-113" title="Go to source code"><b>E_NONSCALAR</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">400</span></code></td>
-		<td class="description"><div>
-			<a href="#E_NONSCALAR" class="anchor">#</a>
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Validators.Form.html#108-113" title="Go to source code"><b>E_NONSCALAR</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">400</span></code></td>
+			<td class="description"><div>
+				<a href="#E_NONSCALAR" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Error when a value is non-scalar</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Error when a value is non-scalar</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	</table>
+				</div>
+			</div></td>
+		</tr>
+		</table>
 
 
 
 
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="data" id="$data">
-		<td class="attributes"><code>
-			protected  
-			array
-		</code></td>
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="data" id="$data">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
 
-		<td class="name">
-				<a href="source-class-Alo.Validators.Form.html#114-119" title="Go to source code"><var>$data</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$data" class="anchor">#</a>
+			<td class="name">
+					<a href="source-class-Alo.Validators.Form.html#114-119" title="Go to source code"><var>$data</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$data" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Supplied data array</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Supplied data array</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="binds" id="$binds">
-		<td class="attributes"><code>
-			protected  
-			array
-		</code></td>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="binds" id="$binds">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
 
-		<td class="name">
-				<a href="source-class-Alo.Validators.Form.html#120-125" title="Go to source code"><var>$binds</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$binds" class="anchor">#</a>
+			<td class="name">
+					<a href="source-class-Alo.Validators.Form.html#120-125" title="Go to source code"><var>$binds</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$binds" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Element requirements</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Element requirements</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="evaluation" id="$evaluation">
-		<td class="attributes"><code>
-			protected  
-			array
-		</code></td>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="evaluation" id="$evaluation">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
 
-		<td class="name">
-				<a href="source-class-Alo.Validators.Form.html#126-131" title="Go to source code"><var>$evaluation</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$evaluation" class="anchor">#</a>
+			<td class="name">
+					<a href="source-class-Alo.Validators.Form.html#126-131" title="Go to source code"><var>$evaluation</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$evaluation" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Data array post-evaluation</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Data array post-evaluation</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	</table>
+				</div>
+			</div></td>
+		</tr>
+		</table>
 
 
 
@@ -900,11 +900,11 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 </div>
+	</div>
 
 	<div id="footer">
 		AloFramework documentation API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
-</div>
 </div>
 </body>
 </html>

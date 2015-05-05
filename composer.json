@@ -23,13 +23,11 @@
 		"issues": "https://github.com/Alorel/alo-framework/issues"
 	},
 	"require-dev":       {
-		"phpdocumentor/phpdocumentor":  "dev-master",
-		"phpdocumentor/plugin-twig":    "dev-master",
-		"phpdocumentor/template-phpcr": "dev-master",
-		"phpunit/phpunit":              "dev-master"
+		"phpunit/phpunit": "dev-master"
 	},
 	"require":           {
 		"phpmailer/phpmailer": "5.2.10",
-		"raveren/kint": "dev-master"
+		"raveren/kint":        "dev-master",
+		"apigen/apigen": "2.8.0"
 	}
 }

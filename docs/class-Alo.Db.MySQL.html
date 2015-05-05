@@ -6,16 +6,56 @@
 
 	<title>Class Alo\Db\MySQL | AloFramework documentation</title>
 
-	<script type="text/javascript" src="resources/combined.js?2171692866"></script>
+	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
 	<script type="text/javascript" src="elementlist.js?2099080705"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
 </head>
 
 <body>
-<div id="left">
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework documentation</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Alo.Db.html" title="Summary of Alo\Db"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
 	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
 
 
 		<div id="groups">
@@ -49,8 +89,6 @@
 			</ul>
 		</div>
 
-		<hr />
-
 
 		<div id="elements">
 			<h3>Classes</h3>
@@ -70,43 +108,7 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-Alo.Db.html" title="Summary of Alo\Db"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
-			</li>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Class MySQL</h1>
 
@@ -117,7 +119,7 @@
 
 	</div>
 
-	<dl class="tree">
+	<dl class="tree well">
 		<dd style="padding-left:0px">
 			<a href="class-Alo.Db.AbstractDb.html"><span>Alo\Db\AbstractDb</span></a>
 			
@@ -139,7 +141,7 @@
 
 
 
-	<div class="info">
+	<div class="alert alert-info">
 		
 		
 		<b>Namespace:</b> <a href="namespace-Alo.html">Alo</a>\<a href="namespace-Alo.Db.html">Db</a><br />
@@ -156,564 +158,553 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 
-	<table class="summary" id="methods">
-	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#30-55" title="Go to source code">__construct</a>( <span>string <var>$ip</var> = ALO_MYSQL_SERVER</span>, <span>integer <var>$port</var> = ALO_MYSQL_PORT</span>, <span>string <var>$user</var> = ALO_MYSQL_USER</span>, <span>string <var>$pw</var> = ALO_MYSQL_PW</span>, <span>string <var>$db</var> = ALO_MYSQL_DATABASE</span>, <span>string <var>$cache</var> = ALO_MYSQL_CACHE</span>, <span>array <var>$options</var> = <span class="php-keyword1">null</span></span> )</code>
-
-		<div class="description short">
-			
-<p>Instantiates the database connection</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Instantiates the database connection</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$ip</var></dt>
-					<dd><code>string</code><br>$ip The IP address to use</dd>
-					<dt><var>$port</var></dt>
-					<dd><code>integer</code><br>$port The port to use</dd>
-					<dt><var>$user</var></dt>
-					<dd><code>string</code><br>$user The username</dd>
-					<dt><var>$pw</var></dt>
-					<dd><code>string</code><br>$pw The password</dd>
-					<dt><var>$db</var></dt>
-					<dd><code>string</code><br>$db The database to use</dd>
-					<dt><var>$cache</var></dt>
-					<dd><code>string</code><br>$cache Which cache interface to use</dd>
-					<dt><var>$options</var></dt>
-					<dd><code>array</code><br>$options Connection options</dd>
-				</dl></div>
-
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-Alo.Db.AbstractDb.html#___construct">Alo\Db\AbstractDb::__construct()</a></code></div>
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="aggregate" id="_aggregate">
-
-		<td class="attributes"><code>
-			 public 
-			integer|float
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_aggregate">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#57-80" title="Go to source code">aggregate</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$settings</var> = []</span> )</code>
-
-		<div class="description short">
-			
-<p>Returns an aggregated one-column result set, e.g. from a count(*) query</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Returns an aggregated one-column result set, e.g. from a count(*) query</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql The SQL code</dd>
-					<dt><var>$params</var></dt>
-					<dd><code>array</code><br>$params Bound parameters</dd>
-					<dt><var>$settings</var></dt>
-					<dd><code>array</code><br>$settings Optional settings</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>integer|float</code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="beginTransaction" id="_beginTransaction">
-
-		<td class="attributes"><code>
-			 public 
-			<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_beginTransaction">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#82-84" title="Go to source code">beginTransaction</a>( )</code>
-
-		<div class="description short">
-			
-<p>Begins a transaction</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Begins a transaction</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="commit" id="_commit">
-
-		<td class="attributes"><code>
-			 public 
-			<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_commit">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#86-88" title="Go to source code">commit</a>( )</code>
-
-		<div class="description short">
-			
-<p>Commits a transaction</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Commits a transaction</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="prepQuery" id="_prepQuery">
-
-		<td class="attributes"><code>
-			 public 
-			array|boolean
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_prepQuery">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#90-111" title="Go to source code">prepQuery</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$settings</var> = []</span> )</code>
-
-		<div class="description short">
-			
-<p>Executes a prepared query and returns the results</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Executes a prepared query and returns the results</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql The SQL code</dd>
-					<dt><var>$params</var></dt>
-					<dd><code>array</code><br>$params Bound parameters</dd>
-					<dt><var>$settings</var></dt>
-					<dd><code>array</code><br>$settings Optional settings</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array|boolean</code><br>Result array on SELECT queries, TRUE/FALSE for others<br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="query" id="_query">
-
-		<td class="attributes"><code>
-			 public 
-			array|boolean
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_query">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#113-123" title="Go to source code">query</a>( <span>string <var>$sql</var></span> )</code>
-
-		<div class="description short">
-			
-<p>Executes a quick unescaped query without preparing it</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Executes a quick unescaped query without preparing it</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql SQL code</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array|boolean</code><br>Result array on SELECT queries, TRUE/FALSE for others<br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="rollBack" id="_rollBack">
-
-		<td class="attributes"><code>
-			 public 
-			<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_rollBack">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#125-127" title="Go to source code">rollBack</a>( )</code>
-
-		<div class="description short">
-			
-<p>Rolls back a transaction</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Rolls back a transaction</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="prepare" id="_prepare">
-
-		<td class="attributes"><code>
-			 public 
-			<code><a href="class-PDOStatement.html">PDOStatement</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_prepare">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#129-131" title="Go to source code">prepare</a>( <span>string <var>$sql</var></span> )</code>
-
-		<div class="description short">
-			
-<p>Prepares a statement</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Prepares a statement</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql A SQL statement to prepare</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-PDOStatement.html">PDOStatement</a></code></code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="transactionActive" id="_transactionActive">
-
-		<td class="attributes"><code>
-			 public 
-			boolean
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_transactionActive">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#133-135" title="Go to source code">transactionActive</a>( )</code>
-
-		<div class="description short">
-			
-<p>Checks whether a transaction is active</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Checks whether a transaction is active</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>boolean</code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="__call" id="___call">
-
-		<td class="attributes"><code>
-			 public 
-			mixed
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___call">#</a>
-		<code><a href="source-class-Alo.Db.MySQL.html#137-147" title="Go to source code">__call</a>( <span>string <var>$name</var></span>, <span>array <var>$arguments</var></span> )</code>
-
-		<div class="description short">
-			
-<p>Handles direct calls to PDO</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Handles direct calls to PDO</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name Method name</dd>
-					<dt><var>$arguments</var></dt>
-					<dd><code>array</code><br>$arguments Array of parameters</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>mixed</code><br />
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	</table>
-
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Alo.Db.AbstractDb.html#methods">Alo\Db\AbstractDb</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Alo.Db.AbstractDb.html#_getLastHash">getLastHash()</a>, 
-			<a href="class-Alo.Db.AbstractDb.html#_hash">hash()</a>
-		</code></td>
-	</tr>
-	</table>
-
-
-
-
-
-
-
-
-	<table class="summary inherited">
-	<caption>Constants inherited from <a href="class-Alo.Db.AbstractDb.html#constants">Alo\Db\AbstractDb</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Alo.Db.AbstractDb.html#V_CACHE"><b>V_CACHE</b></a>, 
-			<a href="class-Alo.Db.AbstractDb.html#V_FETCH_NUM"><b>V_FETCH_NUM</b></a>, 
-			<a href="class-Alo.Db.AbstractDb.html#V_PREFIX"><b>V_PREFIX</b></a>, 
-			<a href="class-Alo.Db.AbstractDb.html#V_TIME"><b>V_TIME</b></a>
-		</code></td>
-	</tr>
-	</table>
-
-
-
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="pdo" id="$pdo">
-		<td class="attributes"><code>
-			protected  
-			<code><a href="class-PDO.html">PDO</a></code>
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Alo.Db.MySQL.html#23-28" title="Go to source code"><var>$pdo</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$pdo" class="anchor">#</a>
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#30-55" title="Go to source code">__construct</a>( <span>string <var>$ip</var> = ALO_MYSQL_SERVER</span>, <span>integer <var>$port</var> = ALO_MYSQL_PORT</span>, <span>string <var>$user</var> = ALO_MYSQL_USER</span>, <span>string <var>$pw</var> = ALO_MYSQL_PW</span>, <span>string <var>$db</var> = ALO_MYSQL_DATABASE</span>, <span>string <var>$cache</var> = ALO_MYSQL_CACHE</span>, <span>array <var>$options</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
-<p>The PDO instance</p>
+<p>Instantiates the database connection</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>The PDO instance</p>
+<p>Instantiates the database connection</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$ip</var></dt>
+						<dd><code>string</code><br>$ip The IP address to use</dd>
+						<dt><var>$port</var></dt>
+						<dd><code>integer</code><br>$port The port to use</dd>
+						<dt><var>$user</var></dt>
+						<dd><code>string</code><br>$user The username</dd>
+						<dt><var>$pw</var></dt>
+						<dd><code>string</code><br>$pw The password</dd>
+						<dt><var>$db</var></dt>
+						<dd><code>string</code><br>$db The database to use</dd>
+						<dt><var>$cache</var></dt>
+						<dd><code>string</code><br>$cache Which cache interface to use</dd>
+						<dt><var>$options</var></dt>
+						<dd><code>array</code><br>$options Connection options</dd>
+					</dl></div>
+
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Alo.Db.AbstractDb.html#___construct">Alo\Db\AbstractDb::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="aggregate" id="_aggregate">
+
+			<td class="attributes"><code>
+				 public 
+				integer|float
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_aggregate">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#57-80" title="Go to source code">aggregate</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$settings</var> = []</span> )</code>
+
+			<div class="description short">
+				
+<p>Returns an aggregated one-column result set, e.g. from a count(*) query</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns an aggregated one-column result set, e.g. from a count(*) query</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql The SQL code</dd>
+						<dt><var>$params</var></dt>
+						<dd><code>array</code><br>$params Bound parameters</dd>
+						<dt><var>$settings</var></dt>
+						<dd><code>array</code><br>$settings Optional settings</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer|float</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
 
 
 			</div>
-		</div></td>
-	</tr>
-	</table>
+			</div></td>
+		</tr>
+		<tr data-order="beginTransaction" id="_beginTransaction">
 
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-Alo.Db.AbstractDb.html#properties">Alo\Db\AbstractDb</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Alo.Db.AbstractDb.html#$cache"><var>$cache</var></a>, 
-			<a href="class-Alo.Db.AbstractDb.html#$cache_prefix"><var>$cache_prefix</var></a>, 
-			<a href="class-Alo.Db.AbstractDb.html#$default_settings"><var>$default_settings</var></a>, 
-			<a href="class-Alo.Db.AbstractDb.html#$last_hash"><var>$last_hash</var></a>
-		</code></td>
-	</tr>
-	</table>
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_beginTransaction">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#82-84" title="Go to source code">beginTransaction</a>( )</code>
+
+			<div class="description short">
+				
+<p>Begins a transaction</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Begins a transaction</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="commit" id="_commit">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_commit">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#86-88" title="Go to source code">commit</a>( )</code>
+
+			<div class="description short">
+				
+<p>Commits a transaction</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Commits a transaction</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="prepQuery" id="_prepQuery">
+
+			<td class="attributes"><code>
+				 public 
+				array|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_prepQuery">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#90-111" title="Go to source code">prepQuery</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$settings</var> = []</span> )</code>
+
+			<div class="description short">
+				
+<p>Executes a prepared query and returns the results</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Executes a prepared query and returns the results</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql The SQL code</dd>
+						<dt><var>$params</var></dt>
+						<dd><code>array</code><br>$params Bound parameters</dd>
+						<dt><var>$settings</var></dt>
+						<dd><code>array</code><br>$settings Optional settings</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array|boolean</code><br>Result array on SELECT queries, TRUE/FALSE for others<br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="query" id="_query">
+
+			<td class="attributes"><code>
+				 public 
+				array|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_query">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#113-123" title="Go to source code">query</a>( <span>string <var>$sql</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Executes a quick unescaped query without preparing it</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Executes a quick unescaped query without preparing it</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql SQL code</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array|boolean</code><br>Result array on SELECT queries, TRUE/FALSE for others<br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="rollBack" id="_rollBack">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_rollBack">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#125-127" title="Go to source code">rollBack</a>( )</code>
+
+			<div class="description short">
+				
+<p>Rolls back a transaction</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Rolls back a transaction</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="prepare" id="_prepare">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-PDOStatement.html">PDOStatement</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_prepare">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#129-131" title="Go to source code">prepare</a>( <span>string <var>$sql</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Prepares a statement</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Prepares a statement</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql A SQL statement to prepare</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-PDOStatement.html">PDOStatement</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="transactionActive" id="_transactionActive">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_transactionActive">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#133-135" title="Go to source code">transactionActive</a>( )</code>
+
+			<div class="description short">
+				
+<p>Checks whether a transaction is active</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Checks whether a transaction is active</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__call" id="___call">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___call">#</a>
+			<code><a href="source-class-Alo.Db.MySQL.html#137-147" title="Go to source code">__call</a>( <span>string <var>$name</var></span>, <span>array <var>$arguments</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Handles direct calls to PDO</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Handles direct calls to PDO</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd><code>string</code><br>$name Method name</dd>
+						<dt><var>$arguments</var></dt>
+						<dd><code>array</code><br>$arguments Array of parameters</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>mixed</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Alo.Db.AbstractDb.html#methods">Alo\Db\AbstractDb</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Db.AbstractDb.html#_getLastHash">getLastHash()</a></code>, 
+			<code><a href="class-Alo.Db.AbstractDb.html#_hash">hash()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+
+		<h3>Constants inherited from <a href="class-Alo.Db.AbstractDb.html#constants">Alo\Db\AbstractDb</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Db.AbstractDb.html#V_CACHE"><b>V_CACHE</b></a></code>, 
+			<code><a href="class-Alo.Db.AbstractDb.html#V_FETCH_NUM"><b>V_FETCH_NUM</b></a></code>, 
+			<code><a href="class-Alo.Db.AbstractDb.html#V_PREFIX"><b>V_PREFIX</b></a></code>, 
+			<code><a href="class-Alo.Db.AbstractDb.html#V_TIME"><b>V_TIME</b></a></code>
+		</p>
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="pdo" id="$pdo">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-PDO.html">PDO</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.Db.MySQL.html#23-28" title="Go to source code"><var>$pdo</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$pdo" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The PDO instance</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The PDO instance</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Properties inherited from <a href="class-Alo.Db.AbstractDb.html#properties">Alo\Db\AbstractDb</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Db.AbstractDb.html#$cache"><var>$cache</var></a></code>, 
+			<code><a href="class-Alo.Db.AbstractDb.html#$cache_prefix"><var>$cache_prefix</var></a></code>, 
+			<code><a href="class-Alo.Db.AbstractDb.html#$default_settings"><var>$default_settings</var></a></code>, 
+			<code><a href="class-Alo.Db.AbstractDb.html#$last_hash"><var>$last_hash</var></a></code>
+		</p>
 
 
 
 
 
 </div>
+	</div>
 
 	<div id="footer">
 		AloFramework documentation API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
-</div>
 </div>
 </body>
 </html>

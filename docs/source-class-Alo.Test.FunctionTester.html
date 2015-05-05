@@ -7,16 +7,57 @@
 
 	<title>File sys/class/alo/test/functiontester.php | AloFramework documentation</title>
 
-	<script type="text/javascript" src="resources/combined.js?2171692866"></script>
+	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
 	<script type="text/javascript" src="elementlist.js?2099080705"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
 </head>
 
 <body>
-<div id="left">
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework documentation</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Alo.Test.html" title="Summary of Alo\Test"><span>Namespace</span></a>
+						</li>
+						<li>
+							<a href="class-Alo.Test.FunctionTester.html" title="Summary of Alo\Test\FunctionTester"><span>Class</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
 	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
 
 
 		<div id="groups">
@@ -50,8 +91,6 @@
 			</ul>
 		</div>
 
-		<hr />
-
 
 		<div id="elements">
 			<h3>Classes</h3>
@@ -72,77 +111,40 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-Alo.Test.html" title="Summary of Alo\Test"><span>Namespace</span></a>
-			</li>
-			<li>
-				<a href="class-Alo.Test.FunctionTester.html" title="Summary of Alo\Test\FunctionTester"><span>Class</span></a>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
-			</li>
-		</ul>
+	<div id="rightInner">
+<pre id="source"><code><span id="1" class="l"><a class="l" href="#1"> 1 </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2 </a>
+</span><span id="3" class="l"><a class="l" href="#3"> 3 </a>   <span class="php-keyword1">namespace</span> Alo\Test;
+</span><span id="4" class="l"><a class="l" href="#4"> 4 </a>
+</span><span id="5" class="l"><a class="l" href="#5"> 5 </a>   <span class="php-keyword1">if</span> (!<span class="php-keyword2">defined</span>(<span class="php-quote">'GEN_START'</span>)) {
+</span><span id="6" class="l"><a class="l" href="#6"> 6 </a>      <span class="php-keyword2">http_response_code</span>(<span class="php-num">404</span>);
+</span><span id="7" class="l"><a class="l" href="#7"> 7 </a>      <span class="php-keyword1">die</span>();
+</span><span id="8" class="l"><a class="l" href="#8"> 8 </a>   }
+</span><span id="9" class="l"><a class="l" href="#9"> 9 </a>
+</span><span id="10" class="l"><a class="l" href="#10">10 </a>   <span class="php-comment">/**
+</span></span><span id="11" class="l"><a class="l" href="#11">11 </a><span class="php-comment">    * Tests functions for output or return values
+</span></span><span id="12" class="l"><a class="l" href="#12">12 </a><span class="php-comment">    *
+</span></span><span id="13" class="l"><a class="l" href="#13">13 </a><span class="php-comment">    * @author  Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="14" class="l"><a class="l" href="#14">14 </a><span class="php-comment">    * @package TestingSuite
+</span></span><span id="15" class="l"><a class="l" href="#15">15 </a><span class="php-comment">    */</span>
+</span><span id="16" class="l"><a class="l" href="#16">16 </a>   <span class="php-keyword1">class</span> <a id="FunctionTester" href="#FunctionTester">FunctionTester</a> <span class="php-keyword1">extends</span> AbstractTester {
+</span><span id="17" class="l"><a class="l" href="#17">17 </a>
+</span><span id="18" class="l"><a class="l" href="#18">18 </a>      <span class="php-comment">/**
+</span></span><span id="19" class="l"><a class="l" href="#19">19 </a><span class="php-comment">       * Returns the callable parameter for call_user_func_array()
+</span></span><span id="20" class="l"><a class="l" href="#20">20 </a><span class="php-comment">       *
+</span></span><span id="21" class="l"><a class="l" href="#21">21 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="22" class="l"><a class="l" href="#22">22 </a><span class="php-comment">       * @param string $name Method name
+</span></span><span id="23" class="l"><a class="l" href="#23">23 </a><span class="php-comment">       * @return string
+</span></span><span id="24" class="l"><a class="l" href="#24">24 </a><span class="php-comment">       */</span>
+</span><span id="25" class="l"><a class="l" href="#25">25 </a>      <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_getCallable" href="#_getCallable">getCallable</a>(<span class="php-var">$name</span>) {
+</span><span id="26" class="l"><a class="l" href="#26">26 </a>         <span class="php-keyword1">return</span> <span class="php-var">$name</span>;
+</span><span id="27" class="l"><a class="l" href="#27">27 </a>      }
+</span><span id="28" class="l"><a class="l" href="#28">28 </a></span>   }</code></pre>
 	</div>
-
-<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
-</span><span id="2" class="l"><a class="l" href="#2"> 2: </a>
-</span><span id="3" class="l"><a class="l" href="#3"> 3: </a>   <span class="php-keyword1">namespace</span> Alo\Test;
-</span><span id="4" class="l"><a class="l" href="#4"> 4: </a>
-</span><span id="5" class="l"><a class="l" href="#5"> 5: </a>   <span class="php-keyword1">if</span> (!<span class="php-keyword2">defined</span>(<span class="php-quote">'GEN_START'</span>)) {
-</span><span id="6" class="l"><a class="l" href="#6"> 6: </a>      <span class="php-keyword2">http_response_code</span>(<span class="php-num">404</span>);
-</span><span id="7" class="l"><a class="l" href="#7"> 7: </a>      <span class="php-keyword1">die</span>();
-</span><span id="8" class="l"><a class="l" href="#8"> 8: </a>   }
-</span><span id="9" class="l"><a class="l" href="#9"> 9: </a>
-</span><span id="10" class="l"><a class="l" href="#10">10: </a>   <span class="php-comment">/**
-</span></span><span id="11" class="l"><a class="l" href="#11">11: </a><span class="php-comment">    * Tests functions for output or return values
-</span></span><span id="12" class="l"><a class="l" href="#12">12: </a><span class="php-comment">    *
-</span></span><span id="13" class="l"><a class="l" href="#13">13: </a><span class="php-comment">    * @author  Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="14" class="l"><a class="l" href="#14">14: </a><span class="php-comment">    * @package TestingSuite
-</span></span><span id="15" class="l"><a class="l" href="#15">15: </a><span class="php-comment">    */</span>
-</span><span id="16" class="l"><a class="l" href="#16">16: </a>   <span class="php-keyword1">class</span> <a id="FunctionTester" href="#FunctionTester">FunctionTester</a> <span class="php-keyword1">extends</span> AbstractTester {
-</span><span id="17" class="l"><a class="l" href="#17">17: </a>
-</span><span id="18" class="l"><a class="l" href="#18">18: </a>      <span class="php-comment">/**
-</span></span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-comment">       * Returns the callable parameter for call_user_func_array()
-</span></span><span id="20" class="l"><a class="l" href="#20">20: </a><span class="php-comment">       *
-</span></span><span id="21" class="l"><a class="l" href="#21">21: </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-comment">       * @param string $name Method name
-</span></span><span id="23" class="l"><a class="l" href="#23">23: </a><span class="php-comment">       * @return string
-</span></span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-comment">       */</span>
-</span><span id="25" class="l"><a class="l" href="#25">25: </a>      <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_getCallable" href="#_getCallable">getCallable</a>(<span class="php-var">$name</span>) {
-</span><span id="26" class="l"><a class="l" href="#26">26: </a>         <span class="php-keyword1">return</span> <span class="php-var">$name</span>;
-</span><span id="27" class="l"><a class="l" href="#27">27: </a>      }
-</span><span id="28" class="l"><a class="l" href="#28">28: </a></span>   }</code></pre>
 
 	<div id="footer">
 		AloFramework documentation API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
-</div>
 </div>
 </body>
 </html>

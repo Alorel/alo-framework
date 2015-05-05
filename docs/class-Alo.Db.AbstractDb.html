@@ -6,16 +6,56 @@
 
 	<title>Class Alo\Db\AbstractDb | AloFramework documentation</title>
 
-	<script type="text/javascript" src="resources/combined.js?2171692866"></script>
+	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
 	<script type="text/javascript" src="elementlist.js?2099080705"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
 </head>
 
 <body>
-<div id="left">
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework documentation</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Alo.Db.html" title="Summary of Alo\Db"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
 	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
 
 
 		<div id="groups">
@@ -49,8 +89,6 @@
 			</ul>
 		</div>
 
-		<hr />
-
 
 		<div id="elements">
 			<h3>Classes</h3>
@@ -70,43 +108,7 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-Alo.Db.html" title="Summary of Alo\Db"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
-			</li>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Class AbstractDb</h1>
 
@@ -120,8 +122,10 @@
 
 
 	<div>
-		<h4>Direct known subclasses</h4>
-			<a href="class-Alo.Db.MySQL.html">Alo\Db\MySQL</a>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Db.MySQL.html">Alo\Db\MySQL</a></code>
+		</p>
 	</div>
 
 
@@ -129,7 +133,7 @@
 
 
 
-	<div class="info">
+	<div class="alert alert-info">
 		<b>Abstract</b><br />
 		
 		<b>Namespace:</b> <a href="namespace-Alo.html">Alo</a>\<a href="namespace-Alo.Db.html">Db</a><br />
@@ -143,738 +147,730 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 
-	<table class="summary" id="methods">
-	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
 
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#84-96" title="Go to source code">__construct</a>( <span>string <var>$cache</var></span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#84-96" title="Go to source code">__construct</a>( <span>string <var>$cache</var></span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Instantiates the database connection</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Instantiates the database connection</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$cache</var></dt>
-					<dd><code>string</code><br>$cache Which cache interface to use</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$cache</var></dt>
+						<dd><code>string</code><br>$cache Which cache interface to use</dd>
+					</dl></div>
 
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="hash" id="_hash">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="hash" id="_hash">
 
-		<td class="attributes"><code>
-			 protected 
-			string
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_hash">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#98-111" title="Go to source code">hash</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var></span>, <span>string <var>$prefix</var> = <span class="php-keyword1">null</span></span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_hash">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#98-111" title="Go to source code">hash</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var></span>, <span>string <var>$prefix</var> = <span class="php-keyword1">null</span></span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Creates a query hash for caching</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Creates a query hash for caching</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql QUery string</dd>
-					<dt><var>$params</var></dt>
-					<dd><code>array</code><br>$params Query parameters</dd>
-					<dt><var>$prefix</var></dt>
-					<dd><code>string</code><br>$prefix Optional prefix</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql QUery string</dd>
+						<dt><var>$params</var></dt>
+						<dd><code>array</code><br>$params Query parameters</dd>
+						<dt><var>$prefix</var></dt>
+						<dd><code>string</code><br>$prefix Optional prefix</dd>
+					</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>string</code><br>An MD5 hash<br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>An MD5 hash<br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getLastHash" id="_getLastHash">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLastHash" id="_getLastHash">
 
-		<td class="attributes"><code>
-			 public 
-			string
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_getLastHash">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#113-121" title="Go to source code">getLastHash</a>( )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_getLastHash">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#113-121" title="Go to source code">getLastHash</a>( )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Returns the last hash generated</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Returns the last hash generated</p>
 
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>string</code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="prepare" id="_prepare">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="prepare" id="_prepare">
 
-		<td class="attributes"><code>
-			abstract public 
-			<code><a href="class-PDOStatement.html">PDOStatement</a></code>
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				abstract public 
+				<code><a href="class-PDOStatement.html">PDOStatement</a></code>
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_prepare">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#123-130" title="Go to source code">prepare</a>( <span>string <var>$sql</var></span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_prepare">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#123-130" title="Go to source code">prepare</a>( <span>string <var>$sql</var></span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Prepares a statement</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Prepares a statement</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql A SQL statement to prepare</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql A SQL statement to prepare</dd>
+					</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-PDOStatement.html">PDOStatement</a></code></code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-PDOStatement.html">PDOStatement</a></code></code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="transactionActive" id="_transactionActive">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="transactionActive" id="_transactionActive">
 
-		<td class="attributes"><code>
-			abstract public 
-			boolean
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				abstract public 
+				boolean
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_transactionActive">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#132-138" title="Go to source code">transactionActive</a>( )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_transactionActive">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#132-138" title="Go to source code">transactionActive</a>( )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Checks whether a transaction is active</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Checks whether a transaction is active</p>
 
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>boolean</code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="aggregate" id="_aggregate">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="aggregate" id="_aggregate">
 
-		<td class="attributes"><code>
-			abstract public 
-			integer|float
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				abstract public 
+				integer|float
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_aggregate">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#140-149" title="Go to source code">aggregate</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$settings</var> = []</span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_aggregate">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#140-149" title="Go to source code">aggregate</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$settings</var> = []</span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Returns an aggregated one-column result set, e.g. from a count(*) query</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Returns an aggregated one-column result set, e.g. from a count(*) query</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql The SQL code</dd>
-					<dt><var>$params</var></dt>
-					<dd><code>array</code><br>$params Bound parameters</dd>
-					<dt><var>$settings</var></dt>
-					<dd><code>array</code><br>$settings Optional settings</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql The SQL code</dd>
+						<dt><var>$params</var></dt>
+						<dd><code>array</code><br>$params Bound parameters</dd>
+						<dt><var>$settings</var></dt>
+						<dd><code>array</code><br>$settings Optional settings</dd>
+					</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>integer|float</code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>integer|float</code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="beginTransaction" id="_beginTransaction">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="beginTransaction" id="_beginTransaction">
 
-		<td class="attributes"><code>
-			abstract public 
-			<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				abstract public 
+				<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_beginTransaction">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#151-157" title="Go to source code">beginTransaction</a>( )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_beginTransaction">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#151-157" title="Go to source code">beginTransaction</a>( )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Begins a transaction</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Begins a transaction</p>
 
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="rollBack" id="_rollBack">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="rollBack" id="_rollBack">
 
-		<td class="attributes"><code>
-			abstract public 
-			<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				abstract public 
+				<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_rollBack">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#159-165" title="Go to source code">rollBack</a>( )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_rollBack">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#159-165" title="Go to source code">rollBack</a>( )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Rolls back a transaction</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Rolls back a transaction</p>
 
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="commit" id="_commit">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="commit" id="_commit">
 
-		<td class="attributes"><code>
-			abstract public 
-			<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				abstract public 
+				<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_commit">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#167-173" title="Go to source code">commit</a>( )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_commit">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#167-173" title="Go to source code">commit</a>( )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Commits a transaction</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Commits a transaction</p>
 
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code><br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="prepQuery" id="_prepQuery">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="prepQuery" id="_prepQuery">
 
-		<td class="attributes"><code>
-			abstract public 
-			array|boolean
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				abstract public 
+				array|boolean
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_prepQuery">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#175-184" title="Go to source code">prepQuery</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$settings</var> = []</span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_prepQuery">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#175-184" title="Go to source code">prepQuery</a>( <span>string <var>$sql</var></span>, <span>array <var>$params</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$settings</var> = []</span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Executes a prepared query and returns the results</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Executes a prepared query and returns the results</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql The SQL code</dd>
-					<dt><var>$params</var></dt>
-					<dd><code>array</code><br>$params Bound parameters</dd>
-					<dt><var>$settings</var></dt>
-					<dd><code>array</code><br>$settings Optional settings</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql The SQL code</dd>
+						<dt><var>$params</var></dt>
+						<dd><code>array</code><br>$params Bound parameters</dd>
+						<dt><var>$settings</var></dt>
+						<dd><code>array</code><br>$settings Optional settings</dd>
+					</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array|boolean</code><br>Result array on SELECT queries, TRUE/FALSE for others<br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array|boolean</code><br>Result array on SELECT queries, TRUE/FALSE for others<br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				</div>
+					</div>
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="query" id="_query">
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="query" id="_query">
 
-		<td class="attributes"><code>
-			abstract public 
-			array|boolean
-			
-			</code>
-		</td>
+			<td class="attributes"><code>
+				abstract public 
+				array|boolean
+				
+				</code>
+			</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#_query">#</a>
-		<code><a href="source-class-Alo.Db.AbstractDb.html#186-193" title="Go to source code">query</a>( <span>string <var>$sql</var></span> )</code>
+			<td class="name"><div>
+			<a class="anchor" href="#_query">#</a>
+			<code><a href="source-class-Alo.Db.AbstractDb.html#186-193" title="Go to source code">query</a>( <span>string <var>$sql</var></span> )</code>
 
-		<div class="description short">
-			
+			<div class="description short">
+				
 <p>Executes a quick unescaped query without preparing it</p>
 
-		</div>
+			</div>
 
-		<div class="description detailed hidden">
-			
+			<div class="description detailed hidden">
+				
 <p>Executes a quick unescaped query without preparing it</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$sql</var></dt>
-					<dd><code>string</code><br>$sql SQL code</dd>
-				</dl></div>
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$sql</var></dt>
+						<dd><code>string</code><br>$sql SQL code</dd>
+					</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array|boolean</code><br>Result array on SELECT queries, TRUE/FALSE for others<br />
-				</div>
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array|boolean</code><br>Result array on SELECT queries, TRUE/FALSE for others<br />
+					</div>
 
 
-				<h4>Author</h4>
-				<div class="list">
-						Art &lt;<a
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+		<table class="summary table table-bordered table-striped" id="constants">
+		<tr data-order="V_CACHE" id="V_CACHE">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Db.AbstractDb.html#22-27" title="Go to source code"><b>V_CACHE</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'c'</span></code></td>
+			<td class="description"><div>
+				<a href="#V_CACHE" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Defines a parameter as "whether to cache"</p>
+
 				</div>
 
-
-		</div>
-		</div></td>
-	</tr>
-	</table>
-
-
-
-
-
-
-
-
-	<table class="summary" id="constants">
-	<caption>Constants summary</caption>
-	<tr data-order="V_CACHE" id="V_CACHE">
-
-		<td class="attributes"><code>string</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Db.AbstractDb.html#22-27" title="Go to source code"><b>V_CACHE</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-quote">'c'</span></code></td>
-		<td class="description"><div>
-			<a href="#V_CACHE" class="anchor">#</a>
-
-			<div class="description short">
-				
-<p>Defines a parameter as "whether to cache"</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a parameter as "whether to cache"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="V_TIME" id="V_TIME">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="V_TIME" id="V_TIME">
 
-		<td class="attributes"><code>string</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Db.AbstractDb.html#29-34" title="Go to source code"><b>V_TIME</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-quote">'t'</span></code></td>
-		<td class="description"><div>
-			<a href="#V_TIME" class="anchor">#</a>
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Db.AbstractDb.html#29-34" title="Go to source code"><b>V_TIME</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'t'</span></code></td>
+			<td class="description"><div>
+				<a href="#V_TIME" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a parameter as "cache time" in seconds</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a parameter as "cache time" in seconds</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="V_PREFIX" id="V_PREFIX">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="V_PREFIX" id="V_PREFIX">
 
-		<td class="attributes"><code>string</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Db.AbstractDb.html#36-41" title="Go to source code"><b>V_PREFIX</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-quote">'p'</span></code></td>
-		<td class="description"><div>
-			<a href="#V_PREFIX" class="anchor">#</a>
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Db.AbstractDb.html#36-41" title="Go to source code"><b>V_PREFIX</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'p'</span></code></td>
+			<td class="description"><div>
+				<a href="#V_PREFIX" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a parameter as "cache hash prefix"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a parameter as "cache hash prefix"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="V_FETCH_NUM" id="V_FETCH_NUM">
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="V_FETCH_NUM" id="V_FETCH_NUM">
 
-		<td class="attributes"><code>string</code></td>
-		<td class="name"><code>
-				<a href="source-class-Alo.Db.AbstractDb.html#43-49" title="Go to source code"><b>V_FETCH_NUM</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-quote">'n'</span></code></td>
-		<td class="description"><div>
-			<a href="#V_FETCH_NUM" class="anchor">#</a>
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.Db.AbstractDb.html#43-49" title="Go to source code"><b>V_FETCH_NUM</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'n'</span></code></td>
+			<td class="description"><div>
+				<a href="#V_FETCH_NUM" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Defines a variable as "whether to fetch as a numeric array instead of
 assoc"</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Defines a variable as "whether to fetch as a numeric array instead of
 assoc"</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	</table>
+				</div>
+			</div></td>
+		</tr>
+		</table>
 
 
 
 
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="cache" id="$cache">
-		<td class="attributes"><code>
-			protected  
-			<code><a href="class-Alo.Cache.AbstractCache.html">Alo\Cache\AbstractCache</a></code>
-		</code></td>
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="cache" id="$cache">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Alo.Cache.AbstractCache.html">Alo\Cache\AbstractCache</a></code>
+			</code></td>
 
-		<td class="name">
-				<a href="source-class-Alo.Db.AbstractDb.html#51-56" title="Go to source code"><var>$cache</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$cache" class="anchor">#</a>
+			<td class="name">
+					<a href="source-class-Alo.Db.AbstractDb.html#51-56" title="Go to source code"><var>$cache</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$cache" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>The cache object in use</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>The cache object in use</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="cache_prefix" id="$cache_prefix">
-		<td class="attributes"><code>
-			protected  
-			string
-		</code></td>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="cache_prefix" id="$cache_prefix">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
 
-		<td class="name">
-				<a href="source-class-Alo.Db.AbstractDb.html#58-63" title="Go to source code"><var>$cache_prefix</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$cache_prefix" class="anchor">#</a>
+			<td class="name">
+					<a href="source-class-Alo.Db.AbstractDb.html#58-63" title="Go to source code"><var>$cache_prefix</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$cache_prefix" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>The prefix to use for cache keys</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>The prefix to use for cache keys</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="last_hash" id="$last_hash">
-		<td class="attributes"><code>
-			protected  
-			string
-		</code></td>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="last_hash" id="$last_hash">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
 
-		<td class="name">
-				<a href="source-class-Alo.Db.AbstractDb.html#65-70" title="Go to source code"><var>$last_hash</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$last_hash" class="anchor">#</a>
+			<td class="name">
+					<a href="source-class-Alo.Db.AbstractDb.html#65-70" title="Go to source code"><var>$last_hash</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$last_hash" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>The last cache hash generated</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>The last cache hash generated</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="default_settings" id="$default_settings">
-		<td class="attributes"><code>
-			protected static 
-			array
-		</code></td>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="default_settings" id="$default_settings">
+			<td class="attributes"><code>
+				protected static 
+				array
+			</code></td>
 
-		<td class="name">
-				<a href="source-class-Alo.Db.AbstractDb.html#72-82" title="Go to source code"><var>$default_settings</var></a>
-		</td>
-		<td class="value"><code>[
-     self::V_CACHE     =&gt; <span class="php-keyword1">false</span>,
-     self::V_TIME      =&gt; <span class="php-num">300</span>,
-     self::V_PREFIX    =&gt; <span class="php-keyword1">null</span>,
-     self::V_FETCH_NUM =&gt; <span class="php-keyword1">false</span>
-  ]</code></td>
-		<td class="description"><div>
-			<a href="#$default_settings" class="anchor">#</a>
+			<td class="name">
+					<a href="source-class-Alo.Db.AbstractDb.html#72-82" title="Go to source code"><var>$default_settings</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$default_settings" class="anchor">#</a>
 
-			<div class="description short">
-				
+				<div class="description short">
+					
 <p>Default query options</p>
 
-			</div>
+				</div>
 
-			<div class="description detailed hidden">
-				
+				<div class="description detailed hidden">
+					
 <p>Default query options</p>
 
 
-			</div>
-		</div></td>
-	</tr>
-	</table>
+				</div>
+			</div></td>
+		</tr>
+		</table>
 
 
 
@@ -882,11 +878,11 @@ assoc"</p>
 
 
 </div>
+	</div>
 
 	<div id="footer">
 		AloFramework documentation API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
-</div>
 </div>
 </body>
 </html>
