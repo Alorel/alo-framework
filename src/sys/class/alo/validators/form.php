@@ -181,6 +181,7 @@
                   'global_errors' => [self::E_NONSCALAR],
                   'breakdown'     => []
                ];
+               $ok = false;
             } else {
                $local_ok = true;
                $breakdown['breakdown'] = [];

@@ -7,7 +7,7 @@ Misc bugfixes
 * Logger & error handler paths fixed for PHPUNIT
 * Cookie clease tweaked for PHPUNIT
 * Fixed exception throwing if-else order in MemcachedSession. It now makes sure the MemcachedWrapper class is loaded and all its static properties are loaded before calling is_available()
-* Fixed invalid testing @ Validators\Form::R_CONTAIN_NONALPHANUM
+* Fixed multiple validation errors in the testing suite
 
 Added features
 
