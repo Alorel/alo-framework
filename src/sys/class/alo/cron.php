@@ -11,7 +11,7 @@
    use Log;
 
    /**
-    * The cron class
+    * The crontab editor class. You must call the commit() method to save your changes.
     *
     * @author Art <a.molcanovas@gmail.com>
     */
@@ -218,6 +218,7 @@
        * Instantiates the crontab handler
        *
        * @author Art <a.molcanovas@gmail.com>
+       * @throws CE When the machine is running Windows
        */
       function __construct() {
          if (\server_is_windows()) {
@@ -393,6 +394,18 @@
       function deleteJob($index) {
          unset($this->crontab[$index]);
          Log::debug('Deleted crontab entry @ index ' . $index);
+
+         return $this;
+      }
+
+      /**
+       * Clears the crontab
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return Cron
+       */
+      function clearCrontab() {
+         $this->crontab = [];
 
          return $this;
       }

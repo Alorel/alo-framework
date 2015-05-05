@@ -7,7 +7,7 @@
 	<title>Class Alo\Cron | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
-	<script type="text/javascript" src="elementlist.js?2099080705"></script>
+	<script type="text/javascript" src="elementlist.js?1765307725"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -120,7 +120,8 @@
 
 	<div class="description">
 	
-<p>The cron class</p>
+<p>The crontab editor class. You must call the commit() method to save your
+changes.</p>
 
 	</div>
 
@@ -141,7 +142,7 @@
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Cron.html#13-417" title="Go to source code">sys/class/alo/cron.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Cron.html#13-433" title="Go to source code">sys/class/alo/cron.php</a><br />
 	</div>
 
 
@@ -159,7 +160,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Alo.Cron.html#217-224" title="Go to source code">__construct</a>( )</code>
+			<code><a href="source-class-Alo.Cron.html#217-228" title="Go to source code">__construct</a>( )</code>
 
 			<div class="description short">
 				
@@ -175,6 +176,10 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.CronException.html">Alo\Exception\CronException</a></code></code><br>When the machine is running Windows<br />
+					</div>
 
 					<h4>Author</h4>
 					<div class="list">
@@ -197,7 +202,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_reloadCrontab">#</a>
-			<code><a href="source-class-Alo.Cron.html#226-249" title="Go to source code">reloadCrontab</a>( )</code>
+			<code><a href="source-class-Alo.Cron.html#230-253" title="Go to source code">reloadCrontab</a>( )</code>
 
 			<div class="description short">
 				
@@ -239,7 +244,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_editCronJob">#</a>
-			<code><a href="source-class-Alo.Cron.html#251-276" title="Go to source code">editCronJob</a>( <span>integer <var>$index</var></span>, <span>string <var>$command</var></span>, <span>integer|string <var>$minute_const</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$hour</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$day</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$month</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$weekday</var> = <span class="php-quote">'*'</span></span> )</code>
+			<code><a href="source-class-Alo.Cron.html#255-280" title="Go to source code">editCronJob</a>( <span>integer <var>$index</var></span>, <span>string <var>$command</var></span>, <span>integer|string <var>$minute_const</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$hour</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$day</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$month</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$weekday</var> = <span class="php-quote">'*'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -300,7 +305,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_editCrontab">#</a>
-			<code><a href="source-class-Alo.Cron.html#278-330" title="Go to source code">editCrontab</a>( <span>integer <var>$index</var></span>, <span>string <var>$command</var></span>, <span>integer|string <var>$minute_const</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$hour</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$day</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$month</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$weekday</var> = <span class="php-quote">'*'</span></span> )</code>
+			<code><a href="source-class-Alo.Cron.html#282-334" title="Go to source code">editCrontab</a>( <span>integer <var>$index</var></span>, <span>string <var>$command</var></span>, <span>integer|string <var>$minute_const</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$hour</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$day</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$month</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$weekday</var> = <span class="php-quote">'*'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -365,7 +370,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_formatOK">#</a>
-			<code><a href="source-class-Alo.Cron.html#332-349" title="Go to source code">formatOK</a>( <span>integer|string <var>$min</var></span>, <span>integer|string <var>$hour</var></span>, <span>integer|string <var>$day</var></span>, <span>integer|string <var>$month</var></span>, <span>integer|string <var>$weekday</var></span> )</code>
+			<code><a href="source-class-Alo.Cron.html#336-353" title="Go to source code">formatOK</a>( <span>integer|string <var>$min</var></span>, <span>integer|string <var>$hour</var></span>, <span>integer|string <var>$day</var></span>, <span>integer|string <var>$month</var></span>, <span>integer|string <var>$weekday</var></span> )</code>
 
 			<div class="description short">
 				
@@ -420,7 +425,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_appendCrontab">#</a>
-			<code><a href="source-class-Alo.Cron.html#351-365" title="Go to source code">appendCrontab</a>( <span>string <var>$command</var></span>, <span>integer|string <var>$minute_const</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$hour</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$day</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$month</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$weekday</var> = <span class="php-quote">'*'</span></span> )</code>
+			<code><a href="source-class-Alo.Cron.html#355-369" title="Go to source code">appendCrontab</a>( <span>string <var>$command</var></span>, <span>integer|string <var>$minute_const</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$hour</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$day</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$month</var> = <span class="php-quote">'*'</span></span>, <span>integer|string <var>$weekday</var> = <span class="php-quote">'*'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -477,7 +482,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_commit">#</a>
-			<code><a href="source-class-Alo.Cron.html#367-381" title="Go to source code">commit</a>( )</code>
+			<code><a href="source-class-Alo.Cron.html#371-385" title="Go to source code">commit</a>( )</code>
 
 			<div class="description short">
 				
@@ -519,7 +524,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteJob">#</a>
-			<code><a href="source-class-Alo.Cron.html#383-395" title="Go to source code">deleteJob</a>( <span>integer <var>$index</var></span> )</code>
+			<code><a href="source-class-Alo.Cron.html#387-399" title="Go to source code">deleteJob</a>( <span>integer <var>$index</var></span> )</code>
 
 			<div class="description short">
 				
@@ -555,6 +560,48 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="clearCrontab" id="_clearCrontab">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Cron.html">Alo\Cron</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_clearCrontab">#</a>
+			<code><a href="source-class-Alo.Cron.html#401-411" title="Go to source code">clearCrontab</a>( )</code>
+
+			<div class="description short">
+				
+<p>Clears the crontab</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Clears the crontab</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Cron.html">Alo\Cron</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="getCrontab" id="_getCrontab">
 
 			<td class="attributes"><code>
@@ -566,7 +613,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getCrontab">#</a>
-			<code><a href="source-class-Alo.Cron.html#397-405" title="Go to source code">getCrontab</a>( )</code>
+			<code><a href="source-class-Alo.Cron.html#413-421" title="Go to source code">getCrontab</a>( )</code>
 
 			<div class="description short">
 				
@@ -608,7 +655,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___toString">#</a>
-			<code><a href="source-class-Alo.Cron.html#407-415" title="Go to source code">__toString</a>( )</code>
+			<code><a href="source-class-Alo.Cron.html#423-431" title="Go to source code">__toString</a>( )</code>
 
 			<div class="description short">
 				
