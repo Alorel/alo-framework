@@ -35,17 +35,17 @@
        * @throws EE When a caching class is not available
        */
       function __construct() {
-         if (!AbstractCache::is_available()) {
-            throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
-         } else {
-            if (!Alo::$cache) {
-               Alo::$cache = new MemcachedWrapper(true);
-            }
+         if (!Alo::$cache) {
+            Alo::$cache = new MemcachedWrapper(true);
 
-            $this->mc = &Alo::$cache;
-            parent::__construct();
-            \Log::debug('Initialised Memcached session');
+            if (!AbstractCache::is_available()) {
+               throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
+            }
          }
+
+         $this->mc = &Alo::$cache;
+         parent::__construct();
+         \Log::debug('Initialised Memcached session');
       }
 
       protected function write() {
