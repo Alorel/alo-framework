@@ -35,6 +35,13 @@
          self::new_mysql()->prepQuery('DROP TABLE IF EXISTS test_table');
       }
 
+      /**
+       * @expectedException PDOException
+       */
+      function testInvalidConstructorCredentials() {
+         new Alo\Db\MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'phpunit');
+      }
+
       function testInTransaction() {
          $db = self::new_mysql();
 
