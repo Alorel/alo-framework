@@ -155,7 +155,6 @@
        * @return array
        */
       protected function getAllMemcache() {
-         echo 'getAllMemcache()!';
          $dump = [];
          $slabs = $this->mc->getextendedstats('slabs');
 

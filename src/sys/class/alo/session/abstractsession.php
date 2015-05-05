@@ -70,7 +70,9 @@
          $this->time = time();
          $this->save = true;
 
-         if ($this->setID()->identityCheck()) {
+         $this->setID();
+
+         if (\Alo::$router->is_cli_request() || $this->identityCheck()) {
             $this->fetch()->removeExpired();
          }
       }
@@ -167,6 +169,17 @@
        */
       function __get($key) {
          return \get($this->data[$key]);
+      }
+
+      /**
+       * Force-calls the write method
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @see    AbstractSession::write()
+       * @return AbstractSession
+       */
+      function forceWrite() {
+         return $this->write();
       }
 
       /**

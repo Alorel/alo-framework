@@ -1,5 +1,12 @@
 # 1.0 (pending) #
 
+Misc bugfixes
+
+* Changed the event definition in setup/create_session_table_and_cleaner.sql to use the correct table name
+* Debug output in MemcachedWrapper->getAllMemcache() removed
+* Logger & error handler paths fixed for PHPUNIT
+* Cookie clease tweaked for PHPUNIT
+
 Miscellaneous
 
 * Switched to ApiGen as the code documentation provider

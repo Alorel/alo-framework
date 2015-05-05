@@ -27,22 +27,28 @@
        * @param string      $domain   The domain the cookie will be available at
        * @param boolean     $secure   Whether to only transfer the cookie via HTTPS.
        * @param boolean     $httponly Whether to only allow server-side usage of the cookie
-       * @return boolean
+       * @return boolean Whether the cookie was set. Always returns false on CLI requests.
        */
       static function set($name, $value, $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = true) {
-         $expire = (int)$expire;
-         $secure = (bool)$secure;
-         $httponly = (bool)$httponly;
+         if (!\Alo::$router->is_cli_request() && !PHPUNIT_RUNNING) {
+            $expire = (int)$expire;
+            $secure = (bool)$secure;
+            $httponly = (bool)$httponly;
 
-         if ($expire === false) {
-            $expire = time() - 100;
-         } elseif ($expire > 0) {
-            $expire = time() + $expire;
+            if ($expire === false) {
+               $expire = time() - 100;
+            } elseif ($expire > 0) {
+               $expire = time() + $expire;
+            }
+
+            \Log::debug('Set cookie ' . $name . ' to ' . $value . ' (expires ' . date('Y-m-d H:i:s', $expire) . ')');
+
+            return setcookie($name, $value, $expire, $path, $domain, $secure, $httponly);
+         } else {
+            \Log::debug('Not setting cookie ' . $name . ' as we\'re in CLI mode');
+
+            return false;
          }
-
-         \Log::debug('Set cookie ' . $name . ' to ' . $value . ' (expires ' . date('Y-m-d H:i:s', $expire) . ')');
-
-         return setcookie($name, $value, $expire, $path, $domain, $secure, $httponly);
       }
 
       /**
@@ -50,12 +56,18 @@
        *
        * @author Art <a.molcanovas@gmail.com>
        * @param string $name Cookie name
-       * @return boolean
+       * @return boolean Whether the cookie was deleted. Always returns false on CLI requests.
        */
       static function delete($name) {
-         \Log::debug('Deleted cookie ' . $name);
+         if (!\Alo::$router->is_cli_request() && !PHPUNIT_RUNNING) {
+            \Log::debug('Deleted cookie ' . $name);
 
-         return setcookie($name, '', false, '/', '', false, true);
+            return setcookie($name, '', false, '/', '', false, true);
+         } else {
+            \Log::debug('Not deleting cookie ' . $name . ' as we\'re in CLI mode');
+
+            return false;
+         }
       }
 
    }

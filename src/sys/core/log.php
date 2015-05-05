@@ -131,7 +131,7 @@
                $xpl = explode(DIR_INDEX, $trace[0]['file']);
 
                $trace_append = $trace[0]['line'] . ' @ "'
-                  . str_replace('"', '\"', isset($xpl[1]) ? $xpl[1] : '[unknown]') . '"';
+                  . str_replace('"', '\"', isset($xpl[1]) ? $xpl[1] : $xpl[0]) . '"';
             }
 
             $message = str_pad('[' . timestamp_precise() . ']', 25, ' ')
