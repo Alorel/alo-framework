@@ -228,11 +228,10 @@
        * @throws CE When the machine is running Windows
        */
       function __construct() {
-         $this->autocommit = false;
-
          if (\server_is_windows()) {
             throw new CE('Windows does not support cron!', CE::E_WINDOWS);
          } else {
+            $this->autocommit = false;
             $this->reloadCrontab();
          }
       }

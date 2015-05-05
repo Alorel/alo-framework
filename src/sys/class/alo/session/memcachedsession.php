@@ -41,11 +41,11 @@
 
          if (!AbstractCache::is_available()) {
             throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
+         } else {
+            $this->mc = &Alo::$cache;
+            parent::__construct();
+            \Log::debug('Initialised Memcached session');
          }
-
-         $this->mc = &Alo::$cache;
-         parent::__construct();
-         \Log::debug('Initialised Memcached session');
       }
 
       protected function write() {

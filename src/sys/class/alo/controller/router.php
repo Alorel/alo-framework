@@ -223,8 +223,6 @@
        * Tries to call the appropriate class' method
        *
        * @author Art <a.molcanovas@gmail.com>
-       * @throws CE When the class/method is unavailable and the error controller
-       *         is invalid
        * @return Router
        * @uses   self::forceError()
        */
