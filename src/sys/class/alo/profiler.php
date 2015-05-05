@@ -236,6 +236,16 @@
          }
       }
 
+      /**
+       * Shows the diff on the specified key
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $key         The key
+       * @param string $first_mark  The first mark
+       * @param string $second_mark The second mark
+       * @return array
+       * @throws PE If the key isn't found in one or both marks
+       */
       function diff_on_key($key, $first_mark, $second_mark) {
          if (!isset($this->marks[$first_mark])) {
             throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);

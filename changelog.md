@@ -1,3 +1,9 @@
+# 1.0 (pending) #
+
+Miscellaneous
+
+* Switched to ApiGen as the code documentation provider
+
 # 0.2.1 (2015-05-05) #
 Major bugfixes
 
@@ -27,7 +33,6 @@ Code style improvements
 * Indentation changed in router config sample file
 
 # 0.2 (2015-05-04) #
-
 * Trait support added - see app/traits
 * Kint external library updated
 * Slashes in paths replaced with DIRECTORY_SEPARATOR
