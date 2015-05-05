@@ -37,10 +37,10 @@
       function __construct() {
          if (!Alo::$cache) {
             Alo::$cache = new MemcachedWrapper(true);
+         }
 
-            if (!AbstractCache::is_available()) {
-               throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
-            }
+         if (!AbstractCache::is_available()) {
+            throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
          }
 
          $this->mc = &Alo::$cache;
