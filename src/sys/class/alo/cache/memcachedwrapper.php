@@ -138,7 +138,14 @@
        * @return array
        */
       protected function getAllMemcached() {
-         return $this->mc->getAllKeys();
+         $keys = $this->mc->getAllKeys();
+         $vals = [];
+
+         foreach ($keys as $k) {
+            $vals[$k] = $this->get($k);
+         }
+
+         return $vals;
       }
 
       /**
@@ -148,6 +155,7 @@
        * @return array
        */
       protected function getAllMemcache() {
+         echo 'getAllMemcache()!';
          $dump = [];
          $slabs = $this->mc->getextendedstats('slabs');
 
@@ -160,9 +168,10 @@
                      $d = $this->mc->getextendedstats('cachedump', (int)$k, 1000);
 
                      foreach ($d as $data) {
-                        foreach ($data as $mc_key => $row) {
-                           echo \debug($mc_key, $row);
-                           $dump[$mc_key] = $row[0];
+                        if ($data) {
+                           foreach ($data as $mc_key => $row) {
+                              $dump[$mc_key] = $row[0];
+                           }
                         }
                      }
                   } catch (\Exception $e) {

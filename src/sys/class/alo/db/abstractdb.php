@@ -27,7 +27,7 @@
       const V_CACHE = 'c';
 
       /**
-       * Defines a parameter as "cache time"
+       * Defines a parameter as "cache time" in seconds
        *
        * @var string
        */
@@ -61,6 +61,13 @@
        * @var string
        */
       protected $cache_prefix;
+
+      /**
+       * The last cache hash generated
+       *
+       * @var string
+       */
+      protected $last_hash;
 
       /**
        * Default query options
@@ -98,7 +105,19 @@
        * @return string An MD5 hash
        */
       protected function hash($sql, $params, $prefix = null) {
-         return $this->cache_prefix . md5($prefix . $sql . json_encode($params));
+         $this->last_hash = $this->cache_prefix . md5($prefix . $sql . json_encode($params));
+
+         return $this->last_hash;
+      }
+
+      /**
+       * Returns the last hash generated
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      function getLastHash() {
+         return $this->last_hash;
       }
 
       /**

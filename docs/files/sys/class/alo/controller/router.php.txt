@@ -144,14 +144,23 @@
        * @return Router
        */
       function init() {
+         return $this->initNoCall()->tryCall();
+      }
+
+      /**
+       * Same as init(), but without attempting to call the controller
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return Router
+       */
+      function initNoCall() {
          $this->is_cli_request = php_sapi_name() == 'cli' || defined('STDIN');
          $this->is_ajax_request = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
 
          return $this->init_server_vars()
             ->init_path()
             ->init_routes()
-            ->resolvePath()
-            ->tryCall();
+            ->resolvePath();
       }
 
       /**
@@ -220,6 +229,8 @@
        * @uses   self::forceError()
        */
       protected function tryCall() {
+         $rc = $rm = $init = false;
+
          try {
             $rc = new ReflectionClass($this->controller);
 
@@ -232,9 +243,7 @@
                //And a public method
                if ($rm->isPublic() && !$rm->isAbstract() && !$rm->isStatic()) {
                   //Excellent. Instantiate!
-                  \Log::debug('Initialising controller');
-                  Alo::$controller = new $this->controller;
-                  call_user_func_array([Alo::$controller, $this->method], $this->method_args);
+                  $init = true;
                } else {
                   $this->forceError();
                }
@@ -243,6 +252,12 @@
             }
          } catch (\ReflectionException $ex) {
             $this->forceError($ex->getMessage());
+         }
+
+         if ($init) {
+            @\Log::debug('Initialising controller ' . $this->controller . '->' . $this->method . '(' . @implode(',', $this->method_args) . ')');
+            Alo::$controller = new $this->controller;
+            call_user_func_array([Alo::$controller, $this->method], $this->method_args);
          }
 
          return $this;
@@ -364,12 +379,12 @@
        * @return Router
        */
       protected function init_server_vars() {
-         $this->port = get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
-         $this->remote_addr = get($_SERVER['REMOTE_ADDR']);
-         $this->request_scheme = get($_SERVER['REQUEST_SCHEME']);
-         $this->request_method = get($_SERVER['REQUEST_METHOD']);
-         $this->server_addr = get($_SERVER['SERVER_ADDR']);
-         $this->server_name = get($_SERVER['SERVER_NAME']);
+         $this->port = \get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
+         $this->remote_addr = \get($_SERVER['REMOTE_ADDR']);
+         $this->request_scheme = \get($_SERVER['REQUEST_SCHEME']);
+         $this->request_method = \get($_SERVER['REQUEST_METHOD']);
+         $this->server_addr = \get($_SERVER['SERVER_ADDR']);
+         $this->server_name = \get($_SERVER['SERVER_NAME']);
 
          return $this;
       }

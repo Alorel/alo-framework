@@ -25,10 +25,11 @@
 	"require-dev":       {
 		"phpdocumentor/phpdocumentor":  "dev-master",
 		"phpdocumentor/plugin-twig":    "dev-master",
-		"phpdocumentor/template-phpcr": "dev-master"
+		"phpdocumentor/template-phpcr": "dev-master",
+		"phpunit/phpunit":              "dev-master"
 	},
 	"require":           {
-		"phpmailer/phpmailer": "v5.2.9",
-		"raveren/kint":        "dev-master"
+		"phpmailer/phpmailer": "5.2.10",
+		"raveren/kint": "dev-master"
 	}
 }

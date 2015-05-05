@@ -128,8 +128,10 @@
             if (defined('LOG_INTENSE') && LOG_INTENSE) {
                $trace_append = serialize($trace);
             } else {
+               $xpl = explode(DIR_INDEX, $trace[0]['file']);
+
                $trace_append = $trace[0]['line'] . ' @ "'
-                  . str_replace('"', '\"', explode(DIR_INDEX, $trace[0]['file'])[1]) . '"';
+                  . str_replace('"', '\"', isset($xpl[1]) ? $xpl[1] : '[unknown]') . '"';
             }
 
             $message = str_pad('[' . timestamp_precise() . ']', 25, ' ')

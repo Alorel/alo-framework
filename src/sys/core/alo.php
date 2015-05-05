@@ -176,6 +176,8 @@
          if ($return_path) {
             return $final_path;
          } else {
+            include_once $final_path;
+
             return true;
          }
       }

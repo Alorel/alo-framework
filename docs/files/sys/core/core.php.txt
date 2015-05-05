@@ -152,5 +152,8 @@
    }
 
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
-   Alo::$router = new Alo\Controller\Router();
-   Alo::$router->init();
+
+   if (!defined('PHPUNIT_RUNNING') || !PHPUNIT_RUNNING) {
+      Alo::$router = new Alo\Controller\Router();
+      Alo::$router->init();
+   }

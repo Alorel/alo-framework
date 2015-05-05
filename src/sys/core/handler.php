@@ -67,7 +67,7 @@
                break;
          }
 
-         $f = explode(DIR_INDEX, $errfile)[1];
+         $f = \get(explode(DIR_INDEX, $errfile)[1]);
 
          echo '<div class="alo-error-wrapper">'
             . '<div class="alo-error-container">'
@@ -165,7 +165,7 @@
             }
 
             if (isset($v['file'])) {
-               $loc = explode(DIR_INDEX, $v['file'])[1];
+               $loc = \get(explode(DIR_INDEX, $v['file'])[1]);
             }
             if (isset($v['line'])) {
                $line .= $v['line'];

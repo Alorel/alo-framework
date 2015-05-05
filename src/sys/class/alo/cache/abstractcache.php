@@ -29,6 +29,29 @@
       }
 
       /**
+       * Key getter
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $key The key
+       * @return mixed
+       */
+      function __get($key) {
+         return $this->get($key);
+      }
+
+      /**
+       * Sets a value with its default expiration time
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $key The key
+       * @param mixed  $val The value
+       * @return bool
+       */
+      function __set($key, $val) {
+         return $this->set($key, $val);
+      }
+
+      /**
        * Checks if a caching extension is available
        *
        * @author Art <a.molcanovas@gmail.com>
