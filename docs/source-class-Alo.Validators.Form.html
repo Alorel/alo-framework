@@ -350,41 +350,43 @@
 </span></span><span id="238" class="l"><a class="l" href="#238">238 </a><span class="php-comment">       *
 </span></span><span id="239" class="l"><a class="l" href="#239">239 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
 </span></span><span id="240" class="l"><a class="l" href="#240">240 </a><span class="php-comment">       * @param string $element      The element key
-</span></span><span id="241" class="l"><a class="l" href="#241">241 </a><span class="php-comment">       * @param array  $requirements Associative array of requirements
-</span></span><span id="242" class="l"><a class="l" href="#242">242 </a><span class="php-comment">       * @return Form
-</span></span><span id="243" class="l"><a class="l" href="#243">243 </a><span class="php-comment">       */</span>
-</span><span id="244" class="l"><a class="l" href="#244">244 </a>      <span class="php-keyword1">function</span> <a id="_bind" href="#_bind">bind</a>(<span class="php-var">$element</span>, <span class="php-var">$requirements</span>) {
-</span><span id="245" class="l"><a class="l" href="#245">245 </a>         <span class="php-var">$e</span> = &amp;<span class="php-var">$this</span>-&gt;binds[<span class="php-var">$element</span>];
-</span><span id="246" class="l"><a class="l" href="#246">246 </a>         <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$e</span>)) {
-</span><span id="247" class="l"><a class="l" href="#247">247 </a>            <span class="php-var">$e</span> = <span class="php-keyword2">array_merge</span>(<span class="php-var">$e</span>, <span class="php-var">$requirements</span>);
-</span><span id="248" class="l"><a class="l" href="#248">248 </a>         } <span class="php-keyword1">else</span> {
-</span><span id="249" class="l"><a class="l" href="#249">249 </a>            <span class="php-var">$e</span> = <span class="php-var">$requirements</span>;
-</span><span id="250" class="l"><a class="l" href="#250">250 </a>         }
-</span><span id="251" class="l"><a class="l" href="#251">251 </a>
-</span><span id="252" class="l"><a class="l" href="#252">252 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
-</span><span id="253" class="l"><a class="l" href="#253">253 </a>      }
-</span><span id="254" class="l"><a class="l" href="#254">254 </a>
-</span><span id="255" class="l"><a class="l" href="#255">255 </a>      <span class="php-comment">/**
-</span></span><span id="256" class="l"><a class="l" href="#256">256 </a><span class="php-comment">       * Returns the evaluation array
-</span></span><span id="257" class="l"><a class="l" href="#257">257 </a><span class="php-comment">       *
-</span></span><span id="258" class="l"><a class="l" href="#258">258 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="259" class="l"><a class="l" href="#259">259 </a><span class="php-comment">       * @return array
-</span></span><span id="260" class="l"><a class="l" href="#260">260 </a><span class="php-comment">       */</span>
-</span><span id="261" class="l"><a class="l" href="#261">261 </a>      <span class="php-keyword1">function</span> <a id="_getEvaluation" href="#_getEvaluation">getEvaluation</a>() {
-</span><span id="262" class="l"><a class="l" href="#262">262 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;evaluation;
-</span><span id="263" class="l"><a class="l" href="#263">263 </a>      }
-</span><span id="264" class="l"><a class="l" href="#264">264 </a>
-</span><span id="265" class="l"><a class="l" href="#265">265 </a>      <span class="php-comment">/**
-</span></span><span id="266" class="l"><a class="l" href="#266">266 </a><span class="php-comment">       * Returns the binds set
-</span></span><span id="267" class="l"><a class="l" href="#267">267 </a><span class="php-comment">       *
-</span></span><span id="268" class="l"><a class="l" href="#268">268 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="269" class="l"><a class="l" href="#269">269 </a><span class="php-comment">       * @return array
-</span></span><span id="270" class="l"><a class="l" href="#270">270 </a><span class="php-comment">       */</span>
-</span><span id="271" class="l"><a class="l" href="#271">271 </a>      <span class="php-keyword1">function</span> <a id="_getBinds" href="#_getBinds">getBinds</a>() {
-</span><span id="272" class="l"><a class="l" href="#272">272 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;binds;
-</span><span id="273" class="l"><a class="l" href="#273">273 </a>      }
-</span><span id="274" class="l"><a class="l" href="#274">274 </a>
-</span><span id="275" class="l"><a class="l" href="#275">275 </a></span>   }</code></pre>
+</span></span><span id="241" class="l"><a class="l" href="#241">241 </a><span class="php-comment">       * @param array  $requirements Associative array of requirements, where the keys are one of this class' R_*
+</span></span><span id="242" class="l"><a class="l" href="#242">242 </a><span class="php-comment">       *                             constants and the values are TRUE, or, if applicable, the required values for that
+</span></span><span id="243" class="l"><a class="l" href="#243">243 </a><span class="php-comment">       *                             test.
+</span></span><span id="244" class="l"><a class="l" href="#244">244 </a><span class="php-comment">       * @return Form
+</span></span><span id="245" class="l"><a class="l" href="#245">245 </a><span class="php-comment">       */</span>
+</span><span id="246" class="l"><a class="l" href="#246">246 </a>      <span class="php-keyword1">function</span> <a id="_bind" href="#_bind">bind</a>(<span class="php-var">$element</span>, <span class="php-var">$requirements</span>) {
+</span><span id="247" class="l"><a class="l" href="#247">247 </a>         <span class="php-var">$e</span> = &amp;<span class="php-var">$this</span>-&gt;binds[<span class="php-var">$element</span>];
+</span><span id="248" class="l"><a class="l" href="#248">248 </a>         <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$e</span>)) {
+</span><span id="249" class="l"><a class="l" href="#249">249 </a>            <span class="php-var">$e</span> = <span class="php-keyword2">array_merge</span>(<span class="php-var">$e</span>, <span class="php-var">$requirements</span>);
+</span><span id="250" class="l"><a class="l" href="#250">250 </a>         } <span class="php-keyword1">else</span> {
+</span><span id="251" class="l"><a class="l" href="#251">251 </a>            <span class="php-var">$e</span> = <span class="php-var">$requirements</span>;
+</span><span id="252" class="l"><a class="l" href="#252">252 </a>         }
+</span><span id="253" class="l"><a class="l" href="#253">253 </a>
+</span><span id="254" class="l"><a class="l" href="#254">254 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
+</span><span id="255" class="l"><a class="l" href="#255">255 </a>      }
+</span><span id="256" class="l"><a class="l" href="#256">256 </a>
+</span><span id="257" class="l"><a class="l" href="#257">257 </a>      <span class="php-comment">/**
+</span></span><span id="258" class="l"><a class="l" href="#258">258 </a><span class="php-comment">       * Returns the evaluation array
+</span></span><span id="259" class="l"><a class="l" href="#259">259 </a><span class="php-comment">       *
+</span></span><span id="260" class="l"><a class="l" href="#260">260 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="261" class="l"><a class="l" href="#261">261 </a><span class="php-comment">       * @return array
+</span></span><span id="262" class="l"><a class="l" href="#262">262 </a><span class="php-comment">       */</span>
+</span><span id="263" class="l"><a class="l" href="#263">263 </a>      <span class="php-keyword1">function</span> <a id="_getEvaluation" href="#_getEvaluation">getEvaluation</a>() {
+</span><span id="264" class="l"><a class="l" href="#264">264 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;evaluation;
+</span><span id="265" class="l"><a class="l" href="#265">265 </a>      }
+</span><span id="266" class="l"><a class="l" href="#266">266 </a>
+</span><span id="267" class="l"><a class="l" href="#267">267 </a>      <span class="php-comment">/**
+</span></span><span id="268" class="l"><a class="l" href="#268">268 </a><span class="php-comment">       * Returns the binds set
+</span></span><span id="269" class="l"><a class="l" href="#269">269 </a><span class="php-comment">       *
+</span></span><span id="270" class="l"><a class="l" href="#270">270 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="271" class="l"><a class="l" href="#271">271 </a><span class="php-comment">       * @return array
+</span></span><span id="272" class="l"><a class="l" href="#272">272 </a><span class="php-comment">       */</span>
+</span><span id="273" class="l"><a class="l" href="#273">273 </a>      <span class="php-keyword1">function</span> <a id="_getBinds" href="#_getBinds">getBinds</a>() {
+</span><span id="274" class="l"><a class="l" href="#274">274 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;binds;
+</span><span id="275" class="l"><a class="l" href="#275">275 </a>      }
+</span><span id="276" class="l"><a class="l" href="#276">276 </a>
+</span><span id="277" class="l"><a class="l" href="#277">277 </a></span>   }</code></pre>
 	</div>
 
 	<div id="footer">

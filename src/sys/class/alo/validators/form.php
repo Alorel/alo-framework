@@ -21,108 +21,126 @@
        * @var int
        */
       const R_EMAIL = 101;
+
       /**
        * Defines a requirement as "value required"
        *
        * @var int
        */
       const R_REQUIRED = 102;
+
       /**
        * Defines a requirement as "must be numeric"
        *
        * @var int
        */
       const R_NUMERIC = 103;
+
       /**
        * Defines a requirement as "minimum length"
        *
        * @var int
        */
       const R_LENGTH_MIN = 104;
+
       /**
        * Defines a requirement as "maximum length"
        *
        * @var int
        */
       const R_LENGTH_MAX = 105;
+
       /**
        * Defines a requirement as "must match regular expression"
        *
        * @var int
        */
       const R_REGEX = 106;
+
       /**
        * Defines a requirement as "must contain uppercase character"
        *
        * @var int
        */
       const R_CONTAIN_UPPERCASE = 107;
+
       /**
        * Defines a requirement as "must contain lowercase character"
        *
        * @var int
        */
       const R_CONTAIN_LOWERCASE = 108;
+
       /**
        * Defines a requirement as "must contain number"
        *
        * @var int
        */
       const R_CONTAIN_NUMBER = 109;
+
       /**
        * Defines a requirement as "must contain non-alphanumeric character"
        *
        * @var int
        */
       const R_CONTAIN_NONALPHANUM = 110;
+
       /**
        * Defines a requirement as "numeric value must be lower than"
        *
        * @var int
        */
       const R_VAL_LT = 111;
+
       /**
        * Defines a requirement as "numeric value must be greater than"
        *
        * @var int
        */
       const R_VAL_GT = 112;
+
       /**
        * Defines a requirement as "must be within a supplied range of values"
        *
        * @var int
        */
       const R_VAL_RANGE = 113;
+
       /**
        * Defines a requirement as "numeric value must be lower than or equal to"
        *
        * @var int
        */
       const R_VAL_LTE = 114;
+
       /**
        * Defines a requirement as "numeric value must be greater than or equal to"
        *
        * @var int
        */
       const R_VAL_GTE = 115;
+
       /**
        * Error when a value is non-scalar
        *
        * @var int
        */
       const E_NONSCALAR = 400;
+
       /**
        * Supplied data array
        *
        * @var array
        */
       protected $data;
+
       /**
        * Element requirements
        *
        * @var array
        */
       protected $binds;
+
       /**
        * Data array post-evaluation
        *
@@ -201,7 +219,7 @@
             case self::R_CONTAIN_LOWERCASE:
                return (bool)preg_match('/[a-z]/', $data_value);
             case self::R_CONTAIN_NONALPHANUM:
-               return !((bool)preg_match('/^[a-z0-9]$/i', trim($data_value)));
+               return !((bool)preg_match('/^[a-z0-9]+$/i', trim($data_value)));
             case self::R_CONTAIN_NUMBER:
                return (bool)preg_match('/[0-9]/', $data_value);
             case self::R_CONTAIN_UPPERCASE:
@@ -238,7 +256,9 @@
        *
        * @author Art <a.molcanovas@gmail.com>
        * @param string $element      The element key
-       * @param array  $requirements Associative array of requirements
+       * @param array  $requirements Associative array of requirements, where the keys are one of this class' R_*
+       *                             constants and the values are TRUE, or, if applicable, the required values for that
+       *                             test.
        * @return Form
        */
       function bind($element, $requirements) {

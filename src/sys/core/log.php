@@ -128,9 +128,9 @@
             if (defined('LOG_INTENSE') && LOG_INTENSE) {
                $trace_append = serialize($trace);
             } else {
-               $xpl = explode(DIR_INDEX, $trace[0]['file']);
+               $xpl = explode(DIR_INDEX, isset($trace[0]['file']) ? $trace[0]['file'] : null);
 
-               $trace_append = $trace[0]['line'] . ' @ "'
+               $trace_append = (isset($trace[0]['line']) ? isset($trace[0]['line']) : '[unknown line]') . ' @ "'
                   . str_replace('"', '\"', isset($xpl[1]) ? $xpl[1] : $xpl[0]) . '"';
             }
 

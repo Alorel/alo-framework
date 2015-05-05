@@ -7,6 +7,7 @@ Misc bugfixes
 * Logger & error handler paths fixed for PHPUNIT
 * Cookie clease tweaked for PHPUNIT
 * Fixed exception throwing if-else order in MemcachedSession. It now makes sure the MemcachedWrapper class is loaded and all its static properties are loaded before calling is_available()
+* Fixed invalid testing @ Validators\Form::R_CONTAIN_NONALPHANUM
 
 Added features
 
@@ -18,6 +19,7 @@ Miscellaneous
 * Switched to ApiGen as the code documentation provider
 * SQLSession now uses the ALO_SESSION_TABLE_NAME instead of self::TABLE_NAME
 * json encode/decode removed from MemcachedSession write/fetch()
+* FormValidator documentation edit
 
 # 0.2.1 (2015-05-05) #
 Major bugfixes
