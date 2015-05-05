@@ -8,6 +8,7 @@ Misc bugfixes
 * Cookie clease tweaked for PHPUNIT
 * Fixed exception throwing if-else order in MemcachedSession. It now makes sure the MemcachedWrapper class is loaded and all its static properties are loaded before calling is_available()
 * Fixed multiple validation errors in the testing suite
+* Crontab should now correctly reload if it fetches an empty string
 
 Added features
 

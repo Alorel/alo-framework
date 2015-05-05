@@ -252,6 +252,10 @@
             if (!$this->crontab[$lastIndex]) {
                array_pop($this->crontab);
             }
+
+            if ($this->crontab === ['']) {
+               $this->crontab = [];
+            }
          } else {
             $this->crontab = [];
          }
