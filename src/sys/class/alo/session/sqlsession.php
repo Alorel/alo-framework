@@ -48,6 +48,7 @@
                $this->id,
                json_encode($this->data)
             ], [MySQL::V_CACHE => false]);
+
          \Log::debug('Saved session data');
 
          return $this;

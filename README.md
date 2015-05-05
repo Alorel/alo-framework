@@ -164,6 +164,11 @@ Misc bugfixes
 * Logger & error handler paths fixed for PHPUNIT
 * Cookie clease tweaked for PHPUNIT
 
+Added features
+
+* It's now possible to force a session write operation during runtime via AbstractSession->forceWrite()
+* clear(), getTokenExpected() and getTokenActual() and refreshToken() added to AbstractSession
+
 Miscellaneous
 
 * Switched to ApiGen as the code documentation provider

@@ -145,7 +145,7 @@
        *         session has been terminated.
        */
       protected function identityCheck() {
-         $token = md5('sЕss' . \getFingerprint() . 'ия');
+         $token = self::getToken();
 
          if (!\get($this->data[ALO_SESSION_FINGERPRINT])) {
             $this->data[ALO_SESSION_FINGERPRINT] = $token;
@@ -158,6 +158,66 @@
          }
 
          return true;
+      }
+
+      /**
+       * Refreshes the user's session token. This will have no effect unless you overwrite the token during runtime.
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return bool Whether the user passes the identity check after the token refresh. The session is terminated if
+       *              the identity check fails.
+       */
+      function refreshToken() {
+         unset($this->data[ALO_SESSION_FINGERPRINT]);
+
+         return $this->identityCheck();
+      }
+
+      /**
+       * Generates a session token
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      protected static function getToken() {
+         return md5('sЕss' . \getFingerprint() . 'ия');
+      }
+
+      /**
+       * Returns the expected session token
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      function getTokenExpected() {
+         return self::getToken();
+      }
+
+      /**
+       * Returns the actual session token
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string|null
+       */
+      function getTokenActual() {
+         return \get($this->data[ALO_SESSION_FINGERPRINT]);
+      }
+
+      /**
+       * Clears all session variables except for the token
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return AbstractSession
+       */
+      function clear() {
+         $token = \get($this->data[ALO_SESSION_FINGERPRINT]);
+         $this->data = [];
+
+         if ($token) {
+            $this->data[ALO_SESSION_FINGERPRINT] = $token;
+         }
+
+         return $this;
       }
 
       /**

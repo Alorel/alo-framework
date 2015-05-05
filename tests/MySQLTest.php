@@ -1,7 +1,6 @@
 <?php
 
    use Alo\Cache\MemcachedWrapper;
-   use Alo;
 
    class MySQLTest extends \PHPUnit_Framework_TestCase {
 

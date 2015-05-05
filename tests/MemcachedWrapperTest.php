@@ -2,16 +2,14 @@
 
    namespace Alo\Cache;
 
-   use \Alo;
-
    class MemcachedWrapperTest extends \PHPUnit_Framework_TestCase {
 
       protected static function mc() {
-         if (!Alo::$cache) {
-            Alo::$cache = new MemcachedWrapper();
+         if (!\Alo::$cache) {
+            \Alo::$cache = new MemcachedWrapper();
          }
 
-         return Alo::$cache;
+         return \Alo::$cache;
       }
 
       /**
