@@ -138,12 +138,11 @@
        * @return array
        */
       protected function getAllMemcached() {
-         echo 'getAllMemcached()!';
          $keys = $this->mc->getAllKeys();
          $vals = [];
 
-         foreach ($keys as $k => $v) {
-            $vals[$k] = $v;
+         foreach ($keys as $k) {
+            $vals[$k] = $this->get($k);
          }
 
          return $vals;
