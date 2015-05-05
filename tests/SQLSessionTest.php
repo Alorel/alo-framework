@@ -51,7 +51,7 @@
          $s = self::sess();
 
          $s->foo = 'bar';
-         $force_write = $s->forceWrite();
+         $s->forceWrite();
 
          $id = $s->getID();
          $sql = 'SELECT data FROM alo_session WHERE id=?';
@@ -69,7 +69,7 @@
 
          $sess_fetched = json_decode($sess_fetched[0]['data'], true);
 
-         $this->assertArrayHasKey('foo', $sess_fetched, 'Fetched data didn\'t have the key set');
+         $this->assertArrayHasKey('foo', $sess_fetched, _unit_dump($sess_fetched));
          $this->assertEquals('bar', $sess_fetched['foo']);
       }
 

@@ -43,22 +43,16 @@
          $force_write = $s->forceWrite();
 
          $id = $s->getID();
-         $sql = 'SELECT data FROM alo_session WHERE id=?';
-         $sql_params = [$id];
-         $sess_fetched = \Alo::$db->prepQuery($sql, $sql_params, [
-            mySQL::V_CACHE => false
-         ]);
+         $sess_fetched = \Alo::$cache->get(ALO_SESSION_MC_PREFIX . $id);
 
          $this->assertNotEmpty($sess_fetched, _unit_dump([
-            'sql'     => $sql,
-            'params'  => $sql_params,
-            'fetched' => $sess_fetched,
-            'all'     => \Alo::$db->prepQuery('SELECT * FROM alo_session')
+            'id'           => $id,
+            'fetched'      => $sess_fetched,
+            'all'          => \Alo::$cache->getAll(),
+            'is_available' => MemcachedWrapper::is_available()
          ]));
 
-         $sess_fetched = json_decode($sess_fetched[0]['data'], true);
-
-         $this->assertArrayHasKey('foo', $sess_fetched, 'Fetched data didn\'t have the key set');
+         $this->assertArrayHasKey('foo', $sess_fetched, _unit_dump($sess_fetched));
          $this->assertEquals('bar', $sess_fetched['foo']);
       }
 

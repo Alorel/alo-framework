@@ -49,7 +49,7 @@
       }
 
       protected function write() {
-         $this->mc->set(ALO_SESSION_MC_PREFIX . $this->id, json_encode($this->data), ALO_SESSION_TIMEOUT);
+         $this->mc->set(ALO_SESSION_MC_PREFIX . $this->id, $this->data, ALO_SESSION_TIMEOUT);
          \Log::debug('Saved session data');
 
          return $this;
@@ -59,7 +59,7 @@
          $data = $this->mc->get(ALO_SESSION_MC_PREFIX . $this->id);
 
          if ($data) {
-            $this->data = json_decode($data, true);
+            $this->data = $data;
          }
 
          \Log::debug('Fetched session data');
