@@ -17,6 +17,7 @@ Miscellaneous
 
 * Switched to ApiGen as the code documentation provider
 * SQLSession now uses the ALO_SESSION_TABLE_NAME instead of self::TABLE_NAME
+* json encode/decode removed from MemcachedSession write/fetch()
 
 # 0.2.1 (2015-05-05) #
 Major bugfixes
