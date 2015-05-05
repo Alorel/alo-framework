@@ -60,7 +60,6 @@
             [F::R_EMAIL, 'a.-_@foo.info'],
             [F::R_REQUIRED, 'a'],
             [F::R_REQUIRED, 1],
-            [F::R_REQUIRED, [1]],
             [F::R_NUMERIC, 124],
             [F::R_NUMERIC, '124'],
             [F::R_NUMERIC, 12.4],
@@ -100,7 +99,6 @@
             [F::R_VAL_GT, 5.99, 5.98],
             [F::R_VAL_RANGE, 2, [1, 2, 3]],
             [F::R_VAL_RANGE, '2', [1, 2, 3]],
-            [F::R_VAL_RANGE, new stdClass(), [[], new stdClass()]],
             [F::R_VAL_LTE, '5', '6'],
             [F::R_VAL_LTE, 5, '6'],
             [F::R_VAL_LTE, '5', 6],
@@ -110,9 +108,7 @@
             [F::R_VAL_GTE, 6, '5'],
             [F::R_VAL_GTE, '6', 5],
             [F::R_VAL_GTE, 5.99, 5.98],
-            [F::R_VAL_GTE, 6, 6],
-            [F::E_NONSCALAR, []],
-            [F::E_NONSCALAR, new stdClass()],
+            [F::R_VAL_GTE, 6, 6]
          ];
       }
 
@@ -131,7 +127,7 @@
             [F::R_NUMERIC, 'a2'],
             [F::R_LENGTH_MIN, 'foo', 4],
             [F::R_LENGTH_MAX, 'foo', 2],
-            [F::R_REGEX, 'a5p(', '/^[a-z]+[0-9]{1}[m-x]{1,5}B*/'],
+            [F::R_REGEX, 'a5p(', '/^[a-z]+[0-9]{1}[m-x]{1,5}B*$/'],
             [F::R_CONTAIN_UPPERCASE, 'agdgag(&()!#515'],
             [F::R_CONTAIN_LOWERCASE, 'HJBSAD(&()!#51'],
             [F::R_CONTAIN_NUMBER, 'nope'],
@@ -157,10 +153,7 @@
             [F::R_VAL_LTE, '7', 6],
             [F::R_VAL_GTE, '4', '5'],
             [F::R_VAL_GTE, 4, '5'],
-            [F::R_VAL_GTE, '4', 5],
-            [F::E_NONSCALAR, '1'],
-            [F::E_NONSCALAR, 1],
-            [F::E_NONSCALAR, 'a']
+            [F::R_VAL_GTE, '4', 5]
          ];
       }
    }
