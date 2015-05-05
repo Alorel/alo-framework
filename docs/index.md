@@ -155,7 +155,7 @@ Updates are applied by following these 6 steps:
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 1.0 (pending) ##
+## 0.2.1 (2015-05-05) ##
 
 Major bugfixes
 

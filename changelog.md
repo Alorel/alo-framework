@@ -1,4 +1,4 @@
-# 1.0 (pending) #
+# 0.2.1 (2015-05-05) #
 Major bugfixes
 
 * Fixed error where config files wouldn't be loaded correctly
