@@ -20,6 +20,7 @@ Miscellaneous
 * SQLSession now uses the ALO_SESSION_TABLE_NAME instead of self::TABLE_NAME
 * json encode/decode removed from MemcachedSession write/fetch()
 * FormValidator documentation edit
+* Cron editor now throws an exception if you try to invoke it on a Windows machine
 
 # 0.2.1 (2015-05-05) #
 Major bugfixes

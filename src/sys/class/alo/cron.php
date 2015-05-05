@@ -220,6 +220,9 @@
        * @author Art <a.molcanovas@gmail.com>
        */
       function __construct() {
+         if (\server_is_windows()) {
+            throw new CE('Windows does not support cron!', CE::E_WINDOWS);
+         }
          $this->reloadCrontab();
       }
 

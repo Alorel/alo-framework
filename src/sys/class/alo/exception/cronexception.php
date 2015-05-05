@@ -35,4 +35,11 @@
        */
       const E_ARGS_NONSCALAR = 103;
 
+      /**
+       * Code when the server is running Windows
+       *
+       * @var int
+       */
+      const E_WINDOWS = 104;
+
    }
