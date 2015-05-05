@@ -15,6 +15,13 @@
       }
    }
 
+   function _unit_dump(array $data) {
+      ob_start();
+      var_dump($data);
+
+      return ob_get_clean();
+   }
+
    // ========== Autoload classes ==========
    _load_classes(DIR_SYS . 'core');
    _load_classes(DIR_SYS . 'class');

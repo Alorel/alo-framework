@@ -21,18 +21,6 @@
          return Alo::$cache;
       }
 
-      function testInTransaction() {
-         $db = self::new_mysql();
-
-         $this->assertFalse($db->transactionActive());
-
-         $db->beginTransaction();
-         $this->assertTrue($db->transactionActive());
-
-         $db->commit();
-         $this->assertFalse($db->transactionActive());
-      }
-
       protected static function create_sql($cols = 1) {
          $sql = 'CREATE TABLE IF NOT EXISTS test_table (';
 
@@ -47,15 +35,36 @@
          self::new_mysql()->prepQuery('DROP TABLE IF EXISTS test_table');
       }
 
+      function testInTransaction() {
+         $db = self::new_mysql();
+
+         $this->assertFalse($db->transactionActive(), 'Transaction was active');
+
+         $db->beginTransaction();
+         $this->assertTrue($db->transactionActive(), 'Transaction wasn\'t active');
+
+         $db->commit();
+         $this->assertFalse($db->transactionActive(), 'Transaction was active');
+      }
+
       function testPrepQuery() {
          $db = self::new_mysql();
          self::create_sql();
 
          $db->prepQuery('INSERT INTO test_table VALUES (?), (?), (?)', [1, 2, 3]);
-
-         $this->assertEquals([
+         $sel = $db->prepQuery('SELECT * FROM test_table WHERE key0 > ?', [1]);
+         $expect = [
             ['key0' => '2'], ['key0' => '3']
-         ], $db->prepQuery('SELECT * FROM test_table WHERE key0 > ?', [1]));
+         ];
+
+         $this->assertEquals($expect, $sel, _unit_dump([
+            'Insert query'  => 'INSERT INTO test_table VALUES (?), (?), (?)',
+            'Insert params' => [1, 2, 3],
+            'PrepQuery'     => 'SELECT * FROM test_table WHERE key0 > ?',
+            'PrepParams'    => [1],
+            'Expected'      => $expect,
+            'Actual'        => $sel
+         ]));
 
          self::delete_sql();
       }
@@ -65,8 +74,14 @@
          self::create_sql();
 
          $db->prepQuery('INSERT INTO test_table VALUES (1), (2), (3)');
+         $ag = $db->aggregate('SELECT SUM(key0) FROM test_table');
 
-         $this->assertEquals(6, $db->aggregate('SELECT SUM(key0) FROM test_table'));
+         $this->assertEquals(6, $ag, _unit_dump([
+            'PrepQuery'      => 'INSERT INTO test_table VALUES (1), (2), (3)',
+            'AggregateQuery' => 'SELECT SUM(key0) FROM test_table',
+            'Expected'       => 6,
+            'Actual'         => $ag
+         ]));
 
          self::delete_sql();
       }
@@ -78,22 +93,31 @@
 
          self::create_sql();
 
-         $db->prepQuery('INSERT INTO test_table VALUES (?), (?), (?)', [1, 2, 3]);
-
-         $agg = $db->aggregate('SELECT SUM(key0) FROM test_table', null, [
+         $prep_sql = 'INSERT INTO test_table VALUES (?), (?), (?)';
+         $prep_params = [1, 2, 3];
+         $ag_sql = 'SELECT SUM(key0) FROM test_table';
+         $ag_settings = [
             Alo\Db\MySQL::V_CACHE => true,
             Alo\Db\MySQL::V_TIME  => 20
-         ]);
+         ];
+
+         $db->prepQuery($prep_sql, $prep_params);
+
+         $agg = $db->aggregate($ag_sql, null, $ag_settings);
 
          $last_hash = $db->getLastHash();
+         $get_all = $mc->getAll();
+         $get = $mc->get($last_hash);
 
-         print_r([
-            'hash'   => $last_hash,
-            'getAll' => $mc->getAll()
-         ]);
+         $this->assertArrayHasKey($last_hash, $get_all, _unit_dump([
+            'last_hash' => $last_hash,
+            'get_all'   => $get_all,
+         ]));
 
-         $this->assertArrayHasKey($last_hash, $mc->getAll());
-         $this->assertEquals($agg, $mc->get($last_hash));
+         $this->assertEquals($agg, $get, _unit_dump([
+            'aggregate' => $agg,
+            'get'       => $get,
+         ]));
 
          self::delete_sql();
       }

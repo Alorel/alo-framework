@@ -138,7 +138,7 @@
        * @return array
        */
       protected function getAllMemcached() {
-         return $this->mc->getAllKeys();
+         return $this->mc->get($this->mc->getAllKeys());
       }
 
       /**

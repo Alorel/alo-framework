@@ -21,7 +21,14 @@
          $mc = self::mc();
 
          $mc->set($key, $val);
-         $this->assertEquals($val, $mc->get($key));
+         $get = $mc->get($key);
+
+         $this->assertEquals($val, $get, _unit_dump([
+            'Key'      => $key,
+            'Val'      => $val,
+            'Expected' => $val,
+            'Actual'   => $get
+         ]));
       }
 
       function testPurge() {
@@ -29,7 +36,7 @@
 
          $mc->set('foo', 1);
 
-         $this->assertTrue($mc->purge());
+         $this->assertTrue($mc->purge(), 'Purge returned false');
       }
 
       function testDelete() {
@@ -38,7 +45,7 @@
          $mc->set('test_del', 1);
          $mc->delete('test_del');
 
-         $this->assertEmpty($mc->get('test_del'));
+         $this->assertEmpty($mc->get('test_del'), 'Test_del returned: ' . $mc->get('test_del'));
       }
 
       function provideTestValueSet() {

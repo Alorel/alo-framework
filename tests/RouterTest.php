@@ -10,8 +10,13 @@
       function testEquals($method, $val) {
          $r = new Router();
          $r->initNoCall();
+         $call = call_user_func([$r, $method]);
 
-         $this->assertEquals($val, call_user_func([$r, $method]));
+         $this->assertEquals($val, $call, _unit_dump([
+            'method'   => $method,
+            'expected' => $val,
+            'actual'   => $call
+         ]));
       }
 
       function testEqualsProvider() {
