@@ -392,7 +392,7 @@
        * @return Cron
        */
       function commit() {
-         $commit = implode("\n", $this->crontab) . "\n";
+         $commit = trim(implode("\n", $this->crontab)) . "\n";
          file_put_contents("/tmp/crontab.txt", $commit);
          echo shell_exec('crontab /tmp/crontab.txt');
 
