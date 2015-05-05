@@ -38,7 +38,9 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <p><a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/downloads" alt="Total Downloads"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/unstable" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/license" alt="License"></a> <a href="https://alo-framework.readthedocs.org"><img src="https://readthedocs.org/projects/alo-framework/badge/?version=latest" alt="Docs"></a></p>
+        <p><a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/downloads" alt="Total Downloads"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/unstable" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/license" alt="License"></a></p>
+
+<p>Dev: <a href="https://travis-ci.org/Alorel/alo-framework"><img src="https://travis-ci.org/Alorel/alo-framework.svg?branch=develop" alt="Dev Build Status"></a> Master: <a href="https://travis-ci.org/Alorel/alo-framework"><img src="https://travis-ci.org/Alorel/alo-framework.svg?branch=master" alt="Mater Build Status"></a></p>
 
 <hr>
 
@@ -64,7 +66,7 @@
 <h1>
 <a id="what-is-this" class="anchor" href="#what-is-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is this?</h1>
 
-<p>AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.3+. It has a lot of built-in functionality including but not limited to:</p>
+<p>AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.4+. It has a lot of built-in functionality including but not limited to:</p>
 
 <ul>
 <li>Memcached wrapper</li>
@@ -121,7 +123,7 @@ In <strong>src</strong> the main components are <strong>app<em>, *</em>resources
 <h2>
 <a id="namespaces" class="anchor" href="#namespaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Namespaces</h2>
 
-<p>The <strong>class</strong>, <strong>trait</strong> and <strong>interface</strong> directories found under <em>src/app</em> and <em>src/sys</em> follow a namespaced structure, e.g. the class <strong>Alo\Db\MySQL</strong> would be found in the file <em>class/alo/db/mysql.php</em>. Please not that *<em>all directory and file names should be lowercase</em>.</p>
+<p>The <strong>class</strong>, <strong>trait</strong> and <strong>interface</strong> directories found under <em>src/app</em> and <em>src/sys</em> follow a namespaced structure, e.g. the class <strong>Alo\Db\MySQL</strong> would be found in the file <em>class/alo/db/mysql.php</em>. Please not that <strong>all directory and file names should be lowercase</strong>.</p>
 
 <p>^<a href="#table-of-contents">TOC</a></p>
 
@@ -210,7 +212,8 @@ class Home extends AbstractController {
 <a id="initial-setup" class="anchor" href="#initial-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initial setup</h1>
 
 <ul>
-<li>You will want to copy the contents of <strong>sys/config</strong> into <strong>app/config</strong>. Open them and set the values as appropriate. Next, open <strong>index.php</strong>, scroll to <strong>// ===== General setup BEGIN =====</strong> and set the values as you please.</li>
+<li>You will want to copy the contents of <strong>sys/config</strong> into <strong>app/config</strong>. Open them and set the values as appropriate.</li>
+<li>Open <strong>index.php</strong>, scroll to <strong>// ===== General setup BEGIN =====</strong> and set the values as you please. Make sure to set PHPUNIT_RUNNING to false when you're not running tests</li>
 <li>Next you'll want to run the appropriate files under <strong>setup</strong> if you are using that functionality.</li>
 </ul>
 
@@ -243,19 +246,43 @@ class Home extends AbstractController {
 <p>See <a href="changelog.md">changelog.md</a> for a full changelog of previous versions.</p>
 
 <h2>
-<a id="02-2015-05-04-0018" class="anchor" href="#02-2015-05-04-0018" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.2 (2015-05-04 00:18)</h2>
+<a id="021-2015-05-05" class="anchor" href="#021-2015-05-05" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.2.1 (2015-05-05)</h2>
+
+<p>Major bugfixes</p>
 
 <ul>
-<li>Trait support added - see app/traits</li>
-<li>Kint external library updated</li>
-<li>Slashes in paths replaced with DIRECTORY_SEPARATOR</li>
-<li>Profiling class added</li>
-<li>The Router now has a lot more getters</li>
-<li>Error, autoloading and exception handlers moved to \Alo\Handler</li>
-<li>Committed function tester (forgot about it earlier)</li>
-<li>Fixed an error where any uncaught exception would force the 404 error page.</li>
-<li>Many more statics added to \Alo</li>
-<li>Error divs prettified</li>
+<li>Fixed error where config files wouldn't be loaded correctly</li>
+<li>Fixed errors with the legacy Memcache getAll() alternative</li>
+</ul>
+
+<p>Misc bugfixes</p>
+
+<ul>
+<li>Fixed router so it doesn't mistake an in-app ReflectionException with one that's caused by trying to initialise an invalid controller/method</li>
+<li>Added chdir() in index.php if it's a CLI request to be completely sure the path is correct for CLI requests.</li>
+<li>Debug backtrace removed from error controller</li>
+<li>\debug() output removed from MemcachedWrapper-&gt;getAllMemcache()</li>
+</ul>
+
+<p>Added features</p>
+
+<ul>
+<li>Added an option in the router to initialise without attempting to call the controller</li>
+<li>__get() and __set() methods in AbstractCache</li>
+<li>It's now possible to get the last hash generated by AbstractDB via the getLastHash() method</li>
+</ul>
+
+<p>Other</p>
+
+<ul>
+<li>PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.</li>
+<li>Realised that array shorthands were introduced in 5.4, not 5.3, so the framework description needs some updating...</li>
+</ul>
+
+<p>Code style improvements</p>
+
+<ul>
+<li>Indentation changed in router config sample file</li>
 </ul>
 
 <p>^<a href="#table-of-contents">TOC</a></p>
