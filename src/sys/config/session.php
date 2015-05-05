@@ -39,3 +39,10 @@
     * @var string
     */
    define('ALO_SESSION_MC_PREFIX', 'sess_');
+
+   /**
+    * The table to use for alo_session
+    *
+    * @var string
+    */
+   define('ALO_SESSION_TABLE_NAME', 'alo_session');

@@ -160,6 +160,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 Miscellaneous
 
 * Switched to ApiGen as the code documentation provider
+* SQLSession now uses the ALO_SESSION_TABLE_NAME instead of self::TABLE_NAME
 
 
 
