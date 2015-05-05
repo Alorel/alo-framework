@@ -171,6 +171,7 @@ Added features
 * It's now possible to force a session write operation during runtime via AbstractSession->forceWrite()
 * clear(), getTokenExpected() and getTokenActual() and refreshToken() added to AbstractSession
 * clearCrontab() method at crontab editor
+* Possibility to automatically commit crontab changes. Use with caution!
 
 Miscellaneous
 

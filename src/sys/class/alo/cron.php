@@ -215,16 +215,26 @@
       protected $crontab;
 
       /**
+       * Whether changes should be autocommited automatically
+       *
+       * @var bool
+       */
+      protected $autocommit;
+
+      /**
        * Instantiates the crontab handler
        *
        * @author Art <a.molcanovas@gmail.com>
        * @throws CE When the machine is running Windows
        */
       function __construct() {
+         $this->autocommit = false;
+
          if (\server_is_windows()) {
             throw new CE('Windows does not support cron!', CE::E_WINDOWS);
+         } else {
+            $this->reloadCrontab();
          }
-         $this->reloadCrontab();
       }
 
       /**
@@ -328,6 +338,10 @@
                $this->crontab[$index] = $add;
                Log::debug('Edited crontab index ' . $index . ' with ' . $add);
             }
+
+            if ($this->autocommit) {
+               $this->commit();
+            }
          }
 
          return $this;
@@ -395,6 +409,10 @@
          unset($this->crontab[$index]);
          Log::debug('Deleted crontab entry @ index ' . $index);
 
+         if ($this->autocommit) {
+            $this->commit();
+         }
+
          return $this;
       }
 
@@ -407,7 +425,29 @@
       function clearCrontab() {
          $this->crontab = [];
 
+         if ($this->autocommit) {
+            $this->commit();
+         }
+
          return $this;
+      }
+
+      /**
+       * If no parameter is passed or the parameter isn't TRUE/FALSE, returns the current autocommit setting, otherwise
+       * sets it. Use with caution!
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param bool|null $set The desired setting if changing
+       * @return Cron|bool $this if not changing the autocommit value or the value otherwise
+       */
+      function autocommit($set = null) {
+         if (is_bool($set)) {
+            $this->autocommit = $set;
+
+            return $this;
+         } else {
+            return $this->autocommit;
+         }
       }
 
       /**
