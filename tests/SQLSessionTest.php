@@ -29,7 +29,7 @@
             \Alo::$db = new MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');
          }
 
-         if (!\Alo::$session) {
+         if (!\Alo::$session || !(\Alo::$session instanceof SQLSession)) {
             \Alo::$db->query('CREATE TABLE IF NOT EXISTS `alo_session` (
   `id`     CHAR(128)
            CHARACTER SET ascii NOT NULL,

@@ -29,7 +29,7 @@
             \Alo::$cache = new MemcachedWrapper();
          }
 
-         if (!\Alo::$session) {
+         if (!\Alo::$session || !(\Alo::$session instanceof MemcachedSession)) {
             \Alo::$session = new MemcachedSession();
          }
 
