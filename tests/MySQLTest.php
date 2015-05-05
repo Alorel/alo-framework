@@ -22,7 +22,8 @@
       }
 
       protected static function create_sql($cols = 1) {
-         $sql = 'CREATE TABLE IF NOT EXISTS test_table (';
+         self::delete_sql();
+         $sql = 'CREATE TABLE test_table (';
 
          for ($i = 0; $i < $cols; $i++) {
             $sql .= '`key' . $i . '` TINYINT(3) UNSIGNED NOT NULL,';
@@ -39,7 +40,17 @@
        * @expectedException PDOException
        */
       function testInvalidConstructorCredentials() {
-         new Alo\Db\MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'phpunit');
+         new Alo\Db\MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'bad_table');
+      }
+
+      function testPrepare() {
+         $sql = self::new_mysql();
+
+         self::create_sql();
+
+         $this->assertInstanceOf('PDOStatement', $sql->prepare('INSERT INTO test_table(key0) VALUES (?)'));
+
+         self::delete_sql();
       }
 
       function testInTransaction() {
