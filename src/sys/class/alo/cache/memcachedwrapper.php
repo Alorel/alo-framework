@@ -138,6 +138,7 @@
        * @return array
        */
       protected function getAllMemcached() {
+         echo 'getAllMemcached()!';
          $keys = $this->mc->getAllKeys();
          $vals = [];
 
@@ -155,6 +156,7 @@
        * @return array
        */
       protected function getAllMemcache() {
+         echo 'getAllMemcache()!';
          $dump = [];
          $slabs = $this->mc->getextendedstats('slabs');
 
