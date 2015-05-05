@@ -5,6 +5,25 @@
 
    class MySQLTest extends \PHPUnit_Framework_TestCase {
 
+      /**
+       * @dataProvider definedProvider
+       */
+      function testDefined($key) {
+         $this->assertTrue(defined($key), $key . ' wasn\'t defined');
+      }
+
+      function definedProvider() {
+         return [
+            ['ALO_MYSQL_SERVER'],
+            ['ALO_MYSQL_PORT'],
+            ['ALO_MYSQL_DATABASE'],
+            ['ALO_MYSQL_USER'],
+            ['ALO_MYSQL_PW'],
+            ['ALO_MYSQL_CACHE'],
+            ['ALO_MYSQL_CACHE_PREFIX']
+         ];
+      }
+
       protected static function new_mysql() {
          if (!Alo::$db) {
             Alo::$db = new Alo\Db\MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');

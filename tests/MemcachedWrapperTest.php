@@ -15,6 +15,20 @@
       }
 
       /**
+       * @dataProvider definedProvider
+       */
+      function testDefined($const) {
+         $this->assertTrue(defined($const), $const . ' wasn\'t defined.');
+      }
+
+      function definedProvider() {
+         return [
+            ['ALO_MEMCACHED_IP'],
+            ['ALO_MEMCACHED_PORT']
+         ];
+      }
+
+      /**
        * @dataProvider provideTestValueSet
        */
       function testValueSet($key, $val) {
