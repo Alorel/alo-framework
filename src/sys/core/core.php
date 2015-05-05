@@ -43,6 +43,16 @@
    }
 
    /**
+    * Check if the server is running Windows
+    *
+    * @author Art <a.molcanovas@gmail.com>
+    * @return bool
+    */
+   function server_is_windows() {
+      return substr(strtoupper(php_uname('s')), 0, 3) === 'WIN';
+   }
+
+   /**
     * Returns a lite debug string of passed on variables
     *
     * @return string

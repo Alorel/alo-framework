@@ -1,4 +1,5 @@
 <?php
+
    /**
     * To calculate generation time
     *
