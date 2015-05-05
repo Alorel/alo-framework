@@ -40,14 +40,10 @@
        * @param array  $options Connection options
        */
       function __construct($ip = ALO_MYSQL_SERVER, $port = ALO_MYSQL_PORT, $user = ALO_MYSQL_USER, $pw = ALO_MYSQL_PW, $db = ALO_MYSQL_DATABASE, $cache = ALO_MYSQL_CACHE, array $options = null) {
-         try {
-            $this->pdo = new PDO('mysql:dbname=' . $db . ';host=' . $ip . ';port=' . $port, $user, $pw, $options);
+         $this->pdo = new PDO('mysql:dbname=' . $db . ';host=' . $ip . ';port=' . $port, $user, $pw, $options);
 
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-            $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-         } catch (Exception $e) {
-            trigger_error($e->getCode() . ': ' . $e->getMessage(), E_USER_ERROR);
-         }
+         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+         $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
          $this->cache_prefix = ALO_MYSQL_CACHE_PREFIX;
          parent::__construct($cache);
@@ -111,15 +107,10 @@
       }
 
       function query($sql) {
-         try {
-            $s = $this->pdo->query($sql);
+         $s = $this->pdo->query($sql);
 
-            return stripos($sql, 'select') !== false ? $s->fetchAll(PDO::FETCH_ASSOC) : $s !== false;
-         } catch (Exception $e) {
-            trigger_error($e->getMessage(), E_USER_WARNING);
+         return stripos($sql, 'select') !== false ? $s->fetchAll(PDO::FETCH_ASSOC) : $s !== false;
 
-            return false;
-         }
       }
 
       function rollBack() {
