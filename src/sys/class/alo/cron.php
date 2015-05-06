@@ -250,14 +250,13 @@
             $this->crontab = trim($this->crontab);
             $this->crontab = explode("\n", $this->crontab);
 
-            //$lastIndex = count($this->crontab) - 1;
-            //if (!$this->crontab[$lastIndex]) {
-            //   array_pop($this->crontab);
-            //}
-            //
-            //if ($this->crontab === ['']) {
-            //   $this->crontab = [];
-            //}
+            //Make sure it's really empty
+            $last_index = count($this->crontab) - 1;
+
+            while ($last_index >= 0 && !$this->crontab[$last_index]) {
+               unset($this->crontab[$last_index]);
+               $last_index--;
+            }
          } else {
             $this->crontab = [];
          }
