@@ -243,19 +243,19 @@
        * @return Cron
        */
       function reloadCrontab() {
-         $this->crontab = shell_exec('crontab -l');
+         $this->crontab = trim(shell_exec('crontab -l'));
 
          if ($this->crontab) {
             $this->crontab = explode("\n", $this->crontab);
 
-            $lastIndex = count($this->crontab) - 1;
-            if (!$this->crontab[$lastIndex]) {
-               array_pop($this->crontab);
-            }
-
-            if ($this->crontab === ['']) {
-               $this->crontab = [];
-            }
+            //$lastIndex = count($this->crontab) - 1;
+            //if (!$this->crontab[$lastIndex]) {
+            //   array_pop($this->crontab);
+            //}
+            //
+            //if ($this->crontab === ['']) {
+            //   $this->crontab = [];
+            //}
          } else {
             $this->crontab = [];
          }
