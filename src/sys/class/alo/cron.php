@@ -240,12 +240,14 @@
        * (re)loads the cron job array
        *
        * @author Art <a.molcanovas@gmail.com>
+       * @todo   Remove commented code after testing
        * @return Cron
        */
       function reloadCrontab() {
-         $this->crontab = trim(shell_exec('crontab -l'));
+         $this->crontab = shell_exec('crontab -l');
 
          if ($this->crontab) {
+            $this->crontab = trim($this->crontab);
             $this->crontab = explode("\n", $this->crontab);
 
             //$lastIndex = count($this->crontab) - 1;
