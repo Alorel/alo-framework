@@ -240,7 +240,6 @@
        * (re)loads the cron job array
        *
        * @author Art <a.molcanovas@gmail.com>
-       * @todo   Remove commented code after testing
        * @return Cron
        */
       function reloadCrontab() {
