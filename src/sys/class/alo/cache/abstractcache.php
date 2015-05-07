@@ -52,6 +52,27 @@
       }
 
       /**
+       * Checks if a key is set in cache
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $key The key
+       * @return bool
+       */
+      function __isset($key) {
+         return $this->get($key) ? true : false;
+      }
+
+      /**
+       * Removes a key from cache
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $key The key
+       */
+      function __unset($key) {
+         $this->delete($key);
+      }
+
+      /**
        * Checks if a caching extension is available
        *
        * @author Art <a.molcanovas@gmail.com>

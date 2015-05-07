@@ -54,6 +54,39 @@
       }
 
       /**
+       * Checks if the supplied string is a valid IPv4 IP
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $input The input
+       * @return bool
+       */
+      static function is_ipv4_ip($input) {
+         if (!is_scalar($input)) {
+            return false;
+         } else {
+            $e = explode('.', explode('/', $input)[0]);
+
+            if (count($e) != 4) {
+               return false;
+            } else {
+               foreach ($e as $v) {
+                  if (!is_numeric($v)) {
+                     return false;
+                  } else {
+                     $v = (int)$v;
+
+                     if ($v < 0 || $v > 255) {
+                        return false;
+                     }
+                  }
+               }
+            }
+
+            return true;
+         }
+      }
+
+      /**
        * Makes output scalar. If $input is already scalar, simply returns it; otherwise uses a function specified in
        * $prettify_method to make the output scalar
        *

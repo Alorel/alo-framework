@@ -189,6 +189,8 @@ Added features
 * Possibility to automatically commit crontab changes. Use with caution!
 * getAtIndex() method in Cron
 * \Alo\Statics\Security class added
+* __isset() and __unset() added to all classes that had __get() or __set() defined
+* \Alo\Statics\Format::is_ipv4_ip() method added
 
 Miscellaneous
 
