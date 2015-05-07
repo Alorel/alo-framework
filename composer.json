@@ -24,7 +24,7 @@
 		"issues": "https://github.com/Alorel/alo-framework/issues"
 	},
 	"require-dev":       {
-		"phpunit/phpunit": "dev-master",
-		"apigen/apigen":   "2.8.0"
+		"apigen/apigen":   "2.8.0",
+		"phpunit/phpunit": "dev-master"
 	}
 }
