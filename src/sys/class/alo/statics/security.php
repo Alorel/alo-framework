@@ -182,7 +182,15 @@
        * @return string
        */
       static function getUniqid($hash = 'md5', $prefix = null, $entropy = 50) {
-         $str = uniqid(mt_rand(PHP_INT_MIN, PHP_INT_MAX) . json_encode($GLOBALS), true)
+         $str = uniqid(mt_rand(PHP_INT_MIN, PHP_INT_MAX) . json_encode([
+                  $_COOKIE,
+                  $_REQUEST,
+                  $_FILES,
+                  $_ENV,
+                  $_GET,
+                  $_POST,
+                  $_SERVER
+               ]), true)
             . $prefix . self::ascii_rand($entropy);
 
          if (function_exists('\openssl_random_pseudo_bytes')) {
