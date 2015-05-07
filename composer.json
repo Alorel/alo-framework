@@ -7,6 +7,7 @@
 	"homepage":          "https://alorel.github.io/alo-framework/",
 	"keywords":          [
 		"PHP",
+		"5.4",
 		"framework",
 		"MVC",
 		"lightweight"
@@ -24,6 +25,6 @@
 	},
 	"require-dev":       {
 		"phpunit/phpunit": "dev-master",
-		"apigen/apigen": "2.8.0"
+		"apigen/apigen":   "2.8.0"
 	}
 }
