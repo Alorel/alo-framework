@@ -107,9 +107,10 @@
 
    /**
     * The minimum available PHP integer
+    *
     * @var int
     */
-   define('PHP_INT_MIN',~PHP_INT_MAX);
+   define('PHP_INT_MIN', ~PHP_INT_MAX);
 
    // Change dir to make sure CLI requests are correct
    if (defined('STDIN')) {
