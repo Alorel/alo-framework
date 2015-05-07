@@ -163,7 +163,7 @@
       /**
        * Refreshes the user's session token. This will have no effect unless you overwrite the token during runtime.
        *
-       * @author Art <a.molcanovas@gmail.com>
+       * @author      Art <a.molcanovas@gmail.com>
        * @return bool Whether the user passes the identity check after the token refresh. The session is terminated if
        *              the identity check fails.
        */
@@ -251,6 +251,27 @@
        */
       function __set($key, $val) {
          $this->data[$key] = $val;
+      }
+
+      /**
+       * Unsets a session key
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $key The session value's key
+       */
+      function __unset($key) {
+         $this->delete($key);
+      }
+
+      /**
+       * Checks if a session key is set
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param string $key The key
+       * @return bool
+       */
+      function __isset($key) {
+         return isset($this->data[$key]);
       }
 
       /**

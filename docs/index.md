@@ -188,6 +188,7 @@ Added features
 * clearCrontab() method at crontab editor
 * Possibility to automatically commit crontab changes. Use with caution!
 * getAtIndex() method in Cron
+* \Alo\Statics\Security class added
 
 Miscellaneous
 
@@ -197,6 +198,7 @@ Miscellaneous
 * FormValidator documentation edit
 * Cron editor now throws an exception if you try to invoke it on a Windows machine
 * PHPUNIT_RUNNING constant definition moved out of source code. It now simply checks if the constant is defined in the bootstrap file.
+* The global functions getFingerprint(), getUniqid(), escape() moved to \Alo\Statics\Security. The escape() function has been renamed to un_xss() in the class.
 
 
 

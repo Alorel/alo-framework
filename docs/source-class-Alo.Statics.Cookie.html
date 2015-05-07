@@ -8,7 +8,7 @@
 	<title>File sys/class/alo/statics/cookie.php | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
-	<script type="text/javascript" src="elementlist.js?1765307725"></script>
+	<script type="text/javascript" src="elementlist.js?260740304"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -97,6 +97,7 @@
 			<ul>
 				<li class="active"><a href="class-Alo.Statics.Cookie.html">Cookie</a></li>
 				<li><a href="class-Alo.Statics.Format.html">Format</a></li>
+				<li><a href="class-Alo.Statics.Security.html">Security</a></li>
 			</ul>
 
 
@@ -143,7 +144,7 @@
 </span></span><span id="30" class="l"><a class="l" href="#30">30 </a><span class="php-comment">       * @return boolean Whether the cookie was set. Always returns false on CLI requests.
 </span></span><span id="31" class="l"><a class="l" href="#31">31 </a><span class="php-comment">       */</span>
 </span><span id="32" class="l"><a class="l" href="#32">32 </a>      <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_set" href="#_set">set</a>(<span class="php-var">$name</span>, <span class="php-var">$value</span>, <span class="php-var">$expire</span> = <span class="php-num">0</span>, <span class="php-var">$path</span> = <span class="php-quote">'/'</span>, <span class="php-var">$domain</span> = <span class="php-quote">''</span>, <span class="php-var">$secure</span> = <span class="php-keyword1">false</span>, <span class="php-var">$httponly</span> = <span class="php-keyword1">true</span>) {
-</span><span id="33" class="l"><a class="l" href="#33">33 </a>         <span class="php-keyword1">if</span> (!\Alo::<span class="php-var">$router</span>-&gt;is_cli_request() &amp;&amp; !PHPUNIT_RUNNING) {
+</span><span id="33" class="l"><a class="l" href="#33">33 </a>         <span class="php-keyword1">if</span> (!\Alo::<span class="php-var">$router</span>-&gt;is_cli_request() &amp;&amp; !<span class="php-keyword2">defined</span>(<span class="php-quote">'PHPUNIT_RUNNING'</span>)) {
 </span><span id="34" class="l"><a class="l" href="#34">34 </a>            <span class="php-var">$expire</span> = (int)<span class="php-var">$expire</span>;
 </span><span id="35" class="l"><a class="l" href="#35">35 </a>            <span class="php-var">$secure</span> = (bool)<span class="php-var">$secure</span>;
 </span><span id="36" class="l"><a class="l" href="#36">36 </a>            <span class="php-var">$httponly</span> = (bool)<span class="php-var">$httponly</span>;
@@ -172,7 +173,7 @@
 </span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment">       * @return boolean Whether the cookie was deleted. Always returns false on CLI requests.
 </span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment">       */</span>
 </span><span id="61" class="l"><a class="l" href="#61">61 </a>      <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <span class="php-keyword2">delete</span>(<span class="php-var">$name</span>) {
-</span><span id="62" class="l"><a class="l" href="#62">62 </a>         <span class="php-keyword1">if</span> (!\Alo::<span class="php-var">$router</span>-&gt;is_cli_request() &amp;&amp; !PHPUNIT_RUNNING) {
+</span><span id="62" class="l"><a class="l" href="#62">62 </a>         <span class="php-keyword1">if</span> (!\Alo::<span class="php-var">$router</span>-&gt;is_cli_request() &amp;&amp; !<span class="php-keyword2">defined</span>(<span class="php-quote">'PHPUNIT_RUNNING'</span>)) {
 </span><span id="63" class="l"><a class="l" href="#63">63 </a>            \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Deleted cookie '</span> . <span class="php-var">$name</span>);
 </span><span id="64" class="l"><a class="l" href="#64">64 </a>
 </span><span id="65" class="l"><a class="l" href="#65">65 </a>            <span class="php-keyword1">return</span> <span class="php-keyword2">setcookie</span>(<span class="php-var">$name</span>, <span class="php-quote">''</span>, <span class="php-keyword1">false</span>, <span class="php-quote">'/'</span>, <span class="php-quote">''</span>, <span class="php-keyword1">false</span>, <span class="php-keyword1">true</span>);

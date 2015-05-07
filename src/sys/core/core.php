@@ -90,57 +90,6 @@
       return date('Y-m-d H:i:s', $t[0]) . ':' . round($t[1] / 10);
    }
 
-   /**
-    * Escapes a string or array
-    *
-    * @author Art <a.molcanovas@gmail.com>
-    * @param String|array $item The item to be escaped
-    * @return String|array
-    */
-   function escape($item) {
-      if (is_array($item)) {
-         foreach ($item as &$v) {
-            $v = (is_string($v) || is_numeric($v)) ? htmlspecialchars($v, ENT_QUOTES | ENT_HTML5, 'UTF-8', false) : null;
-         }
-
-         return $item;
-      } else {
-         return (is_string($item) || is_numeric($item)) ? htmlspecialchars($item, ENT_QUOTES | ENT_HTML5, 'UTF-8', false) : null;
-      }
-   }
-
-   /**
-    * Returns an unhashed browser/IP fingerprint
-    *
-    * @author Art <a.molcanovas@gmail.com>
-    * @return string
-    */
-   function getFingerprint() {
-      return '$%c0hYlc$kn!rZF' . get($_SERVER['HTTP_USER_AGENT'])
-      . get($_SERVER['HTTP_DNT']) . '^#J!kCRh&H4CKav'
-      . get($_SERVER['HTTP_ACCEPT_LANGUAGE']) . 'h0&ThYYxk4YOD!g' . get($_SERVER['REMOTE_ADDR']);
-   }
-
-   /**
-    * Generates a unique identifier
-    *
-    * @author Art <a.molcanovas@gmail.com>
-    * @param string     $hash    Hash algorithm
-    * @param string|int $prefix  Prefix for the identifier
-    * @param int        $entropy Number of pseudo bytes used in entropy
-    * @return string
-    */
-   function getUniqid($hash = 'md5', $prefix = null, $entropy = 5) {
-      $str = uniqid(mt_rand(1, 100000000) . getFingerprint(), true)
-         . $prefix;
-
-      if (function_exists('openssl_random_pseudo_bytes')) {
-         $str .= openssl_random_pseudo_bytes($entropy);
-      }
-
-      return hash($hash, $str);
-   }
-
    if (!function_exists('getallheaders')) {
 
       /**
