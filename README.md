@@ -1,6 +1,6 @@
 [![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/v/stable)](https://packagist.org/packages/alorel/alo-framework) [![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads)](https://packagist.org/packages/alorel/alo-framework) [![Latest Unstable Version](https://poser.pugx.org/alorel/alo-framework/v/unstable)](https://packagist.org/packages/alorel/alo-framework) [![License](https://poser.pugx.org/alorel/alo-framework/license)](https://packagist.org/packages/alorel/alo-framework)
 
-Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=v0.2.1-beta)](https://travis-ci.org/Alorel/alo-framework) Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework) Dev: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
+Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=v1.0)](https://travis-ci.org/Alorel/alo-framework) Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework) Dev: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
@@ -9,12 +9,13 @@ Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framew
 2. [Licence](#licence)
 3. [Structure](#structure) [[General](#general) | [Namespaces](#namespaces)] 
 4. [Workflow](#workflow) [[Main Concept](#main-concept) | [The global Alo class](#the-global-alo-class) [Controllers](#controllers) | [Views](#views)]
-5. [Logging](#logging)
-6. [Initial setup](#initial-setup)
-7. [Updating](#updating)
-8. [Running tests](#running-tests)
-9. [Latest Changes](#latest-changes)
-10. [External Libraries](#external-libraries)
+5. [Routing](#routing)
+6. [Logging](#logging)
+7. [Initial setup](#initial-setup)
+8. [Updating](#updating)
+9. [Running tests](#running-tests)
+10. [Latest Changes](#latest-changes)
+11. [External Libraries](#external-libraries)
 
 ----------
 
@@ -77,7 +78,7 @@ This class is always loaded by default and contains static references to objects
 ^[TOC](#table-of-contents)
 
 ## Controllers ##
-All controllers must go under **app/class/controller**, have the **Controller** namespace and extend the class **Alo\Controller\AbstractController**. To make this easier, you can write your own Abstract controller and extend that of Alo\ from within, for example:
+All controllers must go under **app/controllers** (accessible via the **DIR_CONTROLLERS** method), have the **Controller** namespace and extend the class **Alo\Controller\AbstractController**. To make this easier, you can write your own Abstract controller and extend that of Alo\ from within, for example:
 
 **app/class/controller/abstractcontroller.php**
 ```
@@ -97,7 +98,7 @@ class Home extends AbstractController {
 }
 ```
 
-Only **public, non-abstract, non-static methods will be used for routing**. The default method for most controllers is **index()**;
+Only **public, non-abstract, non-static methods will be used for routing**. The default method for most controllers is **index()**. Controllers can be in any of **DIR_CONTROLLERS**' subdirectories.
 
 ^[TOC](#table-of-contents)
 
@@ -119,6 +120,19 @@ Any view can be loaded via **Alo\Controller\AbstractController**'s protected met
   }
 ```
 This will load a view under **app/view/$name.php**. You can provide parameters to pass on to the view via **$params**, e.g. if you pass on **['foo' => 'bar']** and echo **$foo** in the view, the output will be **bar**. If instead of echoing the output you want to retrieve it, provide **$return** with **true**. Each view can be reused during the same execution.
+
+^[TOC](#table-of-contents)
+
+----------
+
+# Routing #
+
+All routing is done in the **router.php** config file. By default, if a route is not found, the router will look in your **controllers** directory's root for an automatically calculated route: **www.domain.com/controller/method/arg1/arg2[...]/argN**. This can be overwritten in the **$routes** array, where the array keys are case-insensitive regular expressions for the request URI (without delimiters or modifiers) and the values are configuration arrays containing the following keys (bold values mean the default values if the key is not set):
+
+* dir => the controller subdirectory **[./]**
+* class => which controller class to load **[$default_controller] or URL-based**
+* method => which method to load **[index or URL-based]**
+* args => array of arguments to pass on to the method. These can be hardcoded values or placeholders (*'\$1', '\$2'* etc) which will replace items in the regular expression (key). **[empty array]**
 
 ^[TOC](#table-of-contents)
 
