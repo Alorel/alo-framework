@@ -3,6 +3,7 @@
    namespace Alo\Session;
 
    use Alo\Statics\Cookie;
+   use Alo\Statics\Security;
 
    if (!defined('GEN_START')) {
       http_response_code(404);
@@ -97,7 +98,7 @@
          if ($c && strlen($c) == 128) {
             $this->id = $c;
          } else {
-            $this->id = getUniqid(self::HASH_ALGO, 'session', 20);
+            $this->id = Security::getUniqid(self::HASH_ALGO, 'session');
          }
 
          \Log::debug('Session ID set to ' . $this->id);
