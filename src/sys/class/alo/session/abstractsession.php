@@ -181,7 +181,7 @@
        * @return string
        */
       protected static function getToken() {
-         return md5('sЕss' . \getFingerprint() . 'ия');
+         return md5('sЕss' . Security::getFingerprint() . 'ия');
       }
 
       /**
