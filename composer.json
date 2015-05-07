@@ -23,11 +23,7 @@
 		"issues": "https://github.com/Alorel/alo-framework/issues"
 	},
 	"require-dev":       {
-		"phpunit/phpunit": "dev-master"
-	},
-	"require":           {
-		"phpmailer/phpmailer": "5.2.10",
-		"raveren/kint":        "dev-master",
+		"phpunit/phpunit": "dev-master",
 		"apigen/apigen": "2.8.0"
 	}
 }
