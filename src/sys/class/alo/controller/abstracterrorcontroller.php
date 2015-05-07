@@ -7,6 +7,11 @@
       die();
    }
 
+   /**
+    * The abstract error controller. Your custom error controllers will need to follow this design.
+    *
+    * @author Art <a.molcanovas@gmail.com>
+    */
    abstract class AbstractErrorController extends AbstractController {
 
       /**
