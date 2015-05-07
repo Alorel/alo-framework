@@ -146,7 +146,7 @@
        * @assert ('yes') == true
        * @assert (6) == false
        */
-      function isBoolean($var) {
+      static function isBoolean($var) {
          return is_scalar($var) && (is_bool($var) || in_array($var, [0, 1, 'y', 'n', 'yes', 'no']));
       }
 
