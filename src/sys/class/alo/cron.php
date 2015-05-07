@@ -454,6 +454,17 @@
       }
 
       /**
+       * Returns crontab entry at index $i
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @param int $i The index
+       * @return null|string
+       */
+      function getAtIndex($i) {
+         return \get($this->crontab[$i]);
+      }
+
+      /**
        * Returns the crontab array
        *
        * @author Art <a.molcanovas@gmail.com>

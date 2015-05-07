@@ -173,6 +173,7 @@ Added features
 * clear(), getTokenExpected() and getTokenActual() and refreshToken() added to AbstractSession
 * clearCrontab() method at crontab editor
 * Possibility to automatically commit crontab changes. Use with caution!
+* getAtIndex() method in Cron
 
 Miscellaneous
 

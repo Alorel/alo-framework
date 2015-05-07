@@ -2,3 +2,4 @@
 vendor
 copy_readme_to_docs.php
 update_changelog.php
+composer.lock

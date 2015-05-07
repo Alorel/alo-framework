@@ -66,5 +66,23 @@
             ]));
          }
       }
+
+      function testAutocommitAndGetAtIndex() {
+         if (!\server_is_windows()) {
+            $c = new Cron();
+
+            $c->autocommit(true)->clearCrontab()->appendCrontab('php foo.php');
+
+            $get = $c->reloadCrontab()->getCrontab();
+
+            $this->assertEquals(1, count($get), _unit_dump($get));
+
+            $c->appendCrontab('php bar.php')->reloadCrontab();
+
+            $this->assertEquals('* * * * * php foo.php', $c->getAtIndex(0));
+            $this->assertEquals('* * * * * php bar.php', $c->getAtIndex(1));
+         }
+      }
+
    }
  
