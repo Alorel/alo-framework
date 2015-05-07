@@ -171,6 +171,14 @@ $router->init(); //Or ->initNoCall() if you just want to initialise it, but not 
 See [changelog.md](changelog.md) for a full changelog of previous versions.
 ## 1.0 (pending) ##
 
+Reworked
+
+* Fully reworked. Refer to README for documentation on the new router.
+
+Major bugfixes
+
+* Fixed the error message (and subsequent die() statement) when the log level is set to LOG_LEVEL_DEBUG.
+
 Misc bugfixes
 
 * Changed the event definition in setup/create_session_table_and_cleaner.sql to use the correct table name
@@ -180,6 +188,7 @@ Misc bugfixes
 * Fixed exception throwing if-else order in MemcachedSession. It now makes sure the MemcachedWrapper class is loaded and all its static properties are loaded before calling is_available()
 * Fixed multiple validation errors in the testing suite
 * Crontab should now correctly reload if it fetches an empty string
+* Fixed code line detection in log messages
 
 Added features
 
@@ -205,6 +214,7 @@ Miscellaneous
 * Cron editor now throws an exception if you try to invoke it on a Windows machine
 * PHPUNIT_RUNNING constant definition moved out of source code. It now simply checks if the constant is defined in the bootstrap file.
 * The global functions getFingerprint(), getUniqid(), escape() moved to \Alo\Statics\Security. The escape() function has been renamed to un_xss() in the class.
+* DIR_CONTROLLERS constant added
 
 
 

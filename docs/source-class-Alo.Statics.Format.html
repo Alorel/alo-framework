@@ -8,7 +8,7 @@
 	<title>File sys/class/alo/statics/format.php | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
-	<script type="text/javascript" src="elementlist.js?260740304"></script>
+	<script type="text/javascript" src="elementlist.js?2169857970"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -158,10 +158,10 @@
 </span></span><span id="44" class="l"><a class="l" href="#44"> 44 </a><span class="php-comment">       * @return boolean
 </span></span><span id="45" class="l"><a class="l" href="#45"> 45 </a><span class="php-comment">       */</span>
 </span><span id="46" class="l"><a class="l" href="#46"> 46 </a>      <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_isJSON" href="#_isJSON">isJSON</a>(<span class="php-var">$data</span>) {
-</span><span id="47" class="l"><a class="l" href="#47"> 47 </a>         <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$data</span>)) {
+</span><span id="47" class="l"><a class="l" href="#47"> 47 </a>         <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_scalar</span>(<span class="php-var">$data</span>)) {
 </span><span id="48" class="l"><a class="l" href="#48"> 48 </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
 </span><span id="49" class="l"><a class="l" href="#49"> 49 </a>         } <span class="php-keyword1">else</span> {
-</span><span id="50" class="l"><a class="l" href="#50"> 50 </a>            <span class="php-keyword2">json_decode</span>(<span class="php-var">$data</span>, <span class="php-keyword1">true</span>, <span class="php-num">1</span>);
+</span><span id="50" class="l"><a class="l" href="#50"> 50 </a>            <span class="php-keyword2">json_decode</span>(<span class="php-var">$data</span>, <span class="php-keyword1">true</span>);
 </span><span id="51" class="l"><a class="l" href="#51"> 51 </a>
 </span><span id="52" class="l"><a class="l" href="#52"> 52 </a>            <span class="php-keyword1">return</span> <span class="php-keyword2">json_last_error</span>() === JSON_ERROR_NONE;
 </span><span id="53" class="l"><a class="l" href="#53"> 53 </a>         }
@@ -251,20 +251,7 @@
 </span><span id="137" class="l"><a class="l" href="#137">137 </a>         <span class="php-keyword1">return</span> <span class="php-var">$var</span>;
 </span><span id="138" class="l"><a class="l" href="#138">138 </a>      }
 </span><span id="139" class="l"><a class="l" href="#139">139 </a>
-</span><span id="140" class="l"><a class="l" href="#140">140 </a>      <span class="php-comment">/**
-</span></span><span id="141" class="l"><a class="l" href="#141">141 </a><span class="php-comment">       * Checks if a variable is of type boolean or is implied to be boolean
-</span></span><span id="142" class="l"><a class="l" href="#142">142 </a><span class="php-comment">       *
-</span></span><span id="143" class="l"><a class="l" href="#143">143 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="144" class="l"><a class="l" href="#144">144 </a><span class="php-comment">       * @param string|int $var
-</span></span><span id="145" class="l"><a class="l" href="#145">145 </a><span class="php-comment">       * @return boolean
-</span></span><span id="146" class="l"><a class="l" href="#146">146 </a><span class="php-comment">       * @assert ('yes') == true
-</span></span><span id="147" class="l"><a class="l" href="#147">147 </a><span class="php-comment">       * @assert (6) == false
-</span></span><span id="148" class="l"><a class="l" href="#148">148 </a><span class="php-comment">       */</span>
-</span><span id="149" class="l"><a class="l" href="#149">149 </a>      <span class="php-keyword1">function</span> <a id="_isBoolean" href="#_isBoolean">isBoolean</a>(<span class="php-var">$var</span>) {
-</span><span id="150" class="l"><a class="l" href="#150">150 </a>         <span class="php-keyword1">return</span> <span class="php-keyword2">is_scalar</span>(<span class="php-var">$var</span>) &amp;&amp; (<span class="php-keyword2">is_bool</span>(<span class="php-var">$var</span>) || <span class="php-keyword2">in_array</span>(<span class="php-var">$var</span>, [<span class="php-num">0</span>, <span class="php-num">1</span>, <span class="php-quote">'y'</span>, <span class="php-quote">'n'</span>, <span class="php-quote">'yes'</span>, <span class="php-quote">'no'</span>]));
-</span><span id="151" class="l"><a class="l" href="#151">151 </a>      }
-</span><span id="152" class="l"><a class="l" href="#152">152 </a>
-</span><span id="153" class="l"><a class="l" href="#153">153 </a></span>   }</code></pre>
+</span><span id="140" class="l"><a class="l" href="#140">140 </a></span>   }</code></pre>
 	</div>
 
 	<div id="footer">

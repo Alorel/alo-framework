@@ -60,7 +60,7 @@
     *
     * @var string
     */
-   define('LOG_LEVEL', LOG_LEVEL_ERROR);
+   define('LOG_LEVEL', LOG_LEVEL_DEBUG);
 
    /**
     * If logging is set to intense, an entire debug backtrace will be appended to
@@ -104,6 +104,13 @@
     * @var string
     */
    define('DIR_SYS', DIR_INDEX . 'sys' . DIRECTORY_SEPARATOR);
+
+   /**
+    * Controllers directory
+    *
+    * @var string
+    */
+   define('DIR_CONTROLLERS', DIR_APP . 'controllers' . DIRECTORY_SEPARATOR);
 
    /**
     * The minimum available PHP integer

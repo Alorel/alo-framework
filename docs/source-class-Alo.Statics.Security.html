@@ -8,7 +8,7 @@
 	<title>File sys/class/alo/statics/security.php | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
-	<script type="text/javascript" src="elementlist.js?260740304"></script>
+	<script type="text/javascript" src="elementlist.js?2169857970"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -296,17 +296,25 @@
 </span></span><span id="182" class="l"><a class="l" href="#182">182 </a><span class="php-comment">       * @return string
 </span></span><span id="183" class="l"><a class="l" href="#183">183 </a><span class="php-comment">       */</span>
 </span><span id="184" class="l"><a class="l" href="#184">184 </a>      <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_getUniqid" href="#_getUniqid">getUniqid</a>(<span class="php-var">$hash</span> = <span class="php-quote">'md5'</span>, <span class="php-var">$prefix</span> = <span class="php-keyword1">null</span>, <span class="php-var">$entropy</span> = <span class="php-num">50</span>) {
-</span><span id="185" class="l"><a class="l" href="#185">185 </a>         <span class="php-var">$str</span> = <span class="php-keyword2">uniqid</span>(<span class="php-keyword2">mt_rand</span>(PHP_INT_MIN, PHP_INT_MAX) . <span class="php-keyword2">json_encode</span>(<span class="php-var">$GLOBALS</span>), <span class="php-keyword1">true</span>)
-</span><span id="186" class="l"><a class="l" href="#186">186 </a>            . <span class="php-var">$prefix</span> . self::ascii_rand(<span class="php-var">$entropy</span>);
-</span><span id="187" class="l"><a class="l" href="#187">187 </a>
-</span><span id="188" class="l"><a class="l" href="#188">188 </a>         <span class="php-keyword1">if</span> (<span class="php-keyword2">function_exists</span>(<span class="php-quote">'\openssl_random_pseudo_bytes'</span>)) {
-</span><span id="189" class="l"><a class="l" href="#189">189 </a>            <span class="php-var">$str</span> .= \<span class="php-keyword2">openssl_random_pseudo_bytes</span>(<span class="php-var">$entropy</span>);
-</span><span id="190" class="l"><a class="l" href="#190">190 </a>         }
-</span><span id="191" class="l"><a class="l" href="#191">191 </a>
-</span><span id="192" class="l"><a class="l" href="#192">192 </a>         <span class="php-keyword1">return</span> <span class="php-keyword2">hash</span>(<span class="php-var">$hash</span>, <span class="php-var">$str</span>);
-</span><span id="193" class="l"><a class="l" href="#193">193 </a>      }
-</span><span id="194" class="l"><a class="l" href="#194">194 </a>
-</span><span id="195" class="l"><a class="l" href="#195">195 </a></span>   }</code></pre>
+</span><span id="185" class="l"><a class="l" href="#185">185 </a>         <span class="php-var">$str</span> = <span class="php-keyword2">uniqid</span>(<span class="php-keyword2">mt_rand</span>(PHP_INT_MIN, PHP_INT_MAX) . <span class="php-keyword2">json_encode</span>([
+</span><span id="186" class="l"><a class="l" href="#186">186 </a>                  <span class="php-var">$_COOKIE</span>,
+</span><span id="187" class="l"><a class="l" href="#187">187 </a>                  <span class="php-var">$_REQUEST</span>,
+</span><span id="188" class="l"><a class="l" href="#188">188 </a>                  <span class="php-var">$_FILES</span>,
+</span><span id="189" class="l"><a class="l" href="#189">189 </a>                  <span class="php-var">$_ENV</span>,
+</span><span id="190" class="l"><a class="l" href="#190">190 </a>                  <span class="php-var">$_GET</span>,
+</span><span id="191" class="l"><a class="l" href="#191">191 </a>                  <span class="php-var">$_POST</span>,
+</span><span id="192" class="l"><a class="l" href="#192">192 </a>                  <span class="php-var">$_SERVER</span>
+</span><span id="193" class="l"><a class="l" href="#193">193 </a>               ]), <span class="php-keyword1">true</span>)
+</span><span id="194" class="l"><a class="l" href="#194">194 </a>            . <span class="php-var">$prefix</span> . self::ascii_rand(<span class="php-var">$entropy</span>);
+</span><span id="195" class="l"><a class="l" href="#195">195 </a>
+</span><span id="196" class="l"><a class="l" href="#196">196 </a>         <span class="php-keyword1">if</span> (<span class="php-keyword2">function_exists</span>(<span class="php-quote">'\openssl_random_pseudo_bytes'</span>)) {
+</span><span id="197" class="l"><a class="l" href="#197">197 </a>            <span class="php-var">$str</span> .= \<span class="php-keyword2">openssl_random_pseudo_bytes</span>(<span class="php-var">$entropy</span>);
+</span><span id="198" class="l"><a class="l" href="#198">198 </a>         }
+</span><span id="199" class="l"><a class="l" href="#199">199 </a>
+</span><span id="200" class="l"><a class="l" href="#200">200 </a>         <span class="php-keyword1">return</span> <span class="php-keyword2">hash</span>(<span class="php-var">$hash</span>, <span class="php-var">$str</span>);
+</span><span id="201" class="l"><a class="l" href="#201">201 </a>      }
+</span><span id="202" class="l"><a class="l" href="#202">202 </a>
+</span><span id="203" class="l"><a class="l" href="#203">203 </a></span>   }</code></pre>
 	</div>
 
 	<div id="footer">

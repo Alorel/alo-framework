@@ -1,6 +1,8 @@
 <?php
 
-   namespace Alo\Controller;
+   namespace Controller;
+
+   use Alo\Controller\AbstractErrorController;
 
    if (!defined('GEN_START')) {
       http_response_code(404);
@@ -8,11 +10,11 @@
    }
 
    /**
-    * Default error controller
+    * A sample error controller
     *
     * @author Art <a.molcanovas@gmail.com>
     */
-   class Error extends AbstractController {
+   class SampleErrorController extends AbstractErrorController {
 
       /**
        * Displays the error page
@@ -29,7 +31,7 @@
          if (file_exists($path)) {
             include $path;
          } else {
-            self::displayErrorPage($code);
+            $this->displayErrorPage($code);
          }
       }
 
@@ -39,7 +41,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @param int $code The HTTP response code
        */
-      static function displayErrorPage($code = 404) {
+      function displayErrorPage($code = 404) {
          $code = (int)$code;
          echo '<!DOCTYPE html>'
             . '<html>'

@@ -8,7 +8,7 @@
 	<title>File sys/class/alo/session/abstractsession.php | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?1647505039"></script>
-	<script type="text/javascript" src="elementlist.js?260740304"></script>
+	<script type="text/javascript" src="elementlist.js?2169857970"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -295,7 +295,7 @@
 </span></span><span id="181" class="l"><a class="l" href="#181">181 </a><span class="php-comment">       * @return string
 </span></span><span id="182" class="l"><a class="l" href="#182">182 </a><span class="php-comment">       */</span>
 </span><span id="183" class="l"><a class="l" href="#183">183 </a>      <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_getToken" href="#_getToken">getToken</a>() {
-</span><span id="184" class="l"><a class="l" href="#184">184 </a>         <span class="php-keyword1">return</span> <span class="php-keyword2">md5</span>(<span class="php-quote">'sЕss'</span> . \getFingerprint() . <span class="php-quote">'ия'</span>);
+</span><span id="184" class="l"><a class="l" href="#184">184 </a>         <span class="php-keyword1">return</span> <span class="php-keyword2">md5</span>(<span class="php-quote">'sЕss'</span> . Security::getFingerprint() . <span class="php-quote">'ия'</span>);
 </span><span id="185" class="l"><a class="l" href="#185">185 </a>      }
 </span><span id="186" class="l"><a class="l" href="#186">186 </a>
 </span><span id="187" class="l"><a class="l" href="#187">187 </a>      <span class="php-comment">/**

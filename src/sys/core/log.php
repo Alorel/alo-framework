@@ -5,11 +5,10 @@
       die();
    } elseif (!defined('LOG_LEVEL') || !defined('LOG_LEVEL_ERROR') || !defined('LOG_LEVEL_DEBUG') || !defined('LOG_LEVEL_NONE') || !in_array(LOG_LEVEL, [
          LOG_LEVEL_ERROR,
-         LOG_DEBUG,
+         LOG_LEVEL_DEBUG,
          LOG_LEVEL_NONE
       ], true)
    ) {
-      http_response_code(500);
       die('Invalid LOG_LEVEL setting. Valid values are the framework constants LOG_LEVEL_ERROR, LOG_LEVEL_DEBUG and LOG_LEVEL_NONE!');
    }
 
@@ -60,7 +59,7 @@
        */
       static function log_level($level = null) {
          if (in_array($level, [
-            LOG_DEBUG,
+            LOG_LEVEL_DEBUG,
             LOG_LEVEL_ERROR,
             LOG_LEVEL_NONE
          ], true)) {
@@ -81,7 +80,7 @@
        * @return string The message you passed on
        */
       static function debug($msg, $trace = null) {
-         if (self::$log_level === LOG_DEBUG && is_scalar($msg)) {
+         if (self::$log_level === LOG_LEVEL_DEBUG && is_scalar($msg)) {
             self::do_write($msg, self::MSG_DEBUG, $trace);
          }
 
@@ -130,7 +129,7 @@
             } else {
                $xpl = explode(DIR_INDEX, isset($trace[0]['file']) ? $trace[0]['file'] : null);
 
-               $trace_append = (isset($trace[0]['line']) ? isset($trace[0]['line']) : '[unknown line]') . ' @ "'
+               $trace_append = (isset($trace[0]['line']) ? $trace[0]['line'] : '[unknown line]') . ' @ "'
                   . str_replace('"', '\"', isset($xpl[1]) ? $xpl[1] : $xpl[0]) . '"';
             }
 
