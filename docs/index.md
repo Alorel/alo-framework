@@ -192,6 +192,10 @@ Added features
 * __isset() and __unset() added to all classes that had __get() or __set() defined
 * \Alo\Statics\Format::is_ipv4_ip() method added
 
+Removed items
+
+* Format::isBoolean()
+
 Miscellaneous
 
 * Switched to ApiGen as the code documentation provider

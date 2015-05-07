@@ -21,7 +21,7 @@
       }
    }
 
-   function _unit_dump(array $data) {
+   function _unit_dump($data) {
       ob_start();
       var_dump($data);
 

@@ -44,10 +44,10 @@
        * @return boolean
        */
       static function isJSON($data) {
-         if (!is_string($data)) {
+         if (!is_scalar($data)) {
             return false;
          } else {
-            json_decode($data, true, 1);
+            json_decode($data, true);
 
             return json_last_error() === JSON_ERROR_NONE;
          }

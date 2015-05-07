@@ -21,11 +21,23 @@
          ];
 
          foreach ($true as $input) {
-            $this->assertTrue(Format::is_ipv4_ip($input));
+            $this->assertTrue(Format::is_ipv4_ip($input), _unit_dump($input));
          }
 
          foreach ($false as $input) {
-            $this->assertFalse(Format::is_ipv4_ip($input));
+            $this->assertFalse(Format::is_ipv4_ip($input), _unit_dump($input));
+         }
+      }
+
+      function testIsJSON() {
+         $true = ['"foo"', 'true', 'false', '[1,2,3]', '[]', '{}', '{"foo":1}'];
+         $false = ['foo', [], '{foo: bar}'];
+
+         foreach ($true as $v) {
+            $this->assertTrue(Format::isJSON($v), _unit_dump($v));
+         }
+         foreach ($false as $v) {
+            $this->assertFalse(Format::isJSON($v), _unit_dump($v));
          }
       }
    }
