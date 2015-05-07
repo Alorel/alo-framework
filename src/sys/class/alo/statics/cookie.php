@@ -30,7 +30,7 @@
        * @return boolean Whether the cookie was set. Always returns false on CLI requests.
        */
       static function set($name, $value, $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = true) {
-         if (!\Alo::$router->is_cli_request() && !PHPUNIT_RUNNING) {
+         if (!\Alo::$router->is_cli_request() && !defined('PHPUNIT_RUNNING')) {
             $expire = (int)$expire;
             $secure = (bool)$secure;
             $httponly = (bool)$httponly;
@@ -59,7 +59,7 @@
        * @return boolean Whether the cookie was deleted. Always returns false on CLI requests.
        */
       static function delete($name) {
-         if (!\Alo::$router->is_cli_request() && !PHPUNIT_RUNNING) {
+         if (!\Alo::$router->is_cli_request() && !defined('PHPUNIT_RUNNING')) {
             \Log::debug('Deleted cookie ' . $name);
 
             return setcookie($name, '', false, '/', '', false, true);

@@ -12,8 +12,9 @@ Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framew
 5. [Logging](#logging)
 6. [Initial setup](#initial-setup)
 7. [Updating](#updating)
-8. [Latest Changes](#latest-changes)
-9. [External Libraries](#external-libraries)
+8. [Running tests](#running-tests)
+9. [Latest Changes](#latest-changes)
+10. [External Libraries](#external-libraries)
 
 ----------
 
@@ -132,7 +133,7 @@ All logging is done via the global static class **\Log**'s public methods - plea
 
 # Initial setup #
 * You will want to copy the contents of **sys/config** into **app/config**. Open them and set the values as appropriate.
-* Open **index.php**, scroll to **// ===== General setup BEGIN =====** and set the values as you please. Make sure to set **PHPUNIT_RUNNING** to false when you're not running tests
+* Open **index.php**, scroll to **// ===== General setup BEGIN =====** and set the values as you please.
 * Next you'll want to run the appropriate files under **setup** if you are using that functionality.
 
 ^[TOC](#table-of-contents)
@@ -148,6 +149,19 @@ Updates are applied by following these 6 steps:
 4. Extract the new code. It will never contain files other than blank **index.html**s and **sample.php**s under **app/**, so no application code will be overwritten.
 5. If there are any changes to **.htaccess**, merge them with your version.
 6. Re-apply your personal settings under **index.php**'s **// ===== General setup BEGIN =====**
+
+^[TOC](#table-of-contents)
+
+----------
+
+# Running tests #
+
+When running PPHUnit tests be sure to use the **phpunit.php** bootstrap file from the root directory. It will make sure that all classes are loaded correctly and that the framework behaviour is altered to not interfere with the tests. 
+*Please note that in PHPUNIT mode the framework does not automatically initialise the Router - you will have to run the code below to test a controller:* 
+```
+$router = new \Alo\Controller\Router();
+$router->init(); //Or ->initNoCall() if you just want to initialise it, but not call the relevant controller
+```
 
 ^[TOC](#table-of-contents)
 
@@ -182,6 +196,7 @@ Miscellaneous
 * json encode/decode removed from MemcachedSession write/fetch()
 * FormValidator documentation edit
 * Cron editor now throws an exception if you try to invoke it on a Windows machine
+* PHPUNIT_RUNNING constant definition moved out of source code. It now simply checks if the constant is defined in the bootstrap file.
 
 
 

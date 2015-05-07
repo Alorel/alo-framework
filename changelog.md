@@ -25,6 +25,7 @@ Miscellaneous
 * json encode/decode removed from MemcachedSession write/fetch()
 * FormValidator documentation edit
 * Cron editor now throws an exception if you try to invoke it on a Windows machine
+* PHPUNIT_RUNNING constant definition moved out of source code. It now simply checks if the constant is defined in the bootstrap file.
 
 # 0.2.1 (2015-05-05) #
 Major bugfixes

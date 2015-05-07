@@ -163,7 +163,7 @@
 
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
 
-   if (!defined('PHPUNIT_RUNNING') || !PHPUNIT_RUNNING) {
+   if (!defined('PHPUNIT_RUNNING')) {
       Alo::$router = new Alo\Controller\Router();
       Alo::$router->init();
    }

@@ -6,6 +6,8 @@
 
    define('PHPUNIT_ROOT', __DIR__ . DIRECTORY_SEPARATOR);
 
+   define('PHPUNIT_RUNNING', true);
+
    function _load_classes($dirName) {
       $di = new DirectoryIterator($dirName);
       foreach ($di as $file) {
