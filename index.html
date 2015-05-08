@@ -38,9 +38,11 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <p><a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/downloads" alt="Total Downloads"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/unstable" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/license" alt="License"></a></p>
+        <p><img src="https://cloud.githubusercontent.com/assets/4998038/7528096/370297ba-f51b-11e4-9c26-5d01ac66fc4d.png" alt="aloframework"></p>
 
-<p>Dev: <a href="https://travis-ci.org/Alorel/alo-framework"><img src="https://travis-ci.org/Alorel/alo-framework.svg?branch=develop" alt="Dev Build Status"></a> Master: <a href="https://travis-ci.org/Alorel/alo-framework"><img src="https://travis-ci.org/Alorel/alo-framework.svg?branch=master" alt="Mater Build Status"></a></p>
+<p><a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/downloads" alt="Total Downloads"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/v/unstable" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/alorel/alo-framework"><img src="https://poser.pugx.org/alorel/alo-framework/license" alt="License"></a></p>
+
+<p>Latest release: <a href="https://travis-ci.org/Alorel/alo-framework"><img src="https://travis-ci.org/Alorel/alo-framework.svg?branch=v1.0" alt="Release build status"></a> Master: <a href="https://travis-ci.org/Alorel/alo-framework"><img src="https://travis-ci.org/Alorel/alo-framework.svg?branch=master" alt="Mater Build Status"></a> Dev: <a href="https://travis-ci.org/Alorel/alo-framework"><img src="https://travis-ci.org/Alorel/alo-framework.svg?branch=develop" alt="Dev Build Status"></a></p>
 
 <hr>
 
@@ -54,9 +56,11 @@
 <a href="#structure">Structure</a> [<a href="#general">General</a> | <a href="#namespaces">Namespaces</a>] </li>
 <li>
 <a href="#workflow">Workflow</a> [<a href="#main-concept">Main Concept</a> | <a href="#the-global-alo-class">The global Alo class</a> <a href="#controllers">Controllers</a> | <a href="#views">Views</a>]</li>
+<li><a href="#routing">Routing</a></li>
 <li><a href="#logging">Logging</a></li>
 <li><a href="#initial-setup">Initial setup</a></li>
 <li><a href="#updating">Updating</a></li>
+<li><a href="#running-tests">Running tests</a></li>
 <li><a href="#latest-changes">Latest Changes</a></li>
 <li><a href="#external-libraries">External Libraries</a></li>
 </ol>
@@ -149,7 +153,7 @@ In <strong>src</strong> the main components are <strong>app<em>, *</em>resources
 <h2>
 <a id="controllers" class="anchor" href="#controllers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controllers</h2>
 
-<p>All controllers must go under <strong>app/class/controller</strong>, have the <strong>Controller</strong> namespace and extend the class <strong>Alo\Controller\AbstractController</strong>. To make this easier, you can write your own Abstract controller and extend that of Alo\ from within, for example:</p>
+<p>All controllers must go under <strong>app/controllers</strong> (accessible via the <strong>DIR_CONTROLLERS</strong> method), have the <strong>Controller</strong> namespace and extend the class <strong>Alo\Controller\AbstractController</strong>. To make this easier, you can write your own Abstract controller and extend that of Alo\ from within, for example:</p>
 
 <p><strong>app/class/controller/abstractcontroller.php</strong></p>
 
@@ -169,7 +173,7 @@ class Home extends AbstractController {
 }
 </code></pre>
 
-<p>Only <strong>public, non-abstract, non-static methods will be used for routing</strong>. The default method for most controllers is <strong>index()</strong>;</p>
+<p>Only <strong>public, non-abstract, non-static methods will be used for routing</strong>. The default method for most controllers is <strong>index()</strong>. Controllers can be in any of <strong>DIR_CONTROLLERS</strong>' subdirectories.</p>
 
 <p>^<a href="#table-of-contents">TOC</a></p>
 
@@ -200,6 +204,26 @@ class Home extends AbstractController {
 <hr>
 
 <h1>
+<a id="routing" class="anchor" href="#routing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Routing</h1>
+
+<p>All routing is done in the <strong>router.php</strong> config file. By default, if a route is not found, the router will look in your <strong>controllers</strong> directory's root for an automatically calculated route: <strong><a href="http://www.domain.com/controller/method/arg1/arg2%5B...%5D/argN">www.domain.com/controller/method/arg1/arg2[...]/argN</a></strong>. This can be overwritten in the <strong>$routes</strong> array, where the array keys are case-insensitive regular expressions for the request URI (without delimiters or modifiers) and the values are configuration arrays containing the following keys (bold values mean the default values if the key is not set):</p>
+
+<ul>
+<li>dir =&gt; the controller subdirectory <strong>[./]</strong>
+</li>
+<li>class =&gt; which controller class to load <strong>[$default_controller] or URL-based</strong>
+</li>
+<li>method =&gt; which method to load <strong>[index or URL-based]</strong>
+</li>
+<li>args =&gt; array of arguments to pass on to the method. These can be hardcoded values or placeholders (<em>'\$1', '\$2'</em> etc) which will replace items in the regular expression (key). <strong>[empty array]</strong>
+</li>
+</ul>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
+
+<hr>
+
+<h1>
 <a id="logging" class="anchor" href="#logging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logging</h1>
 
 <p>All logging is done via the global static class <strong>\Log</strong>'s public methods - please refer to the documentation. You will can set the logging level (during the <a href="#initial-setup">Initial Setup</a> phase described below).</p>
@@ -213,7 +237,7 @@ class Home extends AbstractController {
 
 <ul>
 <li>You will want to copy the contents of <strong>sys/config</strong> into <strong>app/config</strong>. Open them and set the values as appropriate.</li>
-<li>Open <strong>index.php</strong>, scroll to <strong>// ===== General setup BEGIN =====</strong> and set the values as you please. Make sure to set PHPUNIT_RUNNING to false when you're not running tests</li>
+<li>Open <strong>index.php</strong>, scroll to <strong>// ===== General setup BEGIN =====</strong> and set the values as you please.</li>
 <li>Next you'll want to run the appropriate files under <strong>setup</strong> if you are using that functionality.</li>
 </ul>
 
@@ -241,48 +265,82 @@ class Home extends AbstractController {
 <hr>
 
 <h1>
+<a id="running-tests" class="anchor" href="#running-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running tests</h1>
+
+<p>When running PPHUnit tests be sure to use the <strong>phpunit.php</strong> bootstrap file from the root directory. It will make sure that all classes are loaded correctly and that the framework behaviour is altered to not interfere with the tests. 
+<em>Please note that in PHPUNIT mode the framework does not automatically initialise the Router - you will have to run the code below to test a controller:</em> </p>
+
+<pre><code>$router = new \Alo\Controller\Router();
+$router-&gt;init(); //Or -&gt;initNoCall() if you just want to initialise it, but not call the relevant controller
+</code></pre>
+
+<p>^<a href="#table-of-contents">TOC</a></p>
+
+<hr>
+
+<h1>
 <a id="latest-changes" class="anchor" href="#latest-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Latest changes</h1>
 
 <p>See <a href="changelog.md">changelog.md</a> for a full changelog of previous versions.</p>
 
 <h2>
-<a id="021-2015-05-05" class="anchor" href="#021-2015-05-05" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.2.1 (2015-05-05)</h2>
+<a id="10-2015-05-08" class="anchor" href="#10-2015-05-08" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.0 (2015-05-08)</h2>
+
+<p>Reworked</p>
+
+<ul>
+<li>Router fully reworked. Refer to README for documentation on the new router.</li>
+</ul>
 
 <p>Major bugfixes</p>
 
 <ul>
-<li>Fixed error where config files wouldn't be loaded correctly</li>
-<li>Fixed errors with the legacy Memcache getAll() alternative</li>
+<li>Fixed the error message (and subsequent die() statement) when the log level is set to LOG_LEVEL_DEBUG.</li>
 </ul>
 
 <p>Misc bugfixes</p>
 
 <ul>
-<li>Fixed router so it doesn't mistake an in-app ReflectionException with one that's caused by trying to initialise an invalid controller/method</li>
-<li>Added chdir() in index.php if it's a CLI request to be completely sure the path is correct for CLI requests.</li>
-<li>Debug backtrace removed from error controller</li>
-<li>\debug() output removed from MemcachedWrapper-&gt;getAllMemcache()</li>
+<li>Changed the event definition in setup/create_session_table_and_cleaner.sql to use the correct table name</li>
+<li>Debug output in MemcachedWrapper-&gt;getAllMemcache() removed</li>
+<li>Logger &amp; error handler paths fixed for PHPUNIT</li>
+<li>Cookie clease tweaked for PHPUNIT</li>
+<li>Fixed exception throwing if-else order in MemcachedSession. It now makes sure the MemcachedWrapper class is loaded and all its static properties are loaded before calling is_available()</li>
+<li>Fixed multiple validation errors in the testing suite</li>
+<li>Crontab should now correctly reload if it fetches an empty string</li>
+<li>Fixed code line detection in log messages</li>
 </ul>
 
 <p>Added features</p>
 
 <ul>
-<li>Added an option in the router to initialise without attempting to call the controller</li>
-<li>__get() and __set() methods in AbstractCache</li>
-<li>It's now possible to get the last hash generated by AbstractDB via the getLastHash() method</li>
+<li>It's now possible to force a session write operation during runtime via AbstractSession-&gt;forceWrite()</li>
+<li>clear(), getTokenExpected() and getTokenActual() and refreshToken() added to AbstractSession</li>
+<li>clearCrontab() method at crontab editor</li>
+<li>Possibility to automatically commit crontab changes. Use with caution!</li>
+<li>getAtIndex() method in Cron</li>
+<li>\Alo\Statics\Security class added</li>
+<li>__isset() and __unset() added to all classes that had __get() or __set() defined</li>
+<li>\Alo\Statics\Format::is_ipv4_ip() method added</li>
 </ul>
 
-<p>Other</p>
+<p>Removed items</p>
 
 <ul>
-<li>PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.</li>
-<li>Realised that array shorthands were introduced in 5.4, not 5.3, so the framework description needs some updating...</li>
+<li>Format::isBoolean()</li>
 </ul>
 
-<p>Code style improvements</p>
+<p>Miscellaneous</p>
 
 <ul>
-<li>Indentation changed in router config sample file</li>
+<li>Switched to ApiGen as the code documentation provider</li>
+<li>SQLSession now uses the ALO_SESSION_TABLE_NAME instead of self::TABLE_NAME</li>
+<li>json encode/decode removed from MemcachedSession write/fetch()</li>
+<li>FormValidator documentation edit</li>
+<li>Cron editor now throws an exception if you try to invoke it on a Windows machine</li>
+<li>PHPUNIT_RUNNING constant definition moved out of source code. It now simply checks if the constant is defined in the bootstrap file.</li>
+<li>The global functions getFingerprint(), getUniqid(), escape() moved to \Alo\Statics\Security. The escape() function has been renamed to un_xss() in the class.</li>
+<li>DIR_CONTROLLERS constant added</li>
 </ul>
 
 <p>^<a href="#table-of-contents">TOC</a></p>
