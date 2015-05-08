@@ -172,7 +172,7 @@ Updates are applied by following these 6 steps:
 
 # Running tests #
 
-When running PPHUnit tests be sure to use the **phpunit.php** bootstrap file from the root directory. It will make sure that all classes are loaded correctly and that the framework behaviour is altered to not interfere with the tests. 
+When running PHPUnit tests be sure to use the **phpunit.php** bootstrap file from the root directory. It will make sure that all classes are loaded correctly and that the framework behaviour is altered to not interfere with the tests. 
 *Please note that in PHPUNIT mode the framework does not automatically initialise the Router - you will have to run the code below to test a controller:* 
 ```
 $router = new \Alo\Controller\Router();
