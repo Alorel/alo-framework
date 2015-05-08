@@ -189,7 +189,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 
 Reworked
 
-* Fully reworked. Refer to README for documentation on the new router.
+* Router fully reworked. Refer to README for documentation on the new router.
 
 Major bugfixes
 
