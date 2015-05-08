@@ -10,7 +10,7 @@ Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framew
 1. [What is this?](#what-is-this)
 2. [Licence](#licence)
 3. [Structure](#structure) [[General](#general) | [Namespaces](#namespaces)] 
-4. [Workflow](#workflow) [[Main Concept](#main-concept) | [The global Alo class](#the-global-alo-class) [Controllers](#controllers) | [Views](#views)]
+4. [Workflow](#workflow) [[Main Concept](#main-concept) | [The global Alo class](#the-global-alo-class) | [Controllers](#controllers) | [Views](#views)]
 5. [Routing](#routing)
 6. [Logging](#logging)
 7. [Initial setup](#initial-setup)
