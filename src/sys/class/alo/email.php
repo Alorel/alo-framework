@@ -19,6 +19,7 @@
     *
     * @author Art <a.molcanovas@gmail.com>
     * @link   https://github.com/PHPMailer/PHPMailer
+    * @todo   Implement changes from the PHPMailer wrapper at work
     */
    class Email extends PHPMailer {
 
