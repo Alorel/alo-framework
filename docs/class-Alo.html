@@ -145,7 +145,13 @@
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.html#22-184" title="Go to source code">sys/core/alo.php</a><br />
+				<b>Todo:</b>
+				Create CLI tools based on AloWAMP's IO &amp; downloader classes. Not sure if
+Downloader will belong more to networking or CLI since one of its core
+characteristics is the progress function, but we shall see.<br />
+				<b>Todo:</b>
+				Decide if you're removing deprecated classes from this one's statics.<br />
+		<b>Located at</b> <a href="source-class-Alo.html#22-187" title="Go to source code">sys/core/alo.php</a><br />
 	</div>
 
 
@@ -163,7 +169,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_loadSession">#</a>
-			<code><a href="source-class-Alo.html#134-149" title="Go to source code">loadSession</a>( <span>string <var>$type</var> = <code><a href="class-Alo.html#SESS_MYSQL">Alo::<b>SESS_MYSQL</b></a></code></span> )</code>
+			<code><a href="source-class-Alo.html#137-152" title="Go to source code">loadSession</a>( <span>string <var>$type</var> = <code><a href="class-Alo.html#SESS_MYSQL">Alo::<b>SESS_MYSQL</b></a></code></span> )</code>
 
 			<div class="description short">
 				
@@ -210,7 +216,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_loadConfig">#</a>
-			<code><a href="source-class-Alo.html#151-183" title="Go to source code">loadConfig</a>( <span>string <var>$path</var></span>, <span>boolean <var>$return_path</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-Alo.html#154-186" title="Go to source code">loadConfig</a>( <span>string <var>$path</var></span>, <span>boolean <var>$return_path</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -268,7 +274,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.html#29-34" title="Go to source code"><b>SESS_MYSQL</b></a>
+					<a href="source-class-Alo.html#32-37" title="Go to source code"><b>SESS_MYSQL</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'SQLSession'</span></code></td>
 			<td class="description"><div>
@@ -292,7 +298,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.html#36-41" title="Go to source code"><b>SESS_MEMCACHED</b></a>
+					<a href="source-class-Alo.html#39-44" title="Go to source code"><b>SESS_MEMCACHED</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'MemcachedSession'</span></code></td>
 			<td class="description"><div>
@@ -326,7 +332,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#43-48" title="Go to source code"><var>$sftp</var></a>
+					<a href="source-class-Alo.html#46-51" title="Go to source code"><var>$sftp</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$sftp" class="anchor">#</a>
@@ -352,7 +358,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#50-55" title="Go to source code"><var>$profiler</var></a>
+					<a href="source-class-Alo.html#53-58" title="Go to source code"><var>$profiler</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$profiler" class="anchor">#</a>
@@ -378,7 +384,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#57-62" title="Go to source code"><var>$file</var></a>
+					<a href="source-class-Alo.html#60-65" title="Go to source code"><var>$file</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$file" class="anchor">#</a>
@@ -404,7 +410,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#64-69" title="Go to source code"><var>$email</var></a>
+					<a href="source-class-Alo.html#67-72" title="Go to source code"><var>$email</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$email" class="anchor">#</a>
@@ -430,7 +436,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#71-76" title="Go to source code"><var>$curl</var></a>
+					<a href="source-class-Alo.html#74-79" title="Go to source code"><var>$curl</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$curl" class="anchor">#</a>
@@ -456,7 +462,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#78-83" title="Go to source code"><var>$cron</var></a>
+					<a href="source-class-Alo.html#81-86" title="Go to source code"><var>$cron</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$cron" class="anchor">#</a>
@@ -482,7 +488,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#85-90" title="Go to source code"><var>$form_validator</var></a>
+					<a href="source-class-Alo.html#88-93" title="Go to source code"><var>$form_validator</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$form_validator" class="anchor">#</a>
@@ -508,7 +514,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#92-97" title="Go to source code"><var>$tester</var></a>
+					<a href="source-class-Alo.html#95-100" title="Go to source code"><var>$tester</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$tester" class="anchor">#</a>
@@ -534,7 +540,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#99-104" title="Go to source code"><var>$db</var></a>
+					<a href="source-class-Alo.html#102-107" title="Go to source code"><var>$db</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$db" class="anchor">#</a>
@@ -560,7 +566,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#106-111" title="Go to source code"><var>$cache</var></a>
+					<a href="source-class-Alo.html#109-114" title="Go to source code"><var>$cache</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$cache" class="anchor">#</a>
@@ -586,7 +592,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#113-118" title="Go to source code"><var>$session</var></a>
+					<a href="source-class-Alo.html#116-121" title="Go to source code"><var>$session</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$session" class="anchor">#</a>
@@ -612,7 +618,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#120-125" title="Go to source code"><var>$controller</var></a>
+					<a href="source-class-Alo.html#123-128" title="Go to source code"><var>$controller</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$controller" class="anchor">#</a>
@@ -638,7 +644,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.html#127-132" title="Go to source code"><var>$router</var></a>
+					<a href="source-class-Alo.html#130-135" title="Go to source code"><var>$router</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$router" class="anchor">#</a>

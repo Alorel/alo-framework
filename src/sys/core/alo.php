@@ -25,6 +25,7 @@
     * @author Art <a.molcanovas@gmail.com>
     * @todo   Create CLI tools based on AloWAMP's IO & downloader classes. Not sure if Downloader will belong more to
     *         networking or CLI since one of its core characteristics is the progress function, but we shall see.
+    * @todo   Decide if you're removing deprecated classes from this one's statics.
     */
    class Alo {
 
