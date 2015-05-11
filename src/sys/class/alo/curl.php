@@ -14,6 +14,10 @@
     * Object-oriented cURL wrapper
     *
     * @author Art <a.molcanovas@gmail.com>
+    * @todo   Import changes from AloWAMP.
+    * @todo   Import downloader class from AloWAMP, extend cURL
+    * @todo   Create Uploader class based on Downloader
+    * @todo   IF a network namespace is created move it there
     */
    class cURL {
 

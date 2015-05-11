@@ -1,3 +1,9 @@
+# 1.1 (pending) #
+
+Deprecated
+
+* Testing suite deprecated. Tools like [PHPUnit](https://phpunit.de/) serve as a far better alternative to test your code.
+
 # 1.0 (2015-05-08) #
 
 Reworked

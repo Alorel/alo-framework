@@ -13,6 +13,8 @@
     * Object-oriented file handler
     *
     * @author Arturas Molcanovas <a.molcanovas@gmail.com>
+    * @todo   Deprecate, move to Alo\Filesystem namespace
+    * @todo   Create its little brother, the Dir class
     */
    class File {
 

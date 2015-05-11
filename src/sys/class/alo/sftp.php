@@ -15,6 +15,7 @@
     * SFTP handler
     *
     * @author Arturas Molcanovas <a.molcanovas@gmail.com>
+    * @todo   IF a a networking namespace is created, move it there
     */
    class SFTP {
 
