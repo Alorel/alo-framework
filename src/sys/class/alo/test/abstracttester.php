@@ -13,8 +13,9 @@
    /**
     * The abstract tester class
     *
-    * @author Art <a.molcanovas@gmail.com>
-    * @package TestingSuite
+    * @author     Art <a.molcanovas@gmail.com>
+    * @package    TestingSuite
+    * @deprecated Since v1.1
     */
    abstract class AbstractTester {
 

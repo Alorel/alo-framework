@@ -10,8 +10,9 @@
    /**
     * Tests functions for output or return values
     *
-    * @author  Art <a.molcanovas@gmail.com>
-    * @package TestingSuite
+    * @author     Art <a.molcanovas@gmail.com>
+    * @package    TestingSuite
+    * @deprecated Since v1.1
     */
    class FunctionTester extends AbstractTester {
 

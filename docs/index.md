@@ -34,8 +34,8 @@ AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.4
 * Object-oriented cURL wrapper
 * Object-oriented file manager
 * Remote SFTP file manager
-* Code testing suite
 * Code profiler
+* CLI tools
 
 ^[TOC](#table-of-contents)
 
