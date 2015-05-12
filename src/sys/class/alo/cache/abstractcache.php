@@ -14,6 +14,7 @@
     *
     * @author  Art <a.molcanovas@gmail.com>
     * @package Cache
+    * @todo    Redis cache wrapper.
     */
    abstract class AbstractCache {
 
