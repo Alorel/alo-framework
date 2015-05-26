@@ -26,7 +26,11 @@
        */
       protected $db;
 
-      /** @inheritdoc */
+      /**
+       * Instantiates the class
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       */
       function __construct() {
          if (!Alo::$db) {
             Alo::$db = new MySQL();
@@ -37,7 +41,12 @@
          \Log::debug('Initialised MySQL session');
       }
 
-      /** @inheritdoc */
+      /**
+       * Fetches session data
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return SQLSession
+       */
       protected function fetch() {
          $sql = $this->db->prepQuery('SELECT `data` '
                                      . 'FROM `' . ALO_SESSION_TABLE_NAME . '` '
@@ -55,7 +64,12 @@
          return $this;
       }
 
-      /** @inheritdoc */
+      /**
+       * Terminates the session
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return SQLSession
+       */
       function terminate() {
          $this->db->prepQuery('DELETE FROM `' . ALO_SESSION_TABLE_NAME . '` '
                               . 'WHERE `id`=? '
@@ -64,7 +78,12 @@
          return parent::terminate();
       }
 
-      /** @inheritdoc */
+      /**
+       * Saves session data
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return SQLSession
+       */
       protected function write() {
          $this->db->prepQuery('REPLACE INTO `'
                               . ALO_SESSION_TABLE_NAME . '`(`id`,`data`,`access`) VALUES('

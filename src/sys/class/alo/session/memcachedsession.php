@@ -48,7 +48,12 @@
          }
       }
 
-      /** @inheritdoc */
+      /**
+       * Fetches session data
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return MemcachedSession
+       */
       protected function fetch() {
          $data = $this->mc->get(ALO_SESSION_MC_PREFIX . $this->id);
 
@@ -61,14 +66,24 @@
          return $this;
       }
 
-      /** @inheritdoc */
+      /**
+       * Terminates the session
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return MemcachedSession
+       */
       function terminate() {
          $this->mc->delete(ALO_SESSION_MC_PREFIX . $this->id);
 
          return parent::terminate();
       }
 
-      /** @inheritdoc */
+      /**
+       * Saves session data
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return MemcachedSession
+       */
       protected function write() {
          $this->mc->set(ALO_SESSION_MC_PREFIX . $this->id, $this->data, ALO_SESSION_TIMEOUT);
          \Log::debug('Saved session data');

@@ -56,7 +56,17 @@
          \Log::debug('Initialised MySQL database connection');
       }
 
-      /** @inheritdoc */
+      /**
+       * Returns an aggregated one-column result set, e.g. from a count(*) query
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $sql      The SQL code
+       * @param array  $params   Bound parameters
+       * @param array  $settings Optional settings
+       *
+       * @return int|float
+       */
       function aggregate($sql, $params = null, array $settings = []) {
          $settings = \array_merge(self::$default_settings, $settings);
          $hash     = $this->hash($sql, $params, $settings[self::V_PREFIX]);
@@ -82,7 +92,17 @@
          }
       }
 
-      /** @inheritdoc */
+      /**
+       * Executes a prepared query and returns the results
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $sql      The SQL code
+       * @param array  $params   Bound parameters
+       * @param array  $settings Optional settings
+       *
+       * @return array|boolean Result array on SELECT queries, TRUE/FALSE for others
+       */
       function prepQuery($sql, $params = null, array $settings = []) {
          $settings = \array_merge(self::$default_settings, $settings);
          $hash     = $this->hash($sql, $params, $settings[self::V_PREFIX]);
@@ -108,22 +128,48 @@
          }
       }
 
-      /** @inheritdoc */
+      /**
+       * Begins a transaction
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return MySQL
+       */
       function beginTransaction() {
          return $this->pdo->inTransaction() ? true : $this->pdo->beginTransaction();
       }
 
-      /** @inheritdoc */
+      /**
+       * Commits a transaction
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return MySQL
+       */
       function commit() {
          return $this->pdo->inTransaction() ? $this->pdo->commit() : true;
       }
 
-      /** @inheritdoc */
+      /**
+       * Prepares a statement
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $sql A SQL statement to prepare
+       *
+       * @return \PDOStatement
+       */
       function prepare($sql) {
          return $this->pdo->prepare($sql);
       }
 
-      /** @inheritdoc */
+      /**
+       * Executes a quick unescaped query without preparing it
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $sql SQL code
+       *
+       * @return array|boolean Result array on SELECT queries, TRUE/FALSE for others
+       */
       function query($sql) {
          $s = $this->pdo->query($sql);
 
@@ -131,12 +177,22 @@
 
       }
 
-      /** @inheritdoc */
+      /**
+       * Rolls back a transaction
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return MySQL
+       */
       function rollBack() {
          return $this->pdo->inTransaction() ? $this->pdo->rollBack() : true;
       }
 
-      /** @inheritdoc */
+      /**
+       * Checks whether a transaction is active
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return boolean
+       */
       function transactionActive() {
          return $this->pdo->inTransaction();
       }

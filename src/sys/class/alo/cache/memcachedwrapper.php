@@ -80,7 +80,17 @@
          \Log::debug(self::$loaded ? 'Loaded MemcachedWrapper' : 'MemcachedWrapper not loaded: extension unavailable');
       }
 
-      /** @inheritdoc */
+      /**
+       * Adds a server to the pool
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $ip     The server IP
+       * @param int    $port   The server port
+       * @param int    $weight The server's weight, ie how likely it is to be used
+       *
+       * @return boolean
+       */
       function addServer($ip = ALO_MEMCACHED_IP, $port = ALO_MEMCACHED_PORT, $weight = 1) {
          \Log::debug('Added MemcachedWrapper server ' . $ip . ':' . $port
                      . ' with a weight of ' . $weight);
@@ -94,7 +104,15 @@
          }
       }
 
-      /** @inheritdoc */
+      /**
+       * Deletes a memcache key
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $key The key
+       *
+       * @return boolean
+       */
       function delete($key) {
          return self::$loaded ? $this->mc->delete($key) : false;
       }
@@ -109,22 +127,50 @@
          return self::$loaded ? get_class($this->mc) : null;
       }
 
-      /** @inheritdoc */
+      /**
+       * Clears all items from cache
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return boolean
+       */
       function purge() {
          return self::$loaded ? $this->mc->flush() : false;
       }
 
-      /** @inheritdoc */
+      /**
+       * Gets cache process info
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return array
+       */
       function getStats() {
          return self::$loaded ? $this->mc->getStats() : false;
       }
 
-      /** @inheritdoc */
+      /**
+       * Gets a cached value
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $id The value's key
+       *
+       * @return mixed
+       */
       function get($id) {
          return self::$loaded ? $this->mc->get($id) : false;
       }
 
-      /** @inheritdoc */
+      /**
+       * Sets a cached key/value pair
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $key    The key identifier
+       * @param mixed  $var    The value to set
+       * @param int    $expire When to expire the set data. Defaults to 3600s.
+       *
+       * @return boolean
+       */
       function set($key, $var, $expire = 3600) {
          \Log::debug('Set the MemcachedWrapper key ' . $key);
 
@@ -189,7 +235,12 @@
          return $dump;
       }
 
-      /** @inheritdoc */
+      /**
+       * Return all cached keys and values
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return array
+       */
       function getAll() {
          if(self::$loaded === self::CLASS_MEMCACHED) {
             return $this->getAllMemcached();

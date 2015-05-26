@@ -6,7 +6,7 @@
    use Alo\Cache\AbstractCache;
    use PDOStatement;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -47,28 +47,6 @@
        * @var string
        */
       const V_FETCH_NUM = 'n';
-
-      /**
-       * The cache object in use
-       *
-       * @var AbstractCache
-       */
-      protected $cache;
-
-      /**
-       * The prefix to use for cache keys
-       *
-       * @var string
-       */
-      protected $cache_prefix;
-
-      /**
-       * The last cache hash generated
-       *
-       * @var string
-       */
-      protected $last_hash;
-
       /**
        * Default query options
        *
@@ -80,34 +58,38 @@
          self::V_PREFIX    => null,
          self::V_FETCH_NUM => false
       ];
+      /**
+       * The cache object in use
+       *
+       * @var AbstractCache
+       */
+      protected $cache;
+      /**
+       * The prefix to use for cache keys
+       *
+       * @var string
+       */
+      protected $cache_prefix;
+      /**
+       * The last cache hash generated
+       *
+       * @var string
+       */
+      protected $last_hash;
 
       /**
        * Instantiates the database connection
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $cache Which cache interface to use
        */
       function __construct($cache) {
          $this->cache = new $cache;
 
-         if (!Alo::$db) {
+         if(!Alo::$db) {
             Alo::$db = &$this;
          }
-      }
-
-      /**
-       * Creates a query hash for caching
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @param string $sql    QUery string
-       * @param array  $params Query parameters
-       * @param string $prefix Optional prefix
-       * @return string An MD5 hash
-       */
-      protected function hash($sql, $params, $prefix = null) {
-         $this->last_hash = $this->cache_prefix . md5($prefix . $sql . json_encode($params));
-
-         return $this->last_hash;
       }
 
       /**
@@ -124,7 +106,9 @@
        * Prepares a statement
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $sql A SQL statement to prepare
+       *
        * @return PDOStatement
        */
       abstract function prepare($sql);
@@ -141,9 +125,11 @@
        * Returns an aggregated one-column result set, e.g. from a count(*) query
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $sql      The SQL code
        * @param array  $params   Bound parameters
        * @param array  $settings Optional settings
+       *
        * @return int|float
        */
       abstract function aggregate($sql, $params = null, array $settings = []);
@@ -176,9 +162,11 @@
        * Executes a prepared query and returns the results
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $sql      The SQL code
        * @param array  $params   Bound parameters
        * @param array  $settings Optional settings
+       *
        * @return array|boolean Result array on SELECT queries, TRUE/FALSE for others
        */
       abstract function prepQuery($sql, $params = null, array $settings = []);
@@ -187,8 +175,27 @@
        * Executes a quick unescaped query without preparing it
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $sql SQL code
+       *
        * @return array|boolean Result array on SELECT queries, TRUE/FALSE for others
        */
       abstract function query($sql);
+
+      /**
+       * Creates a query hash for caching
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $sql    QUery string
+       * @param array  $params Query parameters
+       * @param string $prefix Optional prefix
+       *
+       * @return string An MD5 hash
+       */
+      protected function hash($sql, $params, $prefix = null) {
+         $this->last_hash = $this->cache_prefix . md5($prefix . $sql . json_encode($params));
+
+         return $this->last_hash;
+      }
    }
