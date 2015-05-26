@@ -7,7 +7,7 @@
 	<title>Deprecated Class Alo\Test\AbstractTester | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?2169857970"></script>
+	<script type="text/javascript" src="elementlist.js?2036812029"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -64,6 +64,8 @@
 				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
 						<ul>
 				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
 						</li>
 				<li><a href="namespace-Alo.Controller.html">Controller</a>
 						</li>
@@ -146,7 +148,7 @@
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Test.AbstractTester.html#13-338" title="Go to source code">sys/class/alo/test/abstracttester.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Test.AbstractTester.html#13-351" title="Go to source code">sys/class/alo/test/abstracttester.php</a><br />
 	</div>
 
 
@@ -164,7 +166,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#120-127" title="Go to source code">__construct</a>( )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#107-114" title="Go to source code">__construct</a>( )</code>
 
 			<div class="description short">
 				
@@ -202,7 +204,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_runTests">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#129-141" title="Go to source code">runTests</a>( )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#116-128" title="Go to source code">runTests</a>( )</code>
 
 			<div class="description short">
 				
@@ -244,7 +246,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_runTest">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#143-176" title="Go to source code">runTest</a>( <span>array <var>$test</var></span> )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#130-165" title="Go to source code">runTest</a>( <span>array <var>$test</var></span> )</code>
 
 			<div class="description short">
 				
@@ -291,7 +293,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getCallable">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#178-185" title="Go to source code">getCallable</a>( <span>string <var>$name</var></span> )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#167-176" title="Go to source code">getCallable</a>( <span>string <var>$name</var></span> )</code>
 
 			<div class="description short">
 				
@@ -327,6 +329,61 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="addOutputTest" id="_addOutputTest">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Test.AbstractTester.html" class="deprecated">Alo\Test\AbstractTester</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_addOutputTest">#</a>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#178-192" title="Go to source code">addOutputTest</a>( <span>string <var>$name</var></span>, <span>mixed <var>$outcome</var></span>, <span>array <var>$args</var> = []</span> )</code>
+
+			<div class="description short">
+				
+<p>Adds a test for the output</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Adds a test for the output</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd><code>string</code><br>$name The method/function name</dd>
+						<dt><var>$outcome</var></dt>
+						<dd><code>mixed</code><br>$outcome The expected outcome</dd>
+						<dt><var>$args</var></dt>
+						<dd><code>array</code><br>$args The arguments to pass on to the function/method</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Test.AbstractTester.html" class="deprecated">Alo\Test\AbstractTester</a></code></code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.TesterException.html">Alo\Exception\TesterException</a></code></code><br>When the method/function name is invalid<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="addGenericTest" id="_addGenericTest">
 
 			<td class="attributes"><code>
@@ -338,7 +395,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_addGenericTest">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#187-213" title="Go to source code">addGenericTest</a>( <span>string <var>$type</var></span>, <span>string <var>$name</var></span>, <span>mixed <var>$outcome</var></span>, <span>array <var>$args</var> = []</span> )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#194-222" title="Go to source code">addGenericTest</a>( <span>string <var>$type</var></span>, <span>string <var>$name</var></span>, <span>mixed <var>$outcome</var></span>, <span>array <var>$args</var> = []</span> )</code>
 
 			<div class="description short">
 				
@@ -384,57 +441,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="addOutputTest" id="_addOutputTest">
-
-			<td class="attributes"><code>
-				 public 
-				<code><a href="class-Alo.Test.AbstractTester.html" class="deprecated">Alo\Test\AbstractTester</a></code>
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_addOutputTest">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#215-226" title="Go to source code">addOutputTest</a>( <span>string <var>$name</var></span>, <span>mixed <var>$outcome</var></span>, <span>array <var>$args</var> = []</span> )</code>
-
-			<div class="description short">
-				
-<p>Adds a test for the output</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Adds a test for the output</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$name</var></dt>
-						<dd><code>string</code><br>$name The method/function name</dd>
-						<dt><var>$outcome</var></dt>
-						<dd><code>mixed</code><br>$outcome The expected outcome</dd>
-						<dt><var>$args</var></dt>
-						<dd><code>array</code><br>$args The arguments to pass on to the function/method</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code><code><a href="class-Alo.Test.AbstractTester.html" class="deprecated">Alo\Test\AbstractTester</a></code></code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="addReturnTest" id="_addReturnTest">
 
 			<td class="attributes"><code>
@@ -446,7 +452,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_addReturnTest">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#228-239" title="Go to source code">addReturnTest</a>( <span>string <var>$name</var></span>, <span>mixed <var>$outcome</var></span>, <span>array <var>$args</var> = []</span> )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#224-238" title="Go to source code">addReturnTest</a>( <span>string <var>$name</var></span>, <span>mixed <var>$outcome</var></span>, <span>array <var>$args</var> = []</span> )</code>
 
 			<div class="description short">
 				
@@ -475,6 +481,10 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 						<code><code><a href="class-Alo.Test.AbstractTester.html" class="deprecated">Alo\Test\AbstractTester</a></code></code><br />
 					</div>
 
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.TesterException.html">Alo\Exception\TesterException</a></code></code><br>When the method/function name is invalid<br />
+					</div>
 
 					<h4>Author</h4>
 					<div class="list">
@@ -497,7 +507,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getQueue">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#241-248" title="Go to source code">getQueue</a>( )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#240-247" title="Go to source code">getQueue</a>( )</code>
 
 			<div class="description short">
 				
@@ -534,7 +544,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getResults">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#250-258" title="Go to source code">getResults</a>( )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#249-257" title="Go to source code">getResults</a>( )</code>
 
 			<div class="description short">
 				
@@ -576,7 +586,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_toPlaintextString">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#260-287" title="Go to source code">toPlaintextString</a>( )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#259-286" title="Go to source code">toPlaintextString</a>( )</code>
 
 			<div class="description short">
 				
@@ -618,7 +628,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___toString">#</a>
-			<code><a href="source-class-Alo.Test.AbstractTester.html#289-337" title="Go to source code">__toString</a>( )</code>
+			<code><a href="source-class-Alo.Test.AbstractTester.html#288-350" title="Go to source code">__toString</a>( )</code>
 
 			<div class="description short">
 				
@@ -665,7 +675,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#36-41" title="Go to source code"><b>P_NAME</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#22-27" title="Go to source code"><b>P_NAME</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'name'</span></code></td>
 			<td class="description"><div>
@@ -689,7 +699,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#43-48" title="Go to source code"><b>P_ARGS</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#28-33" title="Go to source code"><b>P_ARGS</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'args'</span></code></td>
 			<td class="description"><div>
@@ -713,7 +723,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#50-55" title="Go to source code"><b>P_OUTCOME</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#34-39" title="Go to source code"><b>P_OUTCOME</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'outcome'</span></code></td>
 			<td class="description"><div>
@@ -737,7 +747,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#57-62" title="Go to source code"><b>P_TYPE</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#40-45" title="Go to source code"><b>P_TYPE</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'type'</span></code></td>
 			<td class="description"><div>
@@ -761,7 +771,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#64-69" title="Go to source code"><b>P_DEFINITION</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#46-51" title="Go to source code"><b>P_DEFINITION</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'definition'</span></code></td>
 			<td class="description"><div>
@@ -785,7 +795,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#71-76" title="Go to source code"><b>P_PASSED</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#52-57" title="Go to source code"><b>P_PASSED</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'passed'</span></code></td>
 			<td class="description"><div>
@@ -809,7 +819,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#78-83" title="Go to source code"><b>T_OUTPUT</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#58-63" title="Go to source code"><b>T_OUTPUT</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'output'</span></code></td>
 			<td class="description"><div>
@@ -833,7 +843,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#85-90" title="Go to source code"><b>T_RETURN</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#64-69" title="Go to source code"><b>T_RETURN</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'return'</span></code></td>
 			<td class="description"><div>
@@ -857,7 +867,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#92-97" title="Go to source code"><b>O_NOT_CALLABLE</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#70-75" title="Go to source code"><b>O_NOT_CALLABLE</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'Not callable'</span></code></td>
 			<td class="description"><div>
@@ -881,7 +891,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#99-104" title="Go to source code"><b>P_TEST_START</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#76-81" title="Go to source code"><b>P_TEST_START</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'start'</span></code></td>
 			<td class="description"><div>
@@ -905,7 +915,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#106-111" title="Go to source code"><b>P_TEST_END</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#82-87" title="Go to source code"><b>P_TEST_END</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'end'</span></code></td>
 			<td class="description"><div>
@@ -929,7 +939,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>string</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Test.AbstractTester.html#113-118" title="Go to source code"><b>P_TEST_RUNTIME</b></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#88-93" title="Go to source code"><b>P_TEST_RUNTIME</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-quote">'runtime'</span></code></td>
 			<td class="description"><div>
@@ -963,7 +973,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Test.AbstractTester.html#22-27" title="Go to source code"><var>$queue</var></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#94-99" title="Go to source code"><var>$queue</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$queue" class="anchor">#</a>
@@ -989,7 +999,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Test.AbstractTester.html#29-34" title="Go to source code"><var>$results</var></a>
+					<a href="source-class-Alo.Test.AbstractTester.html#100-105" title="Go to source code"><var>$results</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$results" class="anchor">#</a>

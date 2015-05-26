@@ -6,7 +6,7 @@
    use Alo\Exception\ControllerException as CE;
    use ReflectionClass;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -31,119 +31,6 @@
        * @var string
        */
       const PREG_DELIMITER = '~';
-
-      /**
-       * The server name
-       *
-       * @var string
-       */
-      protected $server_name;
-
-      /**
-       * The server IP
-       *
-       * @var string
-       */
-      protected $server_addr;
-
-      /**
-       * The port in use
-       *
-       * @var int
-       */
-      protected $port;
-
-      /**
-       * The remote address
-       *
-       * @var string
-       */
-      protected $remote_addr;
-
-      /**
-       * The request scheme
-       *
-       * @var string
-       */
-      protected $request_scheme;
-
-      /**
-       * The raw path info
-       *
-       * @var string
-       */
-      protected $path;
-
-      /**
-       * Request method in use
-       *
-       * @var string
-       */
-      protected $request_method;
-
-      /**
-       * Directory name
-       *
-       * @var string
-       */
-      protected $dir;
-
-      /**
-       * Controller name
-       *
-       * @var string
-       */
-      protected $controller;
-
-      /**
-       * Method name
-       *
-       * @var string
-       */
-      protected $method;
-
-      /**
-       * Arguments to pass on to the method
-       *
-       * @var array
-       */
-      protected $method_args;
-
-      /**
-       * The error controller name
-       *
-       * @var string
-       */
-      protected $err_controller;
-
-      /**
-       * The default controller
-       *
-       * @var string
-       */
-      protected $default_controller;
-
-      /**
-       * The routes array
-       *
-       * @var array
-       */
-      protected $routes;
-
-      /**
-       * Whether we're dealing with a CLI request...
-       *
-       * @var boolean
-       */
-      protected $is_cli_request;
-
-      /**
-       * Whether we're dealing with an AJAX request
-       *
-       * @var boolean
-       */
-      protected $is_ajax_request;
-
       /**
        * Default params for a route
        *
@@ -154,6 +41,102 @@
          'method' => 'index',
          'args'   => []
       ];
+      /**
+       * The server name
+       *
+       * @var string
+       */
+      protected $server_name;
+      /**
+       * The server IP
+       *
+       * @var string
+       */
+      protected $server_addr;
+      /**
+       * The port in use
+       *
+       * @var int
+       */
+      protected $port;
+      /**
+       * The remote address
+       *
+       * @var string
+       */
+      protected $remote_addr;
+      /**
+       * The request scheme
+       *
+       * @var string
+       */
+      protected $request_scheme;
+      /**
+       * The raw path info
+       *
+       * @var string
+       */
+      protected $path;
+      /**
+       * Request method in use
+       *
+       * @var string
+       */
+      protected $request_method;
+      /**
+       * Directory name
+       *
+       * @var string
+       */
+      protected $dir;
+      /**
+       * Controller name
+       *
+       * @var string
+       */
+      protected $controller;
+      /**
+       * Method name
+       *
+       * @var string
+       */
+      protected $method;
+      /**
+       * Arguments to pass on to the method
+       *
+       * @var array
+       */
+      protected $method_args;
+      /**
+       * The error controller name
+       *
+       * @var string
+       */
+      protected $err_controller;
+      /**
+       * The default controller
+       *
+       * @var string
+       */
+      protected $default_controller;
+      /**
+       * The routes array
+       *
+       * @var array
+       */
+      protected $routes;
+      /**
+       * Whether we're dealing with a CLI request...
+       *
+       * @var boolean
+       */
+      protected $is_cli_request;
+      /**
+       * Whether we're dealing with an AJAX request
+       *
+       * @var boolean
+       */
+      protected $is_ajax_request;
 
       /**
        * Initialises the router
@@ -166,19 +149,299 @@
       }
 
       /**
+       * Tries to call the appropriate class' method
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return Router
+       * @throws CE If the controller is already the error controller
+       * @uses   self::forceError()
+       */
+      protected function tryCall() {
+         $rc = $rm = $init = false;
+
+         try {
+            $rc = new ReflectionClass(self::CONTROLLER_NAMESPACE . $this->controller);
+
+            //Must be abstract controller's subclass
+            if(!$rc->isAbstract() &&
+               $rc->isSubclassOf('\Alo\Controller\AbstractController')
+            ) {
+               $rm = $rc->getMethod($this->method);
+
+               //And a public method
+               if($rm->isPublic() && !$rm->isAbstract() && !$rm->isStatic()) {
+                  //Excellent. Instantiate!
+                  $init = true;
+               } else {
+                  $this->forceError();
+               }
+            } else {
+               $this->forceError();
+            }
+         } catch(\ReflectionException $ex) {
+            $this->forceError($ex->getMessage());
+         }
+
+         if($init) {
+            \Log::debug('Initialising controller ' .
+                        $this->controller .
+                        '->' .
+                        $this->method .
+                        '(' .
+                        implode(',', $this->method_args) .
+                        ')');
+            $controller_name = self::CONTROLLER_NAMESPACE . $this->controller;
+            Alo::$controller = new $controller_name;
+            call_user_func_array([Alo::$controller, $this->method], $this->method_args);
+         }
+
+         return $this;
+      }
+
+      /**
+       * Forces the error controller
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $msg Optionally, the error message thrown by ReflectionClass
+       *                    or ReflectionMethod
+       *
+       * @return \Alo\Controller\Router
+       * @throws CE If the controller is already the error controller
+       * @uses   self::tryCall()
+       */
+      protected function forceError($msg = null) {
+         if($this->controller != $this->err_controller) {
+            \Log::debug('404\'d on path: ' .
+                        $this->path .
+                        '. Settings were as follows: dir: ' .
+                        $this->dir .
+                        ', class: '
+                        .
+                        $this->controller .
+                        ', method: ' .
+                        $this->method .
+                        ', args: ' .
+                        json_encode($this->method_args));
+
+            $path = DIR_CONTROLLERS . strtolower($this->err_controller) . '.php';
+            if(file_exists($path)) {
+               include_once $path;
+            }
+
+            $this->controller  = $this->err_controller;
+            $this->method      = 'error';
+            $this->method_args = [404];
+            $this->tryCall();
+         } else {
+            throw new CE('No route available and the error controller '
+                         . 'is invalid.' . ($msg ? ' Exception message returned: '
+                                                   . $msg : ''), CE::E_INVALID_ROUTE);
+         }
+
+         return $this;
+      }
+
+      /**
        * Same as init(), but without attempting to call the controller
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @throws CE When the config file is not found
+       * @throws CE When $error_controller_class is not present in the config file
+       * @throws CE When The default controller is not present in the config file
+       * @throws CE When $routes is not a valid array
+       * @throws CE When a route value is not an array.
+       * @return Router
+       */
+      function initNoCall() {
+         $this->is_cli_request  = php_sapi_name() == 'cli' || defined('STDIN');
+         $this->is_ajax_request = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
+
+         return $this->init_server_vars()
+                     ->init_path()
+                     ->init_routes()
+                     ->resolvePath();
+      }
+
+      /**
+       * Resolves the controller/method path
        *
        * @author Art <a.molcanovas@gmail.com>
        * @return Router
        */
-      function initNoCall() {
-         $this->is_cli_request = php_sapi_name() == 'cli' || defined('STDIN');
-         $this->is_ajax_request = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
+      protected function resolvePath() {
+         //Use the default controller if the path is unavailable
+         if(!$this->path) {
+            $filepath = DIR_CONTROLLERS . strtolower($this->default_controller) . '.php';
 
-         return $this->init_server_vars()
-            ->init_path()
-            ->init_routes()
-            ->resolvePath();
+            if(file_exists($filepath)) {
+               include_once $filepath;
+            }
+
+            $this->controller  = $this->default_controller;
+            $this->method      = self::$route_defaults['method'];
+            $this->method_args = self::$route_defaults['args'];
+            $this->dir         = self::$route_defaults['dir'];
+         } else {
+            $resolved = false;
+
+            //Check if there's a route
+            foreach($this->routes as $source => $dest) {
+               $source_replace = trim(str_replace(self::PREG_DELIMITER, '\\' . self::PREG_DELIMITER, $source), '/');
+               $regex          =
+                  self::PREG_DELIMITER . '^' . $source_replace . '/?' . '$' . self::PREG_DELIMITER . 'is';
+
+               if(preg_match($regex, $this->path)) {
+                  $resolved = true;
+                  $explode  = explode('/', $this->path);
+
+                  $this->dir        = $dest['dir'] ? $dest['dir'] . DIRECTORY_SEPARATOR : self::$route_defaults['dir'];
+                  $this->controller = isset($dest['class']) ? $dest['class'] : $explode[0];
+
+                  //Remove controller
+                  array_shift($explode);
+
+                  //Set method
+                  if($dest['method'] != self::$route_defaults['method']) {
+                     $this->method = $dest['method'];
+                  } elseif(isset($explode[0])) {
+                     $this->method = $explode[0];
+                  } else {
+                     $this->method = self::$route_defaults['method'];
+                  }
+
+                  //Remove controller method
+                  if(!empty($explode)) {
+                     array_shift($explode);
+                  }
+
+                  //Set preliminary method args
+                  if($dest['args'] != self::$route_defaults['args']) {
+                     $this->method_args = $dest['args'];
+                  } elseif(!empty($explode)) {
+                     $this->method_args = $explode;
+                  } else {
+                     $this->method_args = self::$route_defaults['args'];
+                  }
+
+                  $replace = explode('/', preg_replace($regex, implode('/', $this->method_args), $this->path));
+
+                  //Remove empties
+                  foreach($replace as $k => $v) {
+                     if($v == '') {
+                        unset($replace[$k]);
+                     }
+                  }
+
+                  $this->method_args = $replace;
+
+                  break;
+               }
+            }
+
+            if(!$resolved) {
+               //If not, assume the path is controller/method/arg1...
+               $path = explode('/', $this->path);
+
+               $this->dir         = null;
+               $this->controller  = array_shift($path);
+               $this->method      = empty($path) ? self::$route_defaults['method'] : array_shift($path);
+               $this->method_args = $path;
+            }
+
+            $filepath =
+               DIR_CONTROLLERS . str_replace('/', DIRECTORY_SEPARATOR, $this->dir) . $this->controller . '.php';
+
+            if(file_exists($filepath)) {
+               include_once $filepath;
+            }
+         }
+
+         return $this;
+      }
+
+      /**
+       * Initialises the routing variables
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @throws CE When the config file is not found
+       * @throws CE When $error_controller_class is not present in the config file
+       * @throws CE When The default controller is not present in the config file
+       * @throws CE When $routes is not a valid array
+       * @throws CE When a route value is not an array.
+       * @return Router
+       */
+      protected function init_routes() {
+         $path = \Alo::loadConfig('router', true);
+
+         if(!file_exists($path)) {
+            throw new CE('Routing config file not found.', CE::E_CONFIG_NOT_FOUND);
+         } else {
+            require $path;
+
+            if(!isset($error_controller_class)) {
+               throw new CE('Error controller class not found in config file.', CE::E_ERR_NOT_FOUND);
+            } elseif(!isset($default_controller)) {
+               throw new CE('$default_controller undefined in config file.', CE::E_DEFAULT_UNDEFINED);
+            } elseif(!is_array(get($routes))) {
+               throw new CE('The routes variable must be an associative array', CE::E_MALFORMED_ROUTES);
+            } else {
+               $this->err_controller     = $error_controller_class;
+               $this->default_controller = $default_controller;
+
+               foreach($routes as $k => $v) {
+                  if(is_array($v)) {
+                     $this->routes[strtolower($k)] = array_merge(self::$route_defaults, $v);
+                  } else {
+                     throw new CE('Route ' . $k . ' is not a valid array.', CE::E_MALFORMED_ROUTES);
+                  }
+               }
+
+               \Log::debug('Routes initialised');
+            }
+         }
+
+         return $this;
+      }
+
+      /**
+       * Initialises the raw path variable
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return Router
+       */
+      protected function init_path() {
+         if(isset($_SERVER['PATH_INFO'])) {
+            $this->path = ltrim($_SERVER['PATH_INFO'], '/');
+         } elseif(isset($_SERVER['argv'])) {
+            //Shift off the "index.php" bit
+            array_shift($_SERVER['argv']);
+            $this->path = join(DIRECTORY_SEPARATOR, $_SERVER['argv']);
+         } else {
+            $this->path = '';
+         }
+
+         $this->path = strtolower($this->path);
+
+         return $this;
+      }
+
+      /**
+       * Initialises most server variables
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return Router
+       */
+      protected function init_server_vars() {
+         $this->port           = \get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
+         $this->remote_addr    = \get($_SERVER['REMOTE_ADDR']);
+         $this->request_scheme = \get($_SERVER['REQUEST_SCHEME']);
+         $this->request_method = \get($_SERVER['REQUEST_METHOD']);
+         $this->server_addr    = \get($_SERVER['SERVER_ADDR']);
+         $this->server_name    = \get($_SERVER['SERVER_NAME']);
+
+         return $this;
       }
 
       /**
@@ -202,39 +465,6 @@
       }
 
       /**
-       * Forces the error controller
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @param string $msg Optionally, the error message thrown by ReflectionClass
-       *                    or ReflectionMethod
-       * @return \Alo\Controller\Router
-       * @throws CE If the controller is already the error controller
-       * @uses   self::tryCall()
-       */
-      protected function forceError($msg = null) {
-         if ($this->controller != $this->err_controller) {
-            \Log::debug('404\'d on path: ' . $this->path . '. Settings were as follows: dir: ' . $this->dir . ', class: '
-               . $this->controller . ', method: ' . $this->method . ', args: ' . json_encode($this->method_args));
-
-            $path = DIR_CONTROLLERS . strtolower($this->err_controller) . '.php';
-            if (file_exists($path)) {
-               include_once $path;
-            }
-
-            $this->controller = $this->err_controller;
-            $this->method = 'error';
-            $this->method_args = [404];
-            $this->tryCall();
-         } else {
-            throw new CE('No route available and the error controller '
-               . 'is invalid.' . ($msg ? ' Exception message returned: '
-                  . $msg : ''), CE::E_INVALID_ROUTE);
-         }
-
-         return $this;
-      }
-
-      /**
        * Returns the error controller name
        *
        * @author Art <a.molcanovas@gmail.com>
@@ -242,243 +472,6 @@
        */
       function getErrController() {
          return $this->err_controller;
-      }
-
-      /**
-       * Tries to call the appropriate class' method
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return Router
-       * @uses   self::forceError()
-       */
-      protected function tryCall() {
-         $rc = $rm = $init = false;
-
-         try {
-            $rc = new ReflectionClass(self::CONTROLLER_NAMESPACE . $this->controller);
-
-            //Must be abstract controller's subclass
-            if (!$rc->isAbstract() &&
-               $rc->isSubclassOf('\Alo\Controller\AbstractController')
-            ) {
-               $rm = $rc->getMethod($this->method);
-
-               //And a public method
-               if ($rm->isPublic() && !$rm->isAbstract() && !$rm->isStatic()) {
-                  //Excellent. Instantiate!
-                  $init = true;
-               } else {
-                  $this->forceError();
-               }
-            } else {
-               $this->forceError();
-            }
-         } catch (\ReflectionException $ex) {
-            $this->forceError($ex->getMessage());
-         }
-
-         if ($init) {
-            \Log::debug('Initialising controller ' . $this->controller . '->' . $this->method . '(' . implode(',', $this->method_args) . ')');
-            $controller_name = self::CONTROLLER_NAMESPACE . $this->controller;
-            Alo::$controller = new $controller_name;
-            call_user_func_array([Alo::$controller, $this->method], $this->method_args);
-         }
-
-         return $this;
-      }
-
-      /**
-       * Resolves the controller/method path
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return Router
-       * @todo   Remove comment end debug output
-       */
-      protected function resolvePath() {
-         //Use the default controller if the path is unavailable
-         if (!$this->path) {
-            $filepath = DIR_CONTROLLERS . strtolower($this->default_controller) . '.php';
-
-            if (file_exists($filepath)) {
-               include_once $filepath;
-            }
-
-            $this->controller = $this->default_controller;
-            $this->method = self::$route_defaults['method'];
-            $this->method_args = self::$route_defaults['args'];
-            $this->dir = self::$route_defaults['dir'];
-         } else {
-            $resolved = false;
-
-            //Check if there's a route
-            foreach ($this->routes as $source => $dest) {
-               $source_replace = trim(str_replace(self::PREG_DELIMITER, '\\' . self::PREG_DELIMITER, $source), '/');
-               $regex = self::PREG_DELIMITER . '^' . $source_replace . '/?' . '$' . self::PREG_DELIMITER . 'is';
-
-               if (preg_match($regex, $this->path)) {
-                  $resolved = true;
-                  $explode = explode('/', $this->path);
-
-                  $this->dir = $dest['dir'] ? $dest['dir'] . DIRECTORY_SEPARATOR : self::$route_defaults['dir'];
-                  $this->controller = isset($dest['class']) ? $dest['class'] : $explode[0];
-
-                  //Remove controller
-                  array_shift($explode);
-
-                  //Set method
-                  if ($dest['method'] != self::$route_defaults['method']) {
-                     $this->method = $dest['method'];
-                  } elseif (isset($explode[0])) {
-                     $this->method = $explode[0];
-                  } else {
-                     $this->method = self::$route_defaults['method'];
-                  }
-
-                  //Remove controller method
-                  if (!empty($explode)) {
-                     array_shift($explode);
-                  }
-
-                  //Set preliminary method args
-                  if ($dest['args'] != self::$route_defaults['args']) {
-                     $this->method_args = $dest['args'];
-                  } elseif (!empty($explode)) {
-                     $this->method_args = $explode;
-                  } else {
-                     $this->method_args = self::$route_defaults['args'];
-                  }
-
-                  //echo debug([
-                  //   'source_replace'    => $source_replace,
-                  //   'path'              => $this->path,
-                  //   'dest'              => $dest,
-                  //   '$this->dir'        => $this->dir,
-                  //   '$this->controller' => $this->controller,
-                  //   '$this->method'     => $this->method,
-                  //   '$this->args'       => $this->method_args,
-                  //   'regex'             => $regex,
-                  //   'replace_with'      => '[\'' . implode('\',\'', $this->method_args) . '\']',
-                  //   'replace_final'     => json_decode(preg_replace($regex, '["' . implode('","', $this->method_args) . '"]', $this->path), true)
-                  //]);
-
-                  $replace = explode('/', preg_replace($regex, implode('/', $this->method_args), $this->path));
-
-                  //Remove empties
-                  foreach ($replace as $k => $v) {
-                     if ($v == '') {
-                        unset($replace[$k]);
-                     }
-                  }
-
-                  $this->method_args = $replace;
-
-                  //echo debug($this->method_args);
-
-                  break;
-               }
-            }
-
-            if (!$resolved) {
-               //If not, assume the path is controller/method/arg1...
-               $path = explode('/', $this->path);
-
-               $this->dir = null;
-               $this->controller = array_shift($path);
-               $this->method = empty($path) ? self::$route_defaults['method'] : array_shift($path);
-               $this->method_args = $path;
-            }
-
-            $filepath = DIR_CONTROLLERS . str_replace('/', DIRECTORY_SEPARATOR, $this->dir) . $this->controller . '.php';
-
-            if (file_exists($filepath)) {
-               include_once $filepath;
-            }
-         }
-
-         return $this;
-      }
-
-      /**
-       * Initialises the routing variables
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @throws CE When the config file is not found
-       * @throws CE When $error_controller_class is not present in the config file
-       * @throws CE When The default controller is not present in the config file
-       * @throws CE When $routes is not a valid array
-       * @throws CE When a route value is not an array.
-       * @return Router
-       */
-      protected function init_routes() {
-         $path = \Alo::loadConfig('router', true);
-
-         if (!file_exists($path)) {
-            throw new CE('Routing config file not found.', CE::E_CONFIG_NOT_FOUND);
-         } else {
-            require $path;
-
-            if (!isset($error_controller_class)) {
-               throw new CE('Error controller class not found in config file.', CE::E_ERR_NOT_FOUND);
-            } elseif (!isset($default_controller)) {
-               throw new CE('$default_controller undefined in config file.', CE::E_DEFAULT_UNDEFINED);
-            } elseif (!is_array($routes)) {
-               throw new CE('The routes variable must be an associative array', CE::E_MALFORMED_ROUTES);
-            } else {
-               $this->err_controller = $error_controller_class;
-               $this->default_controller = $default_controller;
-
-               foreach ($routes as $k => $v) {
-                  if (is_array($v)) {
-                     $this->routes[strtolower($k)] = array_merge(self::$route_defaults, $v);
-                  } else {
-                     throw new CE('Route ' . $k . ' is not a valid array.', CE::E_MALFORMED_ROUTES);
-                  }
-               }
-
-               \Log::debug('Routes initialised');
-            }
-         }
-
-         return $this;
-      }
-
-      /**
-       * Initialises the raw path variable
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return Router
-       */
-      protected function init_path() {
-         if (isset($_SERVER['PATH_INFO'])) {
-            $this->path = ltrim($_SERVER['PATH_INFO'], '/');
-         } elseif (isset($_SERVER['argv'])) {
-            //Shift off the "index.php" bit
-            array_shift($_SERVER['argv']);
-            $this->path = join(DIRECTORY_SEPARATOR, $_SERVER['argv']);
-         } else {
-            $this->path = '';
-         }
-
-         $this->path = strtolower($this->path);
-
-         return $this;
-      }
-
-      /**
-       * Initialises most server variables
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return Router
-       */
-      protected function init_server_vars() {
-         $this->port = \get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
-         $this->remote_addr = \get($_SERVER['REMOTE_ADDR']);
-         $this->request_scheme = \get($_SERVER['REQUEST_SCHEME']);
-         $this->request_method = \get($_SERVER['REQUEST_METHOD']);
-         $this->server_addr = \get($_SERVER['SERVER_ADDR']);
-         $this->server_name = \get($_SERVER['SERVER_NAME']);
-
-         return $this;
       }
 
       /**

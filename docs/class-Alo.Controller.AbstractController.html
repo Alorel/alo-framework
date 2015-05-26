@@ -7,7 +7,7 @@
 	<title>Class Alo\Controller\AbstractController | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?2169857970"></script>
+	<script type="text/javascript" src="elementlist.js?2036812029"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -64,6 +64,8 @@
 				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
 						<ul>
 				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
 						</li>
 				<li class="active"><a href="namespace-Alo.Controller.html">Controller</a>
 						</li>
@@ -151,7 +153,7 @@
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Controller.AbstractController.html#10-135" title="Go to source code">sys/class/alo/controller/abstractcontroller.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Controller.AbstractController.html#10-141" title="Go to source code">sys/class/alo/controller/abstractcontroller.php</a><br />
 	</div>
 
 
@@ -169,7 +171,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Alo.Controller.AbstractController.html#24-33" title="Go to source code">__construct</a>( <span>boolean <var>$echo_on_destruct</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-Alo.Controller.AbstractController.html#24-34" title="Go to source code">__construct</a>( <span>boolean <var>$echo_on_destruct</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -201,6 +203,125 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="index" id="_index">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_index">#</a>
+			<code><a href="source-class-Alo.Controller.AbstractController.html#36-43" title="Go to source code">index</a>( )</code>
+
+			<div class="description short">
+				
+<p>Method to avoid errors. Should always be overridden.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Method to avoid errors. Should always be overridden.</p>
+
+
+
+
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="http_error" id="_http_error">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_http_error">#</a>
+			<code><a href="source-class-Alo.Controller.AbstractController.html#45-61" title="Go to source code">http_error</a>( <span>integer <var>$code</var> = <span class="php-num">404</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Forces a HTTP error page to be displayed instead</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Forces a HTTP error page to be displayed instead</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$code</var></dt>
+						<dd><code>integer</code><br>$code The HTTP response code</dd>
+					</dl></div>
+
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__destruct" id="___destruct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___destruct">#</a>
+			<code><a href="source-class-Alo.Controller.AbstractController.html#63-80" title="Go to source code">__destruct</a>( )</code>
+
+			<div class="description short">
+				
+<p>Closure operations</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Closure operations</p>
+
+
+
+
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="echoOnDestruct" id="_echoOnDestruct">
 
 			<td class="attributes"><code>
@@ -212,7 +333,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_echoOnDestruct">#</a>
-			<code><a href="source-class-Alo.Controller.AbstractController.html#35-50" title="Go to source code">echoOnDestruct</a>( <span>boolean|null <var>$switch</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Alo.Controller.AbstractController.html#82-98" title="Go to source code">echoOnDestruct</a>( <span>boolean|null <var>$switch</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -245,49 +366,6 @@ sets it to true/false if the parameter is set</p>
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="http_error" id="_http_error">
-
-			<td class="attributes"><code>
-				 protected 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_http_error">#</a>
-			<code><a href="source-class-Alo.Controller.AbstractController.html#52-66" title="Go to source code">http_error</a>( <span>integer <var>$code</var> = <span class="php-num">404</span></span> )</code>
-
-			<div class="description short">
-				
-<p>Forces a HTTP error page to be displayed instead</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Forces a HTTP error page to be displayed instead</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$code</var></dt>
-						<dd><code>integer</code><br>$code The HTTP response code</dd>
-					</dl></div>
-
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="loadView" id="_loadView">
 
 			<td class="attributes"><code>
@@ -299,7 +377,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_loadView">#</a>
-			<code><a href="source-class-Alo.Controller.AbstractController.html#68-105" title="Go to source code">loadView</a>( <span>string <var>$name</var></span>, <span>array <var>$params</var> = []</span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-Alo.Controller.AbstractController.html#100-139" title="Go to source code">loadView</a>( <span>string <var>$name</var></span>, <span>array <var>$params</var> = []</span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -327,82 +405,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 					<div class="list">
 						<code>null|string</code><br />
 					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="index" id="_index">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_index">#</a>
-			<code><a href="source-class-Alo.Controller.AbstractController.html#107-114" title="Go to source code">index</a>( )</code>
-
-			<div class="description short">
-				
-<p>Method to avoid errors. Should always be overridden.</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Method to avoid errors. Should always be overridden.</p>
-
-
-
-
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="__destruct" id="___destruct">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#___destruct">#</a>
-			<code><a href="source-class-Alo.Controller.AbstractController.html#116-133" title="Go to source code">__destruct</a>( )</code>
-
-			<div class="description short">
-				
-<p>Closure operations</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Closure operations</p>
-
-
-
-
 
 
 					<h4>Author</h4>

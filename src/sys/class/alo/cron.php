@@ -2,7 +2,7 @@
 
    namespace Alo;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -228,7 +228,7 @@
        * @throws CE When the machine is running Windows
        */
       function __construct() {
-         if (\server_is_windows()) {
+         if(\server_is_windows()) {
             throw new CE('Windows does not support cron!', CE::E_WINDOWS);
          } else {
             $this->autocommit = false;
@@ -245,14 +245,14 @@
       function reloadCrontab() {
          $this->crontab = shell_exec('crontab -l');
 
-         if ($this->crontab) {
+         if($this->crontab) {
             $this->crontab = trim($this->crontab);
             $this->crontab = explode("\n", $this->crontab);
 
             //Make sure it's really empty
             $last_index = count($this->crontab) - 1;
 
-            while ($last_index >= 0 && !$this->crontab[$last_index]) {
+            while($last_index >= 0 && !$this->crontab[$last_index]) {
                unset($this->crontab[$last_index]);
                $last_index--;
             }
@@ -271,6 +271,7 @@
        * use with caution!
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int        $index        The job index in the crontab array
        * @param string     $command      The command to run
        * @param int|string $minute_const The minute parameter
@@ -278,13 +279,23 @@
        * @param int|string $day          The day of the month parameter
        * @param int|string $month        The month parameter
        * @param int|string $weekday      The day of the week parameter
+       *
+       * @throws CE When the minute expression is invalid
+       * @throws CE When the parameters are invalid
+       * @throws CE When one or more parameters are non-scalar
        * @return Cron
        */
-      function editCronJob($index, $command, $minute_const = '*', $hour = '*', $day = '*', $month = '*', $weekday = '*') {
-         if (!is_numeric($index)) {
+      function editCronJob($index,
+                           $command,
+                           $minute_const = '*',
+                           $hour = '*',
+                           $day = '*',
+                           $month = '*',
+                           $weekday = '*') {
+         if(!is_numeric($index)) {
             $search = array_search($index, $this->crontab);
 
-            if ($search !== false) {
+            if($search !== false) {
                $index = $search;
             }
          }
@@ -296,6 +307,7 @@
        * Performs modifiation on the crontab file
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int        $index        The job index in the crontab array
        * @param string     $command      The command to run
        * @param int|string $minute_const The minute parameter
@@ -303,38 +315,51 @@
        * @param int|string $day          The day of the month parameter
        * @param int|string $month        The month parameter
        * @param int|string $weekday      The day of the week parameter
+       *
        * @return Cron
        * @throws CE When the minute expression is invalid
        * @throws CE When the parameters are invalid
        * @throws CE When one or more parameters are non-scalar
        */
-      protected function editCrontab($index, $command, $minute_const = '*', $hour = '*', $day = '*', $month = '*', $weekday = '*') {
+      protected function editCrontab($index,
+                                     $command,
+                                     $minute_const = '*',
+                                     $hour = '*',
+                                     $day = '*',
+                                     $month = '*',
+                                     $weekday = '*') {
          $schedule = '';
 
-         if (!is_scalar($command) || !is_scalar($minute_const) || !is_scalar($hour) || !is_scalar($day) || !is_scalar($month) || !is_scalar($weekday)) {
+         if(!is_scalar($command) ||
+            !is_scalar($minute_const) ||
+            !is_scalar($hour) ||
+            !is_scalar($day) ||
+            !is_scalar($month) ||
+            !is_scalar($weekday)
+         ) {
             throw new CE('All cron attributes must be scalar!', CE::E_ARGS_NONSCALAR);
-         } elseif (preg_match('/^(\@[a-z]+|[0-9 \*]{9})$/i', $minute_const)) {
+         } elseif(preg_match('/^(\@[a-z]+|[0-9 \*]{9})$/i', $minute_const)) {
             $atSign = stripos($minute_const, '@');
 
-            if ($atSign === false || ($atSign === 0 && in_array($minute_const, self::$validConstants))) {
+            if($atSign === false || ($atSign === 0 && in_array($minute_const, self::$validConstants))) {
                $schedule = $minute_const;
             } else {
                throw new CE('Invalid schedule minute expression: ' . $minute_const, CE::E_INVALID_MIN);
             }
-         } elseif (!self::formatOK($minute_const, $hour, $day, $month, $weekday)) {
+         } elseif(!self::formatOK($minute_const, $hour, $day, $month, $weekday)) {
             throw new CE('Invalid schedule parameters: ' . json_encode([
-                  'minute/constant' => $minute_const,
-                  'hour'            => $hour,
-                  'day'             => $day,
-                  'month'           => $month,
-                  'weekday'         => $weekday,
-                  'cmd'             => $command,
-                  'index'           => $index
-               ]), CE::E_INVALID_EXPR);
+                                                                          'minute/constant' => $minute_const,
+                                                                          'hour'            => $hour,
+                                                                          'day'             => $day,
+                                                                          'month'           => $month,
+                                                                          'weekday'         => $weekday,
+                                                                          'cmd'             => $command,
+                                                                          'index'           => $index
+                                                                       ]), CE::E_INVALID_EXPR);
          } else {
             $add = $minute_const . ' ' . $hour . ' ' . $day . ' ' . $month . ' ' . $weekday . ' ' . $command;
 
-            if ($index === null) {
+            if($index === null) {
                $this->crontab[] = $add;
                Log::debug('Appended crontab with ' . $add);
             } else {
@@ -342,7 +367,7 @@
                Log::debug('Edited crontab index ' . $index . ' with ' . $add);
             }
 
-            if ($this->autocommit) {
+            if($this->autocommit) {
                $this->commit();
             }
          }
@@ -354,35 +379,26 @@
        * Checks whether all the fields are formatted properly
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int|string $min     The minute parameter
        * @param int|string $hour    The hour parameter
        * @param int|string $day     The day of the month parameter
        * @param int|string $month   The month parameter
        * @param int|string $weekday The day of the week parameter
+       *
        * @return boolean
        */
       protected static function formatOK($min, $hour, $day, $month, $weekday) {
          $pat_min_h_mth = '/^(\*|[0-9]{1,2}|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
-         $pat_day = '/^(\*|[0-9]{1,2}|[0-9]{1,2}(L|W)|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
-         $pat_weekday = '/^(\*|[0-9]{1,2}|[0-9]{1,2}L|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
+         $pat_day       = '/^(\*|[0-9]{1,2}|[0-9]{1,2}(L|W)|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
+         $pat_weekday   = '/^(\*|[0-9]{1,2}|[0-9]{1,2}L|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
 
-         return preg_match($pat_min_h_mth, $min) && preg_match($pat_min_h_mth, $hour) && preg_match($pat_min_h_mth, $month) && preg_match($pat_day, $day) && preg_match($pat_weekday, $weekday);
-      }
-
-      /**
-       * Appends the crontab file
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @param string     $command      The command to run
-       * @param int|string $minute_const The minute parameter
-       * @param int|string $hour         The hour parameter
-       * @param int|string $day          The day of the month parameter
-       * @param int|string $month        The month parameter
-       * @param int|string $weekday      The day of the week parameter
-       * @return Cron
-       */
-      function appendCrontab($command, $minute_const = '*', $hour = '*', $day = '*', $month = '*', $weekday = '*') {
-         return $this->editCrontab(null, $command, $minute_const, $hour, $day, $month, $weekday);
+         return
+            preg_match($pat_min_h_mth, $min) &&
+            preg_match($pat_min_h_mth, $hour) &&
+            preg_match($pat_min_h_mth, $month) &&
+            preg_match($pat_day, $day) &&
+            preg_match($pat_weekday, $weekday);
       }
 
       /**
@@ -402,17 +418,40 @@
       }
 
       /**
+       * Appends the crontab file
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string     $command      The command to run
+       * @param int|string $minute_const The minute parameter
+       * @param int|string $hour         The hour parameter
+       * @param int|string $day          The day of the month parameter
+       * @param int|string $month        The month parameter
+       * @param int|string $weekday      The day of the week parameter
+       *
+       * @throws CE When the minute expression is invalid
+       * @throws CE When the parameters are invalid
+       * @throws CE When one or more parameters are non-scalar
+       * @return Cron
+       */
+      function appendCrontab($command, $minute_const = '*', $hour = '*', $day = '*', $month = '*', $weekday = '*') {
+         return $this->editCrontab(null, $command, $minute_const, $hour, $day, $month, $weekday);
+      }
+
+      /**
        * Removes the cron job @ index $index
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $index The cron job's index in the array
+       *
        * @return Cron
        */
       function deleteJob($index) {
          unset($this->crontab[$index]);
          Log::debug('Deleted crontab entry @ index ' . $index);
 
-         if ($this->autocommit) {
+         if($this->autocommit) {
             $this->commit();
          }
 
@@ -428,7 +467,7 @@
       function clearCrontab() {
          $this->crontab = [];
 
-         if ($this->autocommit) {
+         if($this->autocommit) {
             $this->commit();
          }
 
@@ -440,11 +479,13 @@
        * sets it. Use with caution!
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param bool|null $set The desired setting if changing
+       *
        * @return Cron|bool $this if not changing the autocommit value or the value otherwise
        */
       function autocommit($set = null) {
-         if (is_bool($set)) {
+         if(is_bool($set)) {
             $this->autocommit = $set;
 
             return $this;
@@ -457,7 +498,9 @@
        * Returns crontab entry at index $i
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $i The index
+       *
        * @return null|string
        */
       function getAtIndex($i) {

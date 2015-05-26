@@ -7,7 +7,7 @@
 	<title>Class Alo\cURL | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?2169857970"></script>
+	<script type="text/javascript" src="elementlist.js?2036812029"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -64,6 +64,8 @@
 				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
 						<ul>
 				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
 						</li>
 				<li><a href="namespace-Alo.Controller.html">Controller</a>
 						</li>
@@ -149,7 +151,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 				Create Uploader class based on Downloader<br />
 				<b>Todo:</b>
 				IF a network namespace is created move it there<br />
-		<b>Located at</b> <a href="source-class-Alo.cURL.html#13-384" title="Go to source code">sys/class/alo/curl.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.cURL.html#13-412" title="Go to source code">sys/class/alo/curl.php</a><br />
 	</div>
 
 
@@ -167,7 +169,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Alo.cURL.html#62-88" title="Go to source code">__construct</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Alo.cURL.html#62-91" title="Go to source code">__construct</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -203,6 +205,100 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="setURL" id="_setURL">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.cURL.html">Alo\cURL</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setURL">#</a>
+			<code><a href="source-class-Alo.cURL.html#93-107" title="Go to source code">setURL</a>( <span>string <var>$url</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets the connection URL</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets the connection URL</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$url</var></dt>
+						<dd><code>string</code><br>$url The URL</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="init" id="_init">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-Alo.cURL.html">Alo\cURL</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_init">#</a>
+			<code><a href="source-class-Alo.cURL.html#109-120" title="Go to source code">init</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>A static wrapper function for __construct()</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A static wrapper function for __construct()</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$url</var></dt>
+						<dd><code>string</code><br>$url Optionally, the URL for curl_init()</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="notimeout" id="_notimeout">
 
 			<td class="attributes"><code>
@@ -214,7 +310,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_notimeout">#</a>
-			<code><a href="source-class-Alo.cURL.html#90-109" title="Go to source code">notimeout</a>( <span>boolean <var>$enabled</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-Alo.cURL.html#122-143" title="Go to source code">notimeout</a>( <span>boolean <var>$enabled</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -250,6 +346,58 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="setopt_array" id="_setopt_array">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.cURL.html">Alo\cURL</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setopt_array">#</a>
+			<code><a href="source-class-Alo.cURL.html#145-160" title="Go to source code">setopt_array</a>( <span>array <var>$a</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets an array of options</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets an array of options</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$a</var></dt>
+						<dd><code>array</code><br>$a An array specifying which options to set and their values. The keys should be
+valid curl_setopt() constants or their integer equivalents.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+					<h4>Link</h4>
+					<div class="list">
+							<a href="http://php.net/manual/en/function.curl-setopt-array.php">http://php.net/manual/en/function.curl-setopt-array.php</a><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="laxSSLMode" id="_laxSSLMode">
 
 			<td class="attributes"><code>
@@ -261,7 +409,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_laxSSLMode">#</a>
-			<code><a href="source-class-Alo.cURL.html#111-123" title="Go to source code">laxSSLMode</a>( <span>boolean <var>$enabled</var> = <span class="php-keyword1">true</span></span> )</code>
+			<code><a href="source-class-Alo.cURL.html#162-176" title="Go to source code">laxSSLMode</a>( <span>boolean <var>$enabled</var> = <span class="php-keyword1">true</span></span> )</code>
 
 			<div class="description short">
 				
@@ -308,7 +456,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___toString">#</a>
-			<code><a href="source-class-Alo.cURL.html#125-133" title="Go to source code">__toString</a>( )</code>
+			<code><a href="source-class-Alo.cURL.html#178-186" title="Go to source code">__toString</a>( )</code>
 
 			<div class="description short">
 				
@@ -339,53 +487,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="init" id="_init">
-
-			<td class="attributes"><code>
-				 public static
-				<code><a href="class-Alo.cURL.html">Alo\cURL</a></code>
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_init">#</a>
-			<code><a href="source-class-Alo.cURL.html#135-144" title="Go to source code">init</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span> )</code>
-
-			<div class="description short">
-				
-<p>A static wrapper function for __construct()</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>A static wrapper function for __construct()</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$url</var></dt>
-						<dd><code>string</code><br>$url Optionally, the URL for curl_init()</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code><code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="escape" id="_escape">
 
 			<td class="attributes"><code>
@@ -397,7 +498,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_escape">#</a>
-			<code><a href="source-class-Alo.cURL.html#146-156" title="Go to source code">escape</a>( <span>string <var>$str</var></span> )</code>
+			<code><a href="source-class-Alo.cURL.html#188-200" title="Go to source code">escape</a>( <span>string <var>$str</var></span> )</code>
 
 			<div class="description short">
 				
@@ -437,57 +538,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="getinfo" id="_getinfo">
-
-			<td class="attributes"><code>
-				 public 
-				mixed
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_getinfo">#</a>
-			<code><a href="source-class-Alo.cURL.html#158-168" title="Go to source code">getinfo</a>( <span>integer <var>$opt</var> = <span class="php-num">0</span></span> )</code>
-
-			<div class="description short">
-				
-<p>Get information regarding a specific transfer</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Get information regarding a specific transfer</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$opt</var></dt>
-						<dd><code>integer</code><br>$opt One of the cURL constants</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>mixed</code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-					<h4>Link</h4>
-					<div class="list">
-							<a href="http://php.net/manual/en/function.curl-getinfo.php">http://php.net/manual/en/function.curl-getinfo.php</a><br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="pause" id="_pause">
 
 			<td class="attributes"><code>
@@ -499,7 +549,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_pause">#</a>
-			<code><a href="source-class-Alo.cURL.html#170-182" title="Go to source code">pause</a>( <span>integer <var>$bitmask</var></span> )</code>
+			<code><a href="source-class-Alo.cURL.html#202-216" title="Go to source code">pause</a>( <span>integer <var>$bitmask</var></span> )</code>
 
 			<div class="description short">
 				
@@ -550,7 +600,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_version">#</a>
-			<code><a href="source-class-Alo.cURL.html#184-194" title="Go to source code">version</a>( <span>integer <var>$age</var> = CURLVERSION_NOW</span> )</code>
+			<code><a href="source-class-Alo.cURL.html#218-230" title="Go to source code">version</a>( <span>integer <var>$age</var> = CURLVERSION_NOW</span> )</code>
 
 			<div class="description short">
 				
@@ -601,7 +651,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_wasSuccessful">#</a>
-			<code><a href="source-class-Alo.cURL.html#196-214" title="Go to source code">wasSuccessful</a>( )</code>
+			<code><a href="source-class-Alo.cURL.html#232-250" title="Go to source code">wasSuccessful</a>( )</code>
 
 			<div class="description short">
 				
@@ -633,6 +683,57 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="getinfo" id="_getinfo">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getinfo">#</a>
+			<code><a href="source-class-Alo.cURL.html#252-264" title="Go to source code">getinfo</a>( <span>integer <var>$opt</var> = <span class="php-num">0</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Get information regarding a specific transfer</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Get information regarding a specific transfer</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$opt</var></dt>
+						<dd><code>integer</code><br>$opt One of the cURL constants</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>mixed</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+					<h4>Link</h4>
+					<div class="list">
+							<a href="http://php.net/manual/en/function.curl-getinfo.php">http://php.net/manual/en/function.curl-getinfo.php</a><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="reset" id="_reset">
 
 			<td class="attributes"><code>
@@ -644,7 +745,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_reset">#</a>
-			<code><a href="source-class-Alo.cURL.html#216-229" title="Go to source code">reset</a>( )</code>
+			<code><a href="source-class-Alo.cURL.html#266-279" title="Go to source code">reset</a>( )</code>
 
 			<div class="description short">
 				
@@ -690,7 +791,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_unescape">#</a>
-			<code><a href="source-class-Alo.cURL.html#231-241" title="Go to source code">unescape</a>( <span>string <var>$str</var></span> )</code>
+			<code><a href="source-class-Alo.cURL.html#281-293" title="Go to source code">unescape</a>( <span>string <var>$str</var></span> )</code>
 
 			<div class="description short">
 				
@@ -741,7 +842,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___destruct">#</a>
-			<code><a href="source-class-Alo.cURL.html#243-250" title="Go to source code">__destruct</a>( )</code>
+			<code><a href="source-class-Alo.cURL.html#295-302" title="Go to source code">__destruct</a>( )</code>
 
 			<div class="description short">
 				
@@ -768,7 +869,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="setopt" id="_setopt">
+		<tr data-order="close" id="_close">
 
 			<td class="attributes"><code>
 				 public 
@@ -778,71 +879,18 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_setopt">#</a>
-			<code><a href="source-class-Alo.cURL.html#252-269" title="Go to source code">setopt</a>( <span>integer <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+			<a class="anchor" href="#_close">#</a>
+			<code><a href="source-class-Alo.cURL.html#304-319" title="Go to source code">close</a>( )</code>
 
 			<div class="description short">
 				
-<p>Sets an option</p>
+<p>Closes a cURL connection</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Sets an option</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$name</var></dt>
-						<dd><code>integer</code><br>$name The option - see cURL constants</dd>
-						<dt><var>$value</var></dt>
-						<dd><code>mixed</code><br>$value The option value</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code><code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-					<h4>Link</h4>
-					<div class="list">
-							<a href="http://php.net/manual/en/function.curl-setopt.php">http://php.net/manual/en/function.curl-setopt.php</a><br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="exec" id="_exec">
-
-			<td class="attributes"><code>
-				 public 
-				<code><a href="class-Alo.cURL.html">Alo\cURL</a></code>
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_exec">#</a>
-			<code><a href="source-class-Alo.cURL.html#271-286" title="Go to source code">exec</a>( )</code>
-
-			<div class="description short">
-				
-<p>Executes the cURL connection parameters</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Executes the cURL connection parameters</p>
+<p>Closes a cURL connection</p>
 
 
 
@@ -860,7 +908,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="http://php.net/manual/en/function.curl-exec.php">http://php.net/manual/en/function.curl-exec.php</a><br />
+							<a href="http://php.net/manual/en/function.curl-close.php">http://php.net/manual/en/function.curl-close.php</a><br />
 					</div>
 
 
@@ -878,7 +926,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get">#</a>
-			<code><a href="source-class-Alo.cURL.html#288-301" title="Go to source code">get</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Alo.cURL.html#321-336" title="Go to source code">get</a>( <span>string <var>$url</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -914,7 +962,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="close" id="_close">
+		<tr data-order="exec" id="_exec">
 
 			<td class="attributes"><code>
 				 public 
@@ -924,18 +972,18 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_close">#</a>
-			<code><a href="source-class-Alo.cURL.html#303-318" title="Go to source code">close</a>( )</code>
+			<a class="anchor" href="#_exec">#</a>
+			<code><a href="source-class-Alo.cURL.html#338-353" title="Go to source code">exec</a>( )</code>
 
 			<div class="description short">
 				
-<p>Closes a cURL connection</p>
+<p>Executes the cURL connection parameters</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Closes a cURL connection</p>
+<p>Executes the cURL connection parameters</p>
 
 
 
@@ -953,7 +1001,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 					</div>
 					<h4>Link</h4>
 					<div class="list">
-							<a href="http://php.net/manual/en/function.curl-close.php">http://php.net/manual/en/function.curl-close.php</a><br />
+							<a href="http://php.net/manual/en/function.curl-exec.php">http://php.net/manual/en/function.curl-exec.php</a><br />
 					</div>
 
 
@@ -971,7 +1019,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_error">#</a>
-			<code><a href="source-class-Alo.cURL.html#320-330" title="Go to source code">error</a>( )</code>
+			<code><a href="source-class-Alo.cURL.html#355-365" title="Go to source code">error</a>( )</code>
 
 			<div class="description short">
 				
@@ -1021,7 +1069,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_errno">#</a>
-			<code><a href="source-class-Alo.cURL.html#332-342" title="Go to source code">errno</a>( )</code>
+			<code><a href="source-class-Alo.cURL.html#367-377" title="Go to source code">errno</a>( )</code>
 
 			<div class="description short">
 				
@@ -1060,105 +1108,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="setopt_array" id="_setopt_array">
-
-			<td class="attributes"><code>
-				 public 
-				<code><a href="class-Alo.cURL.html">Alo\cURL</a></code>
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_setopt_array">#</a>
-			<code><a href="source-class-Alo.cURL.html#344-357" title="Go to source code">setopt_array</a>( <span>array <var>$a</var></span> )</code>
-
-			<div class="description short">
-				
-<p>Sets an array of options</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Sets an array of options</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$a</var></dt>
-						<dd><code>array</code><br>$a An array specifying which options to set and their values. The keys should be
-valid curl_setopt() constants or their integer equivalents.</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code><code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-					<h4>Link</h4>
-					<div class="list">
-							<a href="http://php.net/manual/en/function.curl-setopt-array.php">http://php.net/manual/en/function.curl-setopt-array.php</a><br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="setURL" id="_setURL">
-
-			<td class="attributes"><code>
-				 public 
-				<code><a href="class-Alo.cURL.html">Alo\cURL</a></code>
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_setURL">#</a>
-			<code><a href="source-class-Alo.cURL.html#359-371" title="Go to source code">setURL</a>( <span>string <var>$url</var></span> )</code>
-
-			<div class="description short">
-				
-<p>Sets the connection URL</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Sets the connection URL</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$url</var></dt>
-						<dd><code>string</code><br>$url The URL</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code><code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="__set" id="___set">
 
 			<td class="attributes"><code>
@@ -1170,7 +1119,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___set">#</a>
-			<code><a href="source-class-Alo.cURL.html#373-382" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+			<code><a href="source-class-Alo.cURL.html#379-389" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 			<div class="description short">
 				
@@ -1198,6 +1147,59 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 					<div class="list">
 							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setopt" id="_setopt">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.cURL.html">Alo\cURL</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setopt">#</a>
+			<code><a href="source-class-Alo.cURL.html#391-410" title="Go to source code">setopt</a>( <span>integer <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets an option</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets an option</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd><code>integer</code><br>$name The option - see cURL constants</dd>
+						<dt><var>$value</var></dt>
+						<dd><code>mixed</code><br>$value The option value</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+					<h4>Link</h4>
+					<div class="list">
+							<a href="http://php.net/manual/en/function.curl-setopt.php">http://php.net/manual/en/function.curl-setopt.php</a><br />
 					</div>
 
 

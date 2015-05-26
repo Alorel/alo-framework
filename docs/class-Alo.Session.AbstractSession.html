@@ -7,7 +7,7 @@
 	<title>Class Alo\Session\AbstractSession | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?2169857970"></script>
+	<script type="text/javascript" src="elementlist.js?2036812029"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -64,6 +64,8 @@
 				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
 						<ul>
 				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
 						</li>
 				<li><a href="namespace-Alo.Controller.html">Controller</a>
 						</li>
@@ -144,7 +146,7 @@
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Session.AbstractSession.html#14-376" title="Go to source code">sys/class/alo/session/abstractsession.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Session.AbstractSession.html#14-386" title="Go to source code">sys/class/alo/session/abstractsession.php</a><br />
 	</div>
 
 
@@ -189,77 +191,35 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="write" id="_write">
-
-			<td class="attributes"><code>
-				abstract protected 
-				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_write">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#81-87" title="Go to source code">write</a>( )</code>
-
-			<div class="description short">
-				
-<p>Saves session data</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Saves session data</p>
-
-
-
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="setID" id="_setID">
+		<tr data-order="identityCheck" id="_identityCheck">
 
 			<td class="attributes"><code>
 				 protected 
-				<code><a href="class-Alo.Session.SQLSession.html">Alo\Session\SQLSession</a></code>
+				boolean
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_setID">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#89-108" title="Go to source code">setID</a>( )</code>
+			<a class="anchor" href="#_identityCheck">#</a>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#81-102" title="Go to source code">identityCheck</a>( )</code>
 
 			<div class="description short">
 				
-<p>Sets the session ID variable &amp; the cookie</p>
+<p>Checks if the session hasn't been hijacked</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Sets the session ID variable &amp; the cookie</p>
+<p>Checks if the session hasn't been hijacked</p>
 
 
 
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code><code><a href="class-Alo.Session.SQLSession.html">Alo\Session\SQLSession</a></code></code><br />
+						<code>boolean</code><br>TRUE if the check has passed, FALSE if not and the session has been terminated.<br />
 					</div>
 
 
@@ -273,28 +233,70 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="fetch" id="_fetch">
+		<tr data-order="getToken" id="_getToken">
 
 			<td class="attributes"><code>
-				abstract protected 
+				 protected static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getToken">#</a>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#104-112" title="Go to source code">getToken</a>( )</code>
+
+			<div class="description short">
+				
+<p>Generates a session token</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Generates a session token</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="terminate" id="_terminate">
+
+			<td class="attributes"><code>
+				 public 
 				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_fetch">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#110-116" title="Go to source code">fetch</a>( )</code>
+			<a class="anchor" href="#_terminate">#</a>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#114-126" title="Go to source code">terminate</a>( )</code>
 
 			<div class="description short">
 				
-<p>Fetches session data</p>
+<p>Terminates the session</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Fetches session data</p>
+<p>Terminates the session</p>
 
 
 
@@ -326,7 +328,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_removeExpired">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#118-139" title="Go to source code">removeExpired</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#128-149" title="Go to source code">removeExpired</a>( )</code>
 
 			<div class="description short">
 				
@@ -357,35 +359,35 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="identityCheck" id="_identityCheck">
+		<tr data-order="fetch" id="_fetch">
 
 			<td class="attributes"><code>
-				 protected 
-				boolean
+				abstract protected 
+				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_identityCheck">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#141-162" title="Go to source code">identityCheck</a>( )</code>
+			<a class="anchor" href="#_fetch">#</a>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#151-157" title="Go to source code">fetch</a>( )</code>
 
 			<div class="description short">
 				
-<p>Checks if the session hasn't been hijacked</p>
+<p>Fetches session data</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Checks if the session hasn't been hijacked</p>
+<p>Fetches session data</p>
 
 
 
 
 					<h4>Returns</h4>
 					<div class="list">
-						<code>boolean</code><br>TRUE if the check has passed, FALSE if not and the session has been terminated.<br />
+						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
 					</div>
 
 
@@ -410,7 +412,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_refreshToken">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#164-175" title="Go to source code">refreshToken</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#159-170" title="Go to source code">refreshToken</a>( )</code>
 
 			<div class="description short">
 				
@@ -444,48 +446,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="getToken" id="_getToken">
-
-			<td class="attributes"><code>
-				 protected static
-				string
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_getToken">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#177-185" title="Go to source code">getToken</a>( )</code>
-
-			<div class="description short">
-				
-<p>Generates a session token</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Generates a session token</p>
-
-
-
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>string</code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="getTokenExpected" id="_getTokenExpected">
 
 			<td class="attributes"><code>
@@ -497,7 +457,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getTokenExpected">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#187-195" title="Go to source code">getTokenExpected</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#172-180" title="Go to source code">getTokenExpected</a>( )</code>
 
 			<div class="description short">
 				
@@ -539,7 +499,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getTokenActual">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#197-205" title="Go to source code">getTokenActual</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#182-190" title="Go to source code">getTokenActual</a>( )</code>
 
 			<div class="description short">
 				
@@ -581,7 +541,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_clear">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#207-222" title="Go to source code">clear</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#192-207" title="Go to source code">clear</a>( )</code>
 
 			<div class="description short">
 				
@@ -623,7 +583,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___get">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#224-233" title="Go to source code">__get</a>( <span>string <var>$key</var></span> )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#209-220" title="Go to source code">__get</a>( <span>string <var>$key</var></span> )</code>
 
 			<div class="description short">
 				
@@ -659,6 +619,51 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="__set" id="___set">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___set">#</a>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#222-232" title="Go to source code">__set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$val</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets a session value</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets a session value</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$key</var></dt>
+						<dd><code>string</code><br>$key The identifier</dd>
+						<dt><var>$val</var></dt>
+						<dd><code>mixed</code><br>$val The value</dd>
+					</dl></div>
+
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="forceWrite" id="_forceWrite">
 
 			<td class="attributes"><code>
@@ -670,7 +675,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_forceWrite">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#235-244" title="Go to source code">forceWrite</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#234-243" title="Go to source code">forceWrite</a>( )</code>
 
 			<div class="description short">
 				
@@ -705,39 +710,36 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="__set" id="___set">
+		<tr data-order="write" id="_write">
 
 			<td class="attributes"><code>
-				 public 
-				
+				abstract protected 
+				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#___set">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#246-255" title="Go to source code">__set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$val</var></span> )</code>
+			<a class="anchor" href="#_write">#</a>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#245-251" title="Go to source code">write</a>( )</code>
 
 			<div class="description short">
 				
-<p>Sets a session value</p>
+<p>Saves session data</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Sets a session value</p>
+<p>Saves session data</p>
 
 
 
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$key</var></dt>
-						<dd><code>string</code><br>$key The identifier</dd>
-						<dt><var>$val</var></dt>
-						<dd><code>mixed</code><br>$val The value</dd>
-					</dl></div>
 
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
+					</div>
 
 
 					<h4>Author</h4>
@@ -761,7 +763,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___unset">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#257-265" title="Go to source code">__unset</a>( <span>string <var>$key</var></span> )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#253-262" title="Go to source code">__unset</a>( <span>string <var>$key</var></span> )</code>
 
 			<div class="description short">
 				
@@ -793,6 +795,53 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="delete" id="_delete">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_delete">#</a>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#264-284" title="Go to source code">delete</a>( <span>string|array <var>$key</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Deletes a session value</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Deletes a session value</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$key</var></dt>
+						<dd><code>string|array</code><br>$key The corresponding key or array of keys</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="__isset" id="___isset">
 
 			<td class="attributes"><code>
@@ -804,7 +853,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___isset">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#267-276" title="Go to source code">__isset</a>( <span>string <var>$key</var></span> )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#286-297" title="Go to source code">__isset</a>( <span>string <var>$key</var></span> )</code>
 
 			<div class="description short">
 				
@@ -851,7 +900,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___toString">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#278-292" title="Go to source code">__toString</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#299-313" title="Go to source code">__toString</a>( )</code>
 
 			<div class="description short">
 				
@@ -882,53 +931,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="delete" id="_delete">
-
-			<td class="attributes"><code>
-				 public 
-				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_delete">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#294-312" title="Go to source code">delete</a>( <span>string|array <var>$key</var></span> )</code>
-
-			<div class="description short">
-				
-<p>Deletes a session value</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Deletes a session value</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$key</var></dt>
-						<dd><code>string|array</code><br>$key The corresponding key or array of keys</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="getAll" id="_getAll">
 
 			<td class="attributes"><code>
@@ -940,7 +942,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAll">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#314-322" title="Go to source code">getAll</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#315-323" title="Go to source code">getAll</a>( )</code>
 
 			<div class="description short">
 				
@@ -982,7 +984,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getID">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#324-332" title="Go to source code">getID</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#325-333" title="Go to source code">getID</a>( )</code>
 
 			<div class="description short">
 				
@@ -1013,6 +1015,48 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="setID" id="_setID">
+
+			<td class="attributes"><code>
+				 protected 
+				<code><a href="class-Alo.Session.SQLSession.html">Alo\Session\SQLSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setID">#</a>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#335-354" title="Go to source code">setID</a>( )</code>
+
+			<div class="description short">
+				
+<p>Sets the session ID variable &amp; the cookie</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets the session ID variable &amp; the cookie</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.SQLSession.html">Alo\Session\SQLSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="expire" id="_expire">
 
 			<td class="attributes"><code>
@@ -1024,7 +1068,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_expire">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#334-349" title="Go to source code">expire</a>( <span>string <var>$key</var></span>, <span>integer <var>$time</var></span> )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#356-373" title="Go to source code">expire</a>( <span>string <var>$key</var></span>, <span>integer <var>$time</var></span> )</code>
 
 			<div class="description short">
 				
@@ -1062,48 +1106,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="terminate" id="_terminate">
-
-			<td class="attributes"><code>
-				 public 
-				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_terminate">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#351-363" title="Go to source code">terminate</a>( )</code>
-
-			<div class="description short">
-				
-<p>Terminates the session</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Terminates the session</p>
-
-
-
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="__destruct" id="___destruct">
 
 			<td class="attributes"><code>
@@ -1115,7 +1117,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___destruct">#</a>
-			<code><a href="source-class-Alo.Session.AbstractSession.html#365-374" title="Go to source code">__destruct</a>( )</code>
+			<code><a href="source-class-Alo.Session.AbstractSession.html#375-384" title="Go to source code">__destruct</a>( )</code>
 
 			<div class="description short">
 				

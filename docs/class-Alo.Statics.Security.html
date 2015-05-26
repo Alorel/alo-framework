@@ -7,7 +7,7 @@
 	<title>Class Alo\Statics\Security | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?2169857970"></script>
+	<script type="text/javascript" src="elementlist.js?2036812029"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -64,6 +64,8 @@
 				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
 						<ul>
 				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
 						</li>
 				<li><a href="namespace-Alo.Controller.html">Controller</a>
 						</li>
@@ -137,7 +139,7 @@
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Statics.Security.html#10-203" title="Go to source code">sys/class/alo/statics/security.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Statics.Security.html#10-306" title="Go to source code">sys/class/alo/statics/security.php</a><br />
 	</div>
 
 
@@ -155,7 +157,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_un_xss">#</a>
-			<code><a href="source-class-Alo.Statics.Security.html#52-69" title="Go to source code">un_xss</a>( <span>string|array <var>$item</var></span> )</code>
+			<code><a href="source-class-Alo.Statics.Security.html#140-159" title="Go to source code">un_xss</a>( <span>string|array <var>$item</var></span> )</code>
 
 			<div class="description short">
 				
@@ -191,55 +193,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="ascii_rand" id="_ascii_rand">
-
-			<td class="attributes"><code>
-				 public static
-				string
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_ascii_rand">#</a>
-			<code><a href="source-class-Alo.Statics.Security.html#71-100" title="Go to source code">ascii_rand</a>( <span>integer <var>$length</var></span>, <span>integer <var>$subset</var> = <code><a href="class-Alo.Statics.Security.html#ASCII_ALL">Alo\Statics\Security::<b>ASCII_ALL</b></a></code></span> )</code>
-
-			<div class="description short">
-				
-<p>Generates a string of random ASCII characters</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Generates a string of random ASCII characters</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$length</var></dt>
-						<dd><code>integer</code><br>$length The length of the string</dd>
-						<dt><var>$subset</var></dt>
-						<dd><code>integer</code><br>$subset Which subset to use - see class' ASCII_* constants</dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>string</code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="tokenGet" id="_tokenGet">
 
 			<td class="attributes"><code>
@@ -251,7 +204,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_tokenGet">#</a>
-			<code><a href="source-class-Alo.Statics.Security.html#102-120" title="Go to source code">tokenGet</a>( <span>string <var>$token_name</var></span>, <span>string <var>$hash</var> = <span class="php-quote">'md5'</span></span> )</code>
+			<code><a href="source-class-Alo.Statics.Security.html#161-182" title="Go to source code">tokenGet</a>( <span>string <var>$token_name</var></span>, <span>string <var>$hash</var> = <span class="php-quote">'md5'</span></span> )</code>
 
 			<div class="description short">
 				
@@ -289,6 +242,106 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="getUniqid" id="_getUniqid">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getUniqid">#</a>
+			<code><a href="source-class-Alo.Statics.Security.html#184-213" title="Go to source code">getUniqid</a>( <span>string <var>$hash</var> = <span class="php-quote">'md5'</span></span>, <span>string|integer <var>$prefix</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$entropy</var> = <span class="php-num">50</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Generates a unique identifier</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Generates a unique identifier</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$hash</var></dt>
+						<dd><code>string</code><br>$hash Hash algorithm</dd>
+						<dt><var>$prefix</var></dt>
+						<dd><code>string|integer</code><br>$prefix Prefix for the identifier</dd>
+						<dt><var>$entropy</var></dt>
+						<dd><code>integer</code><br>$entropy Number of pseudo bytes used in entropy</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="ascii_rand" id="_ascii_rand">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_ascii_rand">#</a>
+			<code><a href="source-class-Alo.Statics.Security.html#215-246" title="Go to source code">ascii_rand</a>( <span>integer <var>$length</var></span>, <span>integer <var>$subset</var> = <code><a href="class-Alo.Statics.Security.html#ASCII_ALL">Alo\Statics\Security::<b>ASCII_ALL</b></a></code></span> )</code>
+
+			<div class="description short">
+				
+<p>Generates a string of random ASCII characters</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Generates a string of random ASCII characters</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$length</var></dt>
+						<dd><code>integer</code><br>$length The length of the string</dd>
+						<dt><var>$subset</var></dt>
+						<dd><code>integer</code><br>$subset Which subset to use - see class' ASCII_* constants</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="tokenValid" id="_tokenValid">
 
 			<td class="attributes"><code>
@@ -300,7 +353,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_tokenValid">#</a>
-			<code><a href="source-class-Alo.Statics.Security.html#122-144" title="Go to source code">tokenValid</a>( <span>string <var>$token_name</var></span>, <span>array <var>$data_array</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Alo.Statics.Security.html#248-273" title="Go to source code">tokenValid</a>( <span>string <var>$token_name</var></span>, <span>array <var>$data_array</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -349,7 +402,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_tokenRemove">#</a>
-			<code><a href="source-class-Alo.Statics.Security.html#146-161" title="Go to source code">tokenRemove</a>( <span>string <var>$token_name</var></span> )</code>
+			<code><a href="source-class-Alo.Statics.Security.html#275-292" title="Go to source code">tokenRemove</a>( <span>string <var>$token_name</var></span> )</code>
 
 			<div class="description short">
 				
@@ -396,7 +449,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getFingerprint">#</a>
-			<code><a href="source-class-Alo.Statics.Security.html#163-173" title="Go to source code">getFingerprint</a>( )</code>
+			<code><a href="source-class-Alo.Statics.Security.html#294-304" title="Go to source code">getFingerprint</a>( )</code>
 
 			<div class="description short">
 				
@@ -410,57 +463,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>string</code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="getUniqid" id="_getUniqid">
-
-			<td class="attributes"><code>
-				 public static
-				string
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_getUniqid">#</a>
-			<code><a href="source-class-Alo.Statics.Security.html#175-201" title="Go to source code">getUniqid</a>( <span>string <var>$hash</var> = <span class="php-quote">'md5'</span></span>, <span>string|integer <var>$prefix</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$entropy</var> = <span class="php-num">50</span></span> )</code>
-
-			<div class="description short">
-				
-<p>Generates a unique identifier</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Generates a unique identifier</p>
-
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$hash</var></dt>
-						<dd><code>string</code><br>$hash Hash algorithm</dd>
-						<dt><var>$prefix</var></dt>
-						<dd><code>string|integer</code><br>$prefix Prefix for the identifier</dd>
-						<dt><var>$entropy</var></dt>
-						<dd><code>integer</code><br>$entropy Number of pseudo bytes used in entropy</dd>
-					</dl></div>
 
 					<h4>Returns</h4>
 					<div class="list">
@@ -494,7 +496,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>integer</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Statics.Security.html#31-36" title="Go to source code"><b>ASCII_ALL</b></a>
+					<a href="source-class-Alo.Statics.Security.html#17-22" title="Go to source code"><b>ASCII_ALL</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-num">0</span></code></td>
 			<td class="description"><div>
@@ -518,7 +520,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>integer</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Statics.Security.html#38-43" title="Go to source code"><b>ASCII_ALPHANUM</b></a>
+					<a href="source-class-Alo.Statics.Security.html#23-28" title="Go to source code"><b>ASCII_ALPHANUM</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-num">1</span></code></td>
 			<td class="description"><div>
@@ -542,7 +544,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="attributes"><code>integer</code></td>
 			<td class="name"><code>
-					<a href="source-class-Alo.Statics.Security.html#45-50" title="Go to source code"><b>ASCII_NONALPHANUM</b></a>
+					<a href="source-class-Alo.Statics.Security.html#29-34" title="Go to source code"><b>ASCII_NONALPHANUM</b></a>
 			</code></td>
 			<td class="value"><code><span class="php-num">2</span></code></td>
 			<td class="description"><div>
@@ -576,7 +578,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Statics.Security.html#17-22" title="Go to source code"><var>$ascii_alphanum</var></a>
+					<a href="source-class-Alo.Statics.Security.html#35-101" title="Go to source code"><var>$ascii_alphanum</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$ascii_alphanum" class="anchor">#</a>
@@ -602,7 +604,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Statics.Security.html#24-29" title="Go to source code"><var>$ascii_rest</var></a>
+					<a href="source-class-Alo.Statics.Security.html#102-138" title="Go to source code"><var>$ascii_rest</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$ascii_rest" class="anchor">#</a>

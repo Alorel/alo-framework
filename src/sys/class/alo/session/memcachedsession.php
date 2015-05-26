@@ -7,7 +7,7 @@
    use Alo\Cache\MemcachedWrapper;
    use Alo\Exception\ExtensionException as EE;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -35,11 +35,11 @@
        * @throws EE When a caching class is not available
        */
       function __construct() {
-         if (!Alo::$cache) {
+         if(!Alo::$cache) {
             Alo::$cache = new MemcachedWrapper(true);
          }
 
-         if (!AbstractCache::is_available()) {
+         if(!AbstractCache::is_available()) {
             throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
          } else {
             $this->mc = &Alo::$cache;
@@ -48,17 +48,11 @@
          }
       }
 
-      protected function write() {
-         $this->mc->set(ALO_SESSION_MC_PREFIX . $this->id, $this->data, ALO_SESSION_TIMEOUT);
-         \Log::debug('Saved session data');
-
-         return $this;
-      }
-
+      /** @inheritdoc */
       protected function fetch() {
          $data = $this->mc->get(ALO_SESSION_MC_PREFIX . $this->id);
 
-         if ($data) {
+         if($data) {
             $this->data = $data;
          }
 
@@ -67,10 +61,19 @@
          return $this;
       }
 
+      /** @inheritdoc */
       function terminate() {
          $this->mc->delete(ALO_SESSION_MC_PREFIX . $this->id);
 
          return parent::terminate();
+      }
+
+      /** @inheritdoc */
+      protected function write() {
+         $this->mc->set(ALO_SESSION_MC_PREFIX . $this->id, $this->data, ALO_SESSION_TIMEOUT);
+         \Log::debug('Saved session data');
+
+         return $this;
       }
 
    }

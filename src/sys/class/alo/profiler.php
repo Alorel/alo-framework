@@ -4,7 +4,7 @@
 
    use Alo\Exception\ProfilerException as PE;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -162,7 +162,9 @@
        * Sets a profiler mark
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $identifier How to identify this mark
+       *
        * @return Profiler
        */
       function mark($identifier) {
@@ -196,15 +198,17 @@
        * Returns absolute microtime difference between the two marks
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $first_mark  The first mark identifier
        * @param string $second_mark The second mark identifier
+       *
        * @throws PE When one of the marks cannot be found
        * @return float
        */
       function timeBetween($first_mark, $second_mark) {
-         if (!isset($this->marks[$first_mark])) {
+         if(!isset($this->marks[$first_mark])) {
             throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
-         } elseif (!isset($this->marks[$second_mark])) {
+         } elseif(!isset($this->marks[$second_mark])) {
             throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
          } else {
             return abs($this->marks[$first_mark][self::P_MICROTIME] - $this->marks[$second_mark][self::P_MICROTIME]);
@@ -216,15 +220,17 @@
        * of $first_mark
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $first_mark  The first mark identifier
        * @param string $second_mark The second mark identifier
+       *
        * @throws PE When one of the marks cannot be found
        * @return array
        */
       function diff($first_mark, $second_mark) {
-         if (!isset($this->marks[$first_mark])) {
+         if(!isset($this->marks[$first_mark])) {
             throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
-         } elseif (!isset($this->marks[$second_mark])) {
+         } elseif(!isset($this->marks[$second_mark])) {
             throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
          } else {
             //Hide illogical array to string conversion notices
@@ -240,18 +246,20 @@
        * Shows the diff on the specified key
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $key         The key
        * @param string $first_mark  The first mark
        * @param string $second_mark The second mark
+       *
        * @return array
        * @throws PE If the key isn't found in one or both marks
        */
       function diff_on_key($key, $first_mark, $second_mark) {
-         if (!isset($this->marks[$first_mark])) {
+         if(!isset($this->marks[$first_mark])) {
             throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
-         } elseif (!isset($this->marks[$second_mark])) {
+         } elseif(!isset($this->marks[$second_mark])) {
             throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
-         } elseif (!isset($this->marks[$first_mark][$key])) {
+         } elseif(!isset($this->marks[$first_mark][$key])) {
             throw new PE('Invalid $key.', PE::E_KEY_INVALID);
          } else {
             $fm = $this->marks[$first_mark][$key];
@@ -261,9 +269,9 @@
                     $second_mark => $sm
             ];
 
-            if (is_numeric($fm)) {
+            if(is_numeric($fm)) {
                $ret[self::P_DIFF] = abs($fm - $sm);
-            } elseif (is_array($fm)) {
+            } elseif(is_array($fm)) {
                $ret[self::P_DIFF] = array_diff_assoc($sm, $fm);
             } else {
                $ret[self::P_DIFF] = '[values not numeric or arrays]';

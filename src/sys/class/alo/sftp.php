@@ -4,9 +4,8 @@
 
    use Alo\Exception\ExtensionException as EE;
    use Alo\Exception\SFTPException as SE;
-   use Alo\Exception\SFTPException;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -115,18 +114,19 @@
        * Instantiates the library
        *
        * @param array $params Optional parameters - see class P_* constants
+       *
        * @see self::P_RETRY_COUNT
        * @see self::P_RETRY_TIME
        * @throws EE When the SSH2 extension is not loaded
        */
       function __construct($params = []) {
-         if (!function_exists('ssh2_connect')) {
+         if(!function_exists('ssh2_connect')) {
             throw new EE('SSH2 extension not loaded', EE::E_EXT_NOT_LOADED);
          } else {
             $this->dir = DIR_INDEX;
 
             $this->retry_count_max = (int)\get($params[self::P_RETRY_COUNT]);
-            $this->retry_time = (int)\get($params[self::P_RETRY_TIME]) ? $params[self::P_RETRY_TIME] : 3;
+            $this->retry_time      = (int)\get($params[self::P_RETRY_TIME]) ? $params[self::P_RETRY_TIME] : 3;
 
             \Log::debug('SSH2 class initialised');
          }
@@ -136,13 +136,15 @@
        * If no parameter is passed gets the maximum amount of retry attempts for failed operations, otherwise sets it.
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $int The amount
+       *
        * @return boolean|int
        */
       function retryCount($int = -1) {
-         if ($int === -1) {
+         if($int === -1) {
             return $this->retry_count_max;
-         } elseif (is_numeric($int) && $int >= 0) {
+         } elseif(is_numeric($int) && $int >= 0) {
             $this->retry_count_max = (int)$int;
             \Log::debug('Retry count set to ' . $int);
 
@@ -156,13 +158,15 @@
        * If no parameter is passed gets the time to wait between operation retries, otherwise sets it
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $int The time in seconds
+       *
        * @return boolean
        */
       function retryTime($int = -1) {
-         if ($int === -1) {
+         if($int === -1) {
             return $this->retry_time;
-         } elseif (is_numeric($int) && $int > 0) {
+         } elseif(is_numeric($int) && $int > 0) {
             $this->retry_time = (int)$int;
             \Log::debug('Retry time set to ' . $int);
 
@@ -176,12 +180,14 @@
        * Sets the local directory
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $dir The directory path
+       *
        * @return SFTP
        */
       function loc($dir) {
          $dir = rtrim($dir, ' ' . DIRECTORY_SEPARATOR);
-         if (!$dir) {
+         if(!$dir) {
             $dir = DIRECTORY_SEPARATOR;
          }
          $this->local_dir = $dir;
@@ -194,23 +200,25 @@
        * Scans a directory for files and subdirectories
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $sorting_order The sorting order
+       *
        * @return array ["dirs" => [], "files" => []]
        */
       function scandir($sorting_order = self::SORT_ASC) {
          $this->checkSubsystem();
 
          $dir = scandir('ssh2.sftp://' . $this->sftp . DIRECTORY_SEPARATOR . $this->dir, $sorting_order);
-         $r = [
+         $r   = [
             'dirs'  => [],
             'files' => []
          ];
 
-         foreach ($dir as $v) {
+         foreach($dir as $v) {
             //Ignore hidden
-            if ($v == '.' || $v == '..' || stripos($v, '.') === 0) {
+            if($v == '.' || $v == '..' || stripos($v, '.') === 0) {
                continue;
-            } elseif (self::isFile($v)) {
+            } elseif(self::isFile($v)) {
                $r['files'][] = $v;
             } else {
                $r['dirs'][] = $v;
@@ -224,12 +232,13 @@
        * Checks if the SFTP subsystem was initialised
        *
        * @author Art <a.molcanovas@gmail.com>
+       * @throws SE When the connection ultimately fails
        * @return SFTP
        */
       function checkSubsystem() {
-         if (!$this->sftp) {
+         if(!$this->sftp) {
             \Log::debug('SFTP subsystem wasn\'t initialised when a dependant'
-               . ' method was called. Initialising.');
+                        . ' method was called. Initialising.');
             $this->connect();
          }
 
@@ -240,19 +249,21 @@
        * Creates a SSH2 connection
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $attempt Current attempt number
+       *
        * @return SFTP
        * @throws SE When the connection ultimately fails
        */
       function connect($attempt = 0) {
-         if (!($this->connection = @ssh2_connect($this->url))) {
+         if(!($this->connection = @ssh2_connect($this->url))) {
             $msg = 'Failed to initialise SSH2 connection';
             $attempt++;
 
-            if ($attempt - 1 < $this->retry_count_max) {
+            if($attempt - 1 < $this->retry_count_max) {
                \Log::error($msg . '. Retrying again' . ' in '
-                  . $this->retry_time . ' seconds [' . $attempt
-                  . '/' . $this->retry_count_max . ']');
+                           . $this->retry_time . ' seconds [' . $attempt
+                           . '/' . $this->retry_count_max . ']');
 
                sleep($this->retry_time);
 
@@ -271,19 +282,21 @@
        * Authenticates the SSH2 connection
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $attempt The current attempt # at authentication
+       *
        * @return SFTP
        * @throws SE When authentication permanently fails
        */
       protected function auth($attempt = 0) {
-         if (!ssh2_auth_pubkey_file($this->connection, $this->user, $this->pubkey, $this->privkey, $this->pw)) {
+         if(!ssh2_auth_pubkey_file($this->connection, $this->user, $this->pubkey, $this->privkey, $this->pw)) {
             $msg = 'Failed to authenticate SSH2 connection';
             ++$attempt;
 
-            if ($attempt - 1 < $this->retry_count_max) {
+            if($attempt - 1 < $this->retry_count_max) {
                \Log::error($msg . '. Retrying in ' . $this->retry_time
-                  . ' seconds [' . $attempt . '/'
-                  . $this->retry_count_max . ']');
+                           . ' seconds [' . $attempt . '/'
+                           . $this->retry_count_max . ']');
                sleep($this->retry_time);
 
                return $this->auth($attempt);
@@ -301,12 +314,14 @@
        * Initialises the SFTP subsystem
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $attempt Current retry number
+       *
        * @return SFTP
        * @throws SE When initialising the SFTP system permanently fails
        */
       protected function ssh2_sftp($attempt = 0) {
-         if ($this->sftp = @ssh2_sftp($this->connection)) {
+         if($this->sftp = @ssh2_sftp($this->connection)) {
             \Log::debug('Initialised SFTP subsystem');
 
             return $this;
@@ -314,10 +329,10 @@
             $msg = 'Failed to initialise SFTP subsystem';
             ++$attempt;
 
-            if ($attempt - 1 < $this->retry_count_max) {
+            if($attempt - 1 < $this->retry_count_max) {
                \Log::error($msg . '. Retrying again' . ' in '
-                  . $this->retry_time . ' seconds [' . $attempt
-                  . '/' . $this->retry_count_max . ']');
+                           . $this->retry_time . ' seconds [' . $attempt
+                           . '/' . $this->retry_count_max . ']');
                sleep($this->retry_time);
 
                return $this->ssh2_sftp($attempt);
@@ -331,7 +346,9 @@
        * Checks whether a resource is a file or directory based on whether it has a file extension
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $resource The resource name to check
+       *
        * @return boolean
        */
       protected static function isFile($resource) {
@@ -345,7 +362,11 @@
        *
        * @author Art <a.molcanovas@gmail.com>
        * @see    self::$local_dir
+       *
        * @param string $file Remote file name
+       *
+       * @throws SE When the file cannot be fetched
+       * @throws \Alo\Exception\FileException When the name is invalid
        * @return SFTP
        */
       function downloadFile($file) {
@@ -363,7 +384,9 @@
        * Gets the file contents
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $file File name
+       *
        * @return string String representation of the file
        * @throws SE When the file cannot be fetched
        */
@@ -372,7 +395,7 @@
          $remoteFile = $this->resolvePath($file);
 
          $file = @file_get_contents('ssh2.sftp://' . $this->sftp . '/' . $remoteFile);
-         if ($file === false) {
+         if($file === false) {
             throw new SE('Failed to fetch file ' . $remoteFile, SE::E_FILE_NOT_FETCHED);
          } else {
             return $file;
@@ -383,18 +406,23 @@
        * Modifies the path based on whether it's relative or absolute
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $item Item name
+       *
        * @return string The resolved path
        */
       protected function resolvePath($item) {
-         return (stripos($item, DIRECTORY_SEPARATOR) === 0) ? substr($item, 1) : $this->dir . DIRECTORY_SEPARATOR . $item;
+         return (stripos($item, DIRECTORY_SEPARATOR) === 0) ? substr($item, 1) :
+            $this->dir . DIRECTORY_SEPARATOR . $item;
       }
 
       /**
        * Uploads a file to the SFTP folder from the local folder
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $file File name
+       *
        * @return boolean
        * @throws SE When the local file cannot be read
        */
@@ -402,7 +430,7 @@
          $this->checkSubsystem();
          $path = $this->local_dir . DIRECTORY_SEPARATOR . $file;
 
-         if (!$content = @file_get_contents($path)) {
+         if(!$content = @file_get_contents($path)) {
             throw new SE('Local file ' . $path . ' cannot be read', SE::E_LOCAL_FILE_NOT_READ);
          } else {
             \Log::debug('Uploading remote file ' . $file);
@@ -415,8 +443,10 @@
        * Creates a file in the SFTP directory
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $file    File name
        * @param mixed  $content File content
+       *
        * @return boolean
        * @throws SE When remote fopen fails
        */
@@ -424,7 +454,9 @@
          $this->checkSubsystem();
          $remoteFile = $this->resolvePath($file);
 
-         if (!$fp = @fopen('ssh2.sftp://' . $this->sftp . DIRECTORY_SEPARATOR . $remoteFile, File::M_WRITE_TRUNCATE_BEGIN)) {
+         if(!$fp =
+            @fopen('ssh2.sftp://' . $this->sftp . DIRECTORY_SEPARATOR . $remoteFile, File::M_WRITE_TRUNCATE_BEGIN)
+         ) {
             throw new SE('Failed to remotely fopen ' . $remoteFile, SE::E_FILE_CREATE_FAIL);
          } else {
             flock($fp, LOCK_EX);
@@ -441,20 +473,22 @@
        * Deletes an item on the SFTP server
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $item File or directory name
+       *
        * @return boolean
        */
       function delete($item) {
          $this->checkSubsystem();
          $path = $this->resolvePath($item);
 
-         if (self::isFile($item)) {
+         if(self::isFile($item)) {
             $success = ssh2_sftp_unlink($this->sftp, $path);
          } else {
             $success = ssh2_sftp_rmdir($this->sftp, $path);
          }
 
-         if ($success) {
+         if($success) {
             \Log::debug('Deleted ' . $item);
 
             return true;
@@ -472,21 +506,31 @@
        * @return string
        */
       function __toString() {
-         return 'User: ' . $this->user . '; PrivKey:' . $this->privkey . '; PubKey: ' . $this->pubkey . '; Password hash: ' . get($this->pw) ? md5($this->pw) : 'NO HASH CONTENT SET';
+         return
+            'User: ' .
+            $this->user .
+            '; PrivKey:' .
+            $this->privkey .
+            '; PubKey: ' .
+            $this->pubkey .
+            '; Password hash: ' .
+            get($this->pw) ? md5($this->pw) : 'NO HASH CONTENT SET';
       }
 
       /**
        * If no parameter is passed gets the SFTP server URL, otherwise sets it.
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $url
+       *
        * @return SFTP
        * @throws SE When the URL is not a string
        */
       function url($url = '') {
-         if ($url === '') {
+         if($url === '') {
             return $this->url;
-         } elseif (is_string($url)) {
+         } elseif(is_string($url)) {
             $this->url = $url;
             \Log::debug('SFTP URL set to ' . $url);
          } else {
@@ -500,14 +544,16 @@
        * If no parameter is passed gets the SFTP username, otherwise sets it.
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $user The username
+       *
        * @throws SE When $user isn't scalar
        * @return SFTP
        */
       function user($user = '') {
-         if ($user === '') {
+         if($user === '') {
             return $this->user;
-         } elseif (is_scalar($user)) {
+         } elseif(is_scalar($user)) {
             $this->user = $user;
             \Log::debug('SFTP user set to ' . $user);
          } else {
@@ -521,14 +567,16 @@
        * Sets the SFTP public key path
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $pubkey The path
+       *
        * @throws SE When $pubkey isn't a string
        * @return SFTP
        */
       function pubkey($pubkey = '') {
-         if ($pubkey === '') {
+         if($pubkey === '') {
             return $this->pubkey;
-         } elseif (is_string($pubkey)) {
+         } elseif(is_string($pubkey)) {
             $this->pubkey = $pubkey;
             \Log::debug('SFTP pubkey set');
          } else {
@@ -542,14 +590,16 @@
        * If no parameter is passed gets the SFTP private key path, otherwise sets it
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $privkey The path
+       *
        * @throws SE When the $privkey isn't a string
        * @return SFTP
        */
       function privkey($privkey = '') {
-         if ($privkey === '') {
+         if($privkey === '') {
             return $this->privkey;
-         } elseif (is_string($privkey)) {
+         } elseif(is_string($privkey)) {
             $this->privkey = $privkey;
             \Log::debug('SFTP privkey set');
          } else {
@@ -563,14 +613,16 @@
        * If no parameter is passed gets the SFTP private key password, otherwise sets it
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $pw The password
+       *
        * @throws SE When the password isn't scalar
        * @return SFTP
        */
       function pw($pw = '') {
-         if ($pw === '') {
+         if($pw === '') {
             return $this->pw;
-         } elseif (is_scalar($pw)) {
+         } elseif(is_scalar($pw)) {
             $this->pw = $pw;
             \Log::debug('SFTP password set');
          } else {
@@ -584,16 +636,18 @@
        * If no argument is passed, gets the working directory, otherwise sets it.
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param mixed $dir
+       *
        * @throws SE When the name is invalid
        * @return SFTP
        */
       function dir($dir = -1) {
-         if ($dir === -1) {
+         if($dir === -1) {
             return $this->dir;
-         } elseif (is_scalar($dir)) {
+         } elseif(is_scalar($dir)) {
             $dir = trim($dir, DIRECTORY_SEPARATOR . ' ');
-            if (!$dir || $dir == DIRECTORY_SEPARATOR) {
+            if(!$dir || $dir == DIRECTORY_SEPARATOR) {
                $dir = '.' . DIRECTORY_SEPARATOR;
             }
             $this->dir = $dir;

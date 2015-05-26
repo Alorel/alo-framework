@@ -26,11 +26,7 @@
        */
       protected $db;
 
-      /**
-       * Instantiates the class
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       */
+      /** @inheritdoc */
       function __construct() {
          if (!Alo::$db) {
             Alo::$db = new MySQL();
@@ -41,26 +37,14 @@
          \Log::debug('Initialised MySQL session');
       }
 
-      protected function write() {
-         $this->db->prepQuery('REPLACE INTO `'
-            . ALO_SESSION_TABLE_NAME . '`(`id`,`data`,`access`) VALUES('
-            . '?,?,CURRENT_TIMESTAMP)', [
-               $this->id,
-               json_encode($this->data)
-            ], [MySQL::V_CACHE => false]);
-
-         \Log::debug('Saved session data');
-
-         return $this;
-      }
-
+      /** @inheritdoc */
       protected function fetch() {
          $sql = $this->db->prepQuery('SELECT `data` '
-            . 'FROM `' . ALO_SESSION_TABLE_NAME . '` '
-            . 'WHERE `id`=? '
-            . 'LIMIT 1', [$this->id], [
-               MySQL::V_CACHE => false
-            ]);
+                                     . 'FROM `' . ALO_SESSION_TABLE_NAME . '` '
+                                     . 'WHERE `id`=? '
+                                     . 'LIMIT 1', [$this->id], [
+                                        MySQL::V_CACHE => false
+                                     ]);
 
          if (!empty($sql)) {
             $this->data = json_decode($sql[0]['data'], true);
@@ -71,12 +55,27 @@
          return $this;
       }
 
+      /** @inheritdoc */
       function terminate() {
          $this->db->prepQuery('DELETE FROM `' . ALO_SESSION_TABLE_NAME . '` '
-            . 'WHERE `id`=? '
-            . 'LIMIT 1', [$this->id], [MySQL::V_CACHE => false]);
+                              . 'WHERE `id`=? '
+                              . 'LIMIT 1', [$this->id], [MySQL::V_CACHE => false]);
 
          return parent::terminate();
+      }
+
+      /** @inheritdoc */
+      protected function write() {
+         $this->db->prepQuery('REPLACE INTO `'
+                              . ALO_SESSION_TABLE_NAME . '`(`id`,`data`,`access`) VALUES('
+                              . '?,?,CURRENT_TIMESTAMP)', [
+                                 $this->id,
+                                 json_encode($this->data)
+                              ], [MySQL::V_CACHE => false]);
+
+         \Log::debug('Saved session data');
+
+         return $this;
       }
 
    }

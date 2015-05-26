@@ -5,7 +5,7 @@
    use Alo\Statics\Cookie;
    use Alo\Statics\Security;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -73,36 +73,77 @@
 
          $this->setID();
 
-         if (\Alo::$router->is_cli_request() || $this->identityCheck()) {
+         if(\Alo::$router->is_cli_request() || $this->identityCheck()) {
             $this->fetch()->removeExpired();
          }
       }
 
       /**
-       * Saves session data
+       * Checks if the session hasn't been hijacked
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return boolean TRUE if the check has passed, FALSE if not and the
+       *         session has been terminated.
+       */
+      protected function identityCheck() {
+         $token = self::getToken();
+
+         if(!\get($this->data[ALO_SESSION_FINGERPRINT])) {
+            $this->data[ALO_SESSION_FINGERPRINT] = $token;
+            \Log::debug('Session identity check passed');
+         } elseif($token !== $this->data[ALO_SESSION_FINGERPRINT]) {
+            \Log::debug('Session identity check failed');
+            $this->terminate();
+
+            return false;
+         }
+
+         return true;
+      }
+
+      /**
+       * Generates a session token
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return string
+       */
+      protected static function getToken() {
+         return md5('sЕss' . Security::getFingerprint() . 'ия');
+      }
+
+      /**
+       * Terminates the session
        *
        * @author Art <a.molcanovas@gmail.com>
        * @return AbstractSession
        */
-      abstract protected function write();
+      function terminate() {
+         $this->save = false;
+         Cookie::delete(ALO_SESSION_COOKIE);
+         \Log::debug('Terminated session');
+
+         return $this;
+      }
 
       /**
-       * Sets the session ID variable & the cookie
+       * Removes expired session keys
        *
        * @author Art <a.molcanovas@gmail.com>
        * @return SQLSession
        */
-      protected function setID() {
-         $c = \get($_COOKIE[ALO_SESSION_COOKIE]);
+      protected function removeExpired() {
+         if(isset($this->data[self::EXPIRE_KEY])) {
+            foreach($this->data[self::EXPIRE_KEY] as $k => $v) {
+               if($this->time > $v) {
+                  unset($this->data[self::EXPIRE_KEY][$k], $this->data[$k]);
+               }
+            }
+            if(empty($this->data[self::EXPIRE_KEY])) {
+               unset($this->data[self::EXPIRE_KEY]);
+            }
 
-         if ($c && strlen($c) == 128) {
-            $this->id = $c;
-         } else {
-            $this->id = Security::getUniqid(self::HASH_ALGO, 'session');
+            \Log::debug('Removed expired session keys');
          }
-
-         \Log::debug('Session ID set to ' . $this->id);
-         Cookie::set(ALO_SESSION_COOKIE, $this->id, $this->time + ALO_SESSION_TIMEOUT, '/', '', false, true);
 
          return $this;
       }
@@ -116,52 +157,6 @@
       abstract protected function fetch();
 
       /**
-       * Removes expired session keys
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return SQLSession
-       */
-      protected function removeExpired() {
-         if (isset($this->data[self::EXPIRE_KEY])) {
-            foreach ($this->data[self::EXPIRE_KEY] as $k => $v) {
-               if ($this->time > $v) {
-                  unset($this->data[self::EXPIRE_KEY][$k], $this->data[$k]);
-               }
-            }
-            if (empty($this->data[self::EXPIRE_KEY])) {
-               unset($this->data[self::EXPIRE_KEY]);
-            }
-
-            \Log::debug('Removed expired session keys');
-         }
-
-         return $this;
-      }
-
-      /**
-       * Checks if the session hasn't been hijacked
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return boolean TRUE if the check has passed, FALSE if not and the
-       *         session has been terminated.
-       */
-      protected function identityCheck() {
-         $token = self::getToken();
-
-         if (!\get($this->data[ALO_SESSION_FINGERPRINT])) {
-            $this->data[ALO_SESSION_FINGERPRINT] = $token;
-            \Log::debug('Session identity check passed');
-         } elseif ($token !== $this->data[ALO_SESSION_FINGERPRINT]) {
-            \Log::debug('Session identity check failed');
-            $this->terminate();
-
-            return false;
-         }
-
-         return true;
-      }
-
-      /**
        * Refreshes the user's session token. This will have no effect unless you overwrite the token during runtime.
        *
        * @author      Art <a.molcanovas@gmail.com>
@@ -172,16 +167,6 @@
          unset($this->data[ALO_SESSION_FINGERPRINT]);
 
          return $this->identityCheck();
-      }
-
-      /**
-       * Generates a session token
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return string
-       */
-      protected static function getToken() {
-         return md5('sЕss' . Security::getFingerprint() . 'ия');
       }
 
       /**
@@ -211,10 +196,10 @@
        * @return AbstractSession
        */
       function clear() {
-         $token = \get($this->data[ALO_SESSION_FINGERPRINT]);
+         $token      = \get($this->data[ALO_SESSION_FINGERPRINT]);
          $this->data = [];
 
-         if ($token) {
+         if($token) {
             $this->data[ALO_SESSION_FINGERPRINT] = $token;
          }
 
@@ -225,11 +210,25 @@
        * Gets a session value
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $key The identifier
+       *
        * @return mixed
        */
       function __get($key) {
          return \get($this->data[$key]);
+      }
+
+      /**
+       * Sets a session value
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $key The identifier
+       * @param mixed  $val The value
+       */
+      function __set($key, $val) {
+         $this->data[$key] = $val;
       }
 
       /**
@@ -244,20 +243,18 @@
       }
 
       /**
-       * Sets a session value
+       * Saves session data
        *
        * @author Art <a.molcanovas@gmail.com>
-       * @param string $key The identifier
-       * @param mixed  $val The value
+       * @return AbstractSession
        */
-      function __set($key, $val) {
-         $this->data[$key] = $val;
-      }
+      abstract protected function write();
 
       /**
        * Unsets a session key
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $key The session value's key
        */
       function __unset($key) {
@@ -265,10 +262,34 @@
       }
 
       /**
+       * Deletes a session value
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string|array $key The corresponding key or array of keys
+       *
+       * @return AbstractSession
+       */
+      function delete($key) {
+         if(is_array($key)) {
+            foreach($key as $k) {
+               unset($this->data[$k]);
+            }
+         } else {
+            \Log::debug('Removed session key ' . $key);
+            unset($this->data[$key]);
+         }
+
+         return $this;
+      }
+
+      /**
        * Checks if a session key is set
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $key The key
+       *
        * @return bool
        */
       function __isset($key) {
@@ -284,31 +305,11 @@
       function __toString() {
          $r = 'ID: ' . $this->id . "\nData:";
 
-         foreach ($this->data as $k => $v) {
+         foreach($this->data as $k => $v) {
             echo "\n\t$k => $v";
          }
 
          return $r;
-      }
-
-      /**
-       * Deletes a session value
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @param string|array $key The corresponding key or array of keys
-       * @return AbstractSession
-       */
-      function delete($key) {
-         if (is_array($key)) {
-            foreach ($key as $k) {
-               unset($this->data[$k]);
-            }
-         } else {
-            \Log::debug('Removed session key ' . $key);
-            unset($this->data[$key]);
-         }
-
-         return $this;
       }
 
       /**
@@ -332,11 +333,34 @@
       }
 
       /**
+       * Sets the session ID variable & the cookie
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return SQLSession
+       */
+      protected function setID() {
+         $c = \get($_COOKIE[ALO_SESSION_COOKIE]);
+
+         if($c && strlen($c) == 128) {
+            $this->id = $c;
+         } else {
+            $this->id = Security::getUniqid(self::HASH_ALGO, 'session');
+         }
+
+         \Log::debug('Session ID set to ' . $this->id);
+         Cookie::set(ALO_SESSION_COOKIE, $this->id, $this->time + ALO_SESSION_TIMEOUT, '/', '', false, true);
+
+         return $this;
+      }
+
+      /**
        * Sets a session key to expire
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $key  The key
        * @param int    $time Expiration time in seconds
+       *
        * @return AbstractSession
        */
       function expire($key, $time) {
@@ -349,26 +373,12 @@
       }
 
       /**
-       * Terminates the session
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return AbstractSession
-       */
-      function terminate() {
-         $this->save = false;
-         Cookie::delete(ALO_SESSION_COOKIE);
-         \Log::debug('Terminated session');
-
-         return $this;
-      }
-
-      /**
        * Saves session data if $this->save hasn't been changed to false
        *
        * @author Art <a.molcanovas@gmail.com>
        */
       function __destruct() {
-         if ($this->save) {
+         if($this->save) {
             $this->write();
          }
       }

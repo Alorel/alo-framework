@@ -8,7 +8,7 @@
 	<title>File sys/class/alo/session/sqlsession.php | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?2169857970"></script>
+	<script type="text/javascript" src="elementlist.js?2036812029"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -66,6 +66,8 @@
 				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
 						<ul>
 				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
 						</li>
 				<li><a href="namespace-Alo.Controller.html">Controller</a>
 						</li>
@@ -140,60 +142,59 @@
 </span></span><span id="26" class="l"><a class="l" href="#26">26 </a><span class="php-comment">       */</span>
 </span><span id="27" class="l"><a class="l" href="#27">27 </a>      <span class="php-keyword1">protected</span> <span class="php-var"><a id="$db" href="#$db">$db</a></span>;
 </span><span id="28" class="l"><a class="l" href="#28">28 </a>
-</span><span id="29" class="l"><a class="l" href="#29">29 </a>      <span class="php-comment">/**
-</span></span><span id="30" class="l"><a class="l" href="#30">30 </a><span class="php-comment">       * Instantiates the class
-</span></span><span id="31" class="l"><a class="l" href="#31">31 </a><span class="php-comment">       *
-</span></span><span id="32" class="l"><a class="l" href="#32">32 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="33" class="l"><a class="l" href="#33">33 </a><span class="php-comment">       */</span>
-</span><span id="34" class="l"><a class="l" href="#34">34 </a>      <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>() {
-</span><span id="35" class="l"><a class="l" href="#35">35 </a>         <span class="php-keyword1">if</span> (!Alo::<span class="php-var">$db</span>) {
-</span><span id="36" class="l"><a class="l" href="#36">36 </a>            Alo::<span class="php-var">$db</span> = <span class="php-keyword1">new</span> <span class="php-keyword2">MySQL</span>();
-</span><span id="37" class="l"><a class="l" href="#37">37 </a>         }
-</span><span id="38" class="l"><a class="l" href="#38">38 </a>
-</span><span id="39" class="l"><a class="l" href="#39">39 </a>         <span class="php-var">$this</span>-&gt;db = &amp;Alo::<span class="php-var">$db</span>;
-</span><span id="40" class="l"><a class="l" href="#40">40 </a>         parent::__construct();
-</span><span id="41" class="l"><a class="l" href="#41">41 </a>         \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Initialised MySQL session'</span>);
-</span><span id="42" class="l"><a class="l" href="#42">42 </a>      }
-</span><span id="43" class="l"><a class="l" href="#43">43 </a>
-</span><span id="44" class="l"><a class="l" href="#44">44 </a>      <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_write" href="#_write">write</a>() {
-</span><span id="45" class="l"><a class="l" href="#45">45 </a>         <span class="php-var">$this</span>-&gt;db-&gt;prepQuery(<span class="php-quote">'REPLACE INTO `'</span>
-</span><span id="46" class="l"><a class="l" href="#46">46 </a>            . ALO_SESSION_TABLE_NAME . <span class="php-quote">'`(`id`,`data`,`access`) VALUES('</span>
-</span><span id="47" class="l"><a class="l" href="#47">47 </a>            . <span class="php-quote">'?,?,CURRENT_TIMESTAMP)'</span>, [
-</span><span id="48" class="l"><a class="l" href="#48">48 </a>               <span class="php-var">$this</span>-&gt;id,
-</span><span id="49" class="l"><a class="l" href="#49">49 </a>               <span class="php-keyword2">json_encode</span>(<span class="php-var">$this</span>-&gt;data)
-</span><span id="50" class="l"><a class="l" href="#50">50 </a>            ], [<span class="php-keyword2">MySQL</span>::V_CACHE =&gt; <span class="php-keyword1">false</span>]);
-</span><span id="51" class="l"><a class="l" href="#51">51 </a>
-</span><span id="52" class="l"><a class="l" href="#52">52 </a>         \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Saved session data'</span>);
-</span><span id="53" class="l"><a class="l" href="#53">53 </a>
-</span><span id="54" class="l"><a class="l" href="#54">54 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
-</span><span id="55" class="l"><a class="l" href="#55">55 </a>      }
-</span><span id="56" class="l"><a class="l" href="#56">56 </a>
-</span><span id="57" class="l"><a class="l" href="#57">57 </a>      <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_fetch" href="#_fetch">fetch</a>() {
-</span><span id="58" class="l"><a class="l" href="#58">58 </a>         <span class="php-var">$sql</span> = <span class="php-var">$this</span>-&gt;db-&gt;prepQuery(<span class="php-quote">'SELECT `data` '</span>
-</span><span id="59" class="l"><a class="l" href="#59">59 </a>            . <span class="php-quote">'FROM `'</span> . ALO_SESSION_TABLE_NAME . <span class="php-quote">'` '</span>
-</span><span id="60" class="l"><a class="l" href="#60">60 </a>            . <span class="php-quote">'WHERE `id`=? '</span>
-</span><span id="61" class="l"><a class="l" href="#61">61 </a>            . <span class="php-quote">'LIMIT 1'</span>, [<span class="php-var">$this</span>-&gt;id], [
-</span><span id="62" class="l"><a class="l" href="#62">62 </a>               <span class="php-keyword2">MySQL</span>::V_CACHE =&gt; <span class="php-keyword1">false</span>
-</span><span id="63" class="l"><a class="l" href="#63">63 </a>            ]);
-</span><span id="64" class="l"><a class="l" href="#64">64 </a>
-</span><span id="65" class="l"><a class="l" href="#65">65 </a>         <span class="php-keyword1">if</span> (!<span class="php-keyword1">empty</span>(<span class="php-var">$sql</span>)) {
-</span><span id="66" class="l"><a class="l" href="#66">66 </a>            <span class="php-var">$this</span>-&gt;data = <span class="php-keyword2">json_decode</span>(<span class="php-var">$sql</span>[<span class="php-num">0</span>][<span class="php-quote">'data'</span>], <span class="php-keyword1">true</span>);
-</span><span id="67" class="l"><a class="l" href="#67">67 </a>         }
-</span><span id="68" class="l"><a class="l" href="#68">68 </a>
-</span><span id="69" class="l"><a class="l" href="#69">69 </a>         \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Saved session data'</span>);
-</span><span id="70" class="l"><a class="l" href="#70">70 </a>
-</span><span id="71" class="l"><a class="l" href="#71">71 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
-</span><span id="72" class="l"><a class="l" href="#72">72 </a>      }
-</span><span id="73" class="l"><a class="l" href="#73">73 </a>
-</span><span id="74" class="l"><a class="l" href="#74">74 </a>      <span class="php-keyword1">function</span> <a id="_terminate" href="#_terminate">terminate</a>() {
-</span><span id="75" class="l"><a class="l" href="#75">75 </a>         <span class="php-var">$this</span>-&gt;db-&gt;prepQuery(<span class="php-quote">'DELETE FROM `'</span> . ALO_SESSION_TABLE_NAME . <span class="php-quote">'` '</span>
-</span><span id="76" class="l"><a class="l" href="#76">76 </a>            . <span class="php-quote">'WHERE `id`=? '</span>
-</span><span id="77" class="l"><a class="l" href="#77">77 </a>            . <span class="php-quote">'LIMIT 1'</span>, [<span class="php-var">$this</span>-&gt;id], [<span class="php-keyword2">MySQL</span>::V_CACHE =&gt; <span class="php-keyword1">false</span>]);
-</span><span id="78" class="l"><a class="l" href="#78">78 </a>
-</span><span id="79" class="l"><a class="l" href="#79">79 </a>         <span class="php-keyword1">return</span> parent::terminate();
-</span><span id="80" class="l"><a class="l" href="#80">80 </a>      }
-</span><span id="81" class="l"><a class="l" href="#81">81 </a>
-</span><span id="82" class="l"><a class="l" href="#82">82 </a></span>   }</code></pre>
+</span><span id="29" class="l"><a class="l" href="#29">29 </a>      <span class="php-comment">/** @inheritdoc */</span>
+</span><span id="30" class="l"><a class="l" href="#30">30 </a>      <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>() {
+</span><span id="31" class="l"><a class="l" href="#31">31 </a>         <span class="php-keyword1">if</span> (!Alo::<span class="php-var">$db</span>) {
+</span><span id="32" class="l"><a class="l" href="#32">32 </a>            Alo::<span class="php-var">$db</span> = <span class="php-keyword1">new</span> <span class="php-keyword2">MySQL</span>();
+</span><span id="33" class="l"><a class="l" href="#33">33 </a>         }
+</span><span id="34" class="l"><a class="l" href="#34">34 </a>
+</span><span id="35" class="l"><a class="l" href="#35">35 </a>         <span class="php-var">$this</span>-&gt;db = &amp;Alo::<span class="php-var">$db</span>;
+</span><span id="36" class="l"><a class="l" href="#36">36 </a>         parent::__construct();
+</span><span id="37" class="l"><a class="l" href="#37">37 </a>         \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Initialised MySQL session'</span>);
+</span><span id="38" class="l"><a class="l" href="#38">38 </a>      }
+</span><span id="39" class="l"><a class="l" href="#39">39 </a>
+</span><span id="40" class="l"><a class="l" href="#40">40 </a>      <span class="php-comment">/** @inheritdoc */</span>
+</span><span id="41" class="l"><a class="l" href="#41">41 </a>      <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_fetch" href="#_fetch">fetch</a>() {
+</span><span id="42" class="l"><a class="l" href="#42">42 </a>         <span class="php-var">$sql</span> = <span class="php-var">$this</span>-&gt;db-&gt;prepQuery(<span class="php-quote">'SELECT `data` '</span>
+</span><span id="43" class="l"><a class="l" href="#43">43 </a>                                     . <span class="php-quote">'FROM `'</span> . ALO_SESSION_TABLE_NAME . <span class="php-quote">'` '</span>
+</span><span id="44" class="l"><a class="l" href="#44">44 </a>                                     . <span class="php-quote">'WHERE `id`=? '</span>
+</span><span id="45" class="l"><a class="l" href="#45">45 </a>                                     . <span class="php-quote">'LIMIT 1'</span>, [<span class="php-var">$this</span>-&gt;id], [
+</span><span id="46" class="l"><a class="l" href="#46">46 </a>                                        <span class="php-keyword2">MySQL</span>::V_CACHE =&gt; <span class="php-keyword1">false</span>
+</span><span id="47" class="l"><a class="l" href="#47">47 </a>                                     ]);
+</span><span id="48" class="l"><a class="l" href="#48">48 </a>
+</span><span id="49" class="l"><a class="l" href="#49">49 </a>         <span class="php-keyword1">if</span> (!<span class="php-keyword1">empty</span>(<span class="php-var">$sql</span>)) {
+</span><span id="50" class="l"><a class="l" href="#50">50 </a>            <span class="php-var">$this</span>-&gt;data = <span class="php-keyword2">json_decode</span>(<span class="php-var">$sql</span>[<span class="php-num">0</span>][<span class="php-quote">'data'</span>], <span class="php-keyword1">true</span>);
+</span><span id="51" class="l"><a class="l" href="#51">51 </a>         }
+</span><span id="52" class="l"><a class="l" href="#52">52 </a>
+</span><span id="53" class="l"><a class="l" href="#53">53 </a>         \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Saved session data'</span>);
+</span><span id="54" class="l"><a class="l" href="#54">54 </a>
+</span><span id="55" class="l"><a class="l" href="#55">55 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
+</span><span id="56" class="l"><a class="l" href="#56">56 </a>      }
+</span><span id="57" class="l"><a class="l" href="#57">57 </a>
+</span><span id="58" class="l"><a class="l" href="#58">58 </a>      <span class="php-comment">/** @inheritdoc */</span>
+</span><span id="59" class="l"><a class="l" href="#59">59 </a>      <span class="php-keyword1">function</span> <a id="_terminate" href="#_terminate">terminate</a>() {
+</span><span id="60" class="l"><a class="l" href="#60">60 </a>         <span class="php-var">$this</span>-&gt;db-&gt;prepQuery(<span class="php-quote">'DELETE FROM `'</span> . ALO_SESSION_TABLE_NAME . <span class="php-quote">'` '</span>
+</span><span id="61" class="l"><a class="l" href="#61">61 </a>                              . <span class="php-quote">'WHERE `id`=? '</span>
+</span><span id="62" class="l"><a class="l" href="#62">62 </a>                              . <span class="php-quote">'LIMIT 1'</span>, [<span class="php-var">$this</span>-&gt;id], [<span class="php-keyword2">MySQL</span>::V_CACHE =&gt; <span class="php-keyword1">false</span>]);
+</span><span id="63" class="l"><a class="l" href="#63">63 </a>
+</span><span id="64" class="l"><a class="l" href="#64">64 </a>         <span class="php-keyword1">return</span> parent::terminate();
+</span><span id="65" class="l"><a class="l" href="#65">65 </a>      }
+</span><span id="66" class="l"><a class="l" href="#66">66 </a>
+</span><span id="67" class="l"><a class="l" href="#67">67 </a>      <span class="php-comment">/** @inheritdoc */</span>
+</span><span id="68" class="l"><a class="l" href="#68">68 </a>      <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_write" href="#_write">write</a>() {
+</span><span id="69" class="l"><a class="l" href="#69">69 </a>         <span class="php-var">$this</span>-&gt;db-&gt;prepQuery(<span class="php-quote">'REPLACE INTO `'</span>
+</span><span id="70" class="l"><a class="l" href="#70">70 </a>                              . ALO_SESSION_TABLE_NAME . <span class="php-quote">'`(`id`,`data`,`access`) VALUES('</span>
+</span><span id="71" class="l"><a class="l" href="#71">71 </a>                              . <span class="php-quote">'?,?,CURRENT_TIMESTAMP)'</span>, [
+</span><span id="72" class="l"><a class="l" href="#72">72 </a>                                 <span class="php-var">$this</span>-&gt;id,
+</span><span id="73" class="l"><a class="l" href="#73">73 </a>                                 <span class="php-keyword2">json_encode</span>(<span class="php-var">$this</span>-&gt;data)
+</span><span id="74" class="l"><a class="l" href="#74">74 </a>                              ], [<span class="php-keyword2">MySQL</span>::V_CACHE =&gt; <span class="php-keyword1">false</span>]);
+</span><span id="75" class="l"><a class="l" href="#75">75 </a>
+</span><span id="76" class="l"><a class="l" href="#76">76 </a>         \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Saved session data'</span>);
+</span><span id="77" class="l"><a class="l" href="#77">77 </a>
+</span><span id="78" class="l"><a class="l" href="#78">78 </a>         <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
+</span><span id="79" class="l"><a class="l" href="#79">79 </a>      }
+</span><span id="80" class="l"><a class="l" href="#80">80 </a>
+</span><span id="81" class="l"><a class="l" href="#81">81 </a></span>   }</code></pre>
 	</div>
 
 	<div id="footer">

@@ -7,7 +7,7 @@
 	<title>Class Alo\Controller\Router | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?2169857970"></script>
+	<script type="text/javascript" src="elementlist.js?2036812029"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -64,6 +64,8 @@
 				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
 						<ul>
 				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
 						</li>
 				<li class="active"><a href="namespace-Alo.Controller.html">Controller</a>
 						</li>
@@ -137,7 +139,7 @@
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Controller.Router.html#14-594" title="Go to source code">sys/class/alo/controller/router.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Controller.Router.html#14-587" title="Go to source code">sys/class/alo/controller/router.php</a><br />
 	</div>
 
 
@@ -155,7 +157,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_init">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#158-166" title="Go to source code">init</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#141-149" title="Go to source code">init</a>( )</code>
 
 			<div class="description short">
 				
@@ -186,28 +188,28 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="initNoCall" id="_initNoCall">
+		<tr data-order="tryCall" id="_tryCall">
 
 			<td class="attributes"><code>
-				 public 
+				 protected 
 				<code><a href="class-Alo.Controller.Router.html">Alo\Controller\Router</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_initNoCall">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#168-182" title="Go to source code">initNoCall</a>( )</code>
+			<a class="anchor" href="#_tryCall">#</a>
+			<code><a href="source-class-Alo.Controller.Router.html#151-199" title="Go to source code">tryCall</a>( )</code>
 
 			<div class="description short">
 				
-<p>Same as init(), but without attempting to call the controller</p>
+<p>Tries to call the appropriate class' method</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Same as init(), but without attempting to call the controller</p>
+<p>Tries to call the appropriate class' method</p>
 
 
 
@@ -217,95 +219,23 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 						<code><code><a href="class-Alo.Controller.Router.html">Alo\Controller\Router</a></code></code><br />
 					</div>
 
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.ControllerException.html">Alo\Exception\ControllerException</a></code></code><br>If the controller is already the error controller<br />
+					</div>
 
 					<h4>Author</h4>
 					<div class="list">
 							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
 					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="is_cli_request" id="_is_cli_request">
-
-			<td class="attributes"><code>
-				 public 
-				boolean
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_is_cli_request">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#184-192" title="Go to source code">is_cli_request</a>( )</code>
-
-			<div class="description short">
-				
-<p>Returns whether this is a CLI request</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Returns whether this is a CLI request</p>
-
-
-
-
-					<h4>Returns</h4>
+					<h4>Uses</h4>
 					<div class="list">
-						<code>boolean</code><br />
+							<code><code><a href="class-Alo.Controller.Router.html#_forceError">Alo\Controller\Router::forceError()</a></code></code> <br />
 					</div>
-
-
-					<h4>Author</h4>
+					<h4>Used by</h4>
 					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="is_ajax_request" id="_is_ajax_request">
-
-			<td class="attributes"><code>
-				 public 
-				boolean
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_is_ajax_request">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#194-202" title="Go to source code">is_ajax_request</a>( )</code>
-
-			<div class="description short">
-				
-<p>Returns whether this is an AJAX request</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Returns whether this is an AJAX request</p>
-
-
-
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>boolean</code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+							<code><code><a href="class-Alo.Controller.Router.html#_forceError">Alo\Controller\Router::forceError()</a></code></code> <br />
 					</div>
 
 
@@ -323,7 +253,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_forceError">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#204-235" title="Go to source code">forceError</a>( <span>string <var>$msg</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#201-243" title="Go to source code">forceError</a>( <span>string <var>$msg</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				
@@ -371,70 +301,28 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="getErrController" id="_getErrController">
+		<tr data-order="initNoCall" id="_initNoCall">
 
 			<td class="attributes"><code>
 				 public 
-				string
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_getErrController">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#237-245" title="Go to source code">getErrController</a>( )</code>
-
-			<div class="description short">
-				
-<p>Returns the error controller name</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Returns the error controller name</p>
-
-
-
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>string</code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="tryCall" id="_tryCall">
-
-			<td class="attributes"><code>
-				 protected 
 				<code><a href="class-Alo.Controller.Router.html">Alo\Controller\Router</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_tryCall">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#247-288" title="Go to source code">tryCall</a>( )</code>
+			<a class="anchor" href="#_initNoCall">#</a>
+			<code><a href="source-class-Alo.Controller.Router.html#245-265" title="Go to source code">initNoCall</a>( )</code>
 
 			<div class="description short">
 				
-<p>Tries to call the appropriate class' method</p>
+<p>Same as init(), but without attempting to call the controller</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Tries to call the appropriate class' method</p>
+<p>Same as init(), but without attempting to call the controller</p>
 
 
 
@@ -444,19 +332,19 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 						<code><code><a href="class-Alo.Controller.Router.html">Alo\Controller\Router</a></code></code><br />
 					</div>
 
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.ControllerException.html">Alo\Exception\ControllerException</a></code></code><br>When the config file is not found<br />
+						<code><code><a href="class-Alo.Exception.ControllerException.html">Alo\Exception\ControllerException</a></code></code><br>When $error_controller_class is not present in the config file<br />
+						<code><code><a href="class-Alo.Exception.ControllerException.html">Alo\Exception\ControllerException</a></code></code><br>When The default controller is not present in the config file<br />
+						<code><code><a href="class-Alo.Exception.ControllerException.html">Alo\Exception\ControllerException</a></code></code><br>When $routes is not a valid array<br />
+						<code><code><a href="class-Alo.Exception.ControllerException.html">Alo\Exception\ControllerException</a></code></code><br>When a route value is not an array.<br />
+					</div>
 
 					<h4>Author</h4>
 					<div class="list">
 							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-					<h4>Uses</h4>
-					<div class="list">
-							<code><code><a href="class-Alo.Controller.Router.html#_forceError">Alo\Controller\Router::forceError()</a></code></code> <br />
-					</div>
-					<h4>Used by</h4>
-					<div class="list">
-							<code><code><a href="class-Alo.Controller.Router.html#_forceError">Alo\Controller\Router::forceError()</a></code></code> <br />
 					</div>
 
 
@@ -474,7 +362,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_resolvePath">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#290-399" title="Go to source code">resolvePath</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#267-362" title="Go to source code">resolvePath</a>( )</code>
 
 			<div class="description short">
 				
@@ -500,10 +388,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 							Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
 					</div>
-					<h4>Todo</h4>
-					<div class="list">
-							Remove comment end debug output<br />
-					</div>
 
 
 			</div>
@@ -520,7 +404,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_init_routes">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#401-443" title="Go to source code">init_routes</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#364-406" title="Go to source code">init_routes</a>( )</code>
 
 			<div class="description short">
 				
@@ -570,7 +454,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_init_path">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#445-465" title="Go to source code">init_path</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#408-428" title="Go to source code">init_path</a>( )</code>
 
 			<div class="description short">
 				
@@ -612,7 +496,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_init_server_vars">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#467-482" title="Go to source code">init_server_vars</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#430-445" title="Go to source code">init_server_vars</a>( )</code>
 
 			<div class="description short">
 				
@@ -643,6 +527,132 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="is_cli_request" id="_is_cli_request">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_is_cli_request">#</a>
+			<code><a href="source-class-Alo.Controller.Router.html#447-455" title="Go to source code">is_cli_request</a>( )</code>
+
+			<div class="description short">
+				
+<p>Returns whether this is a CLI request</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns whether this is a CLI request</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="is_ajax_request" id="_is_ajax_request">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_is_ajax_request">#</a>
+			<code><a href="source-class-Alo.Controller.Router.html#457-465" title="Go to source code">is_ajax_request</a>( )</code>
+
+			<div class="description short">
+				
+<p>Returns whether this is an AJAX request</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns whether this is an AJAX request</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getErrController" id="_getErrController">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getErrController">#</a>
+			<code><a href="source-class-Alo.Controller.Router.html#467-475" title="Go to source code">getErrController</a>( )</code>
+
+			<div class="description short">
+				
+<p>Returns the error controller name</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns the error controller name</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="getMethod" id="_getMethod">
 
 			<td class="attributes"><code>
@@ -654,7 +664,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getMethod">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#484-492" title="Go to source code">getMethod</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#477-485" title="Go to source code">getMethod</a>( )</code>
 
 			<div class="description short">
 				
@@ -696,7 +706,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getController">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#494-502" title="Go to source code">getController</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#487-495" title="Go to source code">getController</a>( )</code>
 
 			<div class="description short">
 				
@@ -738,7 +748,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getPort">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#504-512" title="Go to source code">getPort</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#497-505" title="Go to source code">getPort</a>( )</code>
 
 			<div class="description short">
 				
@@ -780,7 +790,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getDir">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#514-522" title="Go to source code">getDir</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#507-515" title="Go to source code">getDir</a>( )</code>
 
 			<div class="description short">
 				
@@ -822,7 +832,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getRemoteAddr">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#524-532" title="Go to source code">getRemoteAddr</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#517-525" title="Go to source code">getRemoteAddr</a>( )</code>
 
 			<div class="description short">
 				
@@ -864,7 +874,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getRequestMethod">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#534-542" title="Go to source code">getRequestMethod</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#527-535" title="Go to source code">getRequestMethod</a>( )</code>
 
 			<div class="description short">
 				
@@ -906,7 +916,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getRequestScheme">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#544-552" title="Go to source code">getRequestScheme</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#537-545" title="Go to source code">getRequestScheme</a>( )</code>
 
 			<div class="description short">
 				
@@ -948,7 +958,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getServerAddr">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#554-562" title="Go to source code">getServerAddr</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#547-555" title="Go to source code">getServerAddr</a>( )</code>
 
 			<div class="description short">
 				
@@ -990,7 +1000,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getServerName">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#564-572" title="Go to source code">getServerName</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#557-565" title="Go to source code">getServerName</a>( )</code>
 
 			<div class="description short">
 				
@@ -1032,7 +1042,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getPath">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#574-582" title="Go to source code">getPath</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#567-575" title="Go to source code">getPath</a>( )</code>
 
 			<div class="description short">
 				
@@ -1074,7 +1084,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___toString">#</a>
-			<code><a href="source-class-Alo.Controller.Router.html#584-592" title="Go to source code">__toString</a>( )</code>
+			<code><a href="source-class-Alo.Controller.Router.html#577-585" title="Go to source code">__toString</a>( )</code>
 
 			<div class="description short">
 				
@@ -1172,6 +1182,32 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 		<h2>Properties summary</h2>
 		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="route_defaults" id="$route_defaults">
+			<td class="attributes"><code>
+				protected static 
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.Controller.Router.html#34-43" title="Go to source code"><var>$route_defaults</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$route_defaults" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Default params for a route</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Default params for a route</p>
+
+
+				</div>
+			</div></td>
+		</tr>
 		<tr data-order="server_name" id="$server_name">
 			<td class="attributes"><code>
 				protected  
@@ -1179,7 +1215,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#35-40" title="Go to source code"><var>$server_name</var></a>
+					<a href="source-class-Alo.Controller.Router.html#44-49" title="Go to source code"><var>$server_name</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$server_name" class="anchor">#</a>
@@ -1205,7 +1241,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#42-47" title="Go to source code"><var>$server_addr</var></a>
+					<a href="source-class-Alo.Controller.Router.html#50-55" title="Go to source code"><var>$server_addr</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$server_addr" class="anchor">#</a>
@@ -1231,7 +1267,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#49-54" title="Go to source code"><var>$port</var></a>
+					<a href="source-class-Alo.Controller.Router.html#56-61" title="Go to source code"><var>$port</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$port" class="anchor">#</a>
@@ -1257,7 +1293,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#56-61" title="Go to source code"><var>$remote_addr</var></a>
+					<a href="source-class-Alo.Controller.Router.html#62-67" title="Go to source code"><var>$remote_addr</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$remote_addr" class="anchor">#</a>
@@ -1283,7 +1319,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#63-68" title="Go to source code"><var>$request_scheme</var></a>
+					<a href="source-class-Alo.Controller.Router.html#68-73" title="Go to source code"><var>$request_scheme</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$request_scheme" class="anchor">#</a>
@@ -1309,7 +1345,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#70-75" title="Go to source code"><var>$path</var></a>
+					<a href="source-class-Alo.Controller.Router.html#74-79" title="Go to source code"><var>$path</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$path" class="anchor">#</a>
@@ -1335,7 +1371,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#77-82" title="Go to source code"><var>$request_method</var></a>
+					<a href="source-class-Alo.Controller.Router.html#80-85" title="Go to source code"><var>$request_method</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$request_method" class="anchor">#</a>
@@ -1361,7 +1397,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#84-89" title="Go to source code"><var>$dir</var></a>
+					<a href="source-class-Alo.Controller.Router.html#86-91" title="Go to source code"><var>$dir</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$dir" class="anchor">#</a>
@@ -1387,7 +1423,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#91-96" title="Go to source code"><var>$controller</var></a>
+					<a href="source-class-Alo.Controller.Router.html#92-97" title="Go to source code"><var>$controller</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$controller" class="anchor">#</a>
@@ -1439,7 +1475,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#105-110" title="Go to source code"><var>$method_args</var></a>
+					<a href="source-class-Alo.Controller.Router.html#104-109" title="Go to source code"><var>$method_args</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$method_args" class="anchor">#</a>
@@ -1465,7 +1501,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#112-117" title="Go to source code"><var>$err_controller</var></a>
+					<a href="source-class-Alo.Controller.Router.html#110-115" title="Go to source code"><var>$err_controller</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$err_controller" class="anchor">#</a>
@@ -1491,7 +1527,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#119-124" title="Go to source code"><var>$default_controller</var></a>
+					<a href="source-class-Alo.Controller.Router.html#116-121" title="Go to source code"><var>$default_controller</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$default_controller" class="anchor">#</a>
@@ -1517,7 +1553,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#126-131" title="Go to source code"><var>$routes</var></a>
+					<a href="source-class-Alo.Controller.Router.html#122-127" title="Go to source code"><var>$routes</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$routes" class="anchor">#</a>
@@ -1543,7 +1579,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#133-138" title="Go to source code"><var>$is_cli_request</var></a>
+					<a href="source-class-Alo.Controller.Router.html#128-133" title="Go to source code"><var>$is_cli_request</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$is_cli_request" class="anchor">#</a>
@@ -1569,7 +1605,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#140-145" title="Go to source code"><var>$is_ajax_request</var></a>
+					<a href="source-class-Alo.Controller.Router.html#134-139" title="Go to source code"><var>$is_ajax_request</var></a>
 			</td>
 			<td class="description"><div>
 				<a href="#$is_ajax_request" class="anchor">#</a>
@@ -1583,32 +1619,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 				<div class="description detailed hidden">
 					
 <p>Whether we're dealing with an AJAX request</p>
-
-
-				</div>
-			</div></td>
-		</tr>
-		<tr data-order="route_defaults" id="$route_defaults">
-			<td class="attributes"><code>
-				protected static 
-				array
-			</code></td>
-
-			<td class="name">
-					<a href="source-class-Alo.Controller.Router.html#147-156" title="Go to source code"><var>$route_defaults</var></a>
-			</td>
-			<td class="description"><div>
-				<a href="#$route_defaults" class="anchor">#</a>
-
-				<div class="description short">
-					
-<p>Default params for a route</p>
-
-				</div>
-
-				<div class="description detailed hidden">
-					
-<p>Default params for a route</p>
 
 
 				</div>

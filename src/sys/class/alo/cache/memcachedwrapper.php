@@ -5,7 +5,7 @@
    use Memcache;
    use Memcached;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -34,7 +34,12 @@
        * @var int
        */
       const CLASS_MEMCACHE = 2;
-
+      /**
+       * Whether the relevant cache extension is loaded
+       *
+       * @var boolean
+       */
+      protected static $loaded = null;
       /**
        * The memcached instance
        *
@@ -43,41 +48,55 @@
       protected $mc;
 
       /**
-       * Whether the relevant cache extension is loaded
-       *
-       * @var boolean
-       */
-      protected static $loaded = null;
-
-      /**
        * Instantiates the class
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param boolean $initialise_default_server Whether to add a server on construct
        */
       function __construct($initialise_default_server = true) {
-         if (self::$loaded === null) {
-            if (class_exists('\Memcached', false)) {
+         if(self::$loaded === null) {
+            if(class_exists('\Memcached', false)) {
                self::$loaded = self::CLASS_MEMCACHED;
-            } elseif (class_exists('\Memcache')) {
+            } elseif(class_exists('\Memcache')) {
                self::$loaded = self::CLASS_MEMCACHE;
             } else {
                self::$loaded = false;
             }
          }
 
-         if (self::$loaded !== null) {
+         if(self::$loaded !== null) {
             $this->mc = self::$loaded === self::CLASS_MEMCACHED ? new Memcached() : new Memcache();
-            if ($initialise_default_server) {
+            if($initialise_default_server) {
                $this->addServer();
             }
          } else {
             trigger_error('Memcached extension not loaded - caching '
-               . 'functions will not work', E_USER_NOTICE);
+                          . 'functions will not work',
+                          E_USER_NOTICE);
          }
          parent::__construct();
 
          \Log::debug(self::$loaded ? 'Loaded MemcachedWrapper' : 'MemcachedWrapper not loaded: extension unavailable');
+      }
+
+      /** @inheritdoc */
+      function addServer($ip = ALO_MEMCACHED_IP, $port = ALO_MEMCACHED_PORT, $weight = 1) {
+         \Log::debug('Added MemcachedWrapper server ' . $ip . ':' . $port
+                     . ' with a weight of ' . $weight);
+
+         if(self::$loaded === self::CLASS_MEMCACHED) {
+            return $this->mc->addServer($ip, $port, $weight);
+         } elseif(self::$loaded === self::CLASS_MEMCACHE) {
+            return $this->mc->addserver($ip, $port, null, $weight);
+         } else {
+            return false;
+         }
+      }
+
+      /** @inheritdoc */
+      function delete($key) {
+         return self::$loaded ? $this->mc->delete($key) : false;
       }
 
       /**
@@ -90,41 +109,28 @@
          return self::$loaded ? get_class($this->mc) : null;
       }
 
+      /** @inheritdoc */
       function purge() {
          return self::$loaded ? $this->mc->flush() : false;
       }
 
-      function addServer($ip = ALO_MEMCACHED_IP, $port = ALO_MEMCACHED_PORT, $weight = 1) {
-         \Log::debug('Added MemcachedWrapper server ' . $ip . ':' . $port
-            . ' with a weight of ' . $weight);
-
-         if (self::$loaded === self::CLASS_MEMCACHED) {
-            return $this->mc->addServer($ip, $port, $weight);
-         } elseif (self::$loaded === self::CLASS_MEMCACHE) {
-            return $this->mc->addserver($ip, $port, null, $weight);
-         } else {
-            return false;
-         }
-      }
-
+      /** @inheritdoc */
       function getStats() {
          return self::$loaded ? $this->mc->getStats() : false;
       }
 
-      function delete($key) {
-         return self::$loaded ? $this->mc->delete($key) : false;
-      }
-
+      /** @inheritdoc */
       function get($id) {
          return self::$loaded ? $this->mc->get($id) : false;
       }
 
+      /** @inheritdoc */
       function set($key, $var, $expire = 3600) {
          \Log::debug('Set the MemcachedWrapper key ' . $key);
 
-         if (self::$loaded === self::CLASS_MEMCACHED) {
+         if(self::$loaded === self::CLASS_MEMCACHED) {
             return $this->mc->set($key, $var, $expire);
-         } elseif (self::$loaded === self::CLASS_MEMCACHE) {
+         } elseif(self::$loaded === self::CLASS_MEMCACHE) {
             return $this->mc->set($key, $var, null, $expire);
          } else {
             return false;
@@ -141,7 +147,7 @@
          $keys = $this->mc->getAllKeys();
          $vals = [];
 
-         foreach ($keys as $k) {
+         foreach($keys as $k) {
             $vals[$k] = $this->get($k);
          }
 
@@ -155,25 +161,25 @@
        * @return array
        */
       protected function getAllMemcache() {
-         $dump = [];
+         $dump  = [];
          $slabs = $this->mc->getextendedstats('slabs');
 
-         foreach ($slabs as $serverSlabs) {
+         foreach($slabs as $serverSlabs) {
             $keys = array_keys($serverSlabs);
 
-            foreach ($keys as $k) {
-               if (is_numeric($k)) {
+            foreach($keys as $k) {
+               if(is_numeric($k)) {
                   try {
                      $d = $this->mc->getextendedstats('cachedump', (int)$k, 1000);
 
-                     foreach ($d as $data) {
-                        if ($data) {
-                           foreach ($data as $mc_key => $row) {
+                     foreach($d as $data) {
+                        if($data) {
+                           foreach($data as $mc_key => $row) {
                               $dump[$mc_key] = $row[0];
                            }
                         }
                      }
-                  } catch (\Exception $e) {
+                  } catch(\Exception $e) {
                      continue;
                   }
                }
@@ -183,10 +189,11 @@
          return $dump;
       }
 
+      /** @inheritdoc */
       function getAll() {
-         if (self::$loaded === self::CLASS_MEMCACHED) {
+         if(self::$loaded === self::CLASS_MEMCACHED) {
             return $this->getAllMemcached();
-         } elseif (self::$loaded === self::CLASS_MEMCACHE) {
+         } elseif(self::$loaded === self::CLASS_MEMCACHE) {
             return $this->getAllMemcache();
          } else {
             return [];

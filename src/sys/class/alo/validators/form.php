@@ -2,7 +2,7 @@
 
    namespace Alo\Validators;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -152,11 +152,12 @@
        * Instantiates the class and loads the input array
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param array $input The input array
        */
       function __construct(array $input) {
-         $this->data = $input;
-         $this->binds = [];
+         $this->data       = $input;
+         $this->binds      = [];
          $this->evaluation = [
             'OK'         => true,
             'breakddown' => []
@@ -172,31 +173,31 @@
       function evaluate() {
          $ok = true;
 
-         foreach ($this->data as $data_key => $data_value) {
+         foreach($this->data as $data_key => $data_value) {
             $breakdown = &$this->evaluation['breakdown'][$data_key];
 
-            if (!is_scalar($data_value)) {
+            if(!is_scalar($data_value)) {
                $breakdown = [
                   'OK'            => false,
                   'global_errors' => [self::E_NONSCALAR],
                   'breakdown'     => []
                ];
-               $ok = false;
+               $ok        = false;
             } else {
-               $local_ok = true;
+               $local_ok               = true;
                $breakdown['breakdown'] = [];
 
-               if (isset($this->binds[$data_key])) {
-                  foreach ($this->binds[$data_key] as $bind_key => $bind_value) {
+               if(isset($this->binds[$data_key])) {
+                  foreach($this->binds[$data_key] as $bind_key => $bind_value) {
                      $breakdown['breakdown'][$bind_key] = self::eval_param($data_value, $bind_key, $bind_value);
 
-                     if (!$breakdown['breakdown'][$bind_key]) {
+                     if(!$breakdown['breakdown'][$bind_key]) {
                         $local_ok = $ok = false;
                      }
                   }
                }
 
-               $breakdown['OK'] = $local_ok;
+               $breakdown['OK']            = $local_ok;
                $breakdown['global_errors'] = [];
             }
          }
@@ -210,13 +211,15 @@
        * Evaluates an element against a requirement
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $data_value Element value
        * @param int    $bind_key   The requirement identifier constant
        * @param mixed  $bind_value The requirement specs if applicable
+       *
        * @return boolean
        */
       protected static function eval_param($data_value, $bind_key, $bind_value) {
-         switch ($bind_key) {
+         switch($bind_key) {
             case self::R_CONTAIN_LOWERCASE:
                return (bool)preg_match('/[a-z]/', $data_value);
             case self::R_CONTAIN_NONALPHANUM:
@@ -256,15 +259,17 @@
        * Binds a set of requirements to an element
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $element      The element key
        * @param array  $requirements Associative array of requirements, where the keys are one of this class' R_*
        *                             constants and the values are TRUE, or, if applicable, the required values for that
        *                             test.
+       *
        * @return Form
        */
       function bind($element, $requirements) {
          $e = &$this->binds[$element];
-         if (isset($e)) {
+         if(isset($e)) {
             $e = array_merge($e, $requirements);
          } else {
             $e = $requirements;

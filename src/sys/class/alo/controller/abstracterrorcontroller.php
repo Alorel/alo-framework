@@ -2,7 +2,7 @@
 
    namespace Alo\Controller;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -18,6 +18,7 @@
        * Displays the error page
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int    $code    The error HTTP response code
        * @param string $message Optional message override
        */
@@ -27,6 +28,7 @@
        * Displays a generic error page for which there is no HTML file
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param int $code The HTTP response code
        */
       abstract function displayErrorPage($code = 404);
