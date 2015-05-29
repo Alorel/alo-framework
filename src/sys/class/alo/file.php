@@ -184,6 +184,17 @@
       }
 
       /**
+       * Instantiates the class
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @return File
+       */
+      static function File() {
+         return new File();
+      }
+
+      /**
        * Converts a filesize for display
        *
        * @author Art <a.molcanovas@gmail.com>

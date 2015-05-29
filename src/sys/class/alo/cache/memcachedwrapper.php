@@ -118,6 +118,19 @@
       }
 
       /**
+       * Instantiates the class
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param boolean $initialise_default_server Whether to add a server on construct
+       *
+       * @return MemcachedWrapper
+       */
+      static function MemcachedWrapper($initialise_default_server = true) {
+         return new MemcachedWrapper($initialise_default_server);
+      }
+
+      /**
        * Returns the loaded cache class
        *
        * @author Art <a.molcanovas@gmail.com>

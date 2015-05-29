@@ -159,6 +159,17 @@
       }
 
       /**
+       * Instantiates the class
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @return Profiler
+       */
+      static function Profiler() {
+         return new Profiler();
+      }
+
+      /**
        * Sets a profiler mark
        *
        * @author Art <a.molcanovas@gmail.com>

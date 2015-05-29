@@ -49,6 +49,18 @@
       }
 
       /**
+       * Instantiates the class
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @throws EE When a caching class is not available
+       *
+       * @return MemcachedSession
+       */
+      static function MemcachedSession() {
+         return new MemcachedSession();
+      }
+
+      /**
        * Fetches session data
        *
        * @author Art <a.molcanovas@gmail.com>

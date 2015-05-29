@@ -42,6 +42,17 @@
       }
 
       /**
+       * Instantiates the class
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @return SQLSession
+       */
+      static function SQLSession() {
+         return new SQLSession();
+      }
+
+      /**
        * Fetches session data
        *
        * @author Art <a.molcanovas@gmail.com>

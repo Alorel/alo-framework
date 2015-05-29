@@ -107,6 +107,21 @@
       }
 
       /**
+       * Instantiates the library
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $url Optionally, the URL for curl_init()
+       *
+       * @throws EE When the curl extention is not loaded
+       *
+       * @return cURL
+       */
+      static function cURL($url = null) {
+         return new cURL($url);
+      }
+
+      /**
        * A static wrapper function for __construct()
        *
        * @author Art <a.molcanovas@gmail.com>

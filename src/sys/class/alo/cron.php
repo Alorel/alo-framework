@@ -266,6 +266,17 @@
       }
 
       /**
+       * Instantiates the crontab handler
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @throws CE When the machine is running Windows
+       * @return Cron
+       */
+      static function Cron() {
+         return new Cron();
+      }
+
+      /**
        * Edits the cron job at index $index. Can be substituded with the full
        * CRON expression (schedule + command) to perform a search -
        * use with caution!

@@ -133,6 +133,21 @@
       }
 
       /**
+       * Instantiates the library
+       *
+       * @param array $params Optional parameters - see class P_* constants
+       *
+       * @see self::P_RETRY_COUNT
+       * @see self::P_RETRY_TIME
+       * @throws EE When the SSH2 extension is not loaded
+       *
+       * @return SFTP
+       */
+      static function SFTP($params = []) {
+         return new SFTP($params);
+      }
+
+      /**
        * If no parameter is passed gets the maximum amount of retry attempts for failed operations, otherwise sets it.
        *
        * @author Art <a.molcanovas@gmail.com>

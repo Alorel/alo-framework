@@ -50,4 +50,16 @@
          $this->isHTML(ALO_EMAIL_HTML_ENABLED);
       }
 
+      /**
+       * Instantiates the class
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param boolean $exceptions Should we throw external exceptions?
+       *
+       * @return Email
+       */
+      static function Email($exceptions = false) {
+         return new Email($exceptions);
+      }
    }

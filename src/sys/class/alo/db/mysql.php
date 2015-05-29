@@ -57,6 +57,31 @@
       }
 
       /**
+       * Instantiates the database connection
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $ip      The IP address to use
+       * @param int    $port    The port to use
+       * @param string $user    The username
+       * @param string $pw      The password
+       * @param string $db      The database to use
+       * @param string $cache   Which cache interface to use
+       * @param array  $options Connection options
+       *
+       * @return MySQL
+       */
+      static function MySQL($ip = ALO_MYSQL_SERVER,
+                            $port = ALO_MYSQL_PORT,
+                            $user = ALO_MYSQL_USER,
+                            $pw = ALO_MYSQL_PW,
+                            $db = ALO_MYSQL_DATABASE,
+                            $cache = ALO_MYSQL_CACHE,
+                            array $options = null) {
+         return new MySQL(func_get_args());
+      }
+
+      /**
        * Returns an aggregated one-column result set, e.g. from a count(*) query
        *
        * @author Art <a.molcanovas@gmail.com>
