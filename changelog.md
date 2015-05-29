@@ -4,6 +4,16 @@ Deprecated
 
 * Testing suite deprecated. Tools like [PHPUnit](https://phpunit.de/) serve as a far better alternative to test your code.
 
+Classes added
+
+* Alo\IO\Downloader: downloads an external resource to disc and echoes progress
+* Alo\Windows\Service: Windows service manager
+
+Exception changes
+
+* OSException added
+* Cron now throws an OSException with the code OSException::E_UNSUPPORTED if instantiated from Windows
+
 Misc
 
 * Many classes now offer static constructors

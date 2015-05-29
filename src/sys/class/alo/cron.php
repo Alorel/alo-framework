@@ -8,6 +8,7 @@
    }
 
    use Alo\Exception\CronException as CE;
+   use Alo\Exception\OSException as OS;
    use Log;
 
    /**
@@ -225,11 +226,11 @@
        * Instantiates the crontab handler
        *
        * @author Art <a.molcanovas@gmail.com>
-       * @throws CE When the machine is running Windows
+       * @throws OS When the machine is running Windows
        */
       function __construct() {
          if(\server_is_windows()) {
-            throw new CE('Windows does not support cron!', CE::E_WINDOWS);
+            throw new OS('Windows does not support cron!', OS::E_UNSUPPORTED);
          } else {
             $this->autocommit = false;
             $this->reloadCrontab();
@@ -269,7 +270,7 @@
        * Instantiates the crontab handler
        *
        * @author Art <a.molcanovas@gmail.com>
-       * @throws CE When the machine is running Windows
+       * @throws OS When the machine is running Windows
        * @return Cron
        */
       static function Cron() {

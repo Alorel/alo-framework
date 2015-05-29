@@ -2,7 +2,7 @@
 
    namespace Alo\Exception;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -34,12 +34,5 @@
        * @var int
        */
       const E_ARGS_NONSCALAR = 103;
-
-      /**
-       * Code when the server is running Windows
-       *
-       * @var int
-       */
-      const E_WINDOWS = 104;
 
    }

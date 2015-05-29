@@ -14,10 +14,6 @@
     * Object-oriented cURL wrapper
     *
     * @author Art <a.molcanovas@gmail.com>
-    * @todo   Import changes from AloWAMP.
-    * @todo   Import downloader class from AloWAMP, extend cURL
-    * @todo   Create Uploader class based on Downloader
-    * @todo   IF a network namespace is created move it there
     */
    class cURL {
 
@@ -132,6 +128,29 @@
        */
       static function init($url = null) {
          return new cURL($url);
+      }
+
+      /**
+       * Sets CURLOPT_NOPROGRESS to FALSE and supplies the progress function
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param callable $callable The function
+       *
+       * @return bool
+       */
+      function setProgressFunction($callable) {
+         if(!is_callable($callable)) {
+            return false;
+         } else {
+            curl_setopt_array($this->ch,
+                              [
+                                 CURLOPT_NOPROGRESS       => false,
+                                 CURLOPT_PROGRESSFUNCTION => $callable
+                              ]);
+
+            return true;
+         }
       }
 
       /**
