@@ -204,6 +204,7 @@ Exception changes
 Misc
 
 * Many classes now offer static constructors
+* Deprecated classes no longer have a static in Alo
 
 
 

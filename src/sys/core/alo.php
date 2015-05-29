@@ -1,20 +1,21 @@
 <?php
 
    use Alo\Cache\AbstractCache;
+   use Alo\CLI\Downloader;
    use Alo\Controller\AbstractController;
    use Alo\Controller\Router;
+   use Alo\Cron;
+   use Alo\cURL;
    use Alo\Db\AbstractDb;
+   use Alo\Email;
+   use Alo\File;
+   use Alo\Profiler;
    use Alo\Session\AbstractSession;
    use Alo\SFTP;
-   use Alo\Profiler;
-   use Alo\File;
-   use Alo\Email;
-   use Alo\cURL;
-   use Alo\Cron;
    use Alo\Validators\Form;
-   use Alo\Test\AbstractTester;
+   use Alo\Windows\Service;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -23,9 +24,6 @@
     * The global framework class
     *
     * @author Art <a.molcanovas@gmail.com>
-    * @todo   Create CLI tools based on AloWAMP's IO & downloader classes. Not sure if Downloader will belong more to
-    *         networking or CLI since one of its core characteristics is the progress function, but we shall see.
-    * @todo   Decide if you're removing deprecated classes from this one's statics.
     */
    class Alo {
 
@@ -93,13 +91,6 @@
       static $form_validator;
 
       /**
-       * Code tester
-       *
-       * @var AbstractTester
-       */
-      static $tester;
-
-      /**
        * Database connection
        *
        * @var AbstractDb
@@ -135,16 +126,31 @@
       static $router;
 
       /**
+       * Windows service handler
+       *
+       * @var Service
+       */
+      static $service;
+
+      /**
+       * Download manager
+       *
+       * @var Downloader
+       */
+      static $downloader;
+
+      /**
        * Loads a session
        *
        * @param string $type The session class name - see Alo::SESS_* constants
+       *
        * @return AbstractSession
        * @see self::SESS_MYSQL
        * @see self::SESS_MEMCACHED
        */
       static function loadSession($type = self::SESS_MYSQL) {
-         if (!self::$session) {
-            $sess = '\Alo\Session\\' . $type;
+         if(!self::$session) {
+            $sess          = '\Alo\Session\\' . $type;
             self::$session = new $sess();
          }
 
@@ -156,27 +162,33 @@
        * production/development
        *
        * @author Art <a.molcanovas@gmail.com>
+       *
        * @param string $path        The config file relative path without the file extension, e.g. to load a file found
        *                            in config/db/mysql.php provide db/mysql
        * @param bool   $return_path If set to true it will return the calculated path instead of requiring the file
+       *
        * @return string|bool The path is $return_path is true, TRUE if it is false
        */
       static function loadConfig($path, $return_path = false) {
-         $dir = (defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP) . 'config' . DIRECTORY_SEPARATOR;
+         $dir  =
+            (defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP) . 'config' . DIRECTORY_SEPARATOR;
          $path = strtolower($path);
-         if (substr($path, -4) == '.php') {
+         if(substr($path, -4) == '.php') {
             $path = substr($path, 0, -4);
          }
 
          $final_path = '';
-         if (file_exists($dir . $path . '.php')) {
+         if(file_exists($dir . $path . '.php')) {
             $final_path = $dir . $path . '.php';
          } else {
-            trigger_error('Configuration file ' . $path . ' not found in the application folder. Attempting to load from sys.', E_USER_WARNING);
+            trigger_error('Configuration file ' .
+                          $path .
+                          ' not found in the application folder. Attempting to load from sys.',
+                          E_USER_WARNING);
             $final_path = DIR_SYS . 'config' . DIRECTORY_SEPARATOR . $path . '.php';
          }
 
-         if ($return_path) {
+         if($return_path) {
             return $final_path;
          } else {
             include_once $final_path;
