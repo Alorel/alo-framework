@@ -191,6 +191,12 @@ Deprecated
 
 * Testing suite deprecated. Tools like [PHPUnit](https://phpunit.de/) serve as a far better alternative to test your code.
 
+Email
+
+* Some of PHPMailer's classes were overridden to return $this instead of bool
+* attachContent() method added to attach content as opposed to a file from disc
+* getDebugOutput() added. Sending an email now adds output to an array which can be fetched
+
 Classes added
 
 * Alo\IO\Downloader: downloads an external resource to disc and echoes progress
