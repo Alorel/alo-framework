@@ -3,6 +3,7 @@
    namespace Alo;
 
    use Alo\Exception\ExtensionException as EE;
+   use Alo\Exception\FileSystemException as FE;
    use Alo\Exception\SFTPException as SE;
 
    if(!defined('GEN_START')) {
@@ -380,7 +381,7 @@
        * @param string $file Remote file name
        *
        * @throws SE When the file cannot be fetched
-       * @throws \Alo\Exception\FileException When the name is invalid
+       * @throws FE When the name is invalid
        * @return SFTP
        */
       function downloadFile($file) {

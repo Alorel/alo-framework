@@ -4,10 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Alo\Exception\FileException | AloFramework documentation</title>
+	<title>Deprecated Class Alo\Exception\FileException | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?912666175"></script>
+	<script type="text/javascript" src="elementlist.js?1832281507"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -73,6 +73,8 @@
 						</li>
 				<li class="active"><a href="namespace-Alo.Exception.html">Exception</a>
 						</li>
+				<li><a href="namespace-Alo.FileSystem.html">FileSystem</a>
+						</li>
 				<li><a href="namespace-Alo.Session.html">Session</a>
 						</li>
 				<li><a href="namespace-Alo.Statics.html">Statics</a>
@@ -104,7 +106,8 @@
 				<li><a href="class-Alo.Exception.ControllerException.html">ControllerException</a></li>
 				<li><a href="class-Alo.Exception.CronException.html">CronException</a></li>
 				<li><a href="class-Alo.Exception.ExtensionException.html">ExtensionException</a></li>
-				<li class="active"><a href="class-Alo.Exception.FileException.html">FileException</a></li>
+				<li class="active"><a href="class-Alo.Exception.FileException.html" class="deprecated">FileException</a></li>
+				<li><a href="class-Alo.Exception.FileSystemException.html">FileSystemException</a></li>
 				<li><a href="class-Alo.Exception.OSException.html">OSException</a></li>
 				<li><a href="class-Alo.Exception.ProfilerException.html">ProfilerException</a></li>
 				<li><a href="class-Alo.Exception.SFTPException.html">SFTPException</a></li>
@@ -121,7 +124,7 @@
 <div id="right">
 	<div id="rightInner">
 <div id="content" class="class">
-	<h1>Class FileException</h1>
+	<h1 class="deprecated">Class FileException</h1>
 
 
 	<div class="description">
@@ -146,7 +149,14 @@
 		</dd>
 		<dd style="padding-left:60px">
 			<img src="resources/inherit.png" alt="Extended by" />
-<b><span>Alo\Exception\FileException</span></b>			
+			<a href="class-Alo.Exception.FileSystemException.html"><span>Alo\Exception\FileSystemException</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span class="deprecated">Alo\Exception\FileException</span></b>			
 			
 			
 		</dd>
@@ -171,10 +181,12 @@
 		<b>Namespace:</b> <a href="namespace-Alo.html">Alo</a>\<a href="namespace-Alo.Exception.html">Exception</a><br />
 		
 
+				<b>Deprecated:</b>
+				Since 1.1. Please use FileSystemException.<br />
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Exception.FileException.html#10-58" title="Go to source code">sys/class/alo/exception/fileexception.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Exception.FileException.html#10-17" title="Go to source code">sys/class/alo/exception/fileexception.php</a><br />
 	</div>
 
 
@@ -205,153 +217,16 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 		<h2>Constants summary</h2>
-		<table class="summary table table-bordered table-striped" id="constants">
-		<tr data-order="E_FOPEN_FAIL" id="E_FOPEN_FAIL">
 
-			<td class="attributes"><code>integer</code></td>
-			<td class="name"><code>
-					<a href="source-class-Alo.Exception.FileException.html#17-22" title="Go to source code"><b>E_FOPEN_FAIL</b></a>
-			</code></td>
-			<td class="value"><code><span class="php-num">101</span></code></td>
-			<td class="description"><div>
-				<a href="#E_FOPEN_FAIL" class="anchor">#</a>
-
-				<div class="description short">
-					
-<p>Code when opening the file fails</p>
-
-				</div>
-
-				<div class="description detailed hidden">
-					
-<p>Code when opening the file fails</p>
-
-
-				</div>
-			</div></td>
-		</tr>
-		<tr data-order="E_PATH_NOT_SET" id="E_PATH_NOT_SET">
-
-			<td class="attributes"><code>integer</code></td>
-			<td class="name"><code>
-					<a href="source-class-Alo.Exception.FileException.html#24-29" title="Go to source code"><b>E_PATH_NOT_SET</b></a>
-			</code></td>
-			<td class="value"><code><span class="php-num">102</span></code></td>
-			<td class="description"><div>
-				<a href="#E_PATH_NOT_SET" class="anchor">#</a>
-
-				<div class="description short">
-					
-<p>Code when the file path is not set</p>
-
-				</div>
-
-				<div class="description detailed hidden">
-					
-<p>Code when the file path is not set</p>
-
-
-				</div>
-			</div></td>
-		</tr>
-		<tr data-order="E_FILE_NOT_EXISTS" id="E_FILE_NOT_EXISTS">
-
-			<td class="attributes"><code>integer</code></td>
-			<td class="name"><code>
-					<a href="source-class-Alo.Exception.FileException.html#31-36" title="Go to source code"><b>E_FILE_NOT_EXISTS</b></a>
-			</code></td>
-			<td class="value"><code><span class="php-num">103</span></code></td>
-			<td class="description"><div>
-				<a href="#E_FILE_NOT_EXISTS" class="anchor">#</a>
-
-				<div class="description short">
-					
-<p>Code when a file doesn't exist</p>
-
-				</div>
-
-				<div class="description detailed hidden">
-					
-<p>Code when a file doesn't exist</p>
-
-
-				</div>
-			</div></td>
-		</tr>
-		<tr data-order="E_NAME_INVALID" id="E_NAME_INVALID">
-
-			<td class="attributes"><code>integer</code></td>
-			<td class="name"><code>
-					<a href="source-class-Alo.Exception.FileException.html#38-43" title="Go to source code"><b>E_NAME_INVALID</b></a>
-			</code></td>
-			<td class="value"><code><span class="php-num">104</span></code></td>
-			<td class="description"><div>
-				<a href="#E_NAME_INVALID" class="anchor">#</a>
-
-				<div class="description short">
-					
-<p>Code when the file or directory name is invalid</p>
-
-				</div>
-
-				<div class="description detailed hidden">
-					
-<p>Code when the file or directory name is invalid</p>
-
-
-				</div>
-			</div></td>
-		</tr>
-		<tr data-order="E_CONTENT_INVALID" id="E_CONTENT_INVALID">
-
-			<td class="attributes"><code>integer</code></td>
-			<td class="name"><code>
-					<a href="source-class-Alo.Exception.FileException.html#45-50" title="Go to source code"><b>E_CONTENT_INVALID</b></a>
-			</code></td>
-			<td class="value"><code><span class="php-num">105</span></code></td>
-			<td class="description"><div>
-				<a href="#E_CONTENT_INVALID" class="anchor">#</a>
-
-				<div class="description short">
-					
-<p>Code when content supplied is invalid</p>
-
-				</div>
-
-				<div class="description detailed hidden">
-					
-<p>Code when content supplied is invalid</p>
-
-
-				</div>
-			</div></td>
-		</tr>
-		<tr data-order="E_PATH_INVALID" id="E_PATH_INVALID">
-
-			<td class="attributes"><code>integer</code></td>
-			<td class="name"><code>
-					<a href="source-class-Alo.Exception.FileException.html#52-57" title="Go to source code"><b>E_PATH_INVALID</b></a>
-			</code></td>
-			<td class="value"><code><span class="php-num">106</span></code></td>
-			<td class="description"><div>
-				<a href="#E_PATH_INVALID" class="anchor">#</a>
-
-				<div class="description short">
-					
-<p>Code when the path is invalid</p>
-
-				</div>
-
-				<div class="description detailed hidden">
-					
-<p>Code when the path is invalid</p>
-
-
-				</div>
-			</div></td>
-		</tr>
-		</table>
-
+		<h3>Constants inherited from <a href="class-Alo.Exception.FileSystemException.html#constants">Alo\Exception\FileSystemException</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Exception.FileSystemException.html#E_CONTENT_INVALID"><b>E_CONTENT_INVALID</b></a></code>, 
+			<code><a href="class-Alo.Exception.FileSystemException.html#E_FILE_NOT_EXISTS"><b>E_FILE_NOT_EXISTS</b></a></code>, 
+			<code><a href="class-Alo.Exception.FileSystemException.html#E_FOPEN_FAIL"><b>E_FOPEN_FAIL</b></a></code>, 
+			<code><a href="class-Alo.Exception.FileSystemException.html#E_NAME_INVALID"><b>E_NAME_INVALID</b></a></code>, 
+			<code><a href="class-Alo.Exception.FileSystemException.html#E_PATH_INVALID"><b>E_PATH_INVALID</b></a></code>, 
+			<code><a href="class-Alo.Exception.FileSystemException.html#E_PATH_NOT_SET"><b>E_PATH_NOT_SET</b></a></code>
+		</p>
 
 
 

@@ -1,5 +1,9 @@
 # 1.1 (pending) #
 
+Gracefully deprecated
+
+* \Alo\File has been moved to \Alo\FileSystem\File. The original class is now deprecated, but extends the new one.
+
 Deprecated
 
 * Testing suite deprecated. Tools like [PHPUnit](https://phpunit.de/) serve as a far better alternative to test your code.
@@ -19,6 +23,7 @@ Exception changes
 
 * OSException added
 * Cron now throws an OSException with the code OSException::E_UNSUPPORTED if instantiated from Windows
+* FileException is now deprecated. Use FileSystemException.
 
 Misc
 

@@ -8,7 +8,7 @@
 	<title>File sys/class/alo/sftp.php | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?912666175"></script>
+	<script type="text/javascript" src="elementlist.js?1832281507"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -75,6 +75,8 @@
 						</li>
 				<li><a href="namespace-Alo.Exception.html">Exception</a>
 						</li>
+				<li><a href="namespace-Alo.FileSystem.html">FileSystem</a>
+						</li>
 				<li><a href="namespace-Alo.Session.html">Session</a>
 						</li>
 				<li><a href="namespace-Alo.Statics.html">Statics</a>
@@ -125,18 +127,18 @@
 </span><span id="3" class="l"><a class="l" href="#3">  3 </a>   <span class="php-keyword1">namespace</span> Alo;
 </span><span id="4" class="l"><a class="l" href="#4">  4 </a>
 </span><span id="5" class="l"><a class="l" href="#5">  5 </a>   <span class="php-keyword1">use</span> Alo\Exception\ExtensionException <span class="php-keyword1">as</span> EE;
-</span><span id="6" class="l"><a class="l" href="#6">  6 </a>   <span class="php-keyword1">use</span> Alo\Exception\SFTPException <span class="php-keyword1">as</span> SE;
-</span><span id="7" class="l"><a class="l" href="#7">  7 </a>
-</span><span id="8" class="l"><a class="l" href="#8">  8 </a>   <span class="php-keyword1">if</span>(!<span class="php-keyword2">defined</span>(<span class="php-quote">'GEN_START'</span>)) {
-</span><span id="9" class="l"><a class="l" href="#9">  9 </a>      <span class="php-keyword2">http_response_code</span>(<span class="php-num">404</span>);
-</span><span id="10" class="l"><a class="l" href="#10"> 10 </a>      <span class="php-keyword1">die</span>();
-</span><span id="11" class="l"><a class="l" href="#11"> 11 </a>   }
-</span><span id="12" class="l"><a class="l" href="#12"> 12 </a>
-</span><span id="13" class="l"><a class="l" href="#13"> 13 </a>   <span class="php-comment">/**
-</span></span><span id="14" class="l"><a class="l" href="#14"> 14 </a><span class="php-comment">    * SFTP handler
-</span></span><span id="15" class="l"><a class="l" href="#15"> 15 </a><span class="php-comment">    *
-</span></span><span id="16" class="l"><a class="l" href="#16"> 16 </a><span class="php-comment">    * @author Arturas Molcanovas &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="17" class="l"><a class="l" href="#17"> 17 </a><span class="php-comment">    * @todo   IF a a networking namespace is created, move it there
+</span><span id="6" class="l"><a class="l" href="#6">  6 </a>   <span class="php-keyword1">use</span> Alo\Exception\FileSystemException <span class="php-keyword1">as</span> FE;
+</span><span id="7" class="l"><a class="l" href="#7">  7 </a>   <span class="php-keyword1">use</span> Alo\Exception\SFTPException <span class="php-keyword1">as</span> SE;
+</span><span id="8" class="l"><a class="l" href="#8">  8 </a>
+</span><span id="9" class="l"><a class="l" href="#9">  9 </a>   <span class="php-keyword1">if</span>(!<span class="php-keyword2">defined</span>(<span class="php-quote">'GEN_START'</span>)) {
+</span><span id="10" class="l"><a class="l" href="#10"> 10 </a>      <span class="php-keyword2">http_response_code</span>(<span class="php-num">404</span>);
+</span><span id="11" class="l"><a class="l" href="#11"> 11 </a>      <span class="php-keyword1">die</span>();
+</span><span id="12" class="l"><a class="l" href="#12"> 12 </a>   }
+</span><span id="13" class="l"><a class="l" href="#13"> 13 </a>
+</span><span id="14" class="l"><a class="l" href="#14"> 14 </a>   <span class="php-comment">/**
+</span></span><span id="15" class="l"><a class="l" href="#15"> 15 </a><span class="php-comment">    * SFTP handler
+</span></span><span id="16" class="l"><a class="l" href="#16"> 16 </a><span class="php-comment">    *
+</span></span><span id="17" class="l"><a class="l" href="#17"> 17 </a><span class="php-comment">    * @author Arturas Molcanovas &lt;a.molcanovas@gmail.com&gt;
 </span></span><span id="18" class="l"><a class="l" href="#18"> 18 </a><span class="php-comment">    */</span>
 </span><span id="19" class="l"><a class="l" href="#19"> 19 </a>   <span class="php-keyword1">class</span> <a id="SFTP" href="#SFTP">SFTP</a> {
 </span><span id="20" class="l"><a class="l" href="#20"> 20 </a>
@@ -503,7 +505,7 @@
 </span></span><span id="381" class="l"><a class="l" href="#381">381 </a><span class="php-comment">       * @param string $file Remote file name
 </span></span><span id="382" class="l"><a class="l" href="#382">382 </a><span class="php-comment">       *
 </span></span><span id="383" class="l"><a class="l" href="#383">383 </a><span class="php-comment">       * @throws SE When the file cannot be fetched
-</span></span><span id="384" class="l"><a class="l" href="#384">384 </a><span class="php-comment">       * @throws \Alo\Exception\FileException When the name is invalid
+</span></span><span id="384" class="l"><a class="l" href="#384">384 </a><span class="php-comment">       * @throws FE When the name is invalid
 </span></span><span id="385" class="l"><a class="l" href="#385">385 </a><span class="php-comment">       * @return SFTP
 </span></span><span id="386" class="l"><a class="l" href="#386">386 </a><span class="php-comment">       */</span>
 </span><span id="387" class="l"><a class="l" href="#387">387 </a>      <span class="php-keyword1">function</span> <a id="_downloadFile" href="#_downloadFile">downloadFile</a>(<span class="php-var">$file</span>) {
