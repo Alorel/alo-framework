@@ -201,11 +201,12 @@ $router->init(); //Or ->initNoCall() if you just want to initialise it, but not 
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 1.1 (pending) ##
+## 1.1 (2015-05-30) ##
 
 Gracefully deprecated
 
 * \Alo\File has been moved to \Alo\FileSystem\File. The original class is now deprecated, but extends the new one.
+* FileException is now deprecated. Use FileSystemException.
 
 Deprecated
 
@@ -213,7 +214,7 @@ Deprecated
 
 Email
 
-* Some of PHPMailer's classes were overridden to return $this instead of bool
+* Some of PHPMailer's methods were overridden to return $this instead of bool
 * attachContent() method added to attach content as opposed to a file from disc
 * getDebugOutput() added. Sending an email now adds output to an array which can be fetched
 
@@ -228,7 +229,6 @@ Exception changes
 
 * OSException added
 * Cron now throws an OSException with the code OSException::E_UNSUPPORTED if instantiated from Windows
-* FileException is now deprecated. Use FileSystemException.
 
 Misc
 
