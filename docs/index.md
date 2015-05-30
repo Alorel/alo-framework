@@ -1,23 +1,39 @@
-![aloframework](https://cloud.githubusercontent.com/assets/4998038/7528096/370297ba-f51b-11e4-9c26-5d01ac66fc4d.png)
+![Logo](https://cloud.githubusercontent.com/assets/4998038/7528096/370297ba-f51b-11e4-9c26-5d01ac66fc4d.png)
 
-[![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/v/stable)](https://packagist.org/packages/alorel/alo-framework) [![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads)](https://packagist.org/packages/alorel/alo-framework) [![Latest Unstable Version](https://poser.pugx.org/alorel/alo-framework/v/unstable)](https://packagist.org/packages/alorel/alo-framework) [![License](https://poser.pugx.org/alorel/alo-framework/license)](https://packagist.org/packages/alorel/alo-framework)
+[![Licence](https://img.shields.io/github/license/alorel/alo-framework.svg?style=plastic&label=Licence)](LICENCE)
 
-Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=v1.0)](https://travis-ci.org/Alorel/alo-framework) Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework) Dev: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
+[![NuGet release](http://img.shields.io/nuget/v/AloFramework.svg?label=NuGet%20release&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![NuGET pre-release](http://img.shields.io/nuget/vpre/AloFramework.svg?label=NuGet%20pre-release&color=orange&style=plastic)](https://www.nuget.org/packages/AloFramework/) 
+
+[![Packagist release](https://img.shields.io/packagist/v/alorel/alo-framework.svg?style=plastic&label=Packagist%20release)](https://packagist.org/packages/alorel/alo-framework) [![Packagist pre-release](https://img.shields.io/packagist/vpre/alorel/alo-framework.svg?style=plastic&label=Packagist%20pre-release)](https://packagist.org/packages/alorel/alo-framework)
+
+[![NuGET downloads](http://img.shields.io/nuget/dt/AloFramework.svg?label=NuGET%20downloads&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=Packagist%20downloads)](https://packagist.org/packages/alorel/alo-framework) 
+
+
+Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=1.1)](https://travis-ci.org/Alorel/alo-framework) Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework) Dev: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
 # Table of Contents #
-1. [What is this?](#what-is-this)
-2. [Licence](#licence)
-3. [Structure](#structure) [[General](#general) | [Namespaces](#namespaces)] 
-4. [Workflow](#workflow) [[Main Concept](#main-concept) | [The global Alo class](#the-global-alo-class) | [Controllers](#controllers) | [Views](#views)]
-5. [Routing](#routing)
-6. [Logging](#logging)
-7. [Initial setup](#initial-setup)
-8. [Updating](#updating)
-9. [Running tests](#running-tests)
-10. [Latest Changes](#latest-changes)
-11. [External Libraries](#external-libraries)
+
+* [What is this?](#what-is-this)
+* [Licence](#licence)
+* [Structure](#structure)
+	* [General](#general)
+	* [Namespaces](#namespaces)
+* [Workflow](#workflow)
+	* [Main Concept](#main-concept)
+	* [The global Alo class](#the-global-alo-class)
+	* [Controllers](#controllers)
+	* [Views](#views)
+* [Routing](#routing)
+* [Logging](#logging)
+* [Initial setup](#initial-setup)
+* [Updating](#updating)
+* [Running tests](#running-tests)
+* [Latest Changes](#latest-changes)
+* [External Libraries](#external-libraries)
+* [Supporting The Project](#supporting-the-project)
+* [Other Alo Products](#other-alo-products)
 
 ----------
 
@@ -228,5 +244,13 @@ AloFramework uses the following external libraries for its functionality:
 
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer/) for email support
 * [Kint](http://raveren.github.io/kint/) for debug output
+
+^[TOC](#table-of-contents)
+
+# Supporting the Project #
+Any support is greatly appreciated - whether you're able to [send a Paypal donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ANUYFVBA2XS3G), [become a ClixSense referral](http://www.clixsense.com/?r=4639931&c=alo-wamp&s=102) or simply [drop an email](mailto:a.molcanovas@gmail.com) I'll be very grateful. :)
+
+# Other Alo Products #
+You can find other products of mine at [alorel.weebly.com](http://alorel.weebly.com)
 
 ^[TOC](#table-of-contents)
