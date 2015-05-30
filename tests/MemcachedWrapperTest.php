@@ -4,14 +4,6 @@
 
    class MemcachedWrapperTest extends \PHPUnit_Framework_TestCase {
 
-      protected static function mc() {
-         if (!\Alo::$cache) {
-            \Alo::$cache = new MemcachedWrapper();
-         }
-
-         return \Alo::$cache;
-      }
-
       /**
        * @dataProvider definedProvider
        */
@@ -35,12 +27,22 @@
          $mc->set($key, $val);
          $get = $mc->get($key);
 
-         $this->assertEquals($val, $get, _unit_dump([
-            'Key'      => $key,
-            'Val'      => $val,
-            'Expected' => $val,
-            'Actual'   => $get
-         ]));
+         $this->assertEquals($val,
+                             $get,
+                             _unit_dump([
+                                           'Key'      => $key,
+                                           'Val'      => $val,
+                                           'Expected' => $val,
+                                           'Actual'   => $get
+                                        ]));
+      }
+
+      protected static function mc() {
+         if(!\Alo::$cache || !(\Alo::$cache instanceof MemcachedWrapper)) {
+            \Alo::$cache = new MemcachedWrapper();
+         }
+
+         return \Alo::$cache;
       }
 
       function testPurge() {
@@ -70,4 +72,3 @@
          ];
       }
    }
- 

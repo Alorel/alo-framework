@@ -7,6 +7,9 @@ php:
 env:
   - DB=mysql
 
+services:
+  - redis-server
+
 before_install:
   - sudo apt-get install memcached -y -qq
   - sudo /etc/init.d/memcached start

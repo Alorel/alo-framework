@@ -2,9 +2,9 @@
 
    namespace Alo\Session;
 
-   use Alo\Cache\MemcachedWrapper;
+   use Alo\Cache\RedisWrapper;
 
-   class MemcachedSessionTest extends \PHPUnit_Framework_TestCase {
+   class RedisSessionTest extends \PHPUnit_Framework_TestCase {
 
       /**
        * @dataProvider definedProvider
@@ -19,7 +19,7 @@
             ['ALO_SESSION_TIMEOUT'],
             ['ALO_SESSION_COOKIE'],
             ['ALO_SESSION_FINGERPRINT'],
-            ['ALO_SESSION_MC_PREFIX'],
+            ['ALO_SESSION_REDIS_PREFIX'],
             ['ALO_SESSION_TABLE_NAME']
          ];
       }
@@ -31,14 +31,14 @@
          $force_write = $s->forceWrite();
 
          $id           = $s->getID();
-         $sess_fetched = \Alo::$cache->get(ALO_SESSION_MC_PREFIX . $id);
+         $sess_fetched = \Alo::$cache->get(ALO_SESSION_REDIS_PREFIX . $id);
 
          $this->assertNotEmpty($sess_fetched,
                                _unit_dump([
                                              'id'           => $id,
                                              'fetched'      => $sess_fetched,
                                              'all'          => \Alo::$cache->getAll(),
-                                             'is_available' => MemcachedWrapper::is_available()
+                                             'is_available' => RedisWrapper::is_available()
                                           ]));
 
          $this->assertArrayHasKey('foo', $sess_fetched, _unit_dump($sess_fetched));
@@ -46,12 +46,12 @@
       }
 
       static function sess() {
-         if(!\Alo::$cache || !(\Alo::$cache instanceof MemcachedWrapper)) {
-            \Alo::$cache = new MemcachedWrapper();
+         if(!\Alo::$cache || !(\Alo::$cache instanceof RedisWrapper)) {
+            \Alo::$cache = new RedisWrapper();
          }
 
-         if(!\Alo::$session || !(\Alo::$session instanceof MemcachedSession)) {
-            \Alo::$session = new MemcachedSession();
+         if(!\Alo::$session || !(\Alo::$session instanceof RedisSession)) {
+            \Alo::$session = new RedisSession();
          }
 
          return \Alo::$session;
