@@ -18,6 +18,8 @@ Classes added
 
 * Alo\IO\Downloader: downloads an external resource to disc and echoes progress
 * Alo\Windows\Service: Windows service manager
+* Alo\Cahce\RedisWrapper
+* Alo\Session\RedisSession
 
 Exception changes
 
@@ -29,6 +31,7 @@ Misc
 
 * Many classes now offer static constructors
 * Deprecated classes no longer have a static in Alo
+* Default session prefix changed
 
 # 1.0 (2015-05-08) #
 

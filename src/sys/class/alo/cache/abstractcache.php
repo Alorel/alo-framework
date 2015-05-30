@@ -14,10 +14,21 @@
     *
     * @author  Art <a.molcanovas@gmail.com>
     * @package Cache
-    * @todo    Redis cache wrapper.
-    * @todo    getAllKeys()
     */
    abstract class AbstractCache {
+
+      /**
+       * Classes to check in "is_available()"
+       *
+       * @var array
+       */
+      private static $classes = ['Memcache', 'Memcached', 'Redis'];
+      /**
+       * The abstract client
+       *
+       * @var \Redis|\Memcache|\Memcached
+       */
+      protected $client;
 
       /**
        * Instantiates the class
@@ -37,7 +48,27 @@
        * @return boolean
        */
       static function is_available() {
-         return class_exists('\Memcached') || class_exists('\Memcache');
+         foreach(self::$classes as $class) {
+            if(class_exists('\\' . $class)) {
+               return true;
+            }
+         }
+
+         return false;
+      }
+
+      /**
+       * Calls a method of the caching client
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param string $method The method
+       * @param array  $args   Method args
+       *
+       * @return mixed Whatever the method returns
+       */
+      function __call($method, $args) {
+         return call_user_func_array([$this->client, $method], $args);
       }
 
       /**
@@ -146,14 +177,6 @@
        * @return boolean
        */
       abstract function addServer($ip, $port, $weight);
-
-      /**
-       * Gets cache process info
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return array
-       */
-      abstract function getStats();
 
       /**
        * Deletes all cached entries with the supplied prefix

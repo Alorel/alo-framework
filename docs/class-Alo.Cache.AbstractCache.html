@@ -7,7 +7,7 @@
 	<title>Class Alo\Cache\AbstractCache | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?1832281507"></script>
+	<script type="text/javascript" src="elementlist.js?2202693734"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -101,6 +101,7 @@
 			<ul>
 				<li class="active"><a href="class-Alo.Cache.AbstractCache.html">AbstractCache</a></li>
 				<li><a href="class-Alo.Cache.MemcachedWrapper.html">MemcachedWrapper</a></li>
+				<li><a href="class-Alo.Cache.RedisWrapper.html">RedisWrapper</a></li>
 			</ul>
 
 
@@ -130,7 +131,8 @@
 	<div>
 		<h3>Direct known subclasses</h3>
 		<p class="elementList">
-			<code><a href="class-Alo.Cache.MemcachedWrapper.html">Alo\Cache\MemcachedWrapper</a></code>
+			<code><a href="class-Alo.Cache.MemcachedWrapper.html">Alo\Cache\MemcachedWrapper</a></code>, 
+			<code><a href="class-Alo.Cache.RedisWrapper.html">Alo\Cache\RedisWrapper</a></code>
 		</p>
 	</div>
 
@@ -148,11 +150,7 @@
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-				<b>Todo:</b>
-				Redis cache wrapper.<br />
-				<b>Todo:</b>
-				getAllKeys()<br />
-		<b>Located at</b> <a href="source-class-Alo.Cache.AbstractCache.html#12-212" title="Go to source code">sys/class/alo/cache/abstractcache.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Cache.AbstractCache.html#12-235" title="Go to source code">sys/class/alo/cache/abstractcache.php</a><br />
 	</div>
 
 
@@ -170,7 +168,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#22-31" title="Go to source code">__construct</a>( )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#33-42" title="Go to source code">__construct</a>( )</code>
 
 			<div class="description short">
 				
@@ -208,7 +206,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_is_available">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#33-41" title="Go to source code">is_available</a>( )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#44-58" title="Go to source code">is_available</a>( )</code>
 
 			<div class="description short">
 				
@@ -239,6 +237,55 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="__call" id="___call">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___call">#</a>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#60-72" title="Go to source code">__call</a>( <span>string <var>$method</var></span>, <span>array <var>$args</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Calls a method of the caching client</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Calls a method of the caching client</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$method</var></dt>
+						<dd><code>string</code><br>$method The method</dd>
+						<dt><var>$args</var></dt>
+						<dd><code>array</code><br>$args Method args</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>mixed</code><br>Whatever the method returns<br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="__get" id="___get">
 
 			<td class="attributes"><code>
@@ -250,7 +297,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___get">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#43-54" title="Go to source code">__get</a>( <span>string <var>$key</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#74-85" title="Go to source code">__get</a>( <span>string <var>$key</var></span> )</code>
 
 			<div class="description short">
 				
@@ -297,7 +344,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___set">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#56-68" title="Go to source code">__set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$val</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#87-99" title="Go to source code">__set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$val</var></span> )</code>
 
 			<div class="description short">
 				
@@ -346,7 +393,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#70-79" title="Go to source code">get</a>( <span>string <var>$id</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#101-110" title="Go to source code">get</a>( <span>string <var>$id</var></span> )</code>
 
 			<div class="description short">
 				
@@ -393,7 +440,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_set">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#81-92" title="Go to source code">set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$var</var></span>, <span>integer <var>$expire</var> = <span class="php-num">3600</span></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#112-123" title="Go to source code">set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$var</var></span>, <span>integer <var>$expire</var> = <span class="php-num">3600</span></span> )</code>
 
 			<div class="description short">
 				
@@ -444,7 +491,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___isset">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#94-105" title="Go to source code">__isset</a>( <span>string <var>$key</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#125-136" title="Go to source code">__isset</a>( <span>string <var>$key</var></span> )</code>
 
 			<div class="description short">
 				
@@ -491,7 +538,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#___unset">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#107-116" title="Go to source code">__unset</a>( <span>string <var>$key</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#138-147" title="Go to source code">__unset</a>( <span>string <var>$key</var></span> )</code>
 
 			<div class="description short">
 				
@@ -534,7 +581,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_delete">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#118-127" title="Go to source code">delete</a>( <span>string <var>$key</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#149-158" title="Go to source code">delete</a>( <span>string <var>$key</var></span> )</code>
 
 			<div class="description short">
 				
@@ -581,7 +628,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_purge">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#129-135" title="Go to source code">purge</a>( )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#160-166" title="Go to source code">purge</a>( )</code>
 
 			<div class="description short">
 				
@@ -623,7 +670,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_addServer">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#137-148" title="Go to source code">addServer</a>( <span>string <var>$ip</var></span>, <span>integer <var>$port</var></span>, <span>integer <var>$weight</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#168-179" title="Go to source code">addServer</a>( <span>string <var>$ip</var></span>, <span>integer <var>$port</var></span>, <span>integer <var>$weight</var></span> )</code>
 
 			<div class="description short">
 				
@@ -663,48 +710,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="getStats" id="_getStats">
-
-			<td class="attributes"><code>
-				abstract public 
-				array
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_getStats">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#150-156" title="Go to source code">getStats</a>( )</code>
-
-			<div class="description short">
-				
-<p>Gets cache process info</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Gets cache process info</p>
-
-
-
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>array</code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="deleteWithPrefix" id="_deleteWithPrefix">
 
 			<td class="attributes"><code>
@@ -716,7 +721,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteWithPrefix">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#158-179" title="Go to source code">deleteWithPrefix</a>( <span>string <var>$prefix</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#181-202" title="Go to source code">deleteWithPrefix</a>( <span>string <var>$prefix</var></span> )</code>
 
 			<div class="description short">
 				
@@ -763,7 +768,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAll">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#181-187" title="Go to source code">getAll</a>( )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#204-210" title="Go to source code">getAll</a>( )</code>
 
 			<div class="description short">
 				
@@ -805,7 +810,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteWithSuffix">#</a>
-			<code><a href="source-class-Alo.Cache.AbstractCache.html#189-210" title="Go to source code">deleteWithSuffix</a>( <span>string <var>$suffix</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.AbstractCache.html#212-233" title="Go to source code">deleteWithSuffix</a>( <span>string <var>$suffix</var></span> )</code>
 
 			<div class="description short">
 				
@@ -848,6 +853,67 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 		<h3>Magic methods summary</h3>
 
 
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="classes" id="$classes">
+			<td class="attributes"><code>
+				private static 
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.Cache.AbstractCache.html#20-25" title="Go to source code"><var>$classes</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$classes" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Classes to check in "is_available()"</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Classes to check in "is_available()"</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="client" id="$client">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Redis.html">Redis</a></code>|<code><a href="class-Memcache.html">Memcache</a></code>|Memcached
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.Cache.AbstractCache.html#26-31" title="Go to source code"><var>$client</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$client" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The abstract client</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The abstract client</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
 
 
 

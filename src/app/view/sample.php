@@ -1,6 +1,6 @@
 <div>
    I am the sample view. If you pass me the variable 'foo' I will display its value here: <span
-      style="font-weight:bold"><?= $foo ?></span>
+      style = "font-weight:bold"><?= $foo ?></span>
 </div>
 <div>
    The sample router config file should contain the following:
@@ -43,7 +43,7 @@
             '/sample/' . urlencode('THIS IS THE VALUE I WANT HERE') . '/bar/'
          ];
 
-         foreach ($urls as $url) {
+         foreach($urls as $url) {
             echo '<li><a href="' . $url . '" target="_blank">' . $url . '</a></li>';
          }
       ?>

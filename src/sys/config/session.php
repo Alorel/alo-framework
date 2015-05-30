@@ -1,6 +1,6 @@
 <?php
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -38,10 +38,17 @@
     *
     * @var string
     */
-   define('ALO_SESSION_MC_PREFIX', 'sess_');
+   define('ALO_SESSION_MC_PREFIX', 's_mc_');
 
    /**
-    * The table to use for alo_session
+    * The prefix for RedisSession keys
+    *
+    * @var string
+    */
+   define('ALO_SESSION_REDIS_PREFIX', 's_red_');
+
+   /**
+    * The table to use for MySQL sessions
     *
     * @var string
     */

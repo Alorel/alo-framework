@@ -3,7 +3,6 @@
    namespace Alo\Session;
 
    use Alo;
-   use Alo\Cache\AbstractCache;
    use Alo\Cache\MemcachedWrapper;
    use Alo\Exception\ExtensionException as EE;
 
@@ -19,14 +18,7 @@
     * @author  Art <a.molcanovas@gmail.com>
     * @package Session
     */
-   class MemcachedSession extends AbstractSession {
-
-      /**
-       * Reference to database instance
-       *
-       * @var AbstractCache
-       */
-      protected $mc;
+   class MemcachedSession extends AbstractCacheSession {
 
       /**
        * Instantiates the class
@@ -35,15 +27,18 @@
        * @throws EE When a caching class is not available
        */
       function __construct() {
-         if(!Alo::$cache) {
-            Alo::$cache = new MemcachedWrapper(true);
+         if(Alo::$cache && (Alo::$cache instanceof MemcachedWrapper)) {
+            $this->client = &Alo::$cache;
+         } else {
+            $this->client = new MemcachedWrapper(true);
          }
 
-         if(!AbstractCache::is_available()) {
+         if(!MemcachedWrapper::is_available()) {
             throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
          } else {
-            $this->mc = &Alo::$cache;
             parent::__construct();
+            $this->client = &Alo::$cache;
+            $this->prefix = ALO_SESSION_MC_PREFIX;
             \Log::debug('Initialised Memcached session');
          }
       }
@@ -58,49 +53,6 @@
        */
       static function MemcachedSession() {
          return new MemcachedSession();
-      }
-
-      /**
-       * Fetches session data
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return MemcachedSession
-       */
-      protected function fetch() {
-         $data = $this->mc->get(ALO_SESSION_MC_PREFIX . $this->id);
-
-         if($data) {
-            $this->data = $data;
-         }
-
-         \Log::debug('Fetched session data');
-
-         return $this;
-      }
-
-      /**
-       * Terminates the session
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return MemcachedSession
-       */
-      function terminate() {
-         $this->mc->delete(ALO_SESSION_MC_PREFIX . $this->id);
-
-         return parent::terminate();
-      }
-
-      /**
-       * Saves session data
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return MemcachedSession
-       */
-      protected function write() {
-         $this->mc->set(ALO_SESSION_MC_PREFIX . $this->id, $this->data, ALO_SESSION_TIMEOUT);
-         \Log::debug('Saved session data');
-
-         return $this;
       }
 
    }

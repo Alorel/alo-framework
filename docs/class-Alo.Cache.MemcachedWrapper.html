@@ -7,7 +7,7 @@
 	<title>Class Alo\Cache\MemcachedWrapper | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?1832281507"></script>
+	<script type="text/javascript" src="elementlist.js?2202693734"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -101,6 +101,7 @@
 			<ul>
 				<li><a href="class-Alo.Cache.AbstractCache.html">AbstractCache</a></li>
 				<li class="active"><a href="class-Alo.Cache.MemcachedWrapper.html">MemcachedWrapper</a></li>
+				<li><a href="class-Alo.Cache.RedisWrapper.html">RedisWrapper</a></li>
 			</ul>
 
 
@@ -157,7 +158,7 @@ first, if it doesn't exist, will use Memcache.</p>
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Cache.MemcachedWrapper.html#15-267" title="Go to source code">sys/class/alo/cache/memcachedwrapper.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Cache.MemcachedWrapper.html#15-277" title="Go to source code">sys/class/alo/cache/memcachedwrapper.php</a><br />
 	</div>
 
 
@@ -396,48 +397,6 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="purge" id="_purge">
-
-			<td class="attributes"><code>
-				 public 
-				boolean
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_purge">#</a>
-			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#143-151" title="Go to source code">purge</a>( )</code>
-
-			<div class="description short">
-				
-<p>Clears all items from cache</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Clears all items from cache</p>
-
-
-
-
-					<h4>Returns</h4>
-					<div class="list">
-						<code>boolean</code><br />
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art &lt;<a
-href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
 		<tr data-order="getStats" id="_getStats">
 
 			<td class="attributes"><code>
@@ -449,7 +408,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getStats">#</a>
-			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#153-161" title="Go to source code">getStats</a>( )</code>
+			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#143-151" title="Go to source code">getStats</a>( )</code>
 
 			<div class="description short">
 				
@@ -480,6 +439,92 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="is_available" id="_is_available">
+
+			<td class="attributes"><code>
+				 public static
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_is_available">#</a>
+			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#153-161" title="Go to source code">is_available</a>( )</code>
+
+			<div class="description short">
+				
+<p>Checks if a Memcache or Memcached is available</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Checks if a Memcache or Memcached is available</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Alo.Cache.AbstractCache.html#_is_available">Alo\Cache\AbstractCache::is_available</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="purge" id="_purge">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_purge">#</a>
+			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#163-171" title="Go to source code">purge</a>( )</code>
+
+			<div class="description short">
+				
+<p>Clears all items from cache</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Clears all items from cache</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="get" id="_get">
 
 			<td class="attributes"><code>
@@ -491,7 +536,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get">#</a>
-			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#163-174" title="Go to source code">get</a>( <span>string <var>$id</var></span> )</code>
+			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#173-184" title="Go to source code">get</a>( <span>string <var>$id</var></span> )</code>
 
 			<div class="description short">
 				
@@ -538,7 +583,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_set">#</a>
-			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#176-197" title="Go to source code">set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$var</var></span>, <span>integer <var>$expire</var> = <span class="php-num">3600</span></span> )</code>
+			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#186-207" title="Go to source code">set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$var</var></span>, <span>integer <var>$expire</var> = <span class="php-num">3600</span></span> )</code>
 
 			<div class="description short">
 				
@@ -589,7 +634,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAllMemcached">#</a>
-			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#199-214" title="Go to source code">getAllMemcached</a>( )</code>
+			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#209-224" title="Go to source code">getAllMemcached</a>( )</code>
 
 			<div class="description short">
 				
@@ -631,7 +676,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAllMemcache">#</a>
-			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#216-249" title="Go to source code">getAllMemcache</a>( )</code>
+			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#226-259" title="Go to source code">getAllMemcache</a>( )</code>
 
 			<div class="description short">
 				
@@ -673,7 +718,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAll">#</a>
-			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#251-265" title="Go to source code">getAll</a>( )</code>
+			<code><a href="source-class-Alo.Cache.MemcachedWrapper.html#261-275" title="Go to source code">getAll</a>( )</code>
 
 			<div class="description short">
 				
@@ -708,13 +753,13 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 		<h3>Methods inherited from <a href="class-Alo.Cache.AbstractCache.html#methods">Alo\Cache\AbstractCache</a></h3>
 		<p class="elementList">
+			<code><a href="class-Alo.Cache.AbstractCache.html#___call">__call()</a></code>, 
 			<code><a href="class-Alo.Cache.AbstractCache.html#___get">__get()</a></code>, 
 			<code><a href="class-Alo.Cache.AbstractCache.html#___isset">__isset()</a></code>, 
 			<code><a href="class-Alo.Cache.AbstractCache.html#___set">__set()</a></code>, 
 			<code><a href="class-Alo.Cache.AbstractCache.html#___unset">__unset()</a></code>, 
 			<code><a href="class-Alo.Cache.AbstractCache.html#_deleteWithPrefix">deleteWithPrefix()</a></code>, 
-			<code><a href="class-Alo.Cache.AbstractCache.html#_deleteWithSuffix">deleteWithSuffix()</a></code>, 
-			<code><a href="class-Alo.Cache.AbstractCache.html#_is_available">is_available()</a></code>
+			<code><a href="class-Alo.Cache.AbstractCache.html#_deleteWithSuffix">deleteWithSuffix()</a></code>
 		</p>
 
 
@@ -807,17 +852,17 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 				</div>
 			</div></td>
 		</tr>
-		<tr data-order="mc" id="$mc">
+		<tr data-order="client" id="$client">
 			<td class="attributes"><code>
 				protected  
 				<code><a href="class-Memcache.html">Memcache</a></code>|Memcached
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-Alo.Cache.MemcachedWrapper.html#43-48" title="Go to source code"><var>$mc</var></a>
+					<a href="source-class-Alo.Cache.MemcachedWrapper.html#43-48" title="Go to source code"><var>$client</var></a>
 			</td>
 			<td class="description"><div>
-				<a href="#$mc" class="anchor">#</a>
+				<a href="#$client" class="anchor">#</a>
 
 				<div class="description short">
 					

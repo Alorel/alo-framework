@@ -45,7 +45,7 @@
        *
        * @var Memcache|Memcached
        */
-      protected $mc;
+      protected $client;
 
       /**
        * Instantiates the class
@@ -66,7 +66,7 @@
          }
 
          if(self::$loaded !== null) {
-            $this->mc = self::$loaded === self::CLASS_MEMCACHED ? new Memcached() : new Memcache();
+            $this->client = self::$loaded === self::CLASS_MEMCACHED ? new Memcached() : new Memcache();
             if($initialise_default_server) {
                $this->addServer();
             }
@@ -96,9 +96,9 @@
                      . ' with a weight of ' . $weight);
 
          if(self::$loaded === self::CLASS_MEMCACHED) {
-            return $this->mc->addServer($ip, $port, $weight);
+            return $this->client->addServer($ip, $port, $weight);
          } elseif(self::$loaded === self::CLASS_MEMCACHE) {
-            return $this->mc->addserver($ip, $port, null, $weight);
+            return $this->client->addserver($ip, $port, null, $weight);
          } else {
             return false;
          }
@@ -114,7 +114,7 @@
        * @return boolean
        */
       function delete($key) {
-         return self::$loaded ? $this->mc->delete($key) : false;
+         return self::$loaded ? $this->client->delete($key) : false;
       }
 
       /**
@@ -137,17 +137,7 @@
        * @return string|null
        */
       function getLoadedClass() {
-         return self::$loaded ? get_class($this->mc) : null;
-      }
-
-      /**
-       * Clears all items from cache
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       * @return boolean
-       */
-      function purge() {
-         return self::$loaded ? $this->mc->flush() : false;
+         return self::$loaded ? get_class($this->client) : null;
       }
 
       /**
@@ -157,7 +147,27 @@
        * @return array
        */
       function getStats() {
-         return self::$loaded ? $this->mc->getStats() : false;
+         return self::$loaded ? $this->client->getStats() : false;
+      }
+
+      /**
+       * Checks if a Memcache or Memcached is available
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return boolean
+       */
+      static function is_available() {
+         return class_exists('\Memcached') || class_exists('\Memcache');
+      }
+
+      /**
+       * Clears all items from cache
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       * @return boolean
+       */
+      function purge() {
+         return self::$loaded ? $this->client->flush() : false;
       }
 
       /**
@@ -170,7 +180,7 @@
        * @return mixed
        */
       function get($id) {
-         return self::$loaded ? $this->mc->get($id) : false;
+         return self::$loaded ? $this->client->get($id) : false;
       }
 
       /**
@@ -188,9 +198,9 @@
          \Log::debug('Set the MemcachedWrapper key ' . $key);
 
          if(self::$loaded === self::CLASS_MEMCACHED) {
-            return $this->mc->set($key, $var, $expire);
+            return $this->client->set($key, $var, $expire);
          } elseif(self::$loaded === self::CLASS_MEMCACHE) {
-            return $this->mc->set($key, $var, null, $expire);
+            return $this->client->set($key, $var, null, $expire);
          } else {
             return false;
          }
@@ -203,7 +213,7 @@
        * @return array
        */
       protected function getAllMemcached() {
-         $keys = $this->mc->getAllKeys();
+         $keys = $this->client->getAllKeys();
          $vals = [];
 
          foreach($keys as $k) {
@@ -221,7 +231,7 @@
        */
       protected function getAllMemcache() {
          $dump  = [];
-         $slabs = $this->mc->getextendedstats('slabs');
+         $slabs = $this->client->getextendedstats('slabs');
 
          foreach($slabs as $serverSlabs) {
             $keys = array_keys($serverSlabs);
@@ -229,7 +239,7 @@
             foreach($keys as $k) {
                if(is_numeric($k)) {
                   try {
-                     $d = $this->mc->getextendedstats('cachedump', (int)$k, 1000);
+                     $d = $this->client->getextendedstats('cachedump', (int)$k, 1000);
 
                      foreach($d as $data) {
                         if($data) {
