@@ -1,6 +1,6 @@
 <?php
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -18,7 +18,9 @@
     * A shortcut to isset($var) ? $var : null
     *
     * @author Art <a.molcanovas@gmail.com>
+    *
     * @param mixed $var The variable to "return"
+    *
     * @return mixed
     */
    function get(&$var) {
@@ -31,7 +33,7 @@
     * @return string
     */
    function debug() {
-      if (!Kint::enabled()) {
+      if(!Kint::enabled()) {
          return null;
       } else {
          ob_start();
@@ -58,13 +60,13 @@
     * @return string
     */
    function lite_debug() {
-      if (!Kint::enabled()) {
+      if(!Kint::enabled()) {
          return '';
       } else {
          ob_start();
          $argv = func_get_args();
          echo '<pre>';
-         foreach ($argv as $k => $v) {
+         foreach($argv as $k => $v) {
             $k && print("\n\n");
             echo kintLite($v);
          }
@@ -78,11 +80,13 @@
     * Returns a very precise timestamp
     *
     * @author Art <a.molcanovas@gmail.com>
+    *
     * @param float $microtime Optionally, supply your own microtime
+    *
     * @return string Y-m-d H:i:s:{milliseconds}
     */
    function timestamp_precise($microtime = null) {
-      if (!$microtime) {
+      if(!$microtime) {
          $microtime = microtime(true);
       }
       $t = explode('.', $microtime);
@@ -90,7 +94,7 @@
       return date('Y-m-d H:i:s', $t[0]) . ':' . round($t[1] / 10);
    }
 
-   if (!function_exists('getallheaders')) {
+   if(!function_exists('getallheaders')) {
 
       /**
        * Implement getallheaders() for non-apache servers
@@ -100,8 +104,8 @@
        */
       function getallheaders() {
          $headers = [];
-         foreach ($_SERVER as $name => $value) {
-            if (substr($name, 0, 5) == 'HTTP_') {
+         foreach($_SERVER as $name => $value) {
+            if(substr($name, 0, 5) == 'HTTP_') {
                $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
             }
          }
@@ -110,9 +114,58 @@
       }
    }
 
+   /**
+    * Escapes sensitive characters for HTML5 output
+    *
+    * @author Art <a.molcanovas@gmail.com>
+    *
+    * @param string $str The input string
+    *
+    * @return string
+    */
+   function escape_html5($str) {
+      return htmlspecialchars($str, ENT_QUOTES | ENT_HTML5);
+   }
+
+   /**
+    * Performs include() only if a file exists
+    *
+    * @param string $path Path to the file
+    *
+    * @return bool true if the file exists, false if not.
+    */
+   function includeifexists($path) {
+      if(file_exists($path)) {
+         include $path;
+
+         return true;
+      }
+
+      return false;
+   }
+
+   /**
+    * Performs include_once() only if a file exists
+    *
+    * @param string $path Path to the file
+    *
+    * @return bool true if the file exists, false if not.
+    */
+   function includeonceifexists($path) {
+      if(file_exists($path)) {
+         include_once $path;
+
+         return true;
+      }
+
+      return false;
+   }
+
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
 
-   if (!defined('PHPUNIT_RUNNING')) {
+   includeonceifexists(DIR_APP . 'core' . DIRECTORY_SEPARATOR . 'autoload.php');
+
+   if(!defined('PHPUNIT_RUNNING')) {
       Alo::$router = new Alo\Controller\Router();
       Alo::$router->init();
    }

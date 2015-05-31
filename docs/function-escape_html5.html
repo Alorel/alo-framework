@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Namespace Alo\Session | AloFramework documentation</title>
+	<title>Function escape_html5 | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
 	<script type="text/javascript" src="elementlist.js?1085946363"></script>
@@ -20,10 +20,11 @@
 				<a href="index.html" class="brand">AloFramework documentation</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li class="active">
-<span>Namespace</span>						</li>
 						<li>
-<span>Class</span>						</li>
+							<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Function</span>						</li>
 
 						<li class="divider-vertical"></li>
 
@@ -60,7 +61,7 @@
 		<div id="groups">
 			<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
+				<li><a href="namespace-Alo.html">Alo<span></span></a>
 						<ul>
 				<li><a href="namespace-Alo.Cache.html">Cache</a>
 						</li>
@@ -74,7 +75,7 @@
 						</li>
 				<li><a href="namespace-Alo.FileSystem.html">FileSystem</a>
 						</li>
-				<li class="active"><a href="namespace-Alo.Session.html">Session</a>
+				<li><a href="namespace-Alo.Session.html">Session</a>
 						</li>
 				<li><a href="namespace-Alo.Statics.html">Statics</a>
 						</li>
@@ -87,7 +88,7 @@
 							</ul></li>
 				<li><a href="namespace-Controller.html">Controller</a>
 						</li>
-				<li><a href="namespace-None.html">None</a>
+				<li class="active"><a href="namespace-None.html">None</a>
 						</li>
 				<li><a href="namespace-PHP.html">PHP</a>
 						</li>
@@ -98,17 +99,26 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Alo.Session.AbstractCacheSession.html">AbstractCacheSession</a></li>
-				<li><a href="class-Alo.Session.AbstractSession.html">AbstractSession</a></li>
-				<li><a href="class-Alo.Session.MemcachedSession.html">MemcachedSession</a></li>
-				<li><a href="class-Alo.Session.RedisSession.html">RedisSession</a></li>
-				<li><a href="class-Alo.Session.SQLSession.html">SQLSession</a></li>
+				<li><a href="class-Alo.html">Alo</a></li>
+				<li><a href="class-Log.html">Log</a></li>
 			</ul>
 
 
 
 
 
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-debug.html">debug</a></li>
+				<li class="active"><a href="function-escape_html5.html">escape_html5</a></li>
+				<li><a href="function-get.html">get</a></li>
+				<li><a href="function-getallheaders.html">getallheaders</a></li>
+				<li><a href="function-includeifexists.html">includeifexists</a></li>
+				<li><a href="function-includeonceifexists.html">includeonceifexists</a></li>
+				<li><a href="function-lite_debug.html">lite_debug</a></li>
+				<li><a href="function-server_is_windows.html">server_is_windows</a></li>
+				<li><a href="function-timestamp_precise.html">timestamp_precise</a></li>
+			</ul>
 		</div>
 	</div>
 </div>
@@ -117,40 +127,48 @@
 
 <div id="right">
 	<div id="rightInner">
-<div id="content" class="namespace">
-	<h1>Namespace <a href="namespace-Alo.html">Alo</a>\Session</h1>
+<div id="content" class="function">
+	<h1>Function escape_html5</h1>
 
 
+	<div class="description">
+	
+<p>Escapes sensitive characters for HTML5 output</p>
 
-<h2>Classes summary</h2>
-<table class="summary table table-bordered table-striped" id="classes">
-<tr>
-	<td class="name"><a href="class-Alo.Session.AbstractCacheSession.html">AbstractCacheSession</a></td>
-	<td>The session interface</td>
-</tr>
-<tr>
-	<td class="name"><a href="class-Alo.Session.AbstractSession.html">AbstractSession</a></td>
-	<td>The session interface</td>
-</tr>
-<tr>
-	<td class="name"><a href="class-Alo.Session.MemcachedSession.html">MemcachedSession</a></td>
-	<td>The Memcached-based session handler. ALO_SESSION_CLEANUP is not used here as
-cleanup is handled by the MySQL event handler</td>
-</tr>
-<tr>
-	<td class="name"><a href="class-Alo.Session.RedisSession.html">RedisSession</a></td>
-	<td>The Redis-based session handler. ALO_SESSION_CLEANUP is not used here as cleanup
-is handled by the MySQL event handler</td>
-</tr>
-<tr>
-	<td class="name"><a href="class-Alo.Session.SQLSession.html">SQLSession</a></td>
-	<td>The SQL-based session handler. ALO_SESSION_CLEANUP is not used here as cleanup
-is handled by the MySQL event handler</td>
-</tr>
-</table>
+	</div>
+
+	<div class="alert alert-info">
+		
+		
+				<b>Author:</b>
+				Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-function-escape_html5.html#117-128" title="Go to source code">sys/core/core.php</a><br />
+	</div>
 
 
+	<h2>Parameters summary</h2>
+	<table class="summary table table-bordered table-striped" id="parameters">
+	<tr id="$str">
+		<td class="name"><code>string</code></td>
+		<td class="value"><code><var>$str</var></code></td>
+		<td>
+			 The input string
+		</td>
+	</tr>
+	</table>
 
+	<h2>Return value summary</h2>
+	<table class="summary table table-bordered table-striped" id="returns">
+	<tr>
+		<td class="name"><code>
+			string
+		</code></td>
+		<td>
+			
+		</td>
+	</tr>
+	</table>
 
 
 </div>

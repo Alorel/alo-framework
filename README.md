@@ -25,6 +25,7 @@ Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framew
 	* [The global Alo class](#the-global-alo-class)
 	* [Controllers](#controllers)
 	* [Views](#views)
+	* [Global Autoload](#global-autoload)
 * [Routing](#routing)
 * [Logging](#logging)
 * [Initial setup](#initial-setup)
@@ -141,6 +142,11 @@ This will load a view under **app/view/$name.php**. You can provide parameters t
 
 ^[TOC](#table-of-contents)
 
+## Global Autoload ##
+You can create **app/core/autoload.php** which will be loaded before your controller is initialised. Use this file for any global includes in your project.
+
+^[TOC](#table-of-contents)
+
 ----------
 
 # Routing #
@@ -201,40 +207,16 @@ $router->init(); //Or ->initNoCall() if you just want to initialise it, but not 
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 1.1 (2015-05-30) ##
-
-Gracefully deprecated
-
-* \Alo\File has been moved to \Alo\FileSystem\File. The original class is now deprecated, but extends the new one.
-* FileException is now deprecated. Use FileSystemException.
-
-Deprecated
-
-* Testing suite deprecated. Tools like [PHPUnit](https://phpunit.de/) serve as a far better alternative to test your code.
-
-Email
-
-* Some of PHPMailer's methods were overridden to return $this instead of bool
-* attachContent() method added to attach content as opposed to a file from disc
-* getDebugOutput() added. Sending an email now adds output to an array which can be fetched
-
-Classes added
-
-* Alo\IO\Downloader: downloads an external resource to disc and echoes progress
-* Alo\Windows\Service: Windows service manager
-* Alo\Cahce\RedisWrapper
-* Alo\Session\RedisSession
-
-Exception changes
-
-* OSException added
-* Cron now throws an OSException with the code OSException::E_UNSUPPORTED if instantiated from Windows
+## (in development) ##
 
 Misc
 
-* Many classes now offer static constructors
-* Deprecated classes no longer have a static in Alo
-* Default session prefix changed
+* You can now include a global autoload file in app/core/autoload.php (this file is not created by default). It will be included before your controller is instantiated, so you can put any global project variables here.
+
+Added global functions
+
+* includeifexists(): performs an include() operation only if a file exists to avoid E_NOTICE errors
+* includeonceifexists(): as above, but with include_once()
 
 
 

@@ -8,7 +8,7 @@
 	<title>File sys/class/alo/controller/abstractcontroller.php | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
-	<script type="text/javascript" src="elementlist.js?2202693734"></script>
+	<script type="text/javascript" src="elementlist.js?1085946363"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
 
@@ -236,7 +236,7 @@
 </span><span id="116" class="l"><a class="l" href="#116">116 </a>            <span class="php-var">$name</span> = <span class="php-keyword2">substr</span>(<span class="php-var">$name</span>, <span class="php-num">0</span>, -<span class="php-num">4</span>);
 </span><span id="117" class="l"><a class="l" href="#117">117 </a>         }
 </span><span id="118" class="l"><a class="l" href="#118">118 </a>
-</span><span id="119" class="l"><a class="l" href="#119">119 </a>         <span class="php-var">$path</span> = DIR_APP . <span class="php-quote">'view'</span> . DIRECTORY_SEPARATOR . <span class="php-var">$name</span> . <span class="php-quote">'.php'</span>;
+</span><span id="119" class="l"><a class="l" href="#119">119 </a>         <span class="php-var">$path</span> = DIR_APP . <span class="php-quote">'view'</span> . DIRECTORY_SEPARATOR . <span class="php-keyword2">str_replace</span>(<span class="php-quote">'/'</span>, DIRECTORY_SEPARATOR, <span class="php-var">$name</span>) . <span class="php-quote">'.php'</span>;
 </span><span id="120" class="l"><a class="l" href="#120">120 </a>
 </span><span id="121" class="l"><a class="l" href="#121">121 </a>         <span class="php-keyword1">if</span>(!<span class="php-keyword2">file_exists</span>(<span class="php-var">$path</span>)) {
 </span><span id="122" class="l"><a class="l" href="#122">122 </a>            <span class="php-keyword2">trigger_error</span>(<span class="php-quote">'View file for '</span> . <span class="php-var">$name</span> . <span class="php-quote">' could not be found'</span>, E_USER_ERROR);

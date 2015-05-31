@@ -1,5 +1,14 @@
-# 1.1 (2015-05-30) #
+# (in development) #
+Misc
 
+* You can now include a global autoload file in app/core/autoload.php (this file is not created by default). It will be included before your controller is instantiated, so you can put any global project variables here.
+
+Added global functions
+
+* includeifexists(): performs an include() operation only if a file exists to avoid E_NOTICE errors
+* includeonceifexists(): as above, but with include_once()
+
+# 1.1 (2015-05-30) #
 Gracefully deprecated
 
 * \Alo\File has been moved to \Alo\FileSystem\File. The original class is now deprecated, but extends the new one.

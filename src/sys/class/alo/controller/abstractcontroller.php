@@ -116,7 +116,7 @@
             $name = substr($name, 0, -4);
          }
 
-         $path = DIR_APP . 'view' . DIRECTORY_SEPARATOR . $name . '.php';
+         $path = DIR_APP . 'view' . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $name) . '.php';
 
          if(!file_exists($path)) {
             trigger_error('View file for ' . $name . ' could not be found', E_USER_ERROR);
