@@ -1,4 +1,4 @@
-# (in development) #
+# 1.1.1 (2015-05-31) #
 Misc
 
 * You can now include a global autoload file in app/core/autoload.php (this file is not created by default). It will be included before your controller is instantiated, so you can put any global project variables here.
