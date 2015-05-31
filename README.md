@@ -9,7 +9,7 @@
 [![NuGET downloads](http://img.shields.io/nuget/dt/AloFramework.svg?label=NuGET%20downloads&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=Packagist%20downloads)](https://packagist.org/packages/alorel/alo-framework) 
 
 
-Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=1.1)](https://travis-ci.org/Alorel/alo-framework) Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework) Dev: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
+Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=1.1.1)](https://travis-ci.org/Alorel/alo-framework) Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework) Dev: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
