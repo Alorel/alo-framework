@@ -1,10 +1,5 @@
-<div>
-   I am the sample view. If you pass me the variable 'foo' I will display its value here: <span
-      style = "font-weight:bold"><?= $foo ?></span>
-</div>
-<div>
-   The sample router config file should contain the following:
-   <pre>
+<div>I am the sample view. If you pass me the variable 'foo' I will display its value here:<span style = "font-weight:bold"><?= $foo ?></span></div>
+<div>The sample router config file should contain the following:<pre>
    //Controller called for error page handling
    $error_controller_class = 'SampleErrorController';
 
@@ -29,23 +24,10 @@
       ]
    ];
    </pre>
-   So let's try visiting some of the URLs to see what they do! You'll find the sample controller files under
-   app/controllers.
-   <ul>
-      <?php
-
-         $urls = [
-            '/cart/checkout',
-            '/cart/checkout/',
-            '/sample-me/',
-            '/sample-me/foo',
-            '/sample-me/foo/bar/',
-            '/sample/' . urlencode('THIS IS THE VALUE I WANT HERE') . '/bar/'
-         ];
-
+   So let's try visiting some of the URLs to see what they do! You'll find the sample controller files under app/controllers.
+   <ul><?php
+         $urls = ['/cart/checkout', '/cart/checkout/', '/sample-me/', '/sample-me/foo', '/sample-me/foo/bar/', '/sample/' . urlencode('THIS IS THE VALUE I WANT HERE') . '/bar/'];
          foreach($urls as $url) {
             echo '<li><a href="' . $url . '" target="_blank">' . $url . '</a></li>';
-         }
-      ?>
-   </ul>
+         } ?></ul>
 </div>
