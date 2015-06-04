@@ -1,3 +1,8 @@
+# 1.x (pending) #
+
+Misc
+* ALO_SESSION_SECURE constant added. Determines whether the session cookie should only be sent via SSL.
+
 # 1.1.1 (2015-05-31) #
 Misc
 

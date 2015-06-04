@@ -20,31 +20,9 @@
             ['ALO_SESSION_COOKIE'],
             ['ALO_SESSION_FINGERPRINT'],
             ['ALO_SESSION_MC_PREFIX'],
-            ['ALO_SESSION_TABLE_NAME']
+            ['ALO_SESSION_TABLE_NAME'],
+            ['ALO_SESSION_SECURE']
          ];
-      }
-
-      static function sess() {
-         if (!\Alo::$db) {
-            \Alo::$db = new MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');
-         }
-
-         if (!\Alo::$session || !(\Alo::$session instanceof SQLSession)) {
-            \Alo::$db->query('CREATE TABLE IF NOT EXISTS `alo_session` (
-  `id`     CHAR(128)
-           CHARACTER SET ascii NOT NULL,
-  `data`   VARCHAR(16000)      NOT NULL,
-  `access` TIMESTAMP           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `access` (`access`)
-)
-  ENGINE =InnoDB
-  DEFAULT CHARSET =utf8mb4;');
-
-            \Alo::$session = new SQLSession();
-         }
-
-         return \Alo::$session;
       }
 
       function testSave() {
@@ -53,24 +31,50 @@
          $s->foo = 'bar';
          $s->forceWrite();
 
-         $id = $s->getID();
-         $sql = 'SELECT data FROM alo_session WHERE id=?';
-         $sql_params = [$id];
-         $sess_fetched = \Alo::$db->prepQuery($sql, $sql_params, [
-            mySQL::V_CACHE => false
-         ]);
+         $id           = $s->getID();
+         $sql          = 'SELECT `data` FROM `alo_session` WHERE `id`=?';
+         $sql_params   = [$id];
+         $sess_fetched = \Alo::$db->prepQuery($sql,
+                                              $sql_params,
+                                              [
+                                                 mySQL::V_CACHE => false
+                                              ]);
 
-         $this->assertNotEmpty($sess_fetched, _unit_dump([
-            'sql'     => $sql,
-            'params'  => $sql_params,
-            'fetched' => $sess_fetched,
-            'all'     => \Alo::$db->prepQuery('SELECT * FROM alo_session')
-         ]));
+         $this->assertNotEmpty($sess_fetched,
+                               _unit_dump([
+                                             'sql'     => $sql,
+                                             'params'  => $sql_params,
+                                             'fetched' => $sess_fetched,
+                                             'all'     => \Alo::$db->prepQuery('SELECT * FROM `alo_session`')
+                                          ]));
 
          $sess_fetched = json_decode($sess_fetched[0]['data'], true);
 
          $this->assertArrayHasKey('foo', $sess_fetched, _unit_dump($sess_fetched));
          $this->assertEquals('bar', $sess_fetched['foo']);
+      }
+
+      static function sess() {
+         if(!\Alo::$db) {
+            \Alo::$db = new MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');
+         }
+
+         if(!\Alo::$session || !(\Alo::$session instanceof SQLSession)) {
+            \Alo::$db->query('CREATE TABLE IF NOT EXISTS `alo_session` (
+  `id`     CHAR(128)
+           CHARACTER SET `ascii` NOT NULL,
+  `data`   VARCHAR(16000)      NOT NULL,
+  `access` TIMESTAMP           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `access` (`access`)
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =`utf8mb4`;');
+
+            \Alo::$session = new SQLSession();
+         }
+
+         return \Alo::$session;
       }
 
       function testToken() {
@@ -85,4 +89,3 @@
          $this->assertTrue($s->refreshToken());
       }
    }
- 

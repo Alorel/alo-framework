@@ -207,16 +207,10 @@ $router->init(); //Or ->initNoCall() if you just want to initialise it, but not 
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 1.1.1 (2015-05-31) ##
+## 1.x (pending) ##
 
 Misc
-
-* You can now include a global autoload file in app/core/autoload.php (this file is not created by default). It will be included before your controller is instantiated, so you can put any global project variables here.
-
-Added global functions
-
-* includeifexists(): performs an include() operation only if a file exists to avoid E_NOTICE errors
-* includeonceifexists(): as above, but with include_once()
+* ALO_SESSION_SECURE constant added. Determines whether the session cookie should only be sent via SSL.
 
 
 

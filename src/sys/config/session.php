@@ -53,3 +53,10 @@
     * @var string
     */
    define('ALO_SESSION_TABLE_NAME', 'alo_session');
+
+   /**
+    * Whether to only transmit the session cookie on a HTTPS connection
+    *
+    * @var bool
+    */
+   define('ALO_SESSION_SECURE', false);

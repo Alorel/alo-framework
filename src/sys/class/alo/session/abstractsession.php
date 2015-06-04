@@ -348,7 +348,7 @@
          }
 
          \Log::debug('Session ID set to ' . $this->id);
-         Cookie::set(ALO_SESSION_COOKIE, $this->id, $this->time + ALO_SESSION_TIMEOUT, '/', '', false, true);
+         Cookie::set(ALO_SESSION_COOKIE, $this->id, $this->time + ALO_SESSION_TIMEOUT, '/', '', ALO_SESSION_SECURE, true);
 
          return $this;
       }

@@ -20,7 +20,8 @@
             ['ALO_SESSION_COOKIE'],
             ['ALO_SESSION_FINGERPRINT'],
             ['ALO_SESSION_MC_PREFIX'],
-            ['ALO_SESSION_TABLE_NAME']
+            ['ALO_SESSION_TABLE_NAME'],
+            ['ALO_SESSION_SECURE']
          ];
       }
 
