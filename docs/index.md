@@ -211,6 +211,11 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 
 Misc
 * ALO_SESSION_SECURE constant added. Determines whether the session cookie should only be sent via SSL.
+* Global shorthands added for trigger_error():
+	* php_error($msg)
+	* php_warning($msg)
+	* php_notice($msg)
+	* php_deprecated($msg)
 
 
 
