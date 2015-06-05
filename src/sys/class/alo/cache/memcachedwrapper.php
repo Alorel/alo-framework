@@ -71,9 +71,8 @@
                $this->addServer();
             }
          } else {
-            trigger_error('Memcached extension not loaded - caching '
-                          . 'functions will not work',
-                          E_USER_NOTICE);
+            php_warning('Memcached extension not loaded - caching '
+                        . 'functions will not work');
          }
          parent::__construct();
 

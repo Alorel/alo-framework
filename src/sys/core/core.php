@@ -161,6 +161,57 @@
       return false;
    }
 
+   /**
+    * Triggers a PHP-level error with the level E_USER_ERROR
+    * @author Art <a.molcanovas@gmail.com>
+    * @param string $msg Error message
+    *
+    * @link http://php.net/manual/en/function.trigger-error.php
+    * @return bool
+    */
+   function php_error($msg) {
+      return trigger_error($msg,E_USER_ERROR);
+   }
+
+
+   /**
+    * Triggers a PHP-level error with the level E_USER_WARNING
+    * @author Art <a.molcanovas@gmail.com>
+    * @param string $msg Error message
+    *
+    * @link http://php.net/manual/en/function.trigger-error.php
+    * @return bool
+    */
+   function php_warning($msg) {
+      return trigger_error($msg,E_USER_WARNING);
+   }
+
+
+   /**
+    * Triggers a PHP-level error with the level E_USER_NOTICE
+    * @author Art <a.molcanovas@gmail.com>
+    * @param string $msg Error message
+    *
+    * @link http://php.net/manual/en/function.trigger-error.php
+    * @return bool
+    */
+   function php_notice($msg) {
+      return trigger_error($msg,E_USER_NOTICE);
+   }
+
+
+   /**
+    * Triggers a PHP-level error with the level E_USER_DEPRECATED
+    * @author Art <a.molcanovas@gmail.com>
+    * @param string $msg Error message
+    *
+    * @link http://php.net/manual/en/function.trigger-error.php
+    * @return bool
+    */
+   function php_deprecated($msg) {
+      return trigger_error($msg,E_USER_DEPRECATED);
+   }
+
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
 
    includeonceifexists(DIR_APP . 'core' . DIRECTORY_SEPARATOR . 'autoload.php');

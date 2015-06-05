@@ -119,7 +119,7 @@
          $path = DIR_APP . 'view' . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $name) . '.php';
 
          if(!file_exists($path)) {
-            trigger_error('View file for ' . $name . ' could not be found', E_USER_ERROR);
+            php_error('View file for ' . $name . ' could not be found');
          } else {
             extract($params);
 
