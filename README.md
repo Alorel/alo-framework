@@ -209,6 +209,9 @@ $router->init(); //Or ->initNoCall() if you just want to initialise it, but not 
 See [changelog.md](changelog.md) for a full changelog of previous versions.
 ## 1.x (pending) ##
 
+Added classes
+* Alo\Decorator\TwitterBootstrap\* - Twitter Bootstrap HTML generators
+
 Misc
 * ALO_SESSION_SECURE constant added. Determines whether the session cookie should only be sent via SSL.
 * Global shorthands added for trigger_error():
