@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Deprecated Class Alo\Session\SQLSession | AloFramework documentation</title>
+	<title>Class Alo\Session\MySQLSession | AloFramework documentation</title>
 
 	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
 	<script type="text/javascript" src="elementlist.js?895098052"></script>
@@ -107,9 +107,9 @@
 				<li><a href="class-Alo.Session.AbstractCacheSession.html">AbstractCacheSession</a></li>
 				<li><a href="class-Alo.Session.AbstractSession.html">AbstractSession</a></li>
 				<li><a href="class-Alo.Session.MemcachedSession.html">MemcachedSession</a></li>
-				<li><a href="class-Alo.Session.MySQLSession.html">MySQLSession</a></li>
+				<li class="active"><a href="class-Alo.Session.MySQLSession.html">MySQLSession</a></li>
 				<li><a href="class-Alo.Session.RedisSession.html">RedisSession</a></li>
-				<li class="active"><a href="class-Alo.Session.SQLSession.html" class="deprecated">SQLSession</a></li>
+				<li><a href="class-Alo.Session.SQLSession.html" class="deprecated">SQLSession</a></li>
 			</ul>
 
 
@@ -125,12 +125,13 @@
 <div id="right">
 	<div id="rightInner">
 <div id="content" class="class">
-	<h1 class="deprecated">Class SQLSession</h1>
+	<h1>Class MySQLSession</h1>
 
 
 	<div class="description">
 	
-<p>Legacy class name of the MySQLSession class</p>
+<p>The MySQL-based session handler. ALO_SESSION_CLEANUP is not used here as
+cleanup is handled by the MySQL event handler</p>
 
 	</div>
 
@@ -143,20 +144,19 @@
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by" />
-			<a href="class-Alo.Session.MySQLSession.html"><span>Alo\Session\MySQLSession</span></a>
-			
-			
-			
-		</dd>
-		<dd style="padding-left:60px">
-			<img src="resources/inherit.png" alt="Extended by" />
-<b><span class="deprecated">Alo\Session\SQLSession</span></b>			
+<b><span>Alo\Session\MySQLSession</span></b>			
 			
 			
 		</dd>
 	</dl>
 
 
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Alo.Session.SQLSession.html"><span class="deprecated">Alo\Session\SQLSession</span></a></code>
+		</p>
+	</div>
 
 
 
@@ -167,28 +167,230 @@
 		
 		
 		<b>Namespace:</b> <a href="namespace-Alo.html">Alo</a>\<a href="namespace-Alo.Session.html">Session</a><br />
-		
+		<b>Package:</b> Session<br />
 
-				<b>Deprecated:</b>
-				Since 1.2<br />
 				<b>Author:</b>
 				Art &lt;<a
 href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Alo.Session.SQLSession.html#10-18" title="Go to source code">sys/class/alo/session/sqlsession.php</a><br />
+		<b>Located at</b> <a href="source-class-Alo.Session.MySQLSession.html#13-111" title="Go to source code">sys/class/alo/session/mysqlsession.php</a><br />
 	</div>
 
 
 
 		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
 
-		<h3>Methods inherited from <a href="class-Alo.Session.MySQLSession.html#methods">Alo\Session\MySQLSession</a></h3>
-		<p class="elementList">
-			<code><a href="class-Alo.Session.MySQLSession.html#_MySQLSession">MySQLSession()</a></code>, 
-			<code><a href="class-Alo.Session.MySQLSession.html#___construct">__construct()</a></code>, 
-			<code><a href="class-Alo.Session.MySQLSession.html#_fetch">fetch()</a></code>, 
-			<code><a href="class-Alo.Session.MySQLSession.html#_terminate">terminate()</a></code>, 
-			<code><a href="class-Alo.Session.MySQLSession.html#_write">write()</a></code>
-		</p>
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Alo.Session.MySQLSession.html#29-42" title="Go to source code">__construct</a>( )</code>
+
+			<div class="description short">
+				
+<p>Instantiates the class</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Instantiates the class</p>
+
+
+
+
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Alo.Session.AbstractSession.html#___construct">Alo\Session\AbstractSession::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="MySQLSession" id="_MySQLSession">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-Alo.Session.MySQLSession.html">Alo\Session\MySQLSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_MySQLSession">#</a>
+			<code><a href="source-class-Alo.Session.MySQLSession.html#44-53" title="Go to source code">MySQLSession</a>( )</code>
+
+			<div class="description short">
+				
+<p>Instantiates the class</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Instantiates the class</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.MySQLSession.html">Alo\Session\MySQLSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fetch" id="_fetch">
+
+			<td class="attributes"><code>
+				 protected 
+				<code><a href="class-Alo.Session.MySQLSession.html">Alo\Session\MySQLSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fetch">#</a>
+			<code><a href="source-class-Alo.Session.MySQLSession.html#55-76" title="Go to source code">fetch</a>( )</code>
+
+			<div class="description short">
+				
+<p>Fetches session data</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Fetches session data</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.MySQLSession.html">Alo\Session\MySQLSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="terminate" id="_terminate">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.Session.MySQLSession.html">Alo\Session\MySQLSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_terminate">#</a>
+			<code><a href="source-class-Alo.Session.MySQLSession.html#78-90" title="Go to source code">terminate</a>( )</code>
+
+			<div class="description short">
+				
+<p>Terminates the session</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Terminates the session</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.MySQLSession.html">Alo\Session\MySQLSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Alo.Session.AbstractSession.html#_terminate">Alo\Session\AbstractSession::terminate</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="write" id="_write">
+
+			<td class="attributes"><code>
+				 protected 
+				<code><a href="class-Alo.Session.MySQLSession.html">Alo\Session\MySQLSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_write">#</a>
+			<code><a href="source-class-Alo.Session.MySQLSession.html#92-109" title="Go to source code">write</a>( )</code>
+
+			<div class="description short">
+				
+<p>Saves session data</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Saves session data</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.MySQLSession.html">Alo\Session\MySQLSession</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
 		<h3>Methods inherited from <a href="class-Alo.Session.AbstractSession.html#methods">Alo\Session\AbstractSession</a></h3>
 		<p class="elementList">
 			<code><a href="class-Alo.Session.AbstractSession.html#___destruct">__destruct()</a></code>, 
@@ -230,11 +432,35 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 
 		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="db" id="$db">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-Alo.Db.MySQL.html">Alo\Db\MySQL</a></code>
+			</code></td>
 
-		<h3>Properties inherited from <a href="class-Alo.Session.MySQLSession.html#properties">Alo\Session\MySQLSession</a></h3>
-		<p class="elementList">
-			<code><a href="class-Alo.Session.MySQLSession.html#$db"><var>$db</var></a></code>
-		</p>
+			<td class="name">
+					<a href="source-class-Alo.Session.MySQLSession.html#22-27" title="Go to source code"><var>$db</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$db" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Reference to database instance</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Reference to database instance</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
 		<h3>Properties inherited from <a href="class-Alo.Session.AbstractSession.html#properties">Alo\Session\AbstractSession</a></h3>
 		<p class="elementList">
 			<code><a href="class-Alo.Session.AbstractSession.html#$data"><var>$data</var></a></code>, 

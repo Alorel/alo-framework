@@ -1,1 +1,1776 @@
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="generator" content="ApiGen 2.8.0"/><title>Class Alo\FileSystem\File | AloFramework documentation</title><script type="text/javascript" src="resources/combined.js?3521877029"></script><script type="text/javascript" src="elementlist.js?3776002540"></script><link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822"/><link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609"/></head><body><div id="navigation" class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a href="index.html" class="brand">AloFramework documentation</a><div class="nav-collapse"><ul class="nav"><li><a href="namespace-Alo.FileSystem.html" title="Summary of Alo\FileSystem"><span>Namespace</span></a></li><li class="active"><span>Class</span></li><li class="divider-vertical"></li><li><a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a></li><li><a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a></li><li><a href="todo.html" title="Todo list"><span>Todo</span></a></li><li class="divider-vertical"></li><li><a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a></li></ul></div></div></div></div><div id="left"><div id="menu"><form id="search" class="form-search"><input type="hidden" name="cx" value=""/><input type="hidden" name="ie" value="UTF-8"/><input type="text" name="q" class="search-query" placeholder="Search"/></form><div id="groups"><h3>Namespaces</h3><ul><li class="active"><a href="namespace-Alo.html">Alo<span></span></a><ul><li><a href="namespace-Alo.Cache.html">Cache</a></li><li><a href="namespace-Alo.CLI.html">CLI</a></li><li><a href="namespace-Alo.Controller.html">Controller</a></li><li><a href="namespace-Alo.Db.html">Db</a></li><li><a href="namespace-Alo.Decorator.html">Decorator<span></span></a><ul><li><a href="namespace-Alo.Decorator.TwitterBootstrap.html">TwitterBootstrap</a></li></ul></li><li><a href="namespace-Alo.Exception.html">Exception</a></li><li class="active"><a href="namespace-Alo.FileSystem.html">FileSystem</a></li><li><a href="namespace-Alo.Session.html">Session</a></li><li><a href="namespace-Alo.Statics.html">Statics</a></li><li><a href="namespace-Alo.Test.html">Test</a></li><li><a href="namespace-Alo.Validators.html">Validators</a></li><li><a href="namespace-Alo.Windows.html">Windows</a></li></ul></li><li><a href="namespace-Controller.html">Controller</a></li><li><a href="namespace-None.html">None</a></li><li><a href="namespace-PHP.html">PHP</a></li></ul></div><div id="elements"><h3>Classes</h3><ul><li><a href="class-Alo.FileSystem.AbstractFileSystem.html">AbstractFileSystem</a></li><li class="active"><a href="class-Alo.FileSystem.File.html">File</a></li></ul></div></div></div><div id="splitter"></div><div id="right"><div id="rightInner"><div id="content" class="class"><h1>Class File</h1><div class="description"><p>Object-oriented file handler</p></div><dl class="tree well"><dd style="padding-left:0px"><a href="class-Alo.FileSystem.AbstractFileSystem.html"><span>Alo\FileSystem\AbstractFileSystem</span></a></dd><dd style="padding-left:30px"><img src="resources/inherit.png" alt="Extended by"/><b><span>Alo\FileSystem\File</span></b></dd></dl><div><h3>Direct known subclasses</h3><p class="elementList"><code><a href="class-Alo.File.html"><span class="deprecated">Alo\File</span></a></code></p></div><div class="alert alert-info"><b>Namespace:</b><a href="namespace-Alo.html">Alo</a>\<a href="namespace-Alo.FileSystem.html">FileSystem</a><br/><b>Author:</b>Arturas Molcanovas &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/><b>Located at</b><a href="source-class-Alo.FileSystem.File.html#12-586" title="Go to source code">sys/class/alo/filesystem/file.php</a><br/></div><h2>Methods summary</h2><table class="summary table table-bordered table-striped" id="methods"><tr data-order="__construct" id="___construct"><td class="attributes"><code>public</code></td><td class="name"><div><a class="anchor" href="#___construct">#</a><code><a href="source-class-Alo.FileSystem.File.html#149-159" title="Go to source code">__construct</a>( )</code><div class="description short"><p>Instantiates the class</p></div><div class="description detailed hidden"><p>Instantiates the class</p><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div><h4>Overrides</h4><div class="list"><code><a href="class-Alo.FileSystem.AbstractFileSystem.html#___construct">Alo\FileSystem\AbstractFileSystem::__construct</a></code></div></div></div></td></tr><tr data-order="File" id="_File"><td class="attributes"><code>public static<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code></td><td class="name"><div><a class="anchor" href="#_File">#</a><code><a href="source-class-Alo.FileSystem.File.html#161-170" title="Go to source code">File</a>( )</code><div class="description short"><p>Instantiates the class</p></div><div class="description detailed hidden"><p>Instantiates the class</p><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="convert_size" id="_convert_size"><td class="attributes"><code>public static string</code></td><td class="name"><div><a class="anchor" href="#_convert_size">#</a><code><a href="source-class-Alo.FileSystem.File.html#172-199" title="Go to source code">convert_size</a>(<span>integer<var>$size</var></span>)</code><div class="description short"><p>Converts a filesize for display</p></div><div class="description detailed hidden"><p>Converts a filesize for display</p><h4>Parameters</h4><div class="list"><dl><dt><var>$size</var></dt><dd><code>integer</code><br>$size The file size in bytes</dd></dl></div><h4>Returns</h4><div class="list"><code>string</code><br>The file size in its largest form, e.g. 1024 bytes become 1KB;<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="append" id="_append"><td class="attributes"><code>public boolean</code></td><td class="name"><div><a class="anchor" href="#_append">#</a><code><a href="source-class-Alo.FileSystem.File.html#201-212" title="Go to source code">append</a>( )</code><div class="description short"><p>Appends the file contents on the disc</p></div><div class="description detailed hidden"><p>Appends the file contents on the disc</p><h4>Returns</h4><div class="list"><code>boolean</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When fopen fails<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="doWrite" id="_doWrite"><td class="attributes"><code>protected<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code></td><td class="name"><div><a class="anchor" href="#_doWrite">#</a><code><a href="source-class-Alo.FileSystem.File.html#214-237" title="Go to source code">doWrite</a>(<span>string<var>$mode</var></span>)</code><div class="description short"><p>Performs a write operation</p></div><div class="description detailed hidden"><p>Performs a write operation</p><h4>Parameters</h4><div class="list"><dl><dt><var>$mode</var></dt><dd><code>string</code><br>$mode The write mode - see class constants</dd></dl></div><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When fopen fails<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="checkParams" id="_checkParams"><td class="attributes"><code>protected<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code></td><td class="name"><div><a class="anchor" href="#_checkParams">#</a><code><a href="source-class-Alo.FileSystem.File.html#239-252" title="Go to source code">checkParams</a>( )</code><div class="description short"><p>Checks if the dir and name are set</p></div><div class="description detailed hidden"><p>Checks if the dir and name are set</p><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file path is not set<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="getExtension" id="_getExtension"><td class="attributes"><code>public string</code></td><td class="name"><div><a class="anchor" href="#_getExtension">#</a><code><a href="source-class-Alo.FileSystem.File.html#254-269" title="Go to source code">getExtension</a>(<span>integer<var>$depth</var>=<span class="php-num">1</span></span>,<span>boolean<var>$only_that_member</var>=<span class="php-keyword1">false</span></span>)</code><div class="description short"><p>Gets the file extension based on the currently set filename</p></div><div class="description detailed hidden"><p>Gets the file extension based on the currently set filename</p><h4>Parameters</h4><div class="list"><dl><dt><var>$depth</var></dt><dd><code>integer</code><br>$depth The depth to search for, e.g. if the file name is foo.tar.gz, depth=1 would return "gz" while depth=2 would return .tar.gz</dd><dt><var>$only_that_member</var></dt><dd><code>boolean</code><br>$only_that_member Only effective if $depth &gt; 1. If FALSE and the extension is tar.gz, will return "tar.gz", if TRUE, will return "tar".</dd></dl></div><h4>Returns</h4><div class="list"><code>string</code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div><h4>Uses</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html#_get_extension">Alo\FileSystem\File::get_extension()</a></code></code><br/></div></div></div></td></tr><tr data-order="get_extension" id="_get_extension"><td class="attributes"><code>public static string</code></td><td class="name"><div><a class="anchor" href="#_get_extension">#</a><code><a href="source-class-Alo.FileSystem.File.html#271-292" title="Go to source code">get_extension</a>(<span>string<var>$filename</var></span>,<span>integer<var>$depth</var>=<span class="php-num">1</span></span>,<span>boolean<var>$only_that_member</var>=<span class="php-keyword1">false</span></span>)</code><div class="description short"><p>Gets the file extension based on name</p></div><div class="description detailed hidden"><p>Gets the file extension based on name</p><h4>Parameters</h4><div class="list"><dl><dt><var>$filename</var></dt><dd><code>string</code><br>$filename The file name</dd><dt><var>$depth</var></dt><dd><code>integer</code><br>$depth The depth to search for, e.g. if the file name is foo.tar.gz, depth=1 would return "gz" while depth=2 would return .tar.gz</dd><dt><var>$only_that_member</var></dt><dd><code>boolean</code><br>$only_that_member Only effective if $depth &gt; 1. If FALSE and the extension is tar.gz, will return "tar.gz", if TRUE, will return "tar".</dd></dl></div><h4>Returns</h4><div class="list"><code>string</code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div><h4>Used by</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html#_getExtension">Alo\FileSystem\File::getExtension()</a></code></code><br/></div></div></div></td></tr><tr data-order="delete" id="_delete"><td class="attributes"><code>public boolean</code></td><td class="name"><div><a class="anchor" href="#_delete">#</a><code><a href="source-class-Alo.FileSystem.File.html#294-303" title="Go to source code">delete</a>( )</code><div class="description short"><p>Alias for self::unlink()</p></div><div class="description detailed hidden"><p>Alias for self::unlink()</p><h4>Returns</h4><div class="list"><code>boolean</code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div><h4>Uses</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html#_unlink">Alo\FileSystem\File::unlink()</a></code></code><br/></div></div></div></td></tr><tr data-order="unlink" id="_unlink"><td class="attributes"><code>public boolean</code></td><td class="name"><div><a class="anchor" href="#_unlink">#</a><code><a href="source-class-Alo.FileSystem.File.html#305-323" title="Go to source code">unlink</a>( )</code><div class="description short"><p>Deletes the file</p></div><div class="description detailed hidden"><p>Deletes the file</p><h4>Returns</h4><div class="list"><code>boolean</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file path is not set<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div><h4>Used by</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html#_delete">Alo\FileSystem\File::delete()</a></code></code><br/></div></div></div></td></tr><tr data-order="gzipContent" id="_gzipContent"><td class="attributes"><code>public boolean</code></td><td class="name"><div><a class="anchor" href="#_gzipContent">#</a><code><a href="source-class-Alo.FileSystem.File.html#325-359" title="Go to source code">gzipContent</a>(<span>integer<var>$level</var>=<span class="php-num">9</span></span>)</code><div class="description short"><p>Gzip-encodes the fetched content</p></div><div class="description detailed hidden"><p>Gzip-encodes the fetched content</p><h4>Parameters</h4><div class="list"><dl><dt><var>$level</var></dt><dd><code>integer</code><br>$level Compression strength (0-9)</dd></dl></div><h4>Returns</h4><div class="list"><code>boolean</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file doesn't exist<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="fileExists" id="_fileExists"><td class="attributes"><code>public boolean</code></td><td class="name"><div><a class="anchor" href="#_fileExists">#</a><code><a href="source-class-Alo.FileSystem.File.html#361-372" title="Go to source code">fileExists</a>( )</code><div class="description short"><p>Checks whether the file exists at the set path</p></div><div class="description detailed hidden"><p>Checks whether the file exists at the set path</p><h4>Returns</h4><div class="list"><code>boolean</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file path is not set<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="read" id="_read"><td class="attributes"><code>public boolean</code></td><td class="name"><div><a class="anchor" href="#_read">#</a><code><a href="source-class-Alo.FileSystem.File.html#374-391" title="Go to source code">read</a>( )</code><div class="description short"><p>Reads the file contents into $this-&gt;content</p></div><div class="description detailed hidden"><p>Reads the file contents into $this-&gt;content</p><h4>Returns</h4><div class="list"><code>boolean</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file doesn't exist<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="ungzipContent" id="_ungzipContent"><td class="attributes"><code>public boolean</code></td><td class="name"><div><a class="anchor" href="#_ungzipContent">#</a><code><a href="source-class-Alo.FileSystem.File.html#393-424" title="Go to source code">ungzipContent</a>( )</code><div class="description short"><p>Gzip-decodes the fetched content</p></div><div class="description detailed hidden"><p>Gzip-decodes the fetched content</p><h4>Returns</h4><div class="list"><code>boolean</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file doesn't exist<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="write" id="_write"><td class="attributes"><code>public<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code></td><td class="name"><div><a class="anchor" href="#_write">#</a><code><a href="source-class-Alo.FileSystem.File.html#426-437" title="Go to source code">write</a>( )</code><div class="description short"><p>Overwrites the file contents on the disc</p></div><div class="description detailed hidden"><p>Overwrites the file contents on the disc</p><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file path is not set<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="__toString" id="___toString"><td class="attributes"><code>public string</code></td><td class="name"><div><a class="anchor" href="#___toString">#</a><code><a href="source-class-Alo.FileSystem.File.html#439-447" title="Go to source code">__toString</a>( )</code><div class="description short"><p>Returns a string representation of the object data</p></div><div class="description detailed hidden"><p>Returns a string representation of the object data</p><h4>Returns</h4><div class="list"><code>string</code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="getFilePath" id="_getFilePath"><td class="attributes"><code>public string</code></td><td class="name"><div><a class="anchor" href="#_getFilePath">#</a><code><a href="source-class-Alo.FileSystem.File.html#449-457" title="Go to source code">getFilePath</a>( )</code><div class="description short"><p>Returns the file's path in the system</p></div><div class="description detailed hidden"><p>Returns the file's path in the system</p><h4>Returns</h4><div class="list"><code>string</code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="name" id="_name"><td class="attributes"><code>public<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code></td><td class="name"><div><a class="anchor" href="#_name">#</a><code><a href="source-class-Alo.FileSystem.File.html#459-483" title="Go to source code">name</a>(<span>string<var>$name</var>=<span class="php-quote">''</span></span>)</code><div class="description short"><p>If no argument is passed, gets the file name, otherwise sets it</p></div><div class="description detailed hidden"><p>If no argument is passed, gets the file name, otherwise sets it</p><h4>Parameters</h4><div class="list"><dl><dt><var>$name</var></dt><dd><code>string</code><br>$name The name</dd></dl></div><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the name is invalid<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="updatePath" id="_updatePath"><td class="attributes"><code>protected<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code></td><td class="name"><div><a class="anchor" href="#_updatePath">#</a><code><a href="source-class-Alo.FileSystem.File.html#485-495" title="Go to source code">updatePath</a>( )</code><div class="description short"><p>Updates the file path when the directory or file name are changed</p></div><div class="description detailed hidden"><p>Updates the file path when the directory or file name are changed</p><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="dir" id="_dir"><td class="attributes"><code>public<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code></td><td class="name"><div><a class="anchor" href="#_dir">#</a><code><a href="source-class-Alo.FileSystem.File.html#497-521" title="Go to source code">dir</a>(<span>string<var>$dir</var>=<span class="php-quote">''</span></span>)</code><div class="description short"><p>If no argument is passed, gets the directory name, otherwise sets it</p></div><div class="description detailed hidden"><p>If no argument is passed, gets the directory name, otherwise sets it</p><h4>Parameters</h4><div class="list"><dl><dt><var>$dir</var></dt><dd><code>string</code><br>$dir The directory</dd></dl></div><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the name is invalid<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="scandir" id="_scandir"><td class="attributes"><code>public array</code></td><td class="name"><div><a class="anchor" href="#_scandir">#</a><code><a href="source-class-Alo.FileSystem.File.html#523-531" title="Go to source code">scandir</a>( )</code><div class="description short"><p>Scans the directory for files</p></div><div class="description detailed hidden"><p>Scans the directory for files</p><h4>Returns</h4><div class="list"><code>array</code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="content" id="_content"><td class="attributes"><code>public<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code></td><td class="name"><div><a class="anchor" href="#_content">#</a><code><a href="source-class-Alo.FileSystem.File.html#533-555" title="Go to source code">content</a>(<span>string<var>$content</var>=<span class="php-quote">'~none~'</span></span>)</code><div class="description short"><p>If no argument is passed, gets the currently set content, otherwise sets it</p></div><div class="description detailed hidden"><p>If no argument is passed, gets the currently set content, otherwise sets it</p><h4>Parameters</h4><div class="list"><dl><dt><var>$content</var></dt><dd><code>string</code><br>$content Content to set</dd></dl></div><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code><br/></div><h4>Throws</h4><div class="list"><code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When content is not scalar<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="clearContent" id="_clearContent"><td class="attributes"><code>public<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code></td><td class="name"><div><a class="anchor" href="#_clearContent">#</a><code><a href="source-class-Alo.FileSystem.File.html#557-568" title="Go to source code">clearContent</a>( )</code><div class="description short"><p>Clears the file content</p></div><div class="description detailed hidden"><p>Clears the file content</p><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr><tr data-order="addContent" id="_addContent"><td class="attributes"><code>public<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code></td><td class="name"><div><a class="anchor" href="#_addContent">#</a><code><a href="source-class-Alo.FileSystem.File.html#570-584" title="Go to source code">addContent</a>(<span>string<var>$c</var></span>)</code><div class="description short"><p>Appends the file content</p></div><div class="description detailed hidden"><p>Appends the file content</p><h4>Parameters</h4><div class="list"><dl><dt><var>$c</var></dt><dd><code>string</code><br>$c The content</dd></dl></div><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr></table><h3>Methods inherited from<a href="class-Alo.FileSystem.AbstractFileSystem.html#methods">Alo\FileSystem\AbstractFileSystem</a></h3><p class="elementList"><code><a href="class-Alo.FileSystem.AbstractFileSystem.html#_replace">replace()</a></code></p><h3>Magic methods summary</h3><h2>Constants summary</h2><table class="summary table table-bordered table-striped" id="constants"><tr data-order="M_READ_EXISTING_BEGIN" id="M_READ_EXISTING_BEGIN"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#19-24" title="Go to source code"><b>M_READ_EXISTING_BEGIN</b></a></code></td><td class="value"><code><span class="php-quote">'r'</span></code></td><td class="description"><div><a href="#M_READ_EXISTING_BEGIN" class="anchor">#</a><div class="description short"><p>Open for reading only; place the file pointer at the beginning of the file.</p></div><div class="description detailed hidden"><p>Open for reading only; place the file pointer at the beginning of the file.</p></div></div></td></tr><tr data-order="M_RW_EXISTING_BEGIN" id="M_RW_EXISTING_BEGIN"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#26-31" title="Go to source code"><b>M_RW_EXISTING_BEGIN</b></a></code></td><td class="value"><code><span class="php-quote">'r+'</span></code></td><td class="description"><div><a href="#M_RW_EXISTING_BEGIN" class="anchor">#</a><div class="description short"><p>Open for reading and writing; place the file pointer at the beginning of the file.</p></div><div class="description detailed hidden"><p>Open for reading and writing; place the file pointer at the beginning of the file.</p></div></div></td></tr><tr data-order="M_WRITE_TRUNCATE_BEGIN" id="M_WRITE_TRUNCATE_BEGIN"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#33-40" title="Go to source code"><b>M_WRITE_TRUNCATE_BEGIN</b></a></code></td><td class="value"><code><span class="php-quote">'w'</span></code></td><td class="description"><div><a href="#M_WRITE_TRUNCATE_BEGIN" class="anchor">#</a><div class="description short"><p>Open for writing only; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.</p></div><div class="description detailed hidden"><p>Open for writing only; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.</p></div></div></td></tr><tr data-order="M_RW_TRUNCATE_BEGIN" id="M_RW_TRUNCATE_BEGIN"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#42-49" title="Go to source code"><b>M_RW_TRUNCATE_BEGIN</b></a></code></td><td class="value"><code><span class="php-quote">'w+'</span></code></td><td class="description"><div><a href="#M_RW_TRUNCATE_BEGIN" class="anchor">#</a><div class="description short"><p>Open for reading and writing; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.</p></div><div class="description detailed hidden"><p>Open for reading and writing; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.</p></div></div></td></tr><tr data-order="M_WRITE_END" id="M_WRITE_END"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#51-57" title="Go to source code"><b>M_WRITE_END</b></a></code></td><td class="value"><code><span class="php-quote">'a'</span></code></td><td class="description"><div><a href="#M_WRITE_END" class="anchor">#</a><div class="description short"><p>Open for writing only; place the file pointer at the end of the file. If the file does not exist, attempt to create it.</p></div><div class="description detailed hidden"><p>Open for writing only; place the file pointer at the end of the file. If the file does not exist, attempt to create it.</p></div></div></td></tr><tr data-order="M_RW_END" id="M_RW_END"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#59-65" title="Go to source code"><b>M_RW_END</b></a></code></td><td class="value"><code><span class="php-quote">'a+'</span></code></td><td class="description"><div><a href="#M_RW_END" class="anchor">#</a><div class="description short"><p>Open for reading and writing; place the file pointer at the end of the file. If the file does not exist, attempt to create it.</p></div><div class="description detailed hidden"><p>Open for reading and writing; place the file pointer at the end of the file. If the file does not exist, attempt to create it.</p></div></div></td></tr><tr data-order="M_WRITE_NONEXIST_BEGIN" id="M_WRITE_NONEXIST_BEGIN"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#67-76" title="Go to source code"><b>M_WRITE_NONEXIST_BEGIN</b></a></code></td><td class="value"><code><span class="php-quote">'x'</span></code></td><td class="description"><div><a href="#M_WRITE_NONEXIST_BEGIN" class="anchor">#</a><div class="description short"><p>Create and open for writing only; place the file pointer at the beginning of the file. If the file already exists, the fopen() call will fail by returning FALSE and generating an error of level E_WARNING. If the file does not exist, attempt to create it. This is equivalent to specifying O_EXCL|O_CREAT flags for the underlying open(2) system call.</p></div><div class="description detailed hidden"><p>Create and open for writing only; place the file pointer at the beginning of the file. If the file already exists, the fopen() call will fail by returning FALSE and generating an error of level E_WARNING. If the file does not exist, attempt to create it. This is equivalent to specifying O_EXCL|O_CREAT flags for the underlying open(2) system call.</p></div></div></td></tr><tr data-order="M_RW_NONEXIST_BEGIN" id="M_RW_NONEXIST_BEGIN"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#78-85" title="Go to source code"><b>M_RW_NONEXIST_BEGIN</b></a></code></td><td class="value"><code><span class="php-quote">'x+'</span></code></td><td class="description"><div><a href="#M_RW_NONEXIST_BEGIN" class="anchor">#</a><div class="description short"><p>Create and open for reading and writing; otherwise it has the same behavior as M_WRITE_NONEXIST_BEGIN</p></div><div class="description detailed hidden"><p>Create and open for reading and writing; otherwise it has the same behavior as M_WRITE_NONEXIST_BEGIN</p><h4>See</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html#M_WRITE_NONEXIST_BEGIN">Alo\FileSystem\File::<b>M_WRITE_NONEXIST_BEGIN</b></a></code></code><br/></div></div></div></td></tr><tr data-order="M_WRITE_BEGIN" id="M_WRITE_BEGIN"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#87-101" title="Go to source code"><b>M_WRITE_BEGIN</b></a></code></td><td class="value"><code><span class="php-quote">'c'</span></code></td><td class="description"><div><a href="#M_WRITE_BEGIN" class="anchor">#</a><div class="description short"><p>Open the file for writing only. If the file does not exist, it is created. If it exists, it is neither truncated (as opposed to M_WRITE_TRUNCATE_BEGIN), nor the call to this function fails (as is the case with M_WRITE_NONEXIST_BEGIN). The file pointer is positioned on the beginning of the file. This may be useful if it's desired to get an advisory lock (see flock()) before attempting to modify the file, as using M_WRITE_NONEXIST_BEGIN could truncate the file before the lock was obtained (if truncation is desired, ftruncate() can be used after the lock is requested).</p></div><div class="description detailed hidden"><p>Open the file for writing only. If the file does not exist, it is created. If it exists, it is neither truncated (as opposed to M_WRITE_TRUNCATE_BEGIN), nor the call to this function fails (as is the case with M_WRITE_NONEXIST_BEGIN). The file pointer is positioned on the beginning of the file. This may be useful if it's desired to get an advisory lock (see flock()) before attempting to modify the file, as using M_WRITE_NONEXIST_BEGIN could truncate the file before the lock was obtained (if truncation is desired, ftruncate() can be used after the lock is requested).</p><h4>See</h4><div class="list"><code><code><a href="class-Alo.FileSystem.File.html#M_WRITE_NONEXIST_BEGIN">Alo\FileSystem\File::<b>M_WRITE_NONEXIST_BEGIN</b></a></code></code><br/><code><code><a href="class-Alo.FileSystem.File.html#M_WRITE_TRUNCATE_BEGIN">Alo\FileSystem\File::<b>M_WRITE_TRUNCATE_BEGIN</b></a></code></code><br/></div></div></div></td></tr><tr data-order="M_RW_BEGIN" id="M_RW_BEGIN"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.FileSystem.File.html#103-110" title="Go to source code"><b>M_RW_BEGIN</b></a></code></td><td class="value"><code><span class="php-quote">'c+'</span></code></td><td class="description"><div><a href="#M_RW_BEGIN" class="anchor">#</a><div class="description short"><p>Open the file for reading and writing; otherwise it has the same behavior as M_WRITE_BEGIN.</p></div><div class="description detailed hidden"><p>Open the file for reading and writing; otherwise it has the same behavior as M_WRITE_BEGIN.</p><h4>See</h4><div class="list">self::M_WRITE_BEGIN;<br/></div></div></div></td></tr></table><h2>Properties summary</h2><table class="summary table table-bordered table-striped" id="properties"><tr data-order="gz" id="$gz"><td class="attributes"><code>protected static boolean</code></td><td class="name"><a href="source-class-Alo.FileSystem.File.html#112-117" title="Go to source code"><var>$gz</var></a></td><td class="description"><div><a href="#$gz" class="anchor">#</a><div class="description short"><p>Whether GZIP is installed</p></div><div class="description detailed hidden"><p>Whether GZIP is installed</p></div></div></td></tr><tr data-order="content" id="$content"><td class="attributes"><code>protected string</code></td><td class="name"><a href="source-class-Alo.FileSystem.File.html#119-124" title="Go to source code"><var>$content</var></a></td><td class="description"><div><a href="#$content" class="anchor">#</a><div class="description short"><p>The file content</p></div><div class="description detailed hidden"><p>The file content</p></div></div></td></tr><tr data-order="name" id="$name"><td class="attributes"><code>protected string</code></td><td class="name"><a href="source-class-Alo.FileSystem.File.html#126-131" title="Go to source code"><var>$name</var></a></td><td class="description"><div><a href="#$name" class="anchor">#</a><div class="description short"><p>The file name</p></div><div class="description detailed hidden"><p>The file name</p></div></div></td></tr><tr data-order="dir" id="$dir"><td class="attributes"><code>protected string</code></td><td class="name"><a href="source-class-Alo.FileSystem.File.html#133-138" title="Go to source code"><var>$dir</var></a></td><td class="description"><div><a href="#$dir" class="anchor">#</a><div class="description short"><p>The file directory</p></div><div class="description detailed hidden"><p>The file directory</p></div></div></td></tr><tr data-order="filepath" id="$filepath"><td class="attributes"><code>protected string</code></td><td class="name"><a href="source-class-Alo.FileSystem.File.html#140-147" title="Go to source code"><var>$filepath</var></a></td><td class="description"><div><a href="#$filepath" class="anchor">#</a><div class="description short"><p>The full file path. Updates with every setName &amp; setDir</p></div><div class="description detailed hidden"><p>The full file path. Updates with every setName &amp; setDir</p><h4>See</h4><div class="list">self::setName()<br/>self::setDir()<br/></div></div></div></td></tr></table><h3>Properties inherited from<a href="class-Alo.FileSystem.AbstractFileSystem.html#properties">Alo\FileSystem\AbstractFileSystem</a></h3><p class="elementList"><code><a href="class-Alo.FileSystem.AbstractFileSystem.html#$replace"><var>$replace</var></a></code></p></div></div><div id="footer">AloFramework documentation API documentation generated by<a href="http://apigen.org">ApiGen 2.8.0</a></div></div></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Alo\FileSystem\File | AloFramework documentation</title>
+
+	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
+	<script type="text/javascript" src="elementlist.js?895098052"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework documentation</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Alo.FileSystem.html" title="Summary of Alo\FileSystem"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="aloframework-documentation-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
+						<ul>
+				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
+						</li>
+				<li><a href="namespace-Alo.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Alo.Db.html">Db</a>
+						</li>
+				<li><a href="namespace-Alo.Decorator.html">Decorator<span></span></a>
+						<ul>
+				<li><a href="namespace-Alo.Decorator.TwitterBootstrap.html">TwitterBootstrap</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Alo.Exception.html">Exception</a>
+						</li>
+				<li class="active"><a href="namespace-Alo.FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Alo.Session.html">Session</a>
+						</li>
+				<li><a href="namespace-Alo.Statics.html">Statics</a>
+						</li>
+				<li><a href="namespace-Alo.Test.html">Test</a>
+						</li>
+				<li><a href="namespace-Alo.Validators.html">Validators</a>
+						</li>
+				<li><a href="namespace-Alo.Windows.html">Windows</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Alo.FileSystem.AbstractFileSystem.html">AbstractFileSystem</a></li>
+				<li class="active"><a href="class-Alo.FileSystem.File.html">File</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class File</h1>
+
+
+	<div class="description">
+	
+<p>Object-oriented file handler</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Alo.FileSystem.AbstractFileSystem.html"><span>Alo\FileSystem\AbstractFileSystem</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Alo\FileSystem\File</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Alo.File.html"><span class="deprecated">Alo\File</span></a></code>
+		</p>
+	</div>
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Alo.html">Alo</a>\<a href="namespace-Alo.FileSystem.html">FileSystem</a><br />
+		
+
+				<b>Author:</b>
+				Arturas Molcanovas &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Alo.FileSystem.File.html#12-586" title="Go to source code">sys/class/alo/filesystem/file.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#149-159" title="Go to source code">__construct</a>( )</code>
+
+			<div class="description short">
+				
+<p>Instantiates the class</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Instantiates the class</p>
+
+
+
+
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Alo.FileSystem.AbstractFileSystem.html#___construct">Alo\FileSystem\AbstractFileSystem::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="File" id="_File">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_File">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#161-170" title="Go to source code">File</a>( )</code>
+
+			<div class="description short">
+				
+<p>Instantiates the class</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Instantiates the class</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="convert_size" id="_convert_size">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_convert_size">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#172-199" title="Go to source code">convert_size</a>( <span>integer <var>$size</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Converts a filesize for display</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Converts a filesize for display</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$size</var></dt>
+						<dd><code>integer</code><br>$size The file size in bytes</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>The file size in its largest form, e.g. 1024 bytes become 1KB;<br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="append" id="_append">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_append">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#201-212" title="Go to source code">append</a>( )</code>
+
+			<div class="description short">
+				
+<p>Appends the file contents on the disc</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Appends the file contents on the disc</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When fopen fails<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="doWrite" id="_doWrite">
+
+			<td class="attributes"><code>
+				 protected 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_doWrite">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#214-237" title="Go to source code">doWrite</a>( <span>string <var>$mode</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Performs a write operation</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Performs a write operation</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$mode</var></dt>
+						<dd><code>string</code><br>$mode The write mode - see class constants</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When fopen fails<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="checkParams" id="_checkParams">
+
+			<td class="attributes"><code>
+				 protected 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_checkParams">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#239-252" title="Go to source code">checkParams</a>( )</code>
+
+			<div class="description short">
+				
+<p>Checks if the dir and name are set</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Checks if the dir and name are set</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file path is not set<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getExtension" id="_getExtension">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getExtension">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#254-269" title="Go to source code">getExtension</a>( <span>integer <var>$depth</var> = <span class="php-num">1</span></span>, <span>boolean <var>$only_that_member</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Gets the file extension based on the currently set filename</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gets the file extension based on the currently set filename</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$depth</var></dt>
+						<dd><code>integer</code><br>$depth The depth to search for, e.g. if the file name is foo.tar.gz, depth=1
+would return "gz" while depth=2 would return .tar.gz</dd>
+						<dt><var>$only_that_member</var></dt>
+						<dd><code>boolean</code><br>$only_that_member Only effective if $depth &gt; 1. If FALSE and the extension is
+tar.gz, will return "tar.gz", if TRUE, will return "tar".</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+					<h4>Uses</h4>
+					<div class="list">
+							<code><code><a href="class-Alo.FileSystem.File.html#_get_extension">Alo\FileSystem\File::get_extension()</a></code></code> <br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="get_extension" id="_get_extension">
+
+			<td class="attributes"><code>
+				 public static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_get_extension">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#271-292" title="Go to source code">get_extension</a>( <span>string <var>$filename</var></span>, <span>integer <var>$depth</var> = <span class="php-num">1</span></span>, <span>boolean <var>$only_that_member</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Gets the file extension based on name</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gets the file extension based on name</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$filename</var></dt>
+						<dd><code>string</code><br>$filename The file name</dd>
+						<dt><var>$depth</var></dt>
+						<dd><code>integer</code><br>$depth The depth to search for, e.g. if the file name is foo.tar.gz, depth=1
+would return "gz" while depth=2 would return .tar.gz</dd>
+						<dt><var>$only_that_member</var></dt>
+						<dd><code>boolean</code><br>$only_that_member Only effective if $depth &gt; 1. If FALSE and the extension is
+tar.gz, will return "tar.gz", if TRUE, will return "tar".</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+					<h4>Used by</h4>
+					<div class="list">
+							<code><code><a href="class-Alo.FileSystem.File.html#_getExtension">Alo\FileSystem\File::getExtension()</a></code></code> <br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="delete" id="_delete">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_delete">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#294-303" title="Go to source code">delete</a>( )</code>
+
+			<div class="description short">
+				
+<p>Alias for self::unlink()</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Alias for self::unlink()</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+					<h4>Uses</h4>
+					<div class="list">
+							<code><code><a href="class-Alo.FileSystem.File.html#_unlink">Alo\FileSystem\File::unlink()</a></code></code> <br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="unlink" id="_unlink">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_unlink">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#305-323" title="Go to source code">unlink</a>( )</code>
+
+			<div class="description short">
+				
+<p>Deletes the file</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Deletes the file</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file path is not set<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+					<h4>Used by</h4>
+					<div class="list">
+							<code><code><a href="class-Alo.FileSystem.File.html#_delete">Alo\FileSystem\File::delete()</a></code></code> <br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="gzipContent" id="_gzipContent">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_gzipContent">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#325-359" title="Go to source code">gzipContent</a>( <span>integer <var>$level</var> = <span class="php-num">9</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Gzip-encodes the fetched content</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gzip-encodes the fetched content</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$level</var></dt>
+						<dd><code>integer</code><br>$level Compression strength (0-9)</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file doesn't exist<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fileExists" id="_fileExists">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fileExists">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#361-372" title="Go to source code">fileExists</a>( )</code>
+
+			<div class="description short">
+				
+<p>Checks whether the file exists at the set path</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Checks whether the file exists at the set path</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file path is not set<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="read" id="_read">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_read">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#374-391" title="Go to source code">read</a>( )</code>
+
+			<div class="description short">
+				
+<p>Reads the file contents into $this-&gt;content</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Reads the file contents into $this-&gt;content</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file doesn't exist<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="ungzipContent" id="_ungzipContent">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_ungzipContent">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#393-424" title="Go to source code">ungzipContent</a>( )</code>
+
+			<div class="description short">
+				
+<p>Gzip-decodes the fetched content</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Gzip-decodes the fetched content</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>boolean</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file doesn't exist<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="write" id="_write">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_write">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#426-437" title="Go to source code">write</a>( )</code>
+
+			<div class="description short">
+				
+<p>Overwrites the file contents on the disc</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Overwrites the file contents on the disc</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the file path is not set<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__toString" id="___toString">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___toString">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#439-447" title="Go to source code">__toString</a>( )</code>
+
+			<div class="description short">
+				
+<p>Returns a string representation of the object data</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns a string representation of the object data</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFilePath" id="_getFilePath">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFilePath">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#449-457" title="Go to source code">getFilePath</a>( )</code>
+
+			<div class="description short">
+				
+<p>Returns the file's path in the system</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returns the file's path in the system</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="name" id="_name">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_name">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#459-483" title="Go to source code">name</a>( <span>string <var>$name</var> = <span class="php-quote">''</span></span> )</code>
+
+			<div class="description short">
+				
+<p>If no argument is passed, gets the file name, otherwise sets it</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>If no argument is passed, gets the file name, otherwise sets it</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd><code>string</code><br>$name The name</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the name is invalid<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="updatePath" id="_updatePath">
+
+			<td class="attributes"><code>
+				 protected 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_updatePath">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#485-495" title="Go to source code">updatePath</a>( )</code>
+
+			<div class="description short">
+				
+<p>Updates the file path when the directory or file name are changed</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Updates the file path when the directory or file name are changed</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="dir" id="_dir">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_dir">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#497-521" title="Go to source code">dir</a>( <span>string <var>$dir</var> = <span class="php-quote">''</span></span> )</code>
+
+			<div class="description short">
+				
+<p>If no argument is passed, gets the directory name, otherwise sets it</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>If no argument is passed, gets the directory name, otherwise sets it</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$dir</var></dt>
+						<dd><code>string</code><br>$dir The directory</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When the name is invalid<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="scandir" id="_scandir">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_scandir">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#523-531" title="Go to source code">scandir</a>( )</code>
+
+			<div class="description short">
+				
+<p>Scans the directory for files</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Scans the directory for files</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="content" id="_content">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_content">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#533-555" title="Go to source code">content</a>( <span>string <var>$content</var> = <span class="php-quote">'~none~'</span></span> )</code>
+
+			<div class="description short">
+				
+<p>If no argument is passed, gets the currently set content, otherwise sets
+it</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>If no argument is passed, gets the currently set content, otherwise sets
+it</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$content</var></dt>
+						<dd><code>string</code><br>$content Content to set</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>|string</code><br />
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Exception.FileSystemException.html">Alo\Exception\FileSystemException</a></code></code><br>When content is not scalar<br />
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="clearContent" id="_clearContent">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_clearContent">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#557-568" title="Go to source code">clearContent</a>( )</code>
+
+			<div class="description short">
+				
+<p>Clears the file content</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Clears the file content</p>
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="addContent" id="_addContent">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_addContent">#</a>
+			<code><a href="source-class-Alo.FileSystem.File.html#570-584" title="Go to source code">addContent</a>( <span>string <var>$c</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Appends the file content</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Appends the file content</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$c</var></dt>
+						<dd><code>string</code><br>$c The content</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.FileSystem.File.html">Alo\FileSystem\File</a></code></code><br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Alo.FileSystem.AbstractFileSystem.html#methods">Alo\FileSystem\AbstractFileSystem</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.FileSystem.AbstractFileSystem.html#_replace">replace()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+		<table class="summary table table-bordered table-striped" id="constants">
+		<tr data-order="M_READ_EXISTING_BEGIN" id="M_READ_EXISTING_BEGIN">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#19-24" title="Go to source code"><b>M_READ_EXISTING_BEGIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'r'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_READ_EXISTING_BEGIN" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Open for reading only; place the file pointer at the beginning of the
+file.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Open for reading only; place the file pointer at the beginning of the
+file.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_RW_EXISTING_BEGIN" id="M_RW_EXISTING_BEGIN">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#26-31" title="Go to source code"><b>M_RW_EXISTING_BEGIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'r+'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_RW_EXISTING_BEGIN" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Open for reading and writing; place the file pointer at the beginning of the
+file.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Open for reading and writing; place the file pointer at the beginning of the
+file.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_WRITE_TRUNCATE_BEGIN" id="M_WRITE_TRUNCATE_BEGIN">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#33-40" title="Go to source code"><b>M_WRITE_TRUNCATE_BEGIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'w'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_WRITE_TRUNCATE_BEGIN" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Open for writing only; place the file pointer at the beginning of the file
+and truncate the file to zero length. If the file does not exist, attempt to
+create it.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Open for writing only; place the file pointer at the beginning of the file
+and truncate the file to zero length. If the file does not exist, attempt to
+create it.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_RW_TRUNCATE_BEGIN" id="M_RW_TRUNCATE_BEGIN">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#42-49" title="Go to source code"><b>M_RW_TRUNCATE_BEGIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'w+'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_RW_TRUNCATE_BEGIN" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Open for reading and writing; place the file pointer at the beginning of the
+file and truncate the file to zero length. If the file does not exist, attempt
+to create it.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Open for reading and writing; place the file pointer at the beginning of the
+file and truncate the file to zero length. If the file does not exist, attempt
+to create it.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_WRITE_END" id="M_WRITE_END">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#51-57" title="Go to source code"><b>M_WRITE_END</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'a'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_WRITE_END" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Open for writing only; place the file pointer at the end of the file. If the
+file does not exist, attempt to create it.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Open for writing only; place the file pointer at the end of the file. If the
+file does not exist, attempt to create it.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_RW_END" id="M_RW_END">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#59-65" title="Go to source code"><b>M_RW_END</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'a+'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_RW_END" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Open for reading and writing; place the file pointer at the end of the file.
+If the file does not exist, attempt to create it.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Open for reading and writing; place the file pointer at the end of the file.
+If the file does not exist, attempt to create it.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_WRITE_NONEXIST_BEGIN" id="M_WRITE_NONEXIST_BEGIN">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#67-76" title="Go to source code"><b>M_WRITE_NONEXIST_BEGIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'x'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_WRITE_NONEXIST_BEGIN" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Create and open for writing only; place the file pointer at the beginning of
+the file. If the file already exists, the fopen() call will fail by returning
+FALSE and generating an error of level E_WARNING. If the file does not exist,
+attempt to create it. This is equivalent to specifying O_EXCL|O_CREAT flags for
+the underlying open(2) system call.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Create and open for writing only; place the file pointer at the beginning of
+the file. If the file already exists, the fopen() call will fail by returning
+FALSE and generating an error of level E_WARNING. If the file does not exist,
+attempt to create it. This is equivalent to specifying O_EXCL|O_CREAT flags for
+the underlying open(2) system call.</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_RW_NONEXIST_BEGIN" id="M_RW_NONEXIST_BEGIN">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#78-85" title="Go to source code"><b>M_RW_NONEXIST_BEGIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'x+'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_RW_NONEXIST_BEGIN" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Create and open for reading and writing; otherwise it has the same behavior
+as M_WRITE_NONEXIST_BEGIN</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Create and open for reading and writing; otherwise it has the same behavior
+as M_WRITE_NONEXIST_BEGIN</p>
+
+
+						<h4>See</h4>
+						<div class="list">
+								<code><code><a href="class-Alo.FileSystem.File.html#M_WRITE_NONEXIST_BEGIN">Alo\FileSystem\File::<b>M_WRITE_NONEXIST_BEGIN</b></a></code></code><br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_WRITE_BEGIN" id="M_WRITE_BEGIN">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#87-101" title="Go to source code"><b>M_WRITE_BEGIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'c'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_WRITE_BEGIN" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Open the file for writing only. If the file does not exist, it is created. If
+it exists, it is neither truncated (as opposed to M_WRITE_TRUNCATE_BEGIN), nor
+the call to this function fails (as is the case with M_WRITE_NONEXIST_BEGIN).
+The file pointer is positioned on the beginning of the file. This may be useful
+if it's desired to get an advisory lock (see flock()) before attempting to
+modify the file, as using M_WRITE_NONEXIST_BEGIN could truncate the file before
+the lock was obtained (if truncation is desired, ftruncate() can be used after
+the lock is requested).</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Open the file for writing only. If the file does not exist, it is created. If
+it exists, it is neither truncated (as opposed to M_WRITE_TRUNCATE_BEGIN), nor
+the call to this function fails (as is the case with M_WRITE_NONEXIST_BEGIN).
+The file pointer is positioned on the beginning of the file. This may be useful
+if it's desired to get an advisory lock (see flock()) before attempting to
+modify the file, as using M_WRITE_NONEXIST_BEGIN could truncate the file before
+the lock was obtained (if truncation is desired, ftruncate() can be used after
+the lock is requested).</p>
+
+
+						<h4>See</h4>
+						<div class="list">
+								<code><code><a href="class-Alo.FileSystem.File.html#M_WRITE_NONEXIST_BEGIN">Alo\FileSystem\File::<b>M_WRITE_NONEXIST_BEGIN</b></a></code></code><br />
+								<code><code><a href="class-Alo.FileSystem.File.html#M_WRITE_TRUNCATE_BEGIN">Alo\FileSystem\File::<b>M_WRITE_TRUNCATE_BEGIN</b></a></code></code><br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="M_RW_BEGIN" id="M_RW_BEGIN">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.FileSystem.File.html#103-110" title="Go to source code"><b>M_RW_BEGIN</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'c+'</span></code></td>
+			<td class="description"><div>
+				<a href="#M_RW_BEGIN" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Open the file for reading and writing; otherwise it has the same behavior as
+M_WRITE_BEGIN.</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Open the file for reading and writing; otherwise it has the same behavior as
+M_WRITE_BEGIN.</p>
+
+
+						<h4>See</h4>
+						<div class="list">
+								self::M_WRITE_BEGIN;<br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="gz" id="$gz">
+			<td class="attributes"><code>
+				protected static 
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.FileSystem.File.html#112-117" title="Go to source code"><var>$gz</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$gz" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Whether GZIP is installed</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Whether GZIP is installed</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="content" id="$content">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.FileSystem.File.html#119-124" title="Go to source code"><var>$content</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$content" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The file content</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The file content</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="name" id="$name">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.FileSystem.File.html#126-131" title="Go to source code"><var>$name</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$name" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The file name</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The file name</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dir" id="$dir">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.FileSystem.File.html#133-138" title="Go to source code"><var>$dir</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dir" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The file directory</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The file directory</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="filepath" id="$filepath">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.FileSystem.File.html#140-147" title="Go to source code"><var>$filepath</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$filepath" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The full file path. Updates with every setName &amp; setDir</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The full file path. Updates with every setName &amp; setDir</p>
+
+
+						<h4>See</h4>
+						<div class="list">
+								self::setName()<br />
+								self::setDir()<br />
+						</div>
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Properties inherited from <a href="class-Alo.FileSystem.AbstractFileSystem.html#properties">Alo\FileSystem\AbstractFileSystem</a></h3>
+		<p class="elementList">
+			<code><a href="class-Alo.FileSystem.AbstractFileSystem.html#$replace"><var>$replace</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AloFramework documentation API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

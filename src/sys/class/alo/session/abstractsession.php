@@ -129,7 +129,7 @@
        * Removes expired session keys
        *
        * @author Art <a.molcanovas@gmail.com>
-       * @return SQLSession
+       * @return AbstractSession
        */
       protected function removeExpired() {
          if(isset($this->data[self::EXPIRE_KEY])) {
@@ -336,7 +336,7 @@
        * Sets the session ID variable & the cookie
        *
        * @author Art <a.molcanovas@gmail.com>
-       * @return SQLSession
+       * @return AbstractSession
        */
       protected function setID() {
          $c = \get($_COOKIE[ALO_SESSION_COOKIE]);

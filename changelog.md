@@ -1,9 +1,14 @@
-# 1.x (pending) #
+# 1.2 (pending) #
 
 Added classes
 * Alo\Decorator\TwitterBootstrap\* - Twitter Bootstrap HTML generators
 
+Renamed classes
+
+* SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.
+
 Misc
+
 * ALO_SESSION_SECURE constant added. Determines whether the session cookie should only be sent via SSL.
 * Global shorthands added for trigger_error():
 	* php_error($msg)
