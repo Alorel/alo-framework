@@ -209,9 +209,6 @@ $router->init(); //Or ->initNoCall() if you just want to initialise it, but not 
 See [changelog.md](changelog.md) for a full changelog of previous versions.
 ## 1.2 (pending) ##
 
-Added classes
-* Alo\Decorator\TwitterBootstrap\* - Twitter Bootstrap HTML generators
-
 Renamed classes
 
 * SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.

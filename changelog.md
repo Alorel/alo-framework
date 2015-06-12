@@ -1,8 +1,5 @@
 # 1.2 (pending) #
 
-Added classes
-* Alo\Decorator\TwitterBootstrap\* - Twitter Bootstrap HTML generators
-
 Renamed classes
 
 * SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.
