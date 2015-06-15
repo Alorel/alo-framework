@@ -43,7 +43,7 @@ AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.4
 
 * Memcached wrapper
 * Database connection class
-* MySQL or Memcached-based session manager
+* MySQL,Redis or Memcached-based session manager
 * HTML form validator
 * Code testing suite
 * Email sender
@@ -53,6 +53,8 @@ AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.4
 * Remote SFTP file manager
 * Code profiler
 * CLI tools
+* Localisation tools
+* File management utilities
 
 ^[TOC](#table-of-contents)
 
