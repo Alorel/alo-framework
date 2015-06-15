@@ -24,6 +24,13 @@
    class Email extends PHPMailer {
 
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var Email
+       */
+      static $this;
+
+      /**
        * Array of debug outputs, each send operation representing a key/value pair
        *
        * @var array
@@ -62,6 +69,8 @@
          $this->FromName   = ALO_EMAIL_FROM_DEFAULT_NAME;
          $this->Subject    = ALO_EMAIL_SUBJECT_DEFAULT;
          $this->isHTML(ALO_EMAIL_HTML_ENABLED);
+
+         self::$this = &$this;
       }
 
       /**

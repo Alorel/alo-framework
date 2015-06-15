@@ -18,40 +18,41 @@
    class Downloader {
 
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var Downloader
+       */
+      static $this;
+      /**
        * cURL handler
        *
        * @var cURL
        */
       protected $curl;
-
       /**
        * Download destination
        *
        * @var string
        */
       protected $dest;
-
       /**
        * Timestamp when we last reported the status
        *
        * @var int
        */
       protected $last_report_time;
-
       /**
        * The last reported status
        *
        * @var string
        */
       protected $last_report_status;
-
       /**
        * Output
        *
        * @var resource
        */
       protected $fp;
-
       /**
        * Number of times the status has been reported
        *
@@ -73,6 +74,8 @@
 
          $this->curl = new cURL($source);
          $this->curl->setProgressFunction([$this, 'progressFunction']);
+
+         self::$this = &$this;
       }
 
       /**

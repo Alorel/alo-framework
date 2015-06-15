@@ -48,6 +48,12 @@
        */
       const V_FETCH_NUM = 'n';
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var AbstractDb
+       */
+      static $this;
+      /**
        * Default query options
        *
        * @var array
@@ -94,6 +100,8 @@
          if(!Alo::$db) {
             Alo::$db = &$this;
          }
+
+         self::$this = &$this;
       }
 
       /**

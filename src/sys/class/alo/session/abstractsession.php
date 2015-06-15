@@ -32,28 +32,30 @@
        * @var string
        */
       const EXPIRE_KEY = '__expire';
-
+      /**
+       * Static reference to the last instance of the class
+       *
+       * @var AbstractSession
+       */
+      static $this;
       /**
        * The data array
        *
        * @var array
        */
       protected $data;
-
       /**
        * Whether to save session data
        *
        * @var boolean
        */
       protected $save;
-
       /**
        * Value of time()
        *
        * @var int
        */
       protected $time;
-
       /**
        * The session ID
        *
@@ -76,6 +78,8 @@
          if(\Alo::$router->is_cli_request() || $this->identityCheck()) {
             $this->fetch()->removeExpired();
          }
+
+         self::$this = &$this;
       }
 
       /**

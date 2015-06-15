@@ -43,6 +43,12 @@
        */
       const P_RETRY_TIME = 102;
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var SFTP
+       */
+      static $this;
+      /**
        * The endpoint URL
        *
        * @var string
@@ -130,6 +136,8 @@
 
             \Log::debug('SSH2 class initialised');
          }
+
+         self::$this = &$this;
       }
 
       /**

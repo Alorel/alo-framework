@@ -24,175 +24,156 @@
        * @var int
        */
       const WEEKDAY_SUN = 0;
-
       /**
        * Defines the day of the week as Monday
        *
        * @var int
        */
       const WEEKDAY_MON = 1;
-
       /**
        * Defines the day of the week as Tuesday
        *
        * @var int
        */
       const WEEKDAY_TUE = 2;
-
       /**
        * Defines the day of the week as Wednesday
        *
        * @var int
        */
       const WEEKDAY_WED = 3;
-
       /**
        * Defines the day of the week as Thursday
        *
        * @var int
        */
       const WEEKDAY_THU = 4;
-
       /**
        * Defines the day of the week as Friday
        *
        * @var int
        */
       const WEEKDAY_FRI = 5;
-
       /**
        * Defines the day of the week as Saturday
        *
        * @var int
        */
       const WEEKDAY_SAT = 6;
-
       /**
        * A pre-setting to run the cronjob yearly at 1 Jan, 00:00
        *
        * @var string
        */
       const CONST_YEARLY = '0 0 1 1 *';
-
       /**
        * A pre-setting to run the cronjob monthly at 00:00
        *
        * @var string
        */
       const CONST_MONTHLY = '0 0 1 * *';
-
       /**
        * A pre-setting to run the cronjob weekly on Sunday, 00:00
        *
        * @var string
        */
       const CONST_WEEKLY = '0 0 * * 0';
-
       /**
        * A pre-setting to run the cronjob daily at 00:00
        *
        * @var string
        */
       const CONST_DAILY = '0 0 * * *';
-
       /**
        * A pre-setting to run the cronjob hourly at 00 minutes
        *
        * @var string
        */
       const CONST_HOURLY = '0 * * * *';
-
       /**
        * A pre-setting to run the cronjob on server startup
        *
        * @var string
        */
       const CONST_REBOOT = '@reboot';
-
       /**
        * Defines the month as January
        *
        * @var int
        */
       const MONTH_JAN = 1;
-
       /**
        * Defines the month as February
        *
        * @var int
        */
       const MONTH_FEB = 2;
-
       /**
        * Defines the month as March
        *
        * @var int
        */
       const MONTH_MAR = 3;
-
       /**
        * Defines the month as April
        *
        * @var int
        */
       const MONTH_APR = 4;
-
       /**
        * Defines the month as May
        *
        * @var int
        */
       const MONTH_MAY = 5;
-
       /**
        * Defines the month as June
        *
        * @var int
        */
       const MONTH_JUN = 6;
-
       /**
        * Defines the month as July
        *
        * @var int
        */
       const MONTH_JUL = 7;
-
       /**
        * Defines the month as August
        *
        * @var int
        */
       const MONTH_AUG = 8;
-
       /**
        * Defines the month as September
        *
        * @var int
        */
       const MONTH_SEP = 9;
-
       /**
        * Defines the month as October
        *
        * @var int
        */
       const MONTH_OCT = 10;
-
       /**
        * Defines the month as November
        *
        * @var int
        */
       const MONTH_NOV = 11;
-
       /**
        * Defines the month as December
        *
        * @var int
        */
       const MONTH_DEC = 12;
-
+      /**
+       * Static reference to the last instance of the class
+       *
+       * @var Cron
+       */
+      static $this;
       /**
        * Array of valid CRON constants
        *
@@ -235,6 +216,7 @@
             $this->autocommit = false;
             $this->reloadCrontab();
          }
+         self::$this = &$this;
       }
 
       /**

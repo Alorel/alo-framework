@@ -22,126 +22,114 @@
        * @var string
        */
       const P_MICROTIME = 'microtime';
-
       /**
        * Defines a parameter as "session data"
        *
        * @var string
        */
       const P_SESSION_DATA = 'session_data';
-
       /**
        * Defines a parameter as "$_GET data set"
        *
        * @var string
        */
       const P_GET = '$_GET';
-
       /**
        * Defines a parameter as "$_POST data set"
        *
        * @var string
        */
       const P_POST = '$_POST';
-
       /**
        * Defines a parameter as "$_FILES data set"
        *
        * @var string
        */
       const P_FILES = '$_FILES';
-
       /**
        * Defines a parameter as "controller in use"
        *
        * @var string
        */
       const P_CONTROLLER = 'controller';
-
       /**
        * Defines a parameter as "controller method in use"
        *
        * @var string
        */
       const P_CONTROLLER_METHOD = 'controller_method';
-
       /**
        * Defines a parameter as "port in use"
        *
        * @var string
        */
       const P_PORT = 'port';
-
       /**
        * Defines a parameter as "request IP"
        *
        * @var string
        */
       const P_REMOTE_ADDR = 'remote_addr';
-
       /**
        * Defines a parameter as "request method"
        *
        * @var string
        */
       const P_REQUEST_METHOD = 'request_method';
-
       /**
        * Defines a parameter as "request scheme"
        *
        * @var string
        */
       const P_REQUEST_SCHEME = 'request_scheme';
-
       /**
        * Defines a parameter as "server internal IP"
        *
        * @var string
        */
       const P_SERVER_ADDR = 'server_addr';
-
       /**
        * Defines a parameter as "server name"
        *
        * @var string
        */
       const P_SERVER_NAME = 'server_name';
-
       /**
        * Defines a parameter as "Request headers set"
        *
        * @var string
        */
       const P_HEADERS = 'headers';
-
       /**
        * Defines a parameter as "request path"
        *
        * @var string
        */
       const P_REQUEST_PATH = 'request_path';
-
       /**
        * Defines a parameter as "memory allocated to PHP script via emalloc()"
        *
        * @var string
        */
       const P_MEMORY_USAGE = 'memory_usage';
-
       /**
        * Defines a parameter as "real memory allocated to PHP script"
        *
        * @var string
        */
       const P_REAL_MEMORY_USAGE = 'real_memory_usage';
-
       /**
        * Defines a parameter as "diff"
        *
        * @var string
        */
       const P_DIFF = '_diff';
-
+      /**
+       * Static reference to the last instance of the class
+       *
+       * @var Profiler
+       */
+      static $this;
       /**
        * Marks set
        *
@@ -156,6 +144,7 @@
        */
       function __construct() {
          $this->marks = [];
+         self::$this  = &$this;
       }
 
       /**

@@ -32,6 +32,12 @@
        */
       const PREG_DELIMITER = '~';
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var Router
+       */
+      static $this;
+      /**
        * Default params for a route
        *
        * @var array
@@ -145,6 +151,8 @@
        * @return Router
        */
       function init() {
+         self::$this = &$this;
+
          return $this->initNoCall()->tryCall();
       }
 

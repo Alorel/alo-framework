@@ -18,6 +18,12 @@
    abstract class AbstractCache {
 
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var AbstractCache
+       */
+      static $this;
+      /**
        * Classes to check in "is_available()"
        *
        * @var array
@@ -39,6 +45,8 @@
          if(!Alo::$cache) {
             Alo::$cache = &$this;
          }
+
+         self::$this = &$this;
       }
 
       /**

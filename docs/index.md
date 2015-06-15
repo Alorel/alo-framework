@@ -228,6 +228,7 @@ Misc
 	* php_notice($msg)
 	* php_deprecated($msg)
 * PDO now used ERRMODE_EXCEPTION instead of ERRMODE_WARNING
+* Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
 
 
 

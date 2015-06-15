@@ -15,6 +15,12 @@
    abstract class AbstractController {
 
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var AbstractController
+       */
+      static $this;
+      /**
        * Whether to echo contents on object destruct
        *
        * @var boolean
@@ -31,6 +37,8 @@
       function __construct($echo_on_destruct = true) {
          ob_start();
          $this->echo_on_destruct = (bool)$echo_on_destruct;
+
+         self::$this = &$this;
       }
 
       /**

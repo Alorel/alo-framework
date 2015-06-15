@@ -15,6 +15,12 @@
    abstract class AbstractFileSystem {
 
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var AbstractFileSystem
+       */
+      static $this;
+      /**
        * Replacements for placeholders
        *
        * @var array
@@ -50,6 +56,8 @@
                date('l', $time)
             ]
          ];
+
+         self::$this = &$this;
       }
 
       /**

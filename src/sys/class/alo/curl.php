@@ -18,6 +18,13 @@
    class cURL {
 
       /**
+       * Static reference to the last instance of the class
+       *
+       * @var cURL
+       */
+      static $this;
+
+      /**
        * The cURL resource
        *
        * @var resource
@@ -84,6 +91,8 @@
                $this->setURL($url);
             }
          }
+
+         self::$this = &$this;
       }
 
       /**
