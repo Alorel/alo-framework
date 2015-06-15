@@ -6,7 +6,7 @@
    }
    ob_start();
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'log.php';
-   include_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'kint' . DIRECTORY_SEPARATOR . '_main.php';
+   include_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'kint' . DIRECTORY_SEPARATOR . 'Kint.class.php';
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'handler.php';
 
    spl_autoload_register('\Alo\Handler::autoloader');
