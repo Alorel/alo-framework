@@ -12,7 +12,7 @@ CREATE TABLE `alo_locale` (
 	`value` TEXT
 	        COLLATE `utf8mb4_general_ci` NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE KEY (`lang`, `page`, `key`)
+	UNIQUE KEY `lang_page_key` (`lang`, `page`, `key`)
 )
 	ENGINE = InnoDB
 	DEFAULT CHARSET = `utf8mb4`;

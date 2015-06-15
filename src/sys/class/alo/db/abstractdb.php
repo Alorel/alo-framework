@@ -85,7 +85,11 @@
        * @param string $cache Which cache interface to use
        */
       function __construct($cache) {
-         $this->cache = new $cache;
+         if(!\Alo::$cache) {
+            $this->cache = new $cache;
+         } else {
+            $this->cache = &\Alo::$cache;
+         }
 
          if(!Alo::$db) {
             Alo::$db = &$this;

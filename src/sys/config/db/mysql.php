@@ -1,6 +1,6 @@
 <?php
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
       die();
    }
@@ -49,3 +49,10 @@
     * @var string
     */
    define('ALO_MYSQL_CACHE_PREFIX', 'mysql_');
+
+   /**
+    * Connection charset for MySQL
+    *
+    * @var string
+    */
+   define('ALO_MYSQL_CHARSET', 'utf8mb4');

@@ -1,20 +1,5 @@
 <?php
 
-   use Alo\Cache\AbstractCache;
-   use Alo\CLI\Downloader;
-   use Alo\Controller\AbstractController;
-   use Alo\Controller\Router;
-   use Alo\Cron;
-   use Alo\cURL;
-   use Alo\Db\AbstractDb;
-   use Alo\Email;
-   use Alo\File;
-   use Alo\Profiler;
-   use Alo\Session\AbstractSession;
-   use Alo\SFTP;
-   use Alo\Validators\Form;
-   use Alo\Windows\Service;
-
    if(!defined('GEN_START')) {
       http_response_code(404);
       die();
@@ -44,107 +29,114 @@
       /**
        * SFTP connection manager
        *
-       * @var SFTP
+       * @var Alo\SFTP
        */
       static $sftp;
 
       /**
        * Code profiler
        *
-       * @var Profiler
+       * @var Alo\Profiler
        */
       static $profiler;
 
       /**
        * File manager
        *
-       * @var File
+       * @var Alo\File
        */
       static $file;
 
       /**
        * Email manager
        *
-       * @var Email
+       * @var Alo\Email
        */
       static $email;
 
       /**
        * Object-oriented cURL wrapper
        *
-       * @var cURL
+       * @var Alo\cURL
        */
       static $curl;
 
       /**
        * Crontab manager
        *
-       * @var Cron
+       * @var Alo\Cron
        */
       static $cron;
 
       /**
        * HTML form validator
        *
-       * @var Form
+       * @var Alo\Validators\Form
        */
       static $form_validator;
 
       /**
        * Database connection
        *
-       * @var AbstractDb
+       * @var Alo\Db\AbstractDb
        */
       static $db;
 
       /**
        * Cache instance
        *
-       * @var AbstractCache
+       * @var Alo\Cache\AbstractCache
        */
       static $cache;
 
       /**
        * The session handler
        *
-       * @var AbstractSession
+       * @var Alo\Session\AbstractSession
        */
       static $session;
 
       /**
        * The loaded controller
        *
-       * @var AbstractController
+       * @var Alo\Controller\AbstractController
        */
       static $controller;
 
       /**
        * The routing class
        *
-       * @var Router
+       * @var Alo\Controller\Router
        */
       static $router;
 
       /**
        * Windows service handler
        *
-       * @var Service
+       * @var Alo\Windows\Service
        */
       static $service;
 
       /**
        * Download manager
        *
-       * @var Downloader
+       * @var Alo\CLI\Downloader
        */
       static $downloader;
+
+      /**
+       * Locale manager
+       *
+       * @var Alo\Locale
+       */
+      static $locale;
 
       /**
        * Loads a session
        *
        * @param string $type The session class name - see Alo::SESS_* constants
        *
-       * @return AbstractSession
+       * @return Alo\Session\AbstractSession
        * @see self::SESS_MYSQL
        * @see self::SESS_MEMCACHED
        */

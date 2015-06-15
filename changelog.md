@@ -1,4 +1,8 @@
 # 1.2 (pending) #
+Bugs fixed
+
+* MemcachedWrapper->getAll() now returns correct results when running the Windows version of Memcache
+* AbstractDB can now reuse Alo::$cache instead of instantiating a new class
 
 Renamed classes
 
@@ -6,12 +10,14 @@ Renamed classes
 
 Misc
 
-* ALO_SESSION_SECURE constant added. Determines whether the session cookie should only be sent via SSL.
+* ALO_SESSION_SECURE config constant added. Determines whether the session cookie should only be sent via SSL.
+* ALO_MYSQL_CHARSET config constant added. Determines the connection charset.
 * Global shorthands added for trigger_error():
 	* php_error($msg)
 	* php_warning($msg)
 	* php_notice($msg)
 	* php_deprecated($msg)
+* PDO now used ERRMODE_EXCEPTION instead of ERRMODE_WARNING
 
 # 1.1.1 (2015-05-31) #
 Misc

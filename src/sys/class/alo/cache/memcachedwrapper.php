@@ -229,30 +229,31 @@
        * @return array
        */
       protected function getAllMemcache() {
-         $dump  = [];
-         $slabs = $this->client->getextendedstats('slabs');
+         $dump     = [];
+         $allSlabs = $this->client->getExtendedStats('slabs');
+         ob_start();
 
-         foreach($slabs as $serverSlabs) {
-            $keys = array_keys($serverSlabs);
-
-            foreach($keys as $k) {
-               if(is_numeric($k)) {
-                  try {
-                     $d = $this->client->getextendedstats('cachedump', (int)$k, 1000);
-
-                     foreach($d as $data) {
-                        if($data) {
-                           foreach($data as $mc_key => $row) {
-                              $dump[$mc_key] = $row[0];
+         foreach($allSlabs as $server => $slabs) {
+            foreach($slabs AS $slabId => $slabMeta) {
+               try {
+                  if($cdump = $this->client->getExtendedStats('cachedump', (int)$slabId)) {
+                     foreach($cdump AS $keys => $arrVal) {
+                        if(is_array($arrVal)) {
+                           foreach($arrVal AS $k => $v) {
+                              if($k != 'CLIENT_ERROR') {
+                                 $dump[$k] = $this->get($k);
+                              }
                            }
                         }
                      }
-                  } catch(\Exception $e) {
-                     continue;
                   }
+               } catch(\Exception $e) {
+                  continue;
                }
             }
          }
+
+         ob_end_clean();
 
          return $dump;
       }

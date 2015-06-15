@@ -1,4 +1,15 @@
-<div>I am the sample view. If you pass me the variable 'foo' I will display its value here:<span style = "font-weight:bold"><?= $foo ?></span></div>
+<?php
+   //@todo remove this bit
+
+   use Alo\Locale;
+
+   Alo::$db = new \Alo\Db\MySQL();
+   $loc     = new Locale();
+   $loc->fetch(['test'], ALO_LOCALE_DEFAULT, 'ru');
+
+
+?>
+<div>ептI am the sample view. If you pass me the variable 'foo' I will display its value here:<span style="font-weight:bold"><?= $foo ?></span></div>
 <div>The sample router config file should contain the following:<pre>
    //Controller called for error page handling
    $error_controller_class = 'SampleErrorController';

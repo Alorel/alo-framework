@@ -4,7 +4,6 @@
       http_response_code(404);
       die();
    }
-
    ob_start();
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'log.php';
    include_once DIR_SYS . 'external' . DIRECTORY_SEPARATOR . 'kint' . DIRECTORY_SEPARATOR . '_main.php';
@@ -163,53 +162,58 @@
 
    /**
     * Triggers a PHP-level error with the level E_USER_ERROR
+    *
     * @author Art <a.molcanovas@gmail.com>
+    *
     * @param string $msg Error message
     *
-    * @link http://php.net/manual/en/function.trigger-error.php
+    * @link   http://php.net/manual/en/function.trigger-error.php
     * @return bool
     */
    function php_error($msg) {
-      return trigger_error($msg,E_USER_ERROR);
+      return trigger_error($msg, E_USER_ERROR);
    }
-
 
    /**
     * Triggers a PHP-level error with the level E_USER_WARNING
+    *
     * @author Art <a.molcanovas@gmail.com>
+    *
     * @param string $msg Error message
     *
-    * @link http://php.net/manual/en/function.trigger-error.php
+    * @link   http://php.net/manual/en/function.trigger-error.php
     * @return bool
     */
    function php_warning($msg) {
-      return trigger_error($msg,E_USER_WARNING);
+      return trigger_error($msg, E_USER_WARNING);
    }
-
 
    /**
     * Triggers a PHP-level error with the level E_USER_NOTICE
+    *
     * @author Art <a.molcanovas@gmail.com>
+    *
     * @param string $msg Error message
     *
-    * @link http://php.net/manual/en/function.trigger-error.php
+    * @link   http://php.net/manual/en/function.trigger-error.php
     * @return bool
     */
    function php_notice($msg) {
-      return trigger_error($msg,E_USER_NOTICE);
+      return trigger_error($msg, E_USER_NOTICE);
    }
-
 
    /**
     * Triggers a PHP-level error with the level E_USER_DEPRECATED
+    *
     * @author Art <a.molcanovas@gmail.com>
+    *
     * @param string $msg Error message
     *
-    * @link http://php.net/manual/en/function.trigger-error.php
+    * @link   http://php.net/manual/en/function.trigger-error.php
     * @return bool
     */
    function php_deprecated($msg) {
-      return trigger_error($msg,E_USER_DEPRECATED);
+      return trigger_error($msg, E_USER_DEPRECATED);
    }
 
    require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';

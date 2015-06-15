@@ -46,9 +46,10 @@
                            $db = ALO_MYSQL_DATABASE,
                            $cache = ALO_MYSQL_CACHE,
                            array $options = null) {
-         $this->pdo = new PDO('mysql:dbname=' . $db . ';host=' . $ip . ';port=' . $port, $user, $pw, $options);
 
-         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+         $this->pdo = new PDO('mysql:dbname=' . $db . ';host=' . $ip . ';charset=' . ALO_MYSQL_CHARSET . ';port=' . $port, $user, $pw, $options);
+
+         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
          $this->cache_prefix = ALO_MYSQL_CACHE_PREFIX;
