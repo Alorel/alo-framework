@@ -1,10 +1,7 @@
-@import "_kint.less";
-
-@default-font: Consolas, "Courier New", monospace;
-@spacing : 4;
+@import "../base";
 
 @main-background: #e0eaef;
-@secondary-background : #c1d4df;
+@secondary-background: #c1d4df;
 
 @text-color: #1d1e1e;
 @variable-name-color: #1d1e1e;
@@ -22,24 +19,21 @@
 
 .kint {
   > dl > dt {
-    background : -webkit-linear-gradient(top, #e3ecf0 0, #c0d4df 100%);
     background : linear-gradient(to bottom, #e3ecf0 0, #c0d4df 100%);
   }
 
   ul.kint-tabs {
-    background : -webkit-linear-gradient(top, #9dbed0 0px, #b2ccda 100%);
     background : linear-gradient(to bottom, #9dbed0 0px, #b2ccda 100%);
   }
 
-  &:not(.kint-trace) > dl > dd > ul.kint-tabs li {
+  & > dl:not(.kint-trace) > dd > ul.kint-tabs li {
     background : @main-background;
     &.kint-active-tab {
       background : @secondary-background;
     }
   }
 
-  &.kint-trace > dl > dt {
-    background : -webkit-linear-gradient(top, #c0d4df 0px, #e3ecf0 100%);
+  & > dl.kint-trace > dt {
     background : linear-gradient(to bottom, #c0d4df 0px, #e3ecf0 100%);
   }
 

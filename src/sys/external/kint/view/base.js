@@ -1,6 +1,6 @@
 /**
-java -jar compiler.jar --js $FileName$ --js_output_file ../inc/kint.js --compilation_level ADVANCED_OPTIMIZATIONS --output_wrapper "(function(){%output%})()"
-*/
+ java -jar compiler.jar --js $FileName$ --js_output_file ../inc/kint.js --compilation_level ADVANCED_OPTIMIZATIONS --output_wrapper "(function(){%output%})()"
+ */
 
 if ( typeof kintInitialized === 'undefined' ) {
 	kintInitialized = 1;
@@ -10,38 +10,39 @@ if ( typeof kintInitialized === 'undefined' ) {
 
 		selectText : function( element ) {
 			var selection = window.getSelection(),
-				range = document.createRange();
+			    range = document.createRange();
 
 			range.selectNodeContents(element);
 			selection.removeAllRanges();
 			selection.addRange(range);
 		},
 
+		each : function( selector, callback ) {
+			Array.prototype.slice.call(document.querySelectorAll(selector), 0).forEach(callback)
+		},
+
 		hasClass : function( target, className ) {
+			if ( !target.classList ) return false;
+
 			if ( typeof className === 'undefined' ) {
 				className = 'kint-show';
 			}
-
-			return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+			return target.classList.contains(className);
 		},
 
-		addClass : function( ele, className ) {
+		addClass : function( target, className ) {
 			if ( typeof className === 'undefined' ) {
 				className = 'kint-show';
 			}
-
-			kint.removeClass(ele, className).className += (" " + className);
+			target.classList.add(className);
 		},
 
-		removeClass : function( ele, className ) {
+		removeClass : function( target, className ) {
 			if ( typeof className === 'undefined' ) {
 				className = 'kint-show';
 			}
-
-			ele.className = ele.className.replace(
-				new RegExp('(\\s|^)' + className + '(\\s|$)'), ' '
-			);
-			return ele;
+			target.classList.remove(className);
+			return target;
 		},
 
 		next : function( element ) {
@@ -68,7 +69,8 @@ if ( typeof kintInitialized === 'undefined' ) {
 			if ( parent.childNodes.length === 1 ) {
 				parent = parent.childNodes[0].childNodes[0]; // reuse variable cause I can
 
-				if ( kint.hasClass(parent, 'kint-parent') ) {
+				// parent is checked in case of empty <pre> when array("\n") is dumped
+				if ( parent && kint.hasClass(parent, 'kint-parent') ) {
 					kint.toggle(parent, hide)
 				}
 			}
@@ -90,9 +92,9 @@ if ( typeof kintInitialized === 'undefined' ) {
 		},
 
 		toggleAll : function( caret ) {
-			var elements = document.getElementsByClassName('kint-parent'),
-				i = elements.length,
-				visible = kint.hasClass(caret.parentNode);
+			var elements = document.getElementsByClassName('kint-parent')
+				, i = elements.length
+				, visible = kint.hasClass(caret.parentNode);
 
 			while ( i-- ) {
 				kint.toggle(elements[i], visible);
@@ -128,9 +130,7 @@ if ( typeof kintInitialized === 'undefined' ) {
 		isSibling : function( el ) {
 			for ( ; ; ) {
 				el = el.parentNode;
-				if ( !el || kint.hasClass(el, 'kint') ) {
-					break;
-				}
+				if ( !el || kint.hasClass(el, 'kint') ) break;
 			}
 
 			return !!el;
@@ -138,14 +138,62 @@ if ( typeof kintInitialized === 'undefined' ) {
 
 		fetchVisiblePluses : function() {
 			kint.visiblePluses = [];
-			Array.prototype.slice.call(document.querySelectorAll('.kint nav, .kint-tabs>li:not(.kint-active-tab)'), 0)
-				.forEach(
-				function( el ) {
-					if ( el.offsetWidth !== 0 || el.offsetHeight !== 0 ) {
-						kint.visiblePluses.push(el)
-					}
+			kint.each('.kint nav, .kint-tabs>li:not(.kint-active-tab)', function( el ) {
+				if ( el.offsetWidth !== 0 || el.offsetHeight !== 0 ) {
+					kint.visiblePluses.push(el)
 				}
-			);
+			});
+		},
+
+		openInNewWindow : function( kintContainer ) {
+			var newWindow;
+
+			if ( newWindow = window.open() ) {
+				newWindow.document.open();
+				newWindow.document.write(
+					'<html>'
+					+ '<head>'
+					+ '<title>Kint (' + new Date().toISOString() + ')</title>'
+					+ '<meta charset="utf-8">'
+					+ document.getElementsByClassName('-kint-js')[0].outerHTML
+					+ document.getElementsByClassName('-kint-css')[0].outerHTML
+					+ '</head>'
+					+ '<body>'
+					+ '<input style="width: 100%" placeholder="Take some notes!">'
+					+ '<div class="kint">'
+					+ kintContainer.parentNode.outerHTML
+					+ '</div></body>'
+				);
+				newWindow.document.close();
+			}
+		},
+
+		sortTable : function( table, column ) {
+			var tbody = table.tBodies[0];
+
+			var format = function( s ) {
+				var n = column === 1 ? s.replace(/^#/, '') : s;
+				if ( isNaN(n) ) {
+					return s.trim().toLocaleLowerCase();
+				} else {
+					n = parseFloat(n);
+					return isNaN(n) ? s.trim() : n;
+				}
+			};
+
+
+			[].slice.call(table.tBodies[0].rows)
+				.sort(function( a, b ) {
+					a = format(a.cells[column].textContent);
+					b = format(b.cells[column].textContent);
+					if ( a < b ) return -1;
+					if ( a > b ) return 1;
+
+					return 0;
+				})
+				.forEach(function( el ) {
+					tbody.appendChild(el);
+				});
 		},
 
 		keyCallBacks : {
@@ -201,6 +249,11 @@ if ( typeof kintInitialized === 'undefined' ) {
 		} else if ( nodeName === 'var' ) { // stupid workaround for misc elements
 			target = target.parentNode;    // to not stop event from further propagating
 			nodeName = target.nodeName.toLowerCase()
+		} else if ( nodeName === 'th' ) {
+			if ( !e.ctrlKey ) {
+				kint.sortTable(target.parentNode.parentNode.parentNode, target.cellIndex)
+			}
+			return false;
 		}
 
 		// switch tabs
@@ -214,16 +267,27 @@ if ( typeof kintInitialized === 'undefined' ) {
 
 		// handle clicks on the navigation caret
 		if ( nodeName === 'nav' ) {
-			// ensure doubleclick has different behaviour, see below
-			setTimeout(function() {
-				var timer = parseInt(target.kintTimer, 10);
-				if ( timer > 0 ) {
-					target.kintTimer--;
+			// special case for nav in footer
+			if ( target.parentNode.nodeName.toLowerCase() === 'footer' ) {
+				target = target.parentNode;
+				if ( kint.hasClass(target) ) {
+					kint.removeClass(target)
 				} else {
-					kint.toggleChildren(target.parentNode); // <dt>
-					if ( kint.currentPlus !== -1 ) kint.fetchVisiblePluses();
+					kint.addClass(target)
 				}
-			}, 300);
+			} else {
+				// ensure doubleclick has different behaviour, see below
+				setTimeout(function() {
+					var timer = parseInt(target.kintTimer, 10);
+					if ( timer > 0 ) {
+						target.kintTimer--;
+					} else {
+						kint.toggleChildren(target.parentNode); // <dt>
+						if ( kint.currentPlus !== -1 ) kint.fetchVisiblePluses();
+					}
+				}, 300);
+			}
+
 			e.stopPropagation();
 			return false;
 		} else if ( kint.hasClass(target, 'kint-parent') ) {
@@ -236,13 +300,25 @@ if ( typeof kintInitialized === 'undefined' ) {
 			ajax.open('GET', target.href);
 			ajax.send(null);
 			return false;
+		} else if ( kint.hasClass(target, 'kint-popup-trigger') ) {
+			var kintContainer = target.parentNode;
+			if ( kintContainer.nodeName.toLowerCase() === 'footer' ) {
+				kintContainer = kintContainer.previousSibling;
+			} else {
+				while ( kintContainer && !kint.hasClass(kintContainer, 'kint-parent') ) {
+					kintContainer = kintContainer.parentNode;
+				}
+			}
+
+			kint.openInNewWindow(kintContainer);
+		} else if ( nodeName === 'pre' && e.detail === 3 ) { // triple click pre to select it all
+			kint.selectText(target);
 		}
 	}, false);
 
 	window.addEventListener("dblclick", function( e ) {
 		var target = e.target;
 		if ( !kint.isSibling(target) ) return;
-
 
 		if ( target.nodeName.toLowerCase() === 'nav' ) {
 			target.kintTimer = 2;
@@ -253,10 +329,10 @@ if ( typeof kintInitialized === 'undefined' ) {
 	}, false);
 
 	// keyboard navigation
-	window.onkeydown = function( e ) {
+	window.onkeydown = function( e ) { // direct assignment is used to have priority over ex FAYT
 
-		// do nothing if alt key is pressed or if we're actually typing somewhere
-		if ( e.target !== document.body || e.altKey ) return;
+		// do nothing if alt/ctrl key is pressed or if we're actually typing somewhere
+		if ( e.target !== document.body || e.altKey || e.ctrlKey ) return;
 
 		var keyCode = e.keyCode
 			, shiftKey = e.shiftKey
@@ -280,10 +356,6 @@ if ( typeof kintInitialized === 'undefined' ) {
 				return kint.keyCallBacks.moveCursor(true, i);
 			} else if ( keyCode === 40 ) { // ARROW DOWN : down
 				return kint.keyCallBacks.moveCursor(false, i);
-			} else {
-				if ( i === -1 ) {
-					return;
-				}
 			}
 		}
 
@@ -334,6 +406,27 @@ if ( typeof kintInitialized === 'undefined' ) {
 			return false;
 		}
 	};
+
+	window.addEventListener("load", function( e ) { // colorize microtime results relative to others
+		var elements = Array.prototype.slice.call(document.querySelectorAll('.kint-microtime'), 0);
+		elements.forEach(function( el ) {
+			var value = parseFloat(el.innerHTML)
+				, min = Infinity
+				, max = -Infinity
+				, ratio;
+
+			elements.forEach(function( el ) {
+				var val = parseFloat(el.innerHTML);
+
+				if ( min > val ) min = val;
+				if ( max < val ) max = val;
+			});
+
+			ratio = 1 - (value - min) / (max - min);
+
+			el.style.background = 'hsl(' + Math.round(ratio * 120) + ',60%,70%)';
+		});
+	});
 }
 
 // debug purposes only, removed in minified source
