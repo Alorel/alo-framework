@@ -59,7 +59,7 @@
             \Alo::$db = new MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');
          }
 
-         if(!\Alo::$session || !(\Alo::$session instanceof MySQLSessionTest)) {
+         if(!\Alo::$session || !(\Alo::$session instanceof MySQLSession)) {
             \Alo::$db->query('CREATE TABLE IF NOT EXISTS `alo_session` (
   `id`     CHAR(128)
            CHARACTER SET `ascii` NOT NULL,
@@ -71,7 +71,7 @@
   ENGINE =InnoDB
   DEFAULT CHARSET =`utf8mb4`;');
 
-            \Alo::$session = new MySQLSessionTest();
+            \Alo::$session = new MySQLSession();
          }
 
          return \Alo::$session;
