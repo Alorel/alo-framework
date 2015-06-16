@@ -1,6 +1,6 @@
 ![Logo](https://cloud.githubusercontent.com/assets/4998038/7528096/370297ba-f51b-11e4-9c26-5d01ac66fc4d.png)
 
-[![Licence](https://img.shields.io/github/license/alorel/alo-framework.svg?style=plastic&label=Licence)](LICENSE)
+[![Code quality](https://img.shields.io/sensiolabs/i/3a3aec8e-7593-47ed-a0ae-19f428c0e879.svg?style=plastic)](Code quality) [![Licence](https://img.shields.io/github/license/alorel/alo-framework.svg?style=plastic&label=Licence)](LICENSE)
 
 [![NuGet release](http://img.shields.io/nuget/v/AloFramework.svg?label=NuGet%20release&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![NuGET pre-release](http://img.shields.io/nuget/vpre/AloFramework.svg?label=NuGet%20pre-release&color=orange&style=plastic)](https://www.nuget.org/packages/AloFramework/) 
 
@@ -231,6 +231,7 @@ Misc
 	* php_deprecated($msg)
 * PDO now used ERRMODE_EXCEPTION instead of ERRMODE_WARNING
 * Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
+* A plethora of code quality improvements with the help of Sensio Labs Insights
 
 
 

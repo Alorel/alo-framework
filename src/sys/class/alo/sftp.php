@@ -278,7 +278,7 @@
           * @throws SE When the connection ultimately fails
           */
          function connect($attempt = 0) {
-            if(!($this->connection = @ssh2_connect($this->url))) {
+            if(!($this->connection = ssh2_connect($this->url))) {
                $msg = 'Failed to initialise SSH2 connection';
                $attempt++;
 
