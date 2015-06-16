@@ -352,7 +352,7 @@
           */
          function close() {
             if($this->is_open) {
-               @curl_close($this->ch);
+               curl_close($this->ch);
                $this->is_open = false;
                Log::debug('Closed cURL connection');
             }
