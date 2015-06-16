@@ -1,0 +1,8 @@
+exclude_patterns:
+ - docs/*
+ - tests/*
+ - src/sys/external/*
+ - phpunit.php
+rules:
+ php.use_global_variable_or_function:
+  enabled: false
