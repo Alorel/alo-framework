@@ -13,8 +13,8 @@ services:
 before_install:
   - sudo apt-get install memcached -y -qq
   - sudo /etc/init.d/memcached start
-  - composer self-update
-  - composer install --prefer-source --no-interaction --dev
+#  - composer self-update
+#  - composer install --prefer-source --no-interaction --dev
 
 before_script:
   - phpenv config-add phpunit.cnf.ini
@@ -23,5 +23,5 @@ before_script:
 script: phpunit
 
 notifications:
-  on_success: never
+  on_success: change
   on_failure: always
