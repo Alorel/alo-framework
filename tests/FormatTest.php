@@ -5,6 +5,7 @@
    class FormatTest extends \PHPUnit_Framework_TestCase {
 
       function testIPv4() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $true = [
             '111.1.11.111',
             '0.0.0.0',
@@ -20,25 +21,25 @@
             new \stdClass()
          ];
 
-         foreach ($true as $input) {
+         foreach($true as $input) {
             $this->assertTrue(Format::is_ipv4_ip($input), _unit_dump($input));
          }
 
-         foreach ($false as $input) {
+         foreach($false as $input) {
             $this->assertFalse(Format::is_ipv4_ip($input), _unit_dump($input));
          }
       }
 
       function testIsJSON() {
-         $true = ['"foo"', 'true', 'false', '[1,2,3]', '[]', '{}', '{"foo":1}'];
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         $true  = ['"foo"', 'true', 'false', '[1,2,3]', '[]', '{}', '{"foo":1}'];
          $false = ['foo', [], '{foo: bar}'];
 
-         foreach ($true as $v) {
+         foreach($true as $v) {
             $this->assertTrue(Format::isJSON($v), _unit_dump($v));
          }
-         foreach ($false as $v) {
+         foreach($false as $v) {
             $this->assertFalse(Format::isJSON($v), _unit_dump($v));
          }
       }
    }
- 

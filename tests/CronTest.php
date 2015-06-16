@@ -5,11 +5,13 @@
    class CronTest extends \PHPUnit_Framework_TestCase {
 
       function testFunctionAvailable() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(function_exists('server_is_windows'));
       }
 
       function testClear() {
-         if (!\server_is_windows()) {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         if(!\server_is_windows()) {
             $c = new Cron();
 
             $initial = $c->getCrontab();
@@ -19,8 +21,8 @@
             $post_append = $c->getCrontab();
 
             $c->commit()
-               ->reloadCrontab()
-               ->clearCrontab();
+              ->reloadCrontab()
+              ->clearCrontab();
 
             $post_clear = $c->getCrontab();
 
@@ -28,24 +30,26 @@
 
             $final = $c->getCrontab();
 
-            $this->assertEmpty($final, _unit_dump([
-               'initial'     => $initial,
-               'post_append' => $post_append,
-               'post_clear'  => $post_clear,
-               'final'       => $final
-            ]));
+            $this->assertEmpty($final,
+                               _unit_dump([
+                                             'initial'     => $initial,
+                                             'post_append' => $post_append,
+                                             'post_clear'  => $post_clear,
+                                             'final'       => $final
+                                          ]));
          }
       }
 
       function testAppend() {
-         if (!\server_is_windows()) {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         if(!\server_is_windows()) {
             $c = new Cron();
 
             $initial = $c->getCrontab();
 
             $c->clearCrontab()
-               ->commit()
-               ->reloadCrontab();
+              ->commit()
+              ->reloadCrontab();
 
             $post_reload = $c->getCrontab();
 
@@ -54,21 +58,23 @@
             $post_append = $c->getCrontab();
 
             $c->commit()
-               ->reloadCrontab();
+              ->reloadCrontab();
 
             $final = $c->getCrontab();
 
-            $this->assertNotEmpty($final, _unit_dump([
-               'initial'     => $initial,
-               'post_reload' => $post_reload,
-               'post_append' => $post_append,
-               'final'       => $final
-            ]));
+            $this->assertNotEmpty($final,
+                                  _unit_dump([
+                                                'initial'     => $initial,
+                                                'post_reload' => $post_reload,
+                                                'post_append' => $post_append,
+                                                'final'       => $final
+                                             ]));
          }
       }
 
       function testAutocommitAndGetAtIndex() {
-         if (!\server_is_windows()) {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         if(!\server_is_windows()) {
             $c = new Cron();
 
             $c->autocommit(true)->clearCrontab()->appendCrontab('php foo.php');
@@ -85,4 +91,3 @@
       }
 
    }
- 

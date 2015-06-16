@@ -8,6 +8,7 @@
        * @dataProvider definedProvider
        */
       function testDefined($key) {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(defined($key), $key . ' wasn\'t defined');
       }
 
@@ -28,10 +29,12 @@
        * @expectedException PDOException
        */
       function testInvalidConstructorCredentials() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          new Alo\Db\MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'bad_table');
       }
 
       function testPrepare() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $sql = self::new_mysql();
 
          self::create_sql();
@@ -42,7 +45,8 @@
       }
 
       protected static function new_mysql() {
-         if(!Alo::$db) {
+         phpunit_debug('[MySQLTest] new_mysql() called');
+         if(!Alo::$db || !(Alo::$db instanceof \Alo\Db\MySQL)) {
             Alo::$db = new Alo\Db\MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');
          }
 
@@ -50,6 +54,7 @@
       }
 
       protected static function create_sql($cols = 1) {
+         phpunit_debug('[MySQLTest] create_sql called');
          self::delete_sql();
          $sql = 'CREATE TABLE `test_table` (';
 
@@ -61,10 +66,12 @@
       }
 
       protected static function delete_sql() {
+         phpunit_debug('[MySQLTest] delete_sql() called');
          self::new_mysql()->prepQuery('DROP TABLE IF EXISTS `test_table`');
       }
 
       function testInTransaction() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
 
          $this->assertFalse($db->transactionActive(), 'Transaction was active');
@@ -77,11 +84,12 @@
       }
 
       function testPrepQuery() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
          self::create_sql();
 
          $db->prepQuery('INSERT INTO `test_table` VALUES (?), (?), (?)', [1, 2, 3]);
-         $sel    = $db->prepQuery('SELECT * FROM test_table WHERE key0 > ?', [1]);
+         $sel    = $db->prepQuery('SELECT * FROM `test_table` WHERE `key0` > ?', [1]);
          $expect = [
             ['key0' => '2'],
             ['key0' => '3']
@@ -90,7 +98,7 @@
          $this->assertEquals($expect,
                              $sel,
                              _unit_dump([
-                                           'Insert query'  => 'INSERT INTO test_table VALUES (?), (?), (?)',
+                                           'Insert query'  => 'INSERT INTO `test_table` VALUES (?), (?), (?)',
                                            'Insert params' => [1, 2, 3],
                                            'PrepQuery'     => 'SELECT * FROM `test_table` WHERE `key0` > ?',
                                            'PrepParams'    => [1],
@@ -102,6 +110,7 @@
       }
 
       function testAggregate() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
          self::create_sql();
 
@@ -111,8 +120,8 @@
          $this->assertEquals(6,
                              $ag,
                              _unit_dump([
-                                           'PrepQuery'      => 'INSERT INTO test_table VALUES (1), (2), (3)',
-                                           'AggregateQuery' => 'SELECT SUM(key0) FROM test_table',
+                                           'PrepQuery'      => 'INSERT INTO `test_table` VALUES (1), (2), (3)',
+                                           'AggregateQuery' => 'SELECT SUM(`key0`) FROM `test_table`',
                                            'Expected'       => 6,
                                            'Actual'         => $ag
                                         ]));
@@ -121,13 +130,14 @@
       }
 
       function testCache() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
          $mc = self::mc();
          $mc->purge();
 
          self::create_sql();
 
-         $prep_sql    = 'INSERT INTO test_table VALUES (?), (?), (?)';
+         $prep_sql    = 'INSERT INTO `test_table` VALUES (?), (?), (?)';
          $prep_params = [1, 2, 3];
          $ag_sql      = 'SELECT SUM(`key0`) FROM `test_table`';
          $ag_settings = [
@@ -161,7 +171,8 @@
       }
 
       protected static function mc() {
-         if(!Alo::$cache) {
+         phpunit_debug('[MySQLTest] mc() called');
+         if(!Alo::$cache || !(Alo::$cache instanceof MemcachedWrapper)) {
             Alo::$cache = new MemcachedWrapper();
          }
 

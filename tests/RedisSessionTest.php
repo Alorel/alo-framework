@@ -10,6 +10,7 @@
        * @dataProvider definedProvider
        */
       function testDefined($key) {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(defined($key), $key . ' wasn\'t defined');
       }
 
@@ -25,6 +26,7 @@
       }
 
       function testSave() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $s = self::sess();
 
          $s->foo      = 'bar';
@@ -46,6 +48,7 @@
       }
 
       static function sess() {
+         phpunit_debug('[RedisSessionTest] sess()');
          if(!\Alo::$cache || !(\Alo::$cache instanceof RedisWrapper)) {
             \Alo::$cache = new RedisWrapper();
          }
@@ -58,12 +61,14 @@
       }
 
       function testToken() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $s = self::sess();
 
          $this->assertEquals($s->getTokenExpected(), $s->getTokenActual());
       }
 
       function testRefreshToken() {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $s = self::sess();
 
          $this->assertTrue($s->refreshToken());

@@ -8,48 +8,54 @@
        * @dataProvider trueProvider
        */
       function testTrue($validation_criteria, $validated_value, $validation_expected_outcome = true) {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $f = new F([
-            'foo' => $validated_value
-         ]);
+                       'foo' => $validated_value
+                    ]);
 
-         $f->bind('foo', [
-            $validation_criteria => $validation_expected_outcome
-         ]);
+         $f->bind('foo',
+                  [
+                     $validation_criteria => $validation_expected_outcome
+                  ]);
 
          $f->evaluate();
 
          $eval = $f->getEvaluation();
 
-         $this->assertTrue($eval['OK'], _unit_dump([
-            '$validated_value'             => $validated_value,
-            '$validation_criteria'         => $validation_criteria,
-            '$validation_expected_outcome' => $validation_expected_outcome,
-            '$eval'                        => $eval
-         ]));
+         $this->assertTrue($eval['OK'],
+                           _unit_dump([
+                                         '$validated_value'             => $validated_value,
+                                         '$validation_criteria'         => $validation_criteria,
+                                         '$validation_expected_outcome' => $validation_expected_outcome,
+                                         '$eval'                        => $eval
+                                      ]));
       }
 
       /**
        * @dataProvider falseProvider
        */
       function testFalse($validation_criteria, $validated_value, $validation_expected_outcome = true) {
+         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $f = new F([
-            'foo' => $validated_value
-         ]);
+                       'foo' => $validated_value
+                    ]);
 
-         $f->bind('foo', [
-            $validation_criteria => $validation_expected_outcome
-         ]);
+         $f->bind('foo',
+                  [
+                     $validation_criteria => $validation_expected_outcome
+                  ]);
 
          $f->evaluate();
 
          $eval = $f->getEvaluation();
 
-         $this->assertFalse($eval['OK'], _unit_dump([
-            '$validated_value'             => $validated_value,
-            '$validation_criteria'         => $validation_criteria,
-            '$validation_expected_outcome' => $validation_expected_outcome,
-            '$eval'                        => $eval
-         ]));
+         $this->assertFalse($eval['OK'],
+                            _unit_dump([
+                                          '$validated_value'             => $validated_value,
+                                          '$validation_criteria'         => $validation_criteria,
+                                          '$validation_expected_outcome' => $validation_expected_outcome,
+                                          '$eval'                        => $eval
+                                       ]));
       }
 
       function trueProvider() {
@@ -157,4 +163,3 @@
          ];
       }
    }
- 
