@@ -164,6 +164,7 @@
           * @uses   self::forceError()
           */
          protected function tryCall() {
+            /** @noinspection PhpUnusedLocalVariableInspection */
             $rc = $rm = $init = false;
 
             try {

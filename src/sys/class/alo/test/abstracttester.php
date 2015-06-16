@@ -207,6 +207,7 @@
             if(!is_string($name)) {
                throw new TE('The name must be a string!', TE::E_NAME_INVALID);
             } else {
+               /** @noinspection PhpDeprecationInspection */
                $this->queue[] = [
                   self::P_TYPE       => $type,
                   self::P_DEFINITION => [

@@ -67,7 +67,7 @@
             echo '<pre>';
             foreach($argv as $k => $v) {
                $k && print("\n\n");
-               echo kintLite($v);
+               echo s($v);
             }
             echo '</pre>' . "\n";
 

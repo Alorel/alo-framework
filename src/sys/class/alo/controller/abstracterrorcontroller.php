@@ -33,3 +33,4 @@
          abstract function displayErrorPage($code = 404);
       }
    }
+   

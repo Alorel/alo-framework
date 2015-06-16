@@ -148,7 +148,7 @@
          static function un_xss($item) {
             if(is_array($item)) {
                foreach($item as &$v) {
-                  $v = escape($item);
+                  $v = self::un_xss($item);
                }
 
                return $item;

@@ -168,6 +168,7 @@
                $path = substr($path, 0, -4);
             }
 
+            /** @noinspection PhpUnusedLocalVariableInspection */
             $final_path = '';
             if(file_exists($dir . $path . '.php')) {
                $final_path = $dir . $path . '.php';

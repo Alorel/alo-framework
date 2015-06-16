@@ -476,6 +476,7 @@
             $this->checkSubsystem();
             $remoteFile = $this->resolvePath($file);
 
+            /** @noinspection PhpDeprecationInspection */
             if(!$fp =
                @fopen('ssh2.sftp://' . $this->sftp . DIRECTORY_SEPARATOR . $remoteFile, File::M_WRITE_TRUNCATE_BEGIN)
             ) {

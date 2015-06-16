@@ -35,6 +35,7 @@
           * @throws TE When the Supplied object or its reflection/name is invalid.
           */
          function __construct($obj = null) {
+            /** @noinspection PhpDeprecationInspection */
             parent::__construct();
             if($obj) {
                $this->obj($obj);

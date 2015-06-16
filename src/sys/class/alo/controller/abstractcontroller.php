@@ -63,6 +63,7 @@
             $controller = \Alo::$router->getErrController();
 
             \Alo::$controller = new $controller;
+            /** @noinspection PhpUndefinedMethodInspection */
             \Alo::$controller->error($code);
             die();
          }
