@@ -20,4 +20,3 @@
          echo 'checking out!';
       }
    }
-   

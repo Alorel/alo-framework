@@ -120,7 +120,7 @@
    define('PHP_INT_MIN', ~PHP_INT_MAX);
 
    // Change dir to make sure CLI requests are correct
-   if (defined('STDIN')) {
+   if(defined('STDIN')) {
       chdir(dirname(__FILE__));
    }
 

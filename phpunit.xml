@@ -9,10 +9,10 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-	  >
-	<testsuites>
-		<testsuite name="Tests">
-			<directory>./tests/</directory>
-		</testsuite>
-	</testsuites>
+        >
+    <testsuites>
+        <testsuite name="Tests">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
