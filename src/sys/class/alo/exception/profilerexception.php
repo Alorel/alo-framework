@@ -2,29 +2,29 @@
 
    namespace Alo\Exception;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
-      die();
-   }
-
-   /**
-    * Profiler-related exceptions
-    *
-    * @author Art <a.molcanovas@gmail.com>
-    */
-   class ProfilerException extends AbstractException {
+   } else {
 
       /**
-       * Code when a referenced mark is not found
+       * Profiler-related exceptions
        *
-       * @var int
+       * @author Art <a.molcanovas@gmail.com>
        */
-      const E_MARK_NOT_SET = 100;
+      class ProfilerException extends AbstractException {
 
-      /**
-       * Code when a specified key is invalid
-       *
-       * @var int
-       */
-      const E_KEY_INVALID = 101;
+         /**
+          * Code when a referenced mark is not found
+          *
+          * @var int
+          */
+         const E_MARK_NOT_SET = 100;
+
+         /**
+          * Code when a specified key is invalid
+          *
+          * @var int
+          */
+         const E_KEY_INVALID = 101;
+      }
    }

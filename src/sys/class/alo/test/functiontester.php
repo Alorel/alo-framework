@@ -4,28 +4,28 @@
 
    if(!defined('GEN_START')) {
       http_response_code(404);
-      die();
-   }
-
-   /**
-    * Tests functions for output or return values
-    *
-    * @author     Art <a.molcanovas@gmail.com>
-    * @package    TestingSuite
-    * @deprecated Since v1.1
-    */
-   class FunctionTester extends AbstractTester {
+   } else {
 
       /**
-       * Returns the callable parameter for call_user_func_array()
+       * Tests functions for output or return values
        *
-       * @author Art <a.molcanovas@gmail.com>
-       *
-       * @param string $name Method name
-       *
-       * @return string
+       * @author     Art <a.molcanovas@gmail.com>
+       * @package    TestingSuite
+       * @deprecated Since v1.1
        */
-      protected function getCallable($name) {
-         return $name;
+      class FunctionTester extends AbstractTester {
+
+         /**
+          * Returns the callable parameter for call_user_func_array()
+          *
+          * @author Art <a.molcanovas@gmail.com>
+          *
+          * @param string $name Method name
+          *
+          * @return string
+          */
+         protected function getCallable($name) {
+            return $name;
+         }
       }
    }
