@@ -6,3 +6,5 @@ exclude_patterns:
 rules:
  php.use_global_variable_or_function:
   enabled: false
+ git.user_specific_ignored_file:
+  enabled: false
