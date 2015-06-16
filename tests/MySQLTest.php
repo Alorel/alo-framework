@@ -8,7 +8,7 @@
        * @dataProvider definedProvider
        */
       function testDefined($key) {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(defined($key), $key . ' wasn\'t defined');
       }
 
@@ -29,12 +29,12 @@
        * @expectedException PDOException
        */
       function testInvalidConstructorCredentials() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          new Alo\Db\MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'bad_table');
       }
 
       function testPrepare() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $sql = self::new_mysql();
 
          self::create_sql();
@@ -71,7 +71,7 @@
       }
 
       function testInTransaction() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
 
          $this->assertFalse($db->transactionActive(), 'Transaction was active');
@@ -84,7 +84,7 @@
       }
 
       function testPrepQuery() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
          self::create_sql();
 
@@ -110,7 +110,7 @@
       }
 
       function testAggregate() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
          self::create_sql();
 
@@ -130,7 +130,7 @@
       }
 
       function testCache() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
+         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
          $mc = self::mc();
          $mc->purge();
