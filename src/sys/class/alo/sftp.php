@@ -416,7 +416,7 @@
             $this->checkSubsystem();
             $remoteFile = $this->resolvePath($file);
 
-            $file = @file_get_contents('ssh2.sftp://' . $this->sftp . '/' . $remoteFile);
+            $file = file_get_contents('ssh2.sftp://' . $this->sftp . '/' . $remoteFile);
             if($file === false) {
                throw new SE('Failed to fetch file ' . $remoteFile, SE::E_FILE_NOT_FETCHED);
             } else {
@@ -452,7 +452,7 @@
             $this->checkSubsystem();
             $path = $this->local_dir . DIRECTORY_SEPARATOR . $file;
 
-            if(!$content = @file_get_contents($path)) {
+            if(!$content = file_get_contents($path)) {
                throw new SE('Local file ' . $path . ' cannot be read', SE::E_LOCAL_FILE_NOT_READ);
             } else {
                \Log::debug('Uploading remote file ' . $file);
