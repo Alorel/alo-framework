@@ -130,44 +130,45 @@
       }
 
       function testCache() {
-         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
-         $db = self::new_mysql();
-         $mc = self::mc();
-         $mc->purge();
+         if(!server_is_windows()) {
+            $db = self::new_mysql();
+            $mc = self::mc();
+            $mc->purge();
 
-         self::create_sql();
+            self::create_sql();
 
-         $prep_sql    = 'INSERT INTO `test_table` VALUES (?), (?), (?)';
-         $prep_params = [1, 2, 3];
-         $ag_sql      = 'SELECT SUM(`key0`) FROM `test_table`';
-         $ag_settings = [
-            Alo\Db\MySQL::V_CACHE => true,
-            Alo\Db\MySQL::V_TIME  => 20
-         ];
+            $prep_sql    = 'INSERT INTO `test_table` VALUES (?), (?), (?)';
+            $prep_params = [1, 2, 3];
+            $ag_sql      = 'SELECT SUM(`key0`) FROM `test_table`';
+            $ag_settings = [
+               Alo\Db\MySQL::V_CACHE => true,
+               Alo\Db\MySQL::V_TIME  => 20
+            ];
 
-         $db->prepQuery($prep_sql, $prep_params);
+            $db->prepQuery($prep_sql, $prep_params);
 
-         $agg = $db->aggregate($ag_sql, null, $ag_settings);
+            $agg = $db->aggregate($ag_sql, null, $ag_settings);
 
-         $last_hash = $db->getLastHash();
-         $get_all   = $mc->getAll();
-         $get       = $mc->get($last_hash);
+            $last_hash = $db->getLastHash();
+            $get_all   = $mc->getAll();
+            $get       = $mc->get($last_hash);
 
-         $this->assertArrayHasKey($last_hash,
-                                  $get_all,
-                                  _unit_dump([
-                                                'last_hash' => $last_hash,
-                                                'get_all'   => $get_all,
-                                             ]));
+            $this->assertArrayHasKey($last_hash,
+                                     $get_all,
+                                     _unit_dump([
+                                                   'last_hash' => $last_hash,
+                                                   'get_all'   => $get_all,
+                                                ]));
 
-         $this->assertEquals($agg,
-                             $get,
-                             _unit_dump([
-                                           'aggregate' => $agg,
-                                           'get'       => $get,
-                                        ]));
+            $this->assertEquals($agg,
+                                $get,
+                                _unit_dump([
+                                              'aggregate' => $agg,
+                                              'get'       => $get,
+                                           ]));
 
-         self::delete_sql();
+            self::delete_sql();
+         }
       }
 
       protected static function mc() {
