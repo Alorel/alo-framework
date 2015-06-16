@@ -1,6 +1,6 @@
 ![Logo](https://cloud.githubusercontent.com/assets/4998038/7528096/370297ba-f51b-11e4-9c26-5d01ac66fc4d.png)
 
-[![Code quality](https://img.shields.io/sensiolabs/i/3a3aec8e-7593-47ed-a0ae-19f428c0e879.svg?style=plastic)](Code quality) [![Licence](https://img.shields.io/github/license/alorel/alo-framework.svg?style=plastic&label=Licence)](LICENSE)
+[![Licence](https://img.shields.io/github/license/alorel/alo-framework.svg?style=plastic&label=Licence)](LICENSE)
 
 [![NuGet release](http://img.shields.io/nuget/v/AloFramework.svg?label=NuGet%20release&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![NuGET pre-release](http://img.shields.io/nuget/vpre/AloFramework.svg?label=NuGet%20pre-release&color=orange&style=plastic)](https://www.nuget.org/packages/AloFramework/) 
 
@@ -10,6 +10,8 @@
 
 
 Latest release: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=1.1.1)](https://travis-ci.org/Alorel/alo-framework) Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework) Dev: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
+
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/big.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879)
 
 ----------
 
@@ -215,6 +217,9 @@ Bugs fixed
 
 * MemcachedWrapper->getAll() now returns correct results when running the Windows version of Memcache
 * AbstractDB can now reuse Alo::$cache instead of instantiating a new class
+
+PSR-1 standards-compliant renames:
+* AbstractController->http_error() renamed to httpError()
 
 Renamed classes
 

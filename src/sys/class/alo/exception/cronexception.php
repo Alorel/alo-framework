@@ -14,25 +14,18 @@
       class CronException extends AbstractException {
 
          /**
-          * Code when the minute expression is invalid
-          *
-          * @var int
-          */
-         const E_INVALID_MIN = 101;
-
-         /**
           * Code when the schedule expression is invalid
           *
           * @var int
           */
-         const E_INVALID_EXPR = 102;
+         const E_INVALID_EXPR = 101;
 
          /**
           * Code when one or more arguments are non-scalar
           *
           * @var int
           */
-         const E_ARGS_NONSCALAR = 103;
+         const E_ARGS_NONSCALAR = 102;
 
       }
    }

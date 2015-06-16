@@ -4,6 +4,9 @@ Bugs fixed
 * MemcachedWrapper->getAll() now returns correct results when running the Windows version of Memcache
 * AbstractDB can now reuse Alo::$cache instead of instantiating a new class
 
+PSR-1 standards-compliant renames:
+* AbstractController->http_error() renamed to httpError()
+
 Renamed classes
 
 * SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.

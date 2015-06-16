@@ -301,13 +301,13 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param int        $index        The job index in the crontab array
-          * @param string     $command      The command to run
-          * @param int|string $minute_const The minute parameter
-          * @param int|string $hour         The hour parameter
-          * @param int|string $day          The day of the month parameter
-          * @param int|string $month        The month parameter
-          * @param int|string $weekday      The day of the week parameter
+          * @param int        $index   The job index in the crontab array
+          * @param string     $command The command to run
+          * @param int|string $minute  The minute parameter
+          * @param int|string $hour    The hour parameter
+          * @param int|string $day     The day of the month parameter
+          * @param int|string $month   The month parameter
+          * @param int|string $weekday The day of the week parameter
           *
           * @return Cron
           * @throws CE When the minute expression is invalid
@@ -316,32 +316,23 @@
           */
          protected function editCrontab($index,
                                         $command,
-                                        $minute_const = '*',
+                                        $minute = '*',
                                         $hour = '*',
                                         $day = '*',
                                         $month = '*',
                                         $weekday = '*') {
-            $schedule = '';
 
             if(!is_scalar($command) ||
-               !is_scalar($minute_const) ||
+               !is_scalar($minute) ||
                !is_scalar($hour) ||
                !is_scalar($day) ||
                !is_scalar($month) ||
                !is_scalar($weekday)
             ) {
                throw new CE('All cron attributes must be scalar!', CE::E_ARGS_NONSCALAR);
-            } elseif(preg_match('/^(\@[a-z]+|[0-9 \*]{9})$/i', $minute_const)) {
-               $atSign = stripos($minute_const, '@');
-
-               if($atSign === false || ($atSign === 0 && in_array($minute_const, self::$validConstants))) {
-                  $schedule = $minute_const;
-               } else {
-                  throw new CE('Invalid schedule minute expression: ' . $minute_const, CE::E_INVALID_MIN);
-               }
-            } elseif(!self::formatOK($minute_const, $hour, $day, $month, $weekday)) {
+            } elseif(!self::formatOK($minute, $hour, $day, $month, $weekday)) {
                throw new CE('Invalid schedule parameters: ' . json_encode([
-                                                                             'minute/constant' => $minute_const,
+                                                                             'minute/constant' => $minute,
                                                                              'hour'            => $hour,
                                                                              'day'             => $day,
                                                                              'month'           => $month,
@@ -350,7 +341,7 @@
                                                                              'index'           => $index
                                                                           ]), CE::E_INVALID_EXPR);
             } else {
-               $add = $minute_const . ' ' . $hour . ' ' . $day . ' ' . $month . ' ' . $weekday . ' ' . $command;
+               $add = $minute . ' ' . $hour . ' ' . $day . ' ' . $month . ' ' . $weekday . ' ' . $command;
 
                if($index === null) {
                   $this->crontab[] = $add;

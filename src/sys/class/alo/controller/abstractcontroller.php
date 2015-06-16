@@ -46,7 +46,7 @@
           * @author Art <a.molcanovas@gmail.com>
           */
          function index() {
-            $this->http_error(404);
+            $this->httpError(404);
          }
 
          /**
@@ -56,7 +56,7 @@
           *
           * @param int $code The HTTP response code
           */
-         protected function http_error($code = 404) {
+         protected function httpError($code = 404) {
             $this->echo_on_destruct = true;
             ob_end_clean();
 
