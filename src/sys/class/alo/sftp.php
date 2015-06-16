@@ -343,7 +343,7 @@
           * @throws SE When initialising the SFTP system permanently fails
           */
          protected function ssh2_sftp($attempt = 0) {
-            if($this->sftp = @ssh2_sftp($this->connection)) {
+            if($this->sftp = ssh2_sftp($this->connection)) {
                \Log::debug('Initialised SFTP subsystem');
 
                return $this;
