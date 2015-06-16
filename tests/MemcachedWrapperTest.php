@@ -8,7 +8,6 @@
        * @dataProvider definedProvider
        */
       function testDefined($const) {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(defined($const), $const . ' wasn\'t defined.');
       }
 
@@ -23,7 +22,6 @@
        * @dataProvider provideTestValueSet
        */
       function testValueSet($key, $val) {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $mc = self::mc();
 
          $mc->set($key, $val);
@@ -40,7 +38,6 @@
       }
 
       protected static function mc() {
-         phpunit_debug('[MemcachedWrapperTest] mc()');
          if(!\Alo::$cache || !(\Alo::$cache instanceof MemcachedWrapper)) {
             \Alo::$cache = new MemcachedWrapper();
          }
@@ -49,7 +46,6 @@
       }
 
       function testPurge() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $mc = self::mc();
 
          $mc->set('foo', 1);
@@ -58,7 +54,6 @@
       }
 
       function testDelete() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $mc = self::mc();
 
          $mc->set('test_del', 1);

@@ -8,7 +8,6 @@
        * @dataProvider definedProvider
        */
       function testDefined($key) {
-         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(defined($key), $key . ' wasn\'t defined');
       }
 
@@ -29,12 +28,10 @@
        * @expectedException PDOException
        */
       function testInvalidConstructorCredentials() {
-         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          new Alo\Db\MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'bad_table');
       }
 
       function testPrepare() {
-         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $sql = self::new_mysql();
 
          self::create_sql();
@@ -45,7 +42,6 @@
       }
 
       protected static function new_mysql() {
-         phpunit_debug('[MySQLTest] new_mysql() called');
          if(!Alo::$db || !(Alo::$db instanceof \Alo\Db\MySQL)) {
             Alo::$db = new Alo\Db\MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');
          }
@@ -54,7 +50,6 @@
       }
 
       protected static function create_sql($cols = 1) {
-         phpunit_debug('[MySQLTest] create_sql called');
          self::delete_sql();
          $sql = 'CREATE TABLE `test_table` (';
 
@@ -66,12 +61,10 @@
       }
 
       protected static function delete_sql() {
-         phpunit_debug('[MySQLTest] delete_sql() called');
          self::new_mysql()->prepQuery('DROP TABLE IF EXISTS `test_table`');
       }
 
       function testInTransaction() {
-         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
 
          $this->assertFalse($db->transactionActive(), 'Transaction was active');
@@ -84,7 +77,6 @@
       }
 
       function testPrepQuery() {
-         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
          self::create_sql();
 
@@ -110,7 +102,6 @@
       }
 
       function testAggregate() {
-         phpunit_debug('[' . get_class($this) . '] [' . __FUNCTION__ . ']: ' . json_encode(func_get_args()));
          $db = self::new_mysql();
          self::create_sql();
 
@@ -172,7 +163,6 @@
       }
 
       protected static function mc() {
-         phpunit_debug('[MySQLTest] mc() called');
          if(!Alo::$cache || !(Alo::$cache instanceof MemcachedWrapper)) {
             Alo::$cache = new MemcachedWrapper();
          }

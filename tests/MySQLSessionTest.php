@@ -10,7 +10,6 @@
        * @dataProvider definedProvider
        */
       function testDefined($key) {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(defined($key), $key . ' wasn\'t defined');
       }
 
@@ -27,7 +26,6 @@
       }
 
       function testSave() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $s = self::sess();
 
          $s->foo = 'bar';
@@ -57,7 +55,6 @@
       }
 
       static function sess() {
-         phpunit_debug('[MySQLSessionTest] sess()');
          if(!\Alo::$db) {
             \Alo::$db = new MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');
          }
@@ -81,14 +78,12 @@
       }
 
       function testToken() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $s = self::sess();
 
          $this->assertEquals($s->getTokenExpected(), $s->getTokenActual());
       }
 
       function testRefreshToken() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $s = self::sess();
 
          $this->assertTrue($s->refreshToken());

@@ -5,7 +5,6 @@
    class RouterTest extends \PHPUnit_Framework_TestCase {
 
       function testConfig() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $path = \Alo::loadConfig('router', true);
          require $path;
 
@@ -18,7 +17,6 @@
        * @dataProvider testEqualsProvider
        */
       function testEquals($method, $val) {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $r = new Router();
          $r->initNoCall();
          $call = call_user_func([$r, $method]);

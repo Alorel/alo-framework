@@ -10,7 +10,6 @@
        * @dataProvider definedProvider
        */
       function testDefined($key) {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(defined($key), $key . ' wasn\'t defined');
       }
 
@@ -27,7 +26,6 @@
       }
 
       function testSave() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $s = self::sess();
 
          $s->foo      = 'bar';
@@ -49,7 +47,6 @@
       }
 
       static function sess() {
-         phpunit_debug('[MemcachedSessionTest] sess()');
          if(!\Alo::$cache || !(\Alo::$cache instanceof MemcachedWrapper)) {
             \Alo::$cache = new MemcachedWrapper();
          }
@@ -62,7 +59,6 @@
       }
 
       function testToken() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $s = self::sess();
 
          $this->assertEquals($s->getTokenExpected(), $s->getTokenActual());

@@ -5,7 +5,6 @@
    class FormatTest extends \PHPUnit_Framework_TestCase {
 
       function testIPv4() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $true = [
             '111.1.11.111',
             '0.0.0.0',
@@ -31,7 +30,6 @@
       }
 
       function testIsJSON() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $true  = ['"foo"', 'true', 'false', '[1,2,3]', '[]', '{}', '{"foo":1}'];
          $false = ['foo', [], '{foo: bar}'];
 

@@ -5,12 +5,10 @@
    class CronTest extends \PHPUnit_Framework_TestCase {
 
       function testFunctionAvailable() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $this->assertTrue(function_exists('server_is_windows'));
       }
 
       function testClear() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          if(!\server_is_windows()) {
             $c = new Cron();
 
@@ -41,7 +39,6 @@
       }
 
       function testAppend() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          if(!\server_is_windows()) {
             $c = new Cron();
 
@@ -73,7 +70,6 @@
       }
 
       function testAutocommitAndGetAtIndex() {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          if(!\server_is_windows()) {
             $c = new Cron();
 

@@ -8,7 +8,6 @@
        * @dataProvider trueProvider
        */
       function testTrue($validation_criteria, $validated_value, $validation_expected_outcome = true) {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $f = new F([
                        'foo' => $validated_value
                     ]);
@@ -35,7 +34,6 @@
        * @dataProvider falseProvider
        */
       function testFalse($validation_criteria, $validated_value, $validation_expected_outcome = true) {
-         phpunit_debug('[' . get_class($this) . ']: ' . json_encode(func_get_args()));
          $f = new F([
                        'foo' => $validated_value
                     ]);

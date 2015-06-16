@@ -27,21 +27,6 @@
       return ob_get_clean();
    }
 
-   function phpunit_debug($msg) {
-      echo '[DEBUG] ' . $msg . PHP_EOL;
-   }
-
-   function phpunit_scalarise($var) {
-      if(is_scalar($var)) {
-         return $var;
-      } else {
-         ob_start();
-         var_dump($var);
-
-         return ob_get_clean();
-      }
-   }
-
    // ========== Autoload classes ==========
    _load_classes(DIR_SYS . 'core');
    _load_classes(DIR_SYS . 'class');
