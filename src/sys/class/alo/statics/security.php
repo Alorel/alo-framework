@@ -19,122 +19,125 @@
           * @var int
           */
          const ASCII_ALL = 0;
+
          /**
           * Defines the ascii charset subset as "only alphanumeric"
           *
           * @var int
           */
          const ASCII_ALPHANUM = 1;
+
          /**
           * Defines the ascii charset subset as "only non-alphanumeric"
           *
           * @var int
           */
          const ASCII_NONALPHANUM = 2;
+
          /**
           * Array of ASCII alphanumeric characters
           *
           * @var array
           */
-         protected static $ascii_alphanum = ['a',
-                                             'b',
-                                             'c',
-                                             'd',
-                                             'e',
-                                             'f',
-                                             'g',
-                                             'h',
-                                             'i',
-                                             'j',
-                                             'k',
-                                             'l',
-                                             'm',
-                                             'n',
-                                             'o',
-                                             'p',
-                                             'q',
-                                             'r',
-                                             's',
-                                             't',
-                                             'u',
-                                             'v',
-                                             'w',
-                                             'x',
-                                             'y',
-                                             'z',
-                                             'A',
-                                             'B',
-                                             'C',
-                                             'D',
-                                             'E',
-                                             'F',
-                                             'G',
-                                             'H',
-                                             'I',
-                                             'J',
-                                             'K',
-                                             'L',
-                                             'M',
-                                             'N',
-                                             'O',
-                                             'P',
-                                             'Q',
-                                             'R',
-                                             'S',
-                                             'T',
-                                             'U',
-                                             'V',
-                                             'W',
-                                             'X',
-                                             'Y',
-                                             'Z',
-                                             0,
-                                             1,
-                                             2,
-                                             3,
-                                             4,
-                                             5,
-                                             6,
-                                             7,
-                                             8,
-                                             9];
+         protected static $asciiAlphanum = ['a',
+                                            'b',
+                                            'c',
+                                            'd',
+                                            'e',
+                                            'f',
+                                            'g',
+                                            'h',
+                                            'i',
+                                            'j',
+                                            'k',
+                                            'l',
+                                            'm',
+                                            'n',
+                                            'o',
+                                            'p',
+                                            'q',
+                                            'r',
+                                            's',
+                                            't',
+                                            'u',
+                                            'v',
+                                            'w',
+                                            'x',
+                                            'y',
+                                            'z',
+                                            'A',
+                                            'B',
+                                            'C',
+                                            'D',
+                                            'E',
+                                            'F',
+                                            'G',
+                                            'H',
+                                            'I',
+                                            'J',
+                                            'K',
+                                            'L',
+                                            'M',
+                                            'N',
+                                            'O',
+                                            'P',
+                                            'Q',
+                                            'R',
+                                            'S',
+                                            'T',
+                                            'U',
+                                            'V',
+                                            'W',
+                                            'X',
+                                            'Y',
+                                            'Z',
+                                            0,
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            5,
+                                            6,
+                                            7,
+                                            8,
+                                            9];
          /**
           * The rest of the ASCII charset
           *
           * @var array
           */
-         protected static $ascii_rest = [' ',
-                                         '!',
-                                         '"',
-                                         '#',
-                                         '$',
-                                         '%',
-                                         '\'',
-                                         '(',
-                                         ')',
-                                         '*',
-                                         '+',
-                                         ',',
-                                         '.',
-                                         '/',
-                                         ':',
-                                         ';',
-                                         '<',
-                                         '=',
-                                         '>',
-                                         '?',
-                                         '@',
-                                         '[',
-                                         '\\',
-                                         ']',
-                                         '^',
-                                         '_',
-                                         '`',
-                                         '-',
-                                         '{',
-                                         '|',
-                                         '}',
-                                         '~'];
+         protected static $asciiRest = [' ',
+                                        '!',
+                                        '"',
+                                        '#',
+                                        '$',
+                                        '%',
+                                        '\'',
+                                        '(',
+                                        ')',
+                                        '*',
+                                        '+',
+                                        ',',
+                                        '.',
+                                        '/',
+                                        ':',
+                                        ';',
+                                        '<',
+                                        '=',
+                                        '>',
+                                        '?',
+                                        '@',
+                                        '[',
+                                        '\\',
+                                        ']',
+                                        '^',
+                                        '_',
+                                        '`',
+                                        '-',
+                                        '{',
+                                        '|',
+                                        '}',
+                                        '~'];
 
          /**
           * Escapes a string or array (recursively) from XSS attacks
@@ -223,13 +226,13 @@
          static function ascii_rand($length, $subset = self::ASCII_ALL) {
             switch($subset) {
                case self::ASCII_ALPHANUM:
-                  $subset = self::$ascii_alphanum;
+                  $subset = self::$asciiAlphanum;
                   break;
                case self::ASCII_NONALPHANUM:
-                  $subset = self::$ascii_rest;
+                  $subset = self::$asciiRest;
                   break;
                default:
-                  $subset = array_merge(self::$ascii_alphanum, self::$ascii_rest);
+                  $subset = array_merge(self::$asciiAlphanum, self::$asciiRest);
             }
 
             $count = count($subset) - 1;

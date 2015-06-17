@@ -100,20 +100,20 @@
           *
           * @var string
           */
-         protected $local_dir;
+         protected $localDir;
          /**
           * Maximum amount of retries for an operation
           *
           * @var int
           */
-         protected $retry_count_max;
+         protected $retryCountMax;
 
          /**
           * Time in seconds between retries
           *
           * @var int
           */
-         protected $retry_time;
+         protected $retryTime;
 
          /**
           * Instantiates the library
@@ -130,8 +130,8 @@
             } else {
                $this->dir = DIR_INDEX;
 
-               $this->retry_count_max = (int)\get($params[self::P_RETRY_COUNT]);
-               $this->retry_time      = (int)\get($params[self::P_RETRY_TIME]) ? $params[self::P_RETRY_TIME] : 3;
+               $this->retryCountMax = (int)\get($params[self::P_RETRY_COUNT]);
+               $this->retryTime     = (int)\get($params[self::P_RETRY_TIME]) ? $params[self::P_RETRY_TIME] : 3;
 
                \Log::debug('SSH2 class initialised');
             }
@@ -165,9 +165,9 @@
           */
          function retryCount($int = -1) {
             if($int === -1) {
-               return $this->retry_count_max;
+               return $this->retryCountMax;
             } elseif(is_numeric($int) && $int >= 0) {
-               $this->retry_count_max = (int)$int;
+               $this->retryCountMax = (int)$int;
                \Log::debug('Retry count set to ' . $int);
 
                return true;
@@ -187,9 +187,9 @@
           */
          function retryTime($int = -1) {
             if($int === -1) {
-               return $this->retry_time;
+               return $this->retryTime;
             } elseif(is_numeric($int) && $int > 0) {
-               $this->retry_time = (int)$int;
+               $this->retryTime = (int)$int;
                \Log::debug('Retry time set to ' . $int);
 
                return true;
@@ -212,7 +212,7 @@
             if(!$dir) {
                $dir = DIRECTORY_SEPARATOR;
             }
-            $this->local_dir = $dir;
+            $this->localDir = $dir;
             \Log::debug('Local dir set to ' . $dir);
 
             return $this;
@@ -282,12 +282,12 @@
                $msg = 'Failed to initialise SSH2 connection';
                $attempt++;
 
-               if($attempt - 1 < $this->retry_count_max) {
+               if($attempt - 1 < $this->retryCountMax) {
                   \Log::error($msg . '. Retrying again' . ' in '
-                              . $this->retry_time . ' seconds [' . $attempt
-                              . '/' . $this->retry_count_max . ']');
+                              . $this->retryTime . ' seconds [' . $attempt
+                              . '/' . $this->retryCountMax . ']');
 
-                  sleep($this->retry_time);
+                  sleep($this->retryTime);
 
                   return $this->connect($attempt);
                } else {
@@ -315,11 +315,11 @@
                $msg = 'Failed to authenticate SSH2 connection';
                ++$attempt;
 
-               if($attempt - 1 < $this->retry_count_max) {
-                  \Log::error($msg . '. Retrying in ' . $this->retry_time
+               if($attempt - 1 < $this->retryCountMax) {
+                  \Log::error($msg . '. Retrying in ' . $this->retryTime
                               . ' seconds [' . $attempt . '/'
-                              . $this->retry_count_max . ']');
-                  sleep($this->retry_time);
+                              . $this->retryCountMax . ']');
+                  sleep($this->retryTime);
 
                   return $this->auth($attempt);
                } else {
@@ -328,7 +328,7 @@
             } else {
                \Log::debug('SSH2 connection authenticated');
 
-               return $this->ssh2_sftp();
+               return $this->ssh2Sftp();
             }
          }
 
@@ -342,7 +342,7 @@
           * @return SFTP
           * @throws SE When initialising the SFTP system permanently fails
           */
-         protected function ssh2_sftp($attempt = 0) {
+         protected function ssh2Sftp($attempt = 0) {
             if($this->sftp = ssh2_sftp($this->connection)) {
                \Log::debug('Initialised SFTP subsystem');
 
@@ -351,13 +351,13 @@
                $msg = 'Failed to initialise SFTP subsystem';
                ++$attempt;
 
-               if($attempt - 1 < $this->retry_count_max) {
+               if($attempt - 1 < $this->retryCountMax) {
                   \Log::error($msg . '. Retrying again' . ' in '
-                              . $this->retry_time . ' seconds [' . $attempt
-                              . '/' . $this->retry_count_max . ']');
-                  sleep($this->retry_time);
+                              . $this->retryTime . ' seconds [' . $attempt
+                              . '/' . $this->retryCountMax . ']');
+                  sleep($this->retryTime);
 
-                  return $this->ssh2_sftp($attempt);
+                  return $this->ssh2Sftp($attempt);
                } else {
                   throw new SE($msg . ' after ' . $attempt . ' attempts', SE::E_SUBSYSTEM);
                }
@@ -380,10 +380,10 @@
          }
 
          /**
-          * Downloads a file to $this->local_dir
+          * Downloads a file to $this->localDir
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @see    self::$local_dir
+          * @see    self::$localDir
           *
           * @param string $file Remote file name
           *
@@ -392,11 +392,11 @@
           * @return SFTP
           */
          function downloadFile($file) {
-            \Log::debug('Downloading file ' . $file . ' to ' . $this->local_dir);
+            \Log::debug('Downloading file ' . $file . ' to ' . $this->localDir);
             $fetch = $this->getFileContents($file);
 
             $local = new File();
-            $local->dir($this->local_dir)->name($file);
+            $local->dir($this->localDir)->name($file);
             $local->content($fetch)->write();
 
             return $this;
@@ -450,7 +450,7 @@
           */
          function upload($file) {
             $this->checkSubsystem();
-            $path = $this->local_dir . DIRECTORY_SEPARATOR . $file;
+            $path = $this->localDir . DIRECTORY_SEPARATOR . $file;
 
             if(!$content = file_get_contents($path)) {
                throw new SE('Local file ' . $path . ' cannot be read', SE::E_LOCAL_FILE_NOT_READ);

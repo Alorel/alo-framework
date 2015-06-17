@@ -24,7 +24,7 @@
           *
           * @var boolean
           */
-         private $echo_on_destruct;
+         private $echoOnDestruct;
 
          /**
           * Instantiates the class
@@ -35,7 +35,7 @@
           */
          function __construct($echo_on_destruct = true) {
             ob_start();
-            $this->echo_on_destruct = (bool)$echo_on_destruct;
+            $this->echoOnDestruct = (bool)$echo_on_destruct;
 
             self::$this = &$this;
          }
@@ -57,7 +57,7 @@
           * @param int $code The HTTP response code
           */
          protected function httpError($code = 404) {
-            $this->echo_on_destruct = true;
+            $this->echoOnDestruct = true;
             ob_end_clean();
 
             $controller = \Alo::$router->getErrController();
@@ -74,10 +74,10 @@
           * @author Art <a.molcanovas@gmail.com>
           */
          function __destruct() {
-            if($this->echo_on_destruct) {
+            if($this->echoOnDestruct) {
                $ob = ob_get_clean();
 
-               if(\Alo::$router->is_cli_request()) {
+               if(\Alo::$router->isCliRequest()) {
                   $ob = strip_tags($ob);
                }
 
@@ -97,9 +97,9 @@
           */
          protected function echoOnDestruct($switch = null) {
             if($switch === null) {
-               return $this->echo_on_destruct;
+               return $this->echoOnDestruct;
             } else {
-               $this->echo_on_destruct = (bool)$switch;
+               $this->echoOnDestruct = (bool)$switch;
 
                return $this;
             }

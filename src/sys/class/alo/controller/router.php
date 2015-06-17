@@ -41,7 +41,7 @@
           *
           * @var array
           */
-         protected static $route_defaults = [
+         protected static $routeDefaults = [
             'dir'    => null,
             'method' => 'index',
             'args'   => []
@@ -51,13 +51,13 @@
           *
           * @var string
           */
-         protected $server_name;
+         protected $serverName;
          /**
           * The server IP
           *
           * @var string
           */
-         protected $server_addr;
+         protected $serverAddr;
          /**
           * The port in use
           *
@@ -69,13 +69,13 @@
           *
           * @var string
           */
-         protected $remote_addr;
+         protected $remoteAddr;
          /**
           * The request scheme
           *
           * @var string
           */
-         protected $request_scheme;
+         protected $requestScheme;
          /**
           * The raw path info
           *
@@ -87,7 +87,7 @@
           *
           * @var string
           */
-         protected $request_method;
+         protected $requestMethod;
          /**
           * Directory name
           *
@@ -111,19 +111,19 @@
           *
           * @var array
           */
-         protected $method_args;
+         protected $methodArgs;
          /**
           * The error controller name
           *
           * @var string
           */
-         protected $err_controller;
+         protected $errController;
          /**
           * The default controller
           *
           * @var string
           */
-         protected $default_controller;
+         protected $defaultController;
          /**
           * The routes array
           *
@@ -135,7 +135,7 @@
           *
           * @var boolean
           */
-         protected $is_cli_request;
+         protected $isCliRequest;
          /**
           * Whether we're dealing with an AJAX request
           *
@@ -196,11 +196,11 @@
                            '->' .
                            $this->method .
                            '(' .
-                           implode(',', $this->method_args) .
+                           implode(',', $this->methodArgs) .
                            ')');
                $controller_name = self::CONTROLLER_NAMESPACE . $this->controller;
                Alo::$controller = new $controller_name;
-               call_user_func_array([Alo::$controller, $this->method], $this->method_args);
+               call_user_func_array([Alo::$controller, $this->method], $this->methodArgs);
             }
 
             return $this;
@@ -219,7 +219,7 @@
           * @uses   self::tryCall()
           */
          protected function forceError($msg = null) {
-            if($this->controller != $this->err_controller) {
+            if($this->controller != $this->errController) {
                \Log::debug('404\'d on path: ' .
                            $this->path .
                            '. Settings were as follows: dir: ' .
@@ -230,16 +230,16 @@
                            ', method: ' .
                            $this->method .
                            ', args: ' .
-                           json_encode($this->method_args));
+                           json_encode($this->methodArgs));
 
-               $path = DIR_CONTROLLERS . strtolower($this->err_controller) . '.php';
+               $path = DIR_CONTROLLERS . strtolower($this->errController) . '.php';
                if(file_exists($path)) {
                   include_once $path;
                }
 
-               $this->controller  = $this->err_controller;
-               $this->method      = 'error';
-               $this->method_args = [404];
+               $this->controller = $this->errController;
+               $this->method     = 'error';
+               $this->methodArgs = [404];
                $this->tryCall();
             } else {
                throw new CE('No route available and the error controller '
@@ -263,7 +263,7 @@
           * @return Router
           */
          function initNoCall() {
-            $this->is_cli_request  = php_sapi_name() == 'cli' || defined('STDIN');
+            $this->isCliRequest    = php_sapi_name() == 'cli' || defined('STDIN');
             $this->is_ajax_request = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
 
             return $this->init_server_vars()
@@ -281,16 +281,16 @@
          protected function resolvePath() {
             //Use the default controller if the path is unavailable
             if(!$this->path) {
-               $filepath = DIR_CONTROLLERS . strtolower($this->default_controller) . '.php';
+               $filepath = DIR_CONTROLLERS . strtolower($this->defaultController) . '.php';
 
                if(file_exists($filepath)) {
                   include_once $filepath;
                }
 
-               $this->controller  = $this->default_controller;
-               $this->method      = self::$route_defaults['method'];
-               $this->method_args = self::$route_defaults['args'];
-               $this->dir         = self::$route_defaults['dir'];
+               $this->controller = $this->defaultController;
+               $this->method     = self::$routeDefaults['method'];
+               $this->methodArgs = self::$routeDefaults['args'];
+               $this->dir        = self::$routeDefaults['dir'];
             } else {
                $resolved = false;
 
@@ -304,19 +304,19 @@
                      $resolved = true;
                      $explode  = explode('/', $this->path);
 
-                     $this->dir        = $dest['dir'] ? $dest['dir'] . DIRECTORY_SEPARATOR : self::$route_defaults['dir'];
+                     $this->dir        = $dest['dir'] ? $dest['dir'] . DIRECTORY_SEPARATOR : self::$routeDefaults['dir'];
                      $this->controller = isset($dest['class']) ? $dest['class'] : $explode[0];
 
                      //Remove controller
                      array_shift($explode);
 
                      //Set method
-                     if($dest['method'] != self::$route_defaults['method']) {
+                     if($dest['method'] != self::$routeDefaults['method']) {
                         $this->method = $dest['method'];
                      } elseif(isset($explode[0])) {
                         $this->method = $explode[0];
                      } else {
-                        $this->method = self::$route_defaults['method'];
+                        $this->method = self::$routeDefaults['method'];
                      }
 
                      //Remove controller method
@@ -325,15 +325,15 @@
                      }
 
                      //Set preliminary method args
-                     if($dest['args'] != self::$route_defaults['args']) {
-                        $this->method_args = $dest['args'];
+                     if($dest['args'] != self::$routeDefaults['args']) {
+                        $this->methodArgs = $dest['args'];
                      } elseif(!empty($explode)) {
-                        $this->method_args = $explode;
+                        $this->methodArgs = $explode;
                      } else {
-                        $this->method_args = self::$route_defaults['args'];
+                        $this->methodArgs = self::$routeDefaults['args'];
                      }
 
-                     $replace = explode('/', preg_replace($regex, implode('/', $this->method_args), $this->path));
+                     $replace = explode('/', preg_replace($regex, implode('/', $this->methodArgs), $this->path));
 
                      //Remove empties
                      foreach($replace as $k => $v) {
@@ -342,7 +342,7 @@
                         }
                      }
 
-                     $this->method_args = $replace;
+                     $this->methodArgs = $replace;
 
                      break;
                   }
@@ -352,10 +352,10 @@
                   //If not, assume the path is controller/method/arg1...
                   $path = explode('/', $this->path);
 
-                  $this->dir         = null;
-                  $this->controller  = array_shift($path);
-                  $this->method      = empty($path) ? self::$route_defaults['method'] : array_shift($path);
-                  $this->method_args = $path;
+                  $this->dir        = null;
+                  $this->controller = array_shift($path);
+                  $this->method     = empty($path) ? self::$routeDefaults['method'] : array_shift($path);
+                  $this->methodArgs = $path;
                }
 
                $filepath =
@@ -395,12 +395,12 @@
                } elseif(!is_array(get($routes))) {
                   throw new CE('The routes variable must be an associative array', CE::E_MALFORMED_ROUTES);
                } else {
-                  $this->err_controller     = $error_controller_class;
-                  $this->default_controller = $default_controller;
+                  $this->errController     = $error_controller_class;
+                  $this->defaultController = $default_controller;
 
                   foreach($routes as $k => $v) {
                      if(is_array($v)) {
-                        $this->routes[strtolower($k)] = array_merge(self::$route_defaults, $v);
+                        $this->routes[strtolower($k)] = array_merge(self::$routeDefaults, $v);
                      } else {
                         throw new CE('Route ' . $k . ' is not a valid array.', CE::E_MALFORMED_ROUTES);
                      }
@@ -442,12 +442,12 @@
           * @return Router
           */
          protected function init_server_vars() {
-            $this->port           = \get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
-            $this->remote_addr    = \get($_SERVER['REMOTE_ADDR']);
-            $this->request_scheme = \get($_SERVER['REQUEST_SCHEME']);
-            $this->request_method = \get($_SERVER['REQUEST_METHOD']);
-            $this->server_addr    = \get($_SERVER['SERVER_ADDR']);
-            $this->server_name    = \get($_SERVER['SERVER_NAME']);
+            $this->port          = \get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
+            $this->remoteAddr    = \get($_SERVER['REMOTE_ADDR']);
+            $this->requestScheme = \get($_SERVER['REQUEST_SCHEME']);
+            $this->requestMethod = \get($_SERVER['REQUEST_METHOD']);
+            $this->serverAddr    = \get($_SERVER['SERVER_ADDR']);
+            $this->serverName    = \get($_SERVER['SERVER_NAME']);
 
             return $this;
          }
@@ -458,8 +458,8 @@
           * @author Art <a.molcanovas@gmail.com>
           * @return bool
           */
-         function is_cli_request() {
-            return $this->is_cli_request;
+         function isCliRequest() {
+            return $this->isCliRequest;
          }
 
          /**
@@ -479,7 +479,7 @@
           * @return string
           */
          function getErrController() {
-            return $this->err_controller;
+            return $this->errController;
          }
 
          /**
@@ -529,7 +529,7 @@
           * @return string
           */
          function getRemoteAddr() {
-            return $this->remote_addr;
+            return $this->remoteAddr;
          }
 
          /**
@@ -539,7 +539,7 @@
           * @return string
           */
          function getRequestMethod() {
-            return $this->request_method;
+            return $this->requestMethod;
          }
 
          /**
@@ -549,7 +549,7 @@
           * @return string
           */
          function getRequestScheme() {
-            return $this->request_scheme;
+            return $this->requestScheme;
          }
 
          /**
@@ -559,7 +559,7 @@
           * @return string
           */
          function getServerAddr() {
-            return $this->server_addr;
+            return $this->serverAddr;
          }
 
          /**
@@ -569,7 +569,7 @@
           * @return string
           */
          function getServerName() {
-            return $this->server_name;
+            return $this->serverName;
          }
 
          /**

@@ -41,7 +41,7 @@
 </span></span><span id="41" class="l"><a class="l" href="#41"> 41 </a><span class="php-comment">          *
 </span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment">          * @var array
 </span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment">          */</span>
-</span><span id="44" class="l"><a class="l" href="#44"> 44 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$route_defaults" href="#$route_defaults">$route_defaults</a></span> = [
+</span><span id="44" class="l"><a class="l" href="#44"> 44 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$route_defaults" href="#$route_defaults">$routeDefaults</a></span> = [
 </span><span id="45" class="l"><a class="l" href="#45"> 45 </a>            <span class="php-quote">'dir'</span>    =&gt; <span class="php-keyword1">null</span>,
 </span><span id="46" class="l"><a class="l" href="#46"> 46 </a>            <span class="php-quote">'method'</span> =&gt; <span class="php-quote">'index'</span>,
 </span><span id="47" class="l"><a class="l" href="#47"> 47 </a>            <span class="php-quote">'args'</span>   =&gt; []
@@ -51,13 +51,13 @@
 </span></span><span id="51" class="l"><a class="l" href="#51"> 51 </a><span class="php-comment">          *
 </span></span><span id="52" class="l"><a class="l" href="#52"> 52 </a><span class="php-comment">          * @var string
 </span></span><span id="53" class="l"><a class="l" href="#53"> 53 </a><span class="php-comment">          */</span>
-</span><span id="54" class="l"><a class="l" href="#54"> 54 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$server_name" href="#$server_name">$server_name</a></span>;
+</span><span id="54" class="l"><a class="l" href="#54"> 54 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$server_name" href="#$server_name">$serverName</a></span>;
 </span><span id="55" class="l"><a class="l" href="#55"> 55 </a>         <span class="php-comment">/**
 </span></span><span id="56" class="l"><a class="l" href="#56"> 56 </a><span class="php-comment">          * The server IP
 </span></span><span id="57" class="l"><a class="l" href="#57"> 57 </a><span class="php-comment">          *
 </span></span><span id="58" class="l"><a class="l" href="#58"> 58 </a><span class="php-comment">          * @var string
 </span></span><span id="59" class="l"><a class="l" href="#59"> 59 </a><span class="php-comment">          */</span>
-</span><span id="60" class="l"><a class="l" href="#60"> 60 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$server_addr" href="#$server_addr">$server_addr</a></span>;
+</span><span id="60" class="l"><a class="l" href="#60"> 60 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$server_addr" href="#$server_addr">$serverAddr</a></span>;
 </span><span id="61" class="l"><a class="l" href="#61"> 61 </a>         <span class="php-comment">/**
 </span></span><span id="62" class="l"><a class="l" href="#62"> 62 </a><span class="php-comment">          * The port in use
 </span></span><span id="63" class="l"><a class="l" href="#63"> 63 </a><span class="php-comment">          *
@@ -69,13 +69,13 @@
 </span></span><span id="69" class="l"><a class="l" href="#69"> 69 </a><span class="php-comment">          *
 </span></span><span id="70" class="l"><a class="l" href="#70"> 70 </a><span class="php-comment">          * @var string
 </span></span><span id="71" class="l"><a class="l" href="#71"> 71 </a><span class="php-comment">          */</span>
-</span><span id="72" class="l"><a class="l" href="#72"> 72 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$remote_addr" href="#$remote_addr">$remote_addr</a></span>;
+</span><span id="72" class="l"><a class="l" href="#72"> 72 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$remote_addr" href="#$remote_addr">$remoteAddr</a></span>;
 </span><span id="73" class="l"><a class="l" href="#73"> 73 </a>         <span class="php-comment">/**
 </span></span><span id="74" class="l"><a class="l" href="#74"> 74 </a><span class="php-comment">          * The request scheme
 </span></span><span id="75" class="l"><a class="l" href="#75"> 75 </a><span class="php-comment">          *
 </span></span><span id="76" class="l"><a class="l" href="#76"> 76 </a><span class="php-comment">          * @var string
 </span></span><span id="77" class="l"><a class="l" href="#77"> 77 </a><span class="php-comment">          */</span>
-</span><span id="78" class="l"><a class="l" href="#78"> 78 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$request_scheme" href="#$request_scheme">$request_scheme</a></span>;
+</span><span id="78" class="l"><a class="l" href="#78"> 78 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$request_scheme" href="#$request_scheme">$requestScheme</a></span>;
 </span><span id="79" class="l"><a class="l" href="#79"> 79 </a>         <span class="php-comment">/**
 </span></span><span id="80" class="l"><a class="l" href="#80"> 80 </a><span class="php-comment">          * The raw path info
 </span></span><span id="81" class="l"><a class="l" href="#81"> 81 </a><span class="php-comment">          *
@@ -87,7 +87,7 @@
 </span></span><span id="87" class="l"><a class="l" href="#87"> 87 </a><span class="php-comment">          *
 </span></span><span id="88" class="l"><a class="l" href="#88"> 88 </a><span class="php-comment">          * @var string
 </span></span><span id="89" class="l"><a class="l" href="#89"> 89 </a><span class="php-comment">          */</span>
-</span><span id="90" class="l"><a class="l" href="#90"> 90 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$request_method" href="#$request_method">$request_method</a></span>;
+</span><span id="90" class="l"><a class="l" href="#90"> 90 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$request_method" href="#$request_method">$requestMethod</a></span>;
 </span><span id="91" class="l"><a class="l" href="#91"> 91 </a>         <span class="php-comment">/**
 </span></span><span id="92" class="l"><a class="l" href="#92"> 92 </a><span class="php-comment">          * Directory name
 </span></span><span id="93" class="l"><a class="l" href="#93"> 93 </a><span class="php-comment">          *
@@ -111,13 +111,13 @@
 </span></span><span id="111" class="l"><a class="l" href="#111">111 </a><span class="php-comment">          *
 </span></span><span id="112" class="l"><a class="l" href="#112">112 </a><span class="php-comment">          * @var array
 </span></span><span id="113" class="l"><a class="l" href="#113">113 </a><span class="php-comment">          */</span>
-</span><span id="114" class="l"><a class="l" href="#114">114 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$method_args" href="#$method_args">$method_args</a></span>;
+</span><span id="114" class="l"><a class="l" href="#114">114 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$method_args" href="#$method_args">$methodArgs</a></span>;
 </span><span id="115" class="l"><a class="l" href="#115">115 </a>         <span class="php-comment">/**
 </span></span><span id="116" class="l"><a class="l" href="#116">116 </a><span class="php-comment">          * The error controller name
 </span></span><span id="117" class="l"><a class="l" href="#117">117 </a><span class="php-comment">          *
 </span></span><span id="118" class="l"><a class="l" href="#118">118 </a><span class="php-comment">          * @var string
 </span></span><span id="119" class="l"><a class="l" href="#119">119 </a><span class="php-comment">          */</span>
-</span><span id="120" class="l"><a class="l" href="#120">120 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$err_controller" href="#$err_controller">$err_controller</a></span>;
+</span><span id="120" class="l"><a class="l" href="#120">120 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$err_controller" href="#$err_controller">$errController</a></span>;
 </span><span id="121" class="l"><a class="l" href="#121">121 </a>         <span class="php-comment">/**
 </span></span><span id="122" class="l"><a class="l" href="#122">122 </a><span class="php-comment">          * The default controller
 </span></span><span id="123" class="l"><a class="l" href="#123">123 </a><span class="php-comment">          *
@@ -135,7 +135,7 @@
 </span></span><span id="135" class="l"><a class="l" href="#135">135 </a><span class="php-comment">          *
 </span></span><span id="136" class="l"><a class="l" href="#136">136 </a><span class="php-comment">          * @var boolean
 </span></span><span id="137" class="l"><a class="l" href="#137">137 </a><span class="php-comment">          */</span>
-</span><span id="138" class="l"><a class="l" href="#138">138 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$is_cli_request" href="#$is_cli_request">$is_cli_request</a></span>;
+</span><span id="138" class="l"><a class="l" href="#138">138 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$is_cli_request" href="#$is_cli_request">$isCliRequest</a></span>;
 </span><span id="139" class="l"><a class="l" href="#139">139 </a>         <span class="php-comment">/**
 </span></span><span id="140" class="l"><a class="l" href="#140">140 </a><span class="php-comment">          * Whether we're dealing with an AJAX request
 </span></span><span id="141" class="l"><a class="l" href="#141">141 </a><span class="php-comment">          *
@@ -195,11 +195,11 @@
 </span><span id="195" class="l"><a class="l" href="#195">195 </a>                           <span class="php-quote">'-&gt;'</span> .
 </span><span id="196" class="l"><a class="l" href="#196">196 </a>                           <span class="php-var">$this</span>-&gt;method .
 </span><span id="197" class="l"><a class="l" href="#197">197 </a>                           <span class="php-quote">'('</span> .
-</span><span id="198" class="l"><a class="l" href="#198">198 </a>                           <span class="php-keyword2">implode</span>(<span class="php-quote">','</span>, <span class="php-var">$this</span>-&gt;method_args) .
+</span><span id="198" class="l"><a class="l" href="#198">198 </a>                           <span class="php-keyword2">implode</span>(<span class="php-quote">','</span>, <span class="php-var">$this</span>-&gt;methodArgs) .
 </span><span id="199" class="l"><a class="l" href="#199">199 </a>                           <span class="php-quote">')'</span>);
 </span><span id="200" class="l"><a class="l" href="#200">200 </a>               <span class="php-var">$controller_name</span> = self::CONTROLLER_NAMESPACE . <span class="php-var">$this</span>-&gt;controller;
 </span><span id="201" class="l"><a class="l" href="#201">201 </a>               Alo::<span class="php-var">$controller</span> = <span class="php-keyword1">new</span> <span class="php-var">$controller_name</span>;
-</span><span id="202" class="l"><a class="l" href="#202">202 </a>               <span class="php-keyword2">call_user_func_array</span>([Alo::<span class="php-var">$controller</span>, <span class="php-var">$this</span>-&gt;method], <span class="php-var">$this</span>-&gt;method_args);
+</span><span id="202" class="l"><a class="l" href="#202">202 </a>               <span class="php-keyword2">call_user_func_array</span>([Alo::<span class="php-var">$controller</span>, <span class="php-var">$this</span>-&gt;method], <span class="php-var">$this</span>-&gt;methodArgs);
 </span><span id="203" class="l"><a class="l" href="#203">203 </a>            }
 </span><span id="204" class="l"><a class="l" href="#204">204 </a>
 </span><span id="205" class="l"><a class="l" href="#205">205 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
@@ -218,7 +218,7 @@
 </span></span><span id="218" class="l"><a class="l" href="#218">218 </a><span class="php-comment">          * @uses   self::tryCall()
 </span></span><span id="219" class="l"><a class="l" href="#219">219 </a><span class="php-comment">          */</span>
 </span><span id="220" class="l"><a class="l" href="#220">220 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_forceError" href="#_forceError">forceError</a>(<span class="php-var">$msg</span> = <span class="php-keyword1">null</span>) {
-</span><span id="221" class="l"><a class="l" href="#221">221 </a>            <span class="php-keyword1">if</span>(<span class="php-var">$this</span>-&gt;controller != <span class="php-var">$this</span>-&gt;err_controller) {
+</span><span id="221" class="l"><a class="l" href="#221">221 </a>            <span class="php-keyword1">if</span>(<span class="php-var">$this</span>-&gt;controller != <span class="php-var">$this</span>-&gt;errController) {
 </span><span id="222" class="l"><a class="l" href="#222">222 </a>               \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'404\'d on path: '</span> .
 </span><span id="223" class="l"><a class="l" href="#223">223 </a>                           <span class="php-var">$this</span>-&gt;path .
 </span><span id="224" class="l"><a class="l" href="#224">224 </a>                           <span class="php-quote">'. Settings were as follows: dir: '</span> .
@@ -229,16 +229,16 @@
 </span><span id="229" class="l"><a class="l" href="#229">229 </a>                           <span class="php-quote">', method: '</span> .
 </span><span id="230" class="l"><a class="l" href="#230">230 </a>                           <span class="php-var">$this</span>-&gt;method .
 </span><span id="231" class="l"><a class="l" href="#231">231 </a>                           <span class="php-quote">', args: '</span> .
-</span><span id="232" class="l"><a class="l" href="#232">232 </a>                           <span class="php-keyword2">json_encode</span>(<span class="php-var">$this</span>-&gt;method_args));
+</span><span id="232" class="l"><a class="l" href="#232">232 </a>                           <span class="php-keyword2">json_encode</span>(<span class="php-var">$this</span>-&gt;methodArgs));
 </span><span id="233" class="l"><a class="l" href="#233">233 </a>
-</span><span id="234" class="l"><a class="l" href="#234">234 </a>               <span class="php-var">$path</span> = DIR_CONTROLLERS . <span class="php-keyword2">strtolower</span>(<span class="php-var">$this</span>-&gt;err_controller) . <span class="php-quote">'.php'</span>;
+</span><span id="234" class="l"><a class="l" href="#234">234 </a>               <span class="php-var">$path</span> = DIR_CONTROLLERS . <span class="php-keyword2">strtolower</span>(<span class="php-var">$this</span>-&gt;errController) . <span class="php-quote">'.php'</span>;
 </span><span id="235" class="l"><a class="l" href="#235">235 </a>               <span class="php-keyword1">if</span>(<span class="php-keyword2">file_exists</span>(<span class="php-var">$path</span>)) {
 </span><span id="236" class="l"><a class="l" href="#236">236 </a>                  <span class="php-keyword1">include_once</span> <span class="php-var">$path</span>;
 </span><span id="237" class="l"><a class="l" href="#237">237 </a>               }
 </span><span id="238" class="l"><a class="l" href="#238">238 </a>
-</span><span id="239" class="l"><a class="l" href="#239">239 </a>               <span class="php-var">$this</span>-&gt;controller  = <span class="php-var">$this</span>-&gt;err_controller;
+</span><span id="239" class="l"><a class="l" href="#239">239 </a>               <span class="php-var">$this</span>-&gt;controller  = <span class="php-var">$this</span>-&gt;errController;
 </span><span id="240" class="l"><a class="l" href="#240">240 </a>               <span class="php-var">$this</span>-&gt;method      = <span class="php-quote">'error'</span>;
-</span><span id="241" class="l"><a class="l" href="#241">241 </a>               <span class="php-var">$this</span>-&gt;method_args = [<span class="php-num">404</span>];
+</span><span id="241" class="l"><a class="l" href="#241">241 </a>               <span class="php-var">$this</span>-&gt;methodArgs = [<span class="php-num">404</span>];
 </span><span id="242" class="l"><a class="l" href="#242">242 </a>               <span class="php-var">$this</span>-&gt;tryCall();
 </span><span id="243" class="l"><a class="l" href="#243">243 </a>            } <span class="php-keyword1">else</span> {
 </span><span id="244" class="l"><a class="l" href="#244">244 </a>               <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> CE(<span class="php-quote">'No route available and the error controller '</span>
@@ -262,7 +262,7 @@
 </span></span><span id="262" class="l"><a class="l" href="#262">262 </a><span class="php-comment">          * @return Router
 </span></span><span id="263" class="l"><a class="l" href="#263">263 </a><span class="php-comment">          */</span>
 </span><span id="264" class="l"><a class="l" href="#264">264 </a>         <span class="php-keyword1">function</span> <a id="_initNoCall" href="#_initNoCall">initNoCall</a>() {
-</span><span id="265" class="l"><a class="l" href="#265">265 </a>            <span class="php-var">$this</span>-&gt;is_cli_request  = <span class="php-keyword2">php_sapi_name</span>() == <span class="php-quote">'cli'</span> || <span class="php-keyword2">defined</span>(<span class="php-quote">'STDIN'</span>);
+</span><span id="265" class="l"><a class="l" href="#265">265 </a>            <span class="php-var">$this</span>-&gt;isCliRequest  = <span class="php-keyword2">php_sapi_name</span>() == <span class="php-quote">'cli'</span> || <span class="php-keyword2">defined</span>(<span class="php-quote">'STDIN'</span>);
 </span><span id="266" class="l"><a class="l" href="#266">266 </a>            <span class="php-var">$this</span>-&gt;is_ajax_request = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'HTTP_X_REQUESTED_WITH'</span>]) == <span class="php-quote">'XMLHttpRequest'</span>;
 </span><span id="267" class="l"><a class="l" href="#267">267 </a>
 </span><span id="268" class="l"><a class="l" href="#268">268 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;init_server_vars()
@@ -287,9 +287,9 @@
 </span><span id="287" class="l"><a class="l" href="#287">287 </a>               }
 </span><span id="288" class="l"><a class="l" href="#288">288 </a>
 </span><span id="289" class="l"><a class="l" href="#289">289 </a>               <span class="php-var">$this</span>-&gt;controller  = <span class="php-var">$this</span>-&gt;default_controller;
-</span><span id="290" class="l"><a class="l" href="#290">290 </a>               <span class="php-var">$this</span>-&gt;method      = self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'method'</span>];
-</span><span id="291" class="l"><a class="l" href="#291">291 </a>               <span class="php-var">$this</span>-&gt;method_args = self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'args'</span>];
-</span><span id="292" class="l"><a class="l" href="#292">292 </a>               <span class="php-var">$this</span>-&gt;<span class="php-keyword2">dir</span>         = self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'dir'</span>];
+</span><span id="290" class="l"><a class="l" href="#290">290 </a>               <span class="php-var">$this</span>-&gt;method      = self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'method'</span>];
+</span><span id="291" class="l"><a class="l" href="#291">291 </a>               <span class="php-var">$this</span>-&gt;methodArgs = self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'args'</span>];
+</span><span id="292" class="l"><a class="l" href="#292">292 </a>               <span class="php-var">$this</span>-&gt;<span class="php-keyword2">dir</span>         = self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'dir'</span>];
 </span><span id="293" class="l"><a class="l" href="#293">293 </a>            } <span class="php-keyword1">else</span> {
 </span><span id="294" class="l"><a class="l" href="#294">294 </a>               <span class="php-var">$resolved</span> = <span class="php-keyword1">false</span>;
 </span><span id="295" class="l"><a class="l" href="#295">295 </a>
@@ -303,19 +303,19 @@
 </span><span id="303" class="l"><a class="l" href="#303">303 </a>                     <span class="php-var">$resolved</span> = <span class="php-keyword1">true</span>;
 </span><span id="304" class="l"><a class="l" href="#304">304 </a>                     <span class="php-var">$explode</span>  = <span class="php-keyword2">explode</span>(<span class="php-quote">'/'</span>, <span class="php-var">$this</span>-&gt;path);
 </span><span id="305" class="l"><a class="l" href="#305">305 </a>
-</span><span id="306" class="l"><a class="l" href="#306">306 </a>                     <span class="php-var">$this</span>-&gt;<span class="php-keyword2">dir</span>        = <span class="php-var">$dest</span>[<span class="php-quote">'dir'</span>] ? <span class="php-var">$dest</span>[<span class="php-quote">'dir'</span>] . DIRECTORY_SEPARATOR : self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'dir'</span>];
+</span><span id="306" class="l"><a class="l" href="#306">306 </a>                     <span class="php-var">$this</span>-&gt;<span class="php-keyword2">dir</span>        = <span class="php-var">$dest</span>[<span class="php-quote">'dir'</span>] ? <span class="php-var">$dest</span>[<span class="php-quote">'dir'</span>] . DIRECTORY_SEPARATOR : self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'dir'</span>];
 </span><span id="307" class="l"><a class="l" href="#307">307 </a>                     <span class="php-var">$this</span>-&gt;controller = <span class="php-keyword1">isset</span>(<span class="php-var">$dest</span>[<span class="php-quote">'class'</span>]) ? <span class="php-var">$dest</span>[<span class="php-quote">'class'</span>] : <span class="php-var">$explode</span>[<span class="php-num">0</span>];
 </span><span id="308" class="l"><a class="l" href="#308">308 </a>
 </span><span id="309" class="l"><a class="l" href="#309">309 </a>                     <span class="php-comment">//Remove controller</span>
 </span><span id="310" class="l"><a class="l" href="#310">310 </a>                     <span class="php-keyword2">array_shift</span>(<span class="php-var">$explode</span>);
 </span><span id="311" class="l"><a class="l" href="#311">311 </a>
 </span><span id="312" class="l"><a class="l" href="#312">312 </a>                     <span class="php-comment">//Set method</span>
-</span><span id="313" class="l"><a class="l" href="#313">313 </a>                     <span class="php-keyword1">if</span>(<span class="php-var">$dest</span>[<span class="php-quote">'method'</span>] != self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'method'</span>]) {
+</span><span id="313" class="l"><a class="l" href="#313">313 </a>                     <span class="php-keyword1">if</span>(<span class="php-var">$dest</span>[<span class="php-quote">'method'</span>] != self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'method'</span>]) {
 </span><span id="314" class="l"><a class="l" href="#314">314 </a>                        <span class="php-var">$this</span>-&gt;method = <span class="php-var">$dest</span>[<span class="php-quote">'method'</span>];
 </span><span id="315" class="l"><a class="l" href="#315">315 </a>                     } <span class="php-keyword1">elseif</span>(<span class="php-keyword1">isset</span>(<span class="php-var">$explode</span>[<span class="php-num">0</span>])) {
 </span><span id="316" class="l"><a class="l" href="#316">316 </a>                        <span class="php-var">$this</span>-&gt;method = <span class="php-var">$explode</span>[<span class="php-num">0</span>];
 </span><span id="317" class="l"><a class="l" href="#317">317 </a>                     } <span class="php-keyword1">else</span> {
-</span><span id="318" class="l"><a class="l" href="#318">318 </a>                        <span class="php-var">$this</span>-&gt;method = self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'method'</span>];
+</span><span id="318" class="l"><a class="l" href="#318">318 </a>                        <span class="php-var">$this</span>-&gt;method = self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'method'</span>];
 </span><span id="319" class="l"><a class="l" href="#319">319 </a>                     }
 </span><span id="320" class="l"><a class="l" href="#320">320 </a>
 </span><span id="321" class="l"><a class="l" href="#321">321 </a>                     <span class="php-comment">//Remove controller method</span>
@@ -324,15 +324,15 @@
 </span><span id="324" class="l"><a class="l" href="#324">324 </a>                     }
 </span><span id="325" class="l"><a class="l" href="#325">325 </a>
 </span><span id="326" class="l"><a class="l" href="#326">326 </a>                     <span class="php-comment">//Set preliminary method args</span>
-</span><span id="327" class="l"><a class="l" href="#327">327 </a>                     <span class="php-keyword1">if</span>(<span class="php-var">$dest</span>[<span class="php-quote">'args'</span>] != self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'args'</span>]) {
-</span><span id="328" class="l"><a class="l" href="#328">328 </a>                        <span class="php-var">$this</span>-&gt;method_args = <span class="php-var">$dest</span>[<span class="php-quote">'args'</span>];
+</span><span id="327" class="l"><a class="l" href="#327">327 </a>                     <span class="php-keyword1">if</span>(<span class="php-var">$dest</span>[<span class="php-quote">'args'</span>] != self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'args'</span>]) {
+</span><span id="328" class="l"><a class="l" href="#328">328 </a>                        <span class="php-var">$this</span>-&gt;methodArgs = <span class="php-var">$dest</span>[<span class="php-quote">'args'</span>];
 </span><span id="329" class="l"><a class="l" href="#329">329 </a>                     } <span class="php-keyword1">elseif</span>(!<span class="php-keyword1">empty</span>(<span class="php-var">$explode</span>)) {
-</span><span id="330" class="l"><a class="l" href="#330">330 </a>                        <span class="php-var">$this</span>-&gt;method_args = <span class="php-var">$explode</span>;
+</span><span id="330" class="l"><a class="l" href="#330">330 </a>                        <span class="php-var">$this</span>-&gt;methodArgs = <span class="php-var">$explode</span>;
 </span><span id="331" class="l"><a class="l" href="#331">331 </a>                     } <span class="php-keyword1">else</span> {
-</span><span id="332" class="l"><a class="l" href="#332">332 </a>                        <span class="php-var">$this</span>-&gt;method_args = self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'args'</span>];
+</span><span id="332" class="l"><a class="l" href="#332">332 </a>                        <span class="php-var">$this</span>-&gt;methodArgs = self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'args'</span>];
 </span><span id="333" class="l"><a class="l" href="#333">333 </a>                     }
 </span><span id="334" class="l"><a class="l" href="#334">334 </a>
-</span><span id="335" class="l"><a class="l" href="#335">335 </a>                     <span class="php-var">$replace</span> = <span class="php-keyword2">explode</span>(<span class="php-quote">'/'</span>, <span class="php-keyword2">preg_replace</span>(<span class="php-var">$regex</span>, <span class="php-keyword2">implode</span>(<span class="php-quote">'/'</span>, <span class="php-var">$this</span>-&gt;method_args), <span class="php-var">$this</span>-&gt;path));
+</span><span id="335" class="l"><a class="l" href="#335">335 </a>                     <span class="php-var">$replace</span> = <span class="php-keyword2">explode</span>(<span class="php-quote">'/'</span>, <span class="php-keyword2">preg_replace</span>(<span class="php-var">$regex</span>, <span class="php-keyword2">implode</span>(<span class="php-quote">'/'</span>, <span class="php-var">$this</span>-&gt;methodArgs), <span class="php-var">$this</span>-&gt;path));
 </span><span id="336" class="l"><a class="l" href="#336">336 </a>
 </span><span id="337" class="l"><a class="l" href="#337">337 </a>                     <span class="php-comment">//Remove empties</span>
 </span><span id="338" class="l"><a class="l" href="#338">338 </a>                     <span class="php-keyword1">foreach</span>(<span class="php-var">$replace</span> <span class="php-keyword1">as</span> <span class="php-var">$k</span> =&gt; <span class="php-var">$v</span>) {
@@ -341,7 +341,7 @@
 </span><span id="341" class="l"><a class="l" href="#341">341 </a>                        }
 </span><span id="342" class="l"><a class="l" href="#342">342 </a>                     }
 </span><span id="343" class="l"><a class="l" href="#343">343 </a>
-</span><span id="344" class="l"><a class="l" href="#344">344 </a>                     <span class="php-var">$this</span>-&gt;method_args = <span class="php-var">$replace</span>;
+</span><span id="344" class="l"><a class="l" href="#344">344 </a>                     <span class="php-var">$this</span>-&gt;methodArgs = <span class="php-var">$replace</span>;
 </span><span id="345" class="l"><a class="l" href="#345">345 </a>
 </span><span id="346" class="l"><a class="l" href="#346">346 </a>                     <span class="php-keyword1">break</span>;
 </span><span id="347" class="l"><a class="l" href="#347">347 </a>                  }
@@ -353,8 +353,8 @@
 </span><span id="353" class="l"><a class="l" href="#353">353 </a>
 </span><span id="354" class="l"><a class="l" href="#354">354 </a>                  <span class="php-var">$this</span>-&gt;<span class="php-keyword2">dir</span>         = <span class="php-keyword1">null</span>;
 </span><span id="355" class="l"><a class="l" href="#355">355 </a>                  <span class="php-var">$this</span>-&gt;controller  = <span class="php-keyword2">array_shift</span>(<span class="php-var">$path</span>);
-</span><span id="356" class="l"><a class="l" href="#356">356 </a>                  <span class="php-var">$this</span>-&gt;method      = <span class="php-keyword1">empty</span>(<span class="php-var">$path</span>) ? self::<span class="php-var">$route_defaults</span>[<span class="php-quote">'method'</span>] : <span class="php-keyword2">array_shift</span>(<span class="php-var">$path</span>);
-</span><span id="357" class="l"><a class="l" href="#357">357 </a>                  <span class="php-var">$this</span>-&gt;method_args = <span class="php-var">$path</span>;
+</span><span id="356" class="l"><a class="l" href="#356">356 </a>                  <span class="php-var">$this</span>-&gt;method      = <span class="php-keyword1">empty</span>(<span class="php-var">$path</span>) ? self::<span class="php-var">$routeDefaults</span>[<span class="php-quote">'method'</span>] : <span class="php-keyword2">array_shift</span>(<span class="php-var">$path</span>);
+</span><span id="357" class="l"><a class="l" href="#357">357 </a>                  <span class="php-var">$this</span>-&gt;methodArgs = <span class="php-var">$path</span>;
 </span><span id="358" class="l"><a class="l" href="#358">358 </a>               }
 </span><span id="359" class="l"><a class="l" href="#359">359 </a>
 </span><span id="360" class="l"><a class="l" href="#360">360 </a>               <span class="php-var">$filepath</span> =
@@ -394,12 +394,12 @@
 </span><span id="394" class="l"><a class="l" href="#394">394 </a>               } <span class="php-keyword1">elseif</span>(!<span class="php-keyword2">is_array</span>(get(<span class="php-var">$routes</span>))) {
 </span><span id="395" class="l"><a class="l" href="#395">395 </a>                  <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> CE(<span class="php-quote">'The routes variable must be an associative array'</span>, CE::E_MALFORMED_ROUTES);
 </span><span id="396" class="l"><a class="l" href="#396">396 </a>               } <span class="php-keyword1">else</span> {
-</span><span id="397" class="l"><a class="l" href="#397">397 </a>                  <span class="php-var">$this</span>-&gt;err_controller     = <span class="php-var">$error_controller_class</span>;
+</span><span id="397" class="l"><a class="l" href="#397">397 </a>                  <span class="php-var">$this</span>-&gt;errController     = <span class="php-var">$error_controller_class</span>;
 </span><span id="398" class="l"><a class="l" href="#398">398 </a>                  <span class="php-var">$this</span>-&gt;default_controller = <span class="php-var">$default_controller</span>;
 </span><span id="399" class="l"><a class="l" href="#399">399 </a>
 </span><span id="400" class="l"><a class="l" href="#400">400 </a>                  <span class="php-keyword1">foreach</span>(<span class="php-var">$routes</span> <span class="php-keyword1">as</span> <span class="php-var">$k</span> =&gt; <span class="php-var">$v</span>) {
 </span><span id="401" class="l"><a class="l" href="#401">401 </a>                     <span class="php-keyword1">if</span>(<span class="php-keyword2">is_array</span>(<span class="php-var">$v</span>)) {
-</span><span id="402" class="l"><a class="l" href="#402">402 </a>                        <span class="php-var">$this</span>-&gt;routes[<span class="php-keyword2">strtolower</span>(<span class="php-var">$k</span>)] = <span class="php-keyword2">array_merge</span>(self::<span class="php-var">$route_defaults</span>, <span class="php-var">$v</span>);
+</span><span id="402" class="l"><a class="l" href="#402">402 </a>                        <span class="php-var">$this</span>-&gt;routes[<span class="php-keyword2">strtolower</span>(<span class="php-var">$k</span>)] = <span class="php-keyword2">array_merge</span>(self::<span class="php-var">$routeDefaults</span>, <span class="php-var">$v</span>);
 </span><span id="403" class="l"><a class="l" href="#403">403 </a>                     } <span class="php-keyword1">else</span> {
 </span><span id="404" class="l"><a class="l" href="#404">404 </a>                        <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> CE(<span class="php-quote">'Route '</span> . <span class="php-var">$k</span> . <span class="php-quote">' is not a valid array.'</span>, CE::E_MALFORMED_ROUTES);
 </span><span id="405" class="l"><a class="l" href="#405">405 </a>                     }
@@ -442,11 +442,11 @@
 </span></span><span id="442" class="l"><a class="l" href="#442">442 </a><span class="php-comment">          */</span>
 </span><span id="443" class="l"><a class="l" href="#443">443 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_init_server_vars" href="#_init_server_vars">init_server_vars</a>() {
 </span><span id="444" class="l"><a class="l" href="#444">444 </a>            <span class="php-var">$this</span>-&gt;port           = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'SERVER_PORT'</span>]) ? (int)<span class="php-var">$_SERVER</span>[<span class="php-quote">'SERVER_PORT'</span>] : <span class="php-keyword1">null</span>;
-</span><span id="445" class="l"><a class="l" href="#445">445 </a>            <span class="php-var">$this</span>-&gt;remote_addr    = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REMOTE_ADDR'</span>]);
-</span><span id="446" class="l"><a class="l" href="#446">446 </a>            <span class="php-var">$this</span>-&gt;request_scheme = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REQUEST_SCHEME'</span>]);
-</span><span id="447" class="l"><a class="l" href="#447">447 </a>            <span class="php-var">$this</span>-&gt;request_method = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REQUEST_METHOD'</span>]);
-</span><span id="448" class="l"><a class="l" href="#448">448 </a>            <span class="php-var">$this</span>-&gt;server_addr    = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'SERVER_ADDR'</span>]);
-</span><span id="449" class="l"><a class="l" href="#449">449 </a>            <span class="php-var">$this</span>-&gt;server_name    = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'SERVER_NAME'</span>]);
+</span><span id="445" class="l"><a class="l" href="#445">445 </a>            <span class="php-var">$this</span>-&gt;remoteAddr    = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REMOTE_ADDR'</span>]);
+</span><span id="446" class="l"><a class="l" href="#446">446 </a>            <span class="php-var">$this</span>-&gt;requestScheme = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REQUEST_SCHEME'</span>]);
+</span><span id="447" class="l"><a class="l" href="#447">447 </a>            <span class="php-var">$this</span>-&gt;requestMethod = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REQUEST_METHOD'</span>]);
+</span><span id="448" class="l"><a class="l" href="#448">448 </a>            <span class="php-var">$this</span>-&gt;serverAddr    = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'SERVER_ADDR'</span>]);
+</span><span id="449" class="l"><a class="l" href="#449">449 </a>            <span class="php-var">$this</span>-&gt;serverName    = \get(<span class="php-var">$_SERVER</span>[<span class="php-quote">'SERVER_NAME'</span>]);
 </span><span id="450" class="l"><a class="l" href="#450">450 </a>
 </span><span id="451" class="l"><a class="l" href="#451">451 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
 </span><span id="452" class="l"><a class="l" href="#452">452 </a>         }
@@ -457,8 +457,8 @@
 </span></span><span id="457" class="l"><a class="l" href="#457">457 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
 </span></span><span id="458" class="l"><a class="l" href="#458">458 </a><span class="php-comment">          * @return bool
 </span></span><span id="459" class="l"><a class="l" href="#459">459 </a><span class="php-comment">          */</span>
-</span><span id="460" class="l"><a class="l" href="#460">460 </a>         <span class="php-keyword1">function</span> <a id="_is_cli_request" href="#_is_cli_request">is_cli_request</a>() {
-</span><span id="461" class="l"><a class="l" href="#461">461 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;is_cli_request;
+</span><span id="460" class="l"><a class="l" href="#460">460 </a>         <span class="php-keyword1">function</span> <a id="_is_cli_request" href="#_is_cli_request">isCliRequest</a>() {
+</span><span id="461" class="l"><a class="l" href="#461">461 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;isCliRequest;
 </span><span id="462" class="l"><a class="l" href="#462">462 </a>         }
 </span><span id="463" class="l"><a class="l" href="#463">463 </a>
 </span><span id="464" class="l"><a class="l" href="#464">464 </a>         <span class="php-comment">/**
@@ -478,7 +478,7 @@
 </span></span><span id="478" class="l"><a class="l" href="#478">478 </a><span class="php-comment">          * @return string
 </span></span><span id="479" class="l"><a class="l" href="#479">479 </a><span class="php-comment">          */</span>
 </span><span id="480" class="l"><a class="l" href="#480">480 </a>         <span class="php-keyword1">function</span> <a id="_getErrController" href="#_getErrController">getErrController</a>() {
-</span><span id="481" class="l"><a class="l" href="#481">481 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;err_controller;
+</span><span id="481" class="l"><a class="l" href="#481">481 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;errController;
 </span><span id="482" class="l"><a class="l" href="#482">482 </a>         }
 </span><span id="483" class="l"><a class="l" href="#483">483 </a>
 </span><span id="484" class="l"><a class="l" href="#484">484 </a>         <span class="php-comment">/**
@@ -528,7 +528,7 @@
 </span></span><span id="528" class="l"><a class="l" href="#528">528 </a><span class="php-comment">          * @return string
 </span></span><span id="529" class="l"><a class="l" href="#529">529 </a><span class="php-comment">          */</span>
 </span><span id="530" class="l"><a class="l" href="#530">530 </a>         <span class="php-keyword1">function</span> <a id="_getRemoteAddr" href="#_getRemoteAddr">getRemoteAddr</a>() {
-</span><span id="531" class="l"><a class="l" href="#531">531 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;remote_addr;
+</span><span id="531" class="l"><a class="l" href="#531">531 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;remoteAddr;
 </span><span id="532" class="l"><a class="l" href="#532">532 </a>         }
 </span><span id="533" class="l"><a class="l" href="#533">533 </a>
 </span><span id="534" class="l"><a class="l" href="#534">534 </a>         <span class="php-comment">/**
@@ -538,7 +538,7 @@
 </span></span><span id="538" class="l"><a class="l" href="#538">538 </a><span class="php-comment">          * @return string
 </span></span><span id="539" class="l"><a class="l" href="#539">539 </a><span class="php-comment">          */</span>
 </span><span id="540" class="l"><a class="l" href="#540">540 </a>         <span class="php-keyword1">function</span> <a id="_getRequestMethod" href="#_getRequestMethod">getRequestMethod</a>() {
-</span><span id="541" class="l"><a class="l" href="#541">541 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;request_method;
+</span><span id="541" class="l"><a class="l" href="#541">541 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;requestMethod;
 </span><span id="542" class="l"><a class="l" href="#542">542 </a>         }
 </span><span id="543" class="l"><a class="l" href="#543">543 </a>
 </span><span id="544" class="l"><a class="l" href="#544">544 </a>         <span class="php-comment">/**
@@ -548,7 +548,7 @@
 </span></span><span id="548" class="l"><a class="l" href="#548">548 </a><span class="php-comment">          * @return string
 </span></span><span id="549" class="l"><a class="l" href="#549">549 </a><span class="php-comment">          */</span>
 </span><span id="550" class="l"><a class="l" href="#550">550 </a>         <span class="php-keyword1">function</span> <a id="_getRequestScheme" href="#_getRequestScheme">getRequestScheme</a>() {
-</span><span id="551" class="l"><a class="l" href="#551">551 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;request_scheme;
+</span><span id="551" class="l"><a class="l" href="#551">551 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;requestScheme;
 </span><span id="552" class="l"><a class="l" href="#552">552 </a>         }
 </span><span id="553" class="l"><a class="l" href="#553">553 </a>
 </span><span id="554" class="l"><a class="l" href="#554">554 </a>         <span class="php-comment">/**
@@ -558,7 +558,7 @@
 </span></span><span id="558" class="l"><a class="l" href="#558">558 </a><span class="php-comment">          * @return string
 </span></span><span id="559" class="l"><a class="l" href="#559">559 </a><span class="php-comment">          */</span>
 </span><span id="560" class="l"><a class="l" href="#560">560 </a>         <span class="php-keyword1">function</span> <a id="_getServerAddr" href="#_getServerAddr">getServerAddr</a>() {
-</span><span id="561" class="l"><a class="l" href="#561">561 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;server_addr;
+</span><span id="561" class="l"><a class="l" href="#561">561 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;serverAddr;
 </span><span id="562" class="l"><a class="l" href="#562">562 </a>         }
 </span><span id="563" class="l"><a class="l" href="#563">563 </a>
 </span><span id="564" class="l"><a class="l" href="#564">564 </a>         <span class="php-comment">/**
@@ -568,7 +568,7 @@
 </span></span><span id="568" class="l"><a class="l" href="#568">568 </a><span class="php-comment">          * @return string
 </span></span><span id="569" class="l"><a class="l" href="#569">569 </a><span class="php-comment">          */</span>
 </span><span id="570" class="l"><a class="l" href="#570">570 </a>         <span class="php-keyword1">function</span> <a id="_getServerName" href="#_getServerName">getServerName</a>() {
-</span><span id="571" class="l"><a class="l" href="#571">571 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;server_name;
+</span><span id="571" class="l"><a class="l" href="#571">571 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;serverName;
 </span><span id="572" class="l"><a class="l" href="#572">572 </a>         }
 </span><span id="573" class="l"><a class="l" href="#573">573 </a>
 </span><span id="574" class="l"><a class="l" href="#574">574 </a>         <span class="php-comment">/**

@@ -75,7 +75,7 @@
 
             $this->setID();
 
-            if(\Alo::$router->is_cli_request() || $this->identityCheck()) {
+            if(\Alo::$router->isCliRequest() || $this->identityCheck()) {
                $this->fetch()->removeExpired();
             }
 

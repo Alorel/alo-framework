@@ -1,17 +1,29 @@
 # 1.2 (pending) #
-Bugs fixed
+## Bugs fixed ##
 
 * MemcachedWrapper->getAll() now returns correct results when running the Windows version of Memcache
 * AbstractDB can now reuse Alo::$cache instead of instantiating a new class
 
-PSR-1 standards-compliant renames:
-* AbstractController->http_error() renamed to httpError()
+## PSR-1 standards-compliant renames ##
+### Code review required ###
+AbstractController
 
-Renamed classes
+* http_error() renamed to httpError()
+
+Router 
+
+* Gettable variables renamed in camelCase (applies to getters too)
+* is_cli_request() -> isCliRequest()
+
+### No code review required ###
+
+* Static constructors are now in camelCase - no implications as of PHP 5.6.9
+
+## Renamed classes ##
 
 * SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.
 
-Misc
+## Misc ##
 
 * ALO_SESSION_SECURE config constant added. Determines whether the session cookie should only be sent via SSL.
 * ALO_MYSQL_CHARSET config constant added. Determines the connection charset.
@@ -20,9 +32,10 @@ Misc
 	* php_warning($msg)
 	* php_notice($msg)
 	* php_deprecated($msg)
-* PDO now used ERRMODE_EXCEPTION instead of ERRMODE_WARNING
+* PDO now uses ERRMODE_EXCEPTION instead of ERRMODE_WARNING
 * Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
-* A plethora of code quality improvements with the help of Sensio Labs Insights
+* A plethora of code quality improvements with the help of SensioLabs Insights
+* SampleErrorController->error() $message parameter removed as it was unused
 
 # 1.1.1 (2015-05-31) #
 Misc

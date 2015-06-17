@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="generator" content="ApiGen 2.8.0"/><meta name="robots" content="noindex"/><title>File sys/class/alo/sftp.php | AloFramework documentation</title><script type="text/javascript" src="resources/combined.js?3521877029"></script><script type="text/javascript" src="elementlist.js?140437267"></script><link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822"/><link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609"/></head><body><div id="navigation" class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a href="index.html" class="brand">AloFramework documentation</a><div class="nav-collapse"><ul class="nav"><li><a href="namespace-Alo.html" title="Summary of Alo"><span>Namespace</span></a></li><li><a href="class-Alo.SFTP.html" title="Summary of Alo\SFTP"><span>Class</span></a></li><li class="divider-vertical"></li><li><a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a></li><li><a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a></li><li><a href="todo.html" title="Todo list"><span>Todo</span></a></li></ul></div></div></div></div><div id="left"><div id="menu"><form id="search" class="form-search"><input type="hidden" name="cx" value=""/><input type="hidden" name="ie" value="UTF-8"/><input type="text" name="q" class="search-query" placeholder="Search"/></form><div id="groups"><h3>Namespaces</h3><ul><li class="active"><a href="namespace-Alo.html">Alo<span></span></a><ul><li><a href="namespace-Alo.Cache.html">Cache</a></li><li><a href="namespace-Alo.CLI.html">CLI</a></li><li><a href="namespace-Alo.Controller.html">Controller</a></li><li><a href="namespace-Alo.Db.html">Db</a></li><li><a href="namespace-Alo.Exception.html">Exception</a></li><li><a href="namespace-Alo.FileSystem.html">FileSystem</a></li><li><a href="namespace-Alo.Session.html">Session</a></li><li><a href="namespace-Alo.Statics.html">Statics</a></li><li><a href="namespace-Alo.Test.html">Test</a></li><li><a href="namespace-Alo.Validators.html">Validators</a></li><li><a href="namespace-Alo.Windows.html">Windows</a></li></ul></li><li><a href="namespace-Controller.html">Controller</a></li><li><a href="namespace-None.html">None</a></li><li><a href="namespace-PHP.html">PHP</a></li></ul></div><div id="elements"><h3>Classes</h3><ul><li><a href="class-Alo.Cron.html">Cron</a></li><li><a href="class-Alo.cURL.html">cURL</a></li><li><a href="class-Alo.Email.html">Email</a></li><li><a href="class-Alo.File.html" class="deprecated">File</a></li><li><a href="class-Alo.Handler.html">Handler</a></li><li><a href="class-Alo.Locale.html">Locale</a></li><li><a href="class-Alo.Profiler.html">Profiler</a></li><li class="active"><a href="class-Alo.SFTP.html">SFTP</a></li></ul></div></div></div><div id="splitter"></div><div id="right"><div id="rightInner"><pre id="source"><code><span id="1" class="l"><a class="l" href="#1">  1 </a><span class="xlang">&lt;?php</span>
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="generator" content="ApiGen 2.8.0"/><meta name="robots" content="noindex"/><title>File sys/class/alo/sftp.php | AloFramework documentation</title><script type="text/javascript" src="resources/combined.js?3521877029"></script><script type="text/javascript" src="elementlist.js?140437267"></script><link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822"/><link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609"/></head><body><div id="navigation" class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a href="index.html" class="brand">AloFramework documentation</a><div class="nav-collapse"><ul class="nav"><li><a href="namespace-Alo.html" title="Summary of Alo"><span>Namespace</span></a></li><li><a href="class-Alo.SFTP.html" title="Summary of Alo\SFTP"><span>Class</span></a></li><li class="divider-vertical"></li><li><a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a></li><li><a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a></li><li><a href="todo.html" title="Todo list"><span>Todo</span></a></li></ul></div></div></div></div><div id="left"><div id="menu"><form id="search" class="form-search"><input type="hidden" name="cx" value=""/><input type="hidden" name="ie" value="UTF-8"/><input type="text" name="q" class="search-query" placeholder="Search"/></form><div id="groups"><h3>Namespaces</h3><ul><li class="active"><a href="namespace-Alo.html">Alo<span></span></a><ul><li><a href="namespace-Alo.Cache.html">Cache</a></li><li><a href="namespace-Alo.CLI.html">CLI</a></li><li><a href="namespace-Alo.Controller.html">Controller</a></li><li><a href="namespace-Alo.Db.html">Db</a></li><li><a href="namespace-Alo.Exception.html">Exception</a></li><li><a href="namespace-Alo.FileSystem.html">FileSystem</a></li><li><a href="namespace-Alo.Session.html">Session</a></li><li><a href="namespace-Alo.Statics.html">Statics</a></li><li><a href="namespace-Alo.Test.html">Test</a></li><li><a href="namespace-Alo.Validators.html">Validators</a></li><li><a href="namespace-Alo.Windows.html">Windows</a></li></ul></li><li><a href="namespace-Controller.html">Controller</a></li><li><a href="namespace-None.html">None</a></li><li><a href="namespace-PHP.html">PHP</a></li></ul></div><div id="elements"><h3>Classes</h3><ul><li><a href="class-Alo.Cron.html">Cron</a></li><li><a href="class-Alo.cURL.html">cURL</a></li><li><a href="class-Alo.Email.html">Email</a></li><li><a href="class-Alo.File.html" class="deprecated">File</a></li><li><a href="class-Alo.Handler.html">Handler</a></li><li><a href="class-Alo.Locale.html">locale</a></li><li><a href="class-Alo.Profiler.html">Profiler</a></li><li class="active"><a href="class-Alo.SFTP.html">SFTP</a></li></ul></div></div></div><div id="splitter"></div><div id="right"><div id="rightInner"><pre id="source"><code><span id="1" class="l"><a class="l" href="#1">  1 </a><span class="xlang">&lt;?php</span>
 </span><span id="2" class="l"><a class="l" href="#2">  2 </a>
 </span><span id="3" class="l"><a class="l" href="#3">  3 </a>   <span class="php-keyword1">namespace</span> Alo;
 </span><span id="4" class="l"><a class="l" href="#4">  4 </a>
@@ -100,20 +100,20 @@
 </span></span><span id="100" class="l"><a class="l" href="#100">100 </a><span class="php-comment">          *
 </span></span><span id="101" class="l"><a class="l" href="#101">101 </a><span class="php-comment">          * @var string
 </span></span><span id="102" class="l"><a class="l" href="#102">102 </a><span class="php-comment">          */</span>
-</span><span id="103" class="l"><a class="l" href="#103">103 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$local_dir" href="#$local_dir">$local_dir</a></span>;
+</span><span id="103" class="l"><a class="l" href="#103">103 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$local_dir" href="#$local_dir">$localDir</a></span>;
 </span><span id="104" class="l"><a class="l" href="#104">104 </a>         <span class="php-comment">/**
 </span></span><span id="105" class="l"><a class="l" href="#105">105 </a><span class="php-comment">          * Maximum amount of retries for an operation
 </span></span><span id="106" class="l"><a class="l" href="#106">106 </a><span class="php-comment">          *
 </span></span><span id="107" class="l"><a class="l" href="#107">107 </a><span class="php-comment">          * @var int
 </span></span><span id="108" class="l"><a class="l" href="#108">108 </a><span class="php-comment">          */</span>
-</span><span id="109" class="l"><a class="l" href="#109">109 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$retry_count_max" href="#$retry_count_max">$retry_count_max</a></span>;
+</span><span id="109" class="l"><a class="l" href="#109">109 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$retry_count_max" href="#$retry_count_max">$retryCountMax</a></span>;
 </span><span id="110" class="l"><a class="l" href="#110">110 </a>
 </span><span id="111" class="l"><a class="l" href="#111">111 </a>         <span class="php-comment">/**
 </span></span><span id="112" class="l"><a class="l" href="#112">112 </a><span class="php-comment">          * Time in seconds between retries
 </span></span><span id="113" class="l"><a class="l" href="#113">113 </a><span class="php-comment">          *
 </span></span><span id="114" class="l"><a class="l" href="#114">114 </a><span class="php-comment">          * @var int
 </span></span><span id="115" class="l"><a class="l" href="#115">115 </a><span class="php-comment">          */</span>
-</span><span id="116" class="l"><a class="l" href="#116">116 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$retry_time" href="#$retry_time">$retry_time</a></span>;
+</span><span id="116" class="l"><a class="l" href="#116">116 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$retry_time" href="#$retry_time">$retryTime</a></span>;
 </span><span id="117" class="l"><a class="l" href="#117">117 </a>
 </span><span id="118" class="l"><a class="l" href="#118">118 </a>         <span class="php-comment">/**
 </span></span><span id="119" class="l"><a class="l" href="#119">119 </a><span class="php-comment">          * Instantiates the library
@@ -130,8 +130,8 @@
 </span><span id="130" class="l"><a class="l" href="#130">130 </a>            } <span class="php-keyword1">else</span> {
 </span><span id="131" class="l"><a class="l" href="#131">131 </a>               <span class="php-var">$this</span>-&gt;<span class="php-keyword2">dir</span> = DIR_INDEX;
 </span><span id="132" class="l"><a class="l" href="#132">132 </a>
-</span><span id="133" class="l"><a class="l" href="#133">133 </a>               <span class="php-var">$this</span>-&gt;retry_count_max = (int)\get(<span class="php-var">$params</span>[self::P_RETRY_COUNT]);
-</span><span id="134" class="l"><a class="l" href="#134">134 </a>               <span class="php-var">$this</span>-&gt;retry_time      = (int)\get(<span class="php-var">$params</span>[self::P_RETRY_TIME]) ? <span class="php-var">$params</span>[self::P_RETRY_TIME] : <span class="php-num">3</span>;
+</span><span id="133" class="l"><a class="l" href="#133">133 </a>               <span class="php-var">$this</span>-&gt;retryCountMax = (int)\get(<span class="php-var">$params</span>[self::P_RETRY_COUNT]);
+</span><span id="134" class="l"><a class="l" href="#134">134 </a>               <span class="php-var">$this</span>-&gt;retryTime      = (int)\get(<span class="php-var">$params</span>[self::P_RETRY_TIME]) ? <span class="php-var">$params</span>[self::P_RETRY_TIME] : <span class="php-num">3</span>;
 </span><span id="135" class="l"><a class="l" href="#135">135 </a>
 </span><span id="136" class="l"><a class="l" href="#136">136 </a>               \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'SSH2 class initialised'</span>);
 </span><span id="137" class="l"><a class="l" href="#137">137 </a>            }
@@ -165,9 +165,9 @@
 </span></span><span id="165" class="l"><a class="l" href="#165">165 </a><span class="php-comment">          */</span>
 </span><span id="166" class="l"><a class="l" href="#166">166 </a>         <span class="php-keyword1">function</span> <a id="_retryCount" href="#_retryCount">retryCount</a>(<span class="php-var">$int</span> = -<span class="php-num">1</span>) {
 </span><span id="167" class="l"><a class="l" href="#167">167 </a>            <span class="php-keyword1">if</span>(<span class="php-var">$int</span> === -<span class="php-num">1</span>) {
-</span><span id="168" class="l"><a class="l" href="#168">168 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;retry_count_max;
+</span><span id="168" class="l"><a class="l" href="#168">168 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;retryCountMax;
 </span><span id="169" class="l"><a class="l" href="#169">169 </a>            } <span class="php-keyword1">elseif</span>(<span class="php-keyword2">is_numeric</span>(<span class="php-var">$int</span>) &amp;&amp; <span class="php-var">$int</span> &gt;= <span class="php-num">0</span>) {
-</span><span id="170" class="l"><a class="l" href="#170">170 </a>               <span class="php-var">$this</span>-&gt;retry_count_max = (int)<span class="php-var">$int</span>;
+</span><span id="170" class="l"><a class="l" href="#170">170 </a>               <span class="php-var">$this</span>-&gt;retryCountMax = (int)<span class="php-var">$int</span>;
 </span><span id="171" class="l"><a class="l" href="#171">171 </a>               \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Retry count set to '</span> . <span class="php-var">$int</span>);
 </span><span id="172" class="l"><a class="l" href="#172">172 </a>
 </span><span id="173" class="l"><a class="l" href="#173">173 </a>               <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
@@ -187,9 +187,9 @@
 </span></span><span id="187" class="l"><a class="l" href="#187">187 </a><span class="php-comment">          */</span>
 </span><span id="188" class="l"><a class="l" href="#188">188 </a>         <span class="php-keyword1">function</span> <a id="_retryTime" href="#_retryTime">retryTime</a>(<span class="php-var">$int</span> = -<span class="php-num">1</span>) {
 </span><span id="189" class="l"><a class="l" href="#189">189 </a>            <span class="php-keyword1">if</span>(<span class="php-var">$int</span> === -<span class="php-num">1</span>) {
-</span><span id="190" class="l"><a class="l" href="#190">190 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;retry_time;
+</span><span id="190" class="l"><a class="l" href="#190">190 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;retryTime;
 </span><span id="191" class="l"><a class="l" href="#191">191 </a>            } <span class="php-keyword1">elseif</span>(<span class="php-keyword2">is_numeric</span>(<span class="php-var">$int</span>) &amp;&amp; <span class="php-var">$int</span> &gt; <span class="php-num">0</span>) {
-</span><span id="192" class="l"><a class="l" href="#192">192 </a>               <span class="php-var">$this</span>-&gt;retry_time = (int)<span class="php-var">$int</span>;
+</span><span id="192" class="l"><a class="l" href="#192">192 </a>               <span class="php-var">$this</span>-&gt;retryTime = (int)<span class="php-var">$int</span>;
 </span><span id="193" class="l"><a class="l" href="#193">193 </a>               \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Retry time set to '</span> . <span class="php-var">$int</span>);
 </span><span id="194" class="l"><a class="l" href="#194">194 </a>
 </span><span id="195" class="l"><a class="l" href="#195">195 </a>               <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
@@ -212,7 +212,7 @@
 </span><span id="212" class="l"><a class="l" href="#212">212 </a>            <span class="php-keyword1">if</span>(!<span class="php-var">$dir</span>) {
 </span><span id="213" class="l"><a class="l" href="#213">213 </a>               <span class="php-var">$dir</span> = DIRECTORY_SEPARATOR;
 </span><span id="214" class="l"><a class="l" href="#214">214 </a>            }
-</span><span id="215" class="l"><a class="l" href="#215">215 </a>            <span class="php-var">$this</span>-&gt;local_dir = <span class="php-var">$dir</span>;
+</span><span id="215" class="l"><a class="l" href="#215">215 </a>            <span class="php-var">$this</span>-&gt;localDir = <span class="php-var">$dir</span>;
 </span><span id="216" class="l"><a class="l" href="#216">216 </a>            \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Local dir set to '</span> . <span class="php-var">$dir</span>);
 </span><span id="217" class="l"><a class="l" href="#217">217 </a>
 </span><span id="218" class="l"><a class="l" href="#218">218 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
@@ -282,12 +282,12 @@
 </span><span id="282" class="l"><a class="l" href="#282">282 </a>               <span class="php-var">$msg</span> = <span class="php-quote">'Failed to initialise SSH2 connection'</span>;
 </span><span id="283" class="l"><a class="l" href="#283">283 </a>               <span class="php-var">$attempt</span>++;
 </span><span id="284" class="l"><a class="l" href="#284">284 </a>
-</span><span id="285" class="l"><a class="l" href="#285">285 </a>               <span class="php-keyword1">if</span>(<span class="php-var">$attempt</span> - <span class="php-num">1</span> &lt; <span class="php-var">$this</span>-&gt;retry_count_max) {
+</span><span id="285" class="l"><a class="l" href="#285">285 </a>               <span class="php-keyword1">if</span>(<span class="php-var">$attempt</span> - <span class="php-num">1</span> &lt; <span class="php-var">$this</span>-&gt;retryCountMax) {
 </span><span id="286" class="l"><a class="l" href="#286">286 </a>                  \<span class="php-keyword2">Log</span>::error(<span class="php-var">$msg</span> . <span class="php-quote">'. Retrying again'</span> . <span class="php-quote">' in '</span>
-</span><span id="287" class="l"><a class="l" href="#287">287 </a>                              . <span class="php-var">$this</span>-&gt;retry_time . <span class="php-quote">' seconds ['</span> . <span class="php-var">$attempt</span>
-</span><span id="288" class="l"><a class="l" href="#288">288 </a>                              . <span class="php-quote">'/'</span> . <span class="php-var">$this</span>-&gt;retry_count_max . <span class="php-quote">']'</span>);
+</span><span id="287" class="l"><a class="l" href="#287">287 </a>                              . <span class="php-var">$this</span>-&gt;retryTime . <span class="php-quote">' seconds ['</span> . <span class="php-var">$attempt</span>
+</span><span id="288" class="l"><a class="l" href="#288">288 </a>                              . <span class="php-quote">'/'</span> . <span class="php-var">$this</span>-&gt;retryCountMax . <span class="php-quote">']'</span>);
 </span><span id="289" class="l"><a class="l" href="#289">289 </a>
-</span><span id="290" class="l"><a class="l" href="#290">290 </a>                  <span class="php-keyword2">sleep</span>(<span class="php-var">$this</span>-&gt;retry_time);
+</span><span id="290" class="l"><a class="l" href="#290">290 </a>                  <span class="php-keyword2">sleep</span>(<span class="php-var">$this</span>-&gt;retryTime);
 </span><span id="291" class="l"><a class="l" href="#291">291 </a>
 </span><span id="292" class="l"><a class="l" href="#292">292 </a>                  <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;connect(<span class="php-var">$attempt</span>);
 </span><span id="293" class="l"><a class="l" href="#293">293 </a>               } <span class="php-keyword1">else</span> {
@@ -315,11 +315,11 @@
 </span><span id="315" class="l"><a class="l" href="#315">315 </a>               <span class="php-var">$msg</span> = <span class="php-quote">'Failed to authenticate SSH2 connection'</span>;
 </span><span id="316" class="l"><a class="l" href="#316">316 </a>               ++<span class="php-var">$attempt</span>;
 </span><span id="317" class="l"><a class="l" href="#317">317 </a>
-</span><span id="318" class="l"><a class="l" href="#318">318 </a>               <span class="php-keyword1">if</span>(<span class="php-var">$attempt</span> - <span class="php-num">1</span> &lt; <span class="php-var">$this</span>-&gt;retry_count_max) {
-</span><span id="319" class="l"><a class="l" href="#319">319 </a>                  \<span class="php-keyword2">Log</span>::error(<span class="php-var">$msg</span> . <span class="php-quote">'. Retrying in '</span> . <span class="php-var">$this</span>-&gt;retry_time
+</span><span id="318" class="l"><a class="l" href="#318">318 </a>               <span class="php-keyword1">if</span>(<span class="php-var">$attempt</span> - <span class="php-num">1</span> &lt; <span class="php-var">$this</span>-&gt;retryCountMax) {
+</span><span id="319" class="l"><a class="l" href="#319">319 </a>                  \<span class="php-keyword2">Log</span>::error(<span class="php-var">$msg</span> . <span class="php-quote">'. Retrying in '</span> . <span class="php-var">$this</span>-&gt;retryTime
 </span><span id="320" class="l"><a class="l" href="#320">320 </a>                              . <span class="php-quote">' seconds ['</span> . <span class="php-var">$attempt</span> . <span class="php-quote">'/'</span>
-</span><span id="321" class="l"><a class="l" href="#321">321 </a>                              . <span class="php-var">$this</span>-&gt;retry_count_max . <span class="php-quote">']'</span>);
-</span><span id="322" class="l"><a class="l" href="#322">322 </a>                  <span class="php-keyword2">sleep</span>(<span class="php-var">$this</span>-&gt;retry_time);
+</span><span id="321" class="l"><a class="l" href="#321">321 </a>                              . <span class="php-var">$this</span>-&gt;retryCountMax . <span class="php-quote">']'</span>);
+</span><span id="322" class="l"><a class="l" href="#322">322 </a>                  <span class="php-keyword2">sleep</span>(<span class="php-var">$this</span>-&gt;retryTime);
 </span><span id="323" class="l"><a class="l" href="#323">323 </a>
 </span><span id="324" class="l"><a class="l" href="#324">324 </a>                  <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;auth(<span class="php-var">$attempt</span>);
 </span><span id="325" class="l"><a class="l" href="#325">325 </a>               } <span class="php-keyword1">else</span> {
@@ -328,7 +328,7 @@
 </span><span id="328" class="l"><a class="l" href="#328">328 </a>            } <span class="php-keyword1">else</span> {
 </span><span id="329" class="l"><a class="l" href="#329">329 </a>               \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'SSH2 connection authenticated'</span>);
 </span><span id="330" class="l"><a class="l" href="#330">330 </a>
-</span><span id="331" class="l"><a class="l" href="#331">331 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;<span class="php-keyword2">ssh2_sftp</span>();
+</span><span id="331" class="l"><a class="l" href="#331">331 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;<span class="php-keyword2">ssh2Sftp</span>();
 </span><span id="332" class="l"><a class="l" href="#332">332 </a>            }
 </span><span id="333" class="l"><a class="l" href="#333">333 </a>         }
 </span><span id="334" class="l"><a class="l" href="#334">334 </a>
@@ -342,8 +342,8 @@
 </span></span><span id="342" class="l"><a class="l" href="#342">342 </a><span class="php-comment">          * @return SFTP
 </span></span><span id="343" class="l"><a class="l" href="#343">343 </a><span class="php-comment">          * @throws SE When initialising the SFTP system permanently fails
 </span></span><span id="344" class="l"><a class="l" href="#344">344 </a><span class="php-comment">          */</span>
-</span><span id="345" class="l"><a class="l" href="#345">345 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <span class="php-keyword2">ssh2_sftp</span>(<span class="php-var">$attempt</span> = <span class="php-num">0</span>) {
-</span><span id="346" class="l"><a class="l" href="#346">346 </a>            <span class="php-keyword1">if</span>(<span class="php-var">$this</span>-&gt;sftp = @<span class="php-keyword2">ssh2_sftp</span>(<span class="php-var">$this</span>-&gt;connection)) {
+</span><span id="345" class="l"><a class="l" href="#345">345 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <span class="php-keyword2">ssh2Sftp</span>(<span class="php-var">$attempt</span> = <span class="php-num">0</span>) {
+</span><span id="346" class="l"><a class="l" href="#346">346 </a>            <span class="php-keyword1">if</span>(<span class="php-var">$this</span>-&gt;sftp = @<span class="php-keyword2">ssh2Sftp</span>(<span class="php-var">$this</span>-&gt;connection)) {
 </span><span id="347" class="l"><a class="l" href="#347">347 </a>               \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Initialised SFTP subsystem'</span>);
 </span><span id="348" class="l"><a class="l" href="#348">348 </a>
 </span><span id="349" class="l"><a class="l" href="#349">349 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
@@ -351,13 +351,13 @@
 </span><span id="351" class="l"><a class="l" href="#351">351 </a>               <span class="php-var">$msg</span> = <span class="php-quote">'Failed to initialise SFTP subsystem'</span>;
 </span><span id="352" class="l"><a class="l" href="#352">352 </a>               ++<span class="php-var">$attempt</span>;
 </span><span id="353" class="l"><a class="l" href="#353">353 </a>
-</span><span id="354" class="l"><a class="l" href="#354">354 </a>               <span class="php-keyword1">if</span>(<span class="php-var">$attempt</span> - <span class="php-num">1</span> &lt; <span class="php-var">$this</span>-&gt;retry_count_max) {
+</span><span id="354" class="l"><a class="l" href="#354">354 </a>               <span class="php-keyword1">if</span>(<span class="php-var">$attempt</span> - <span class="php-num">1</span> &lt; <span class="php-var">$this</span>-&gt;retryCountMax) {
 </span><span id="355" class="l"><a class="l" href="#355">355 </a>                  \<span class="php-keyword2">Log</span>::error(<span class="php-var">$msg</span> . <span class="php-quote">'. Retrying again'</span> . <span class="php-quote">' in '</span>
-</span><span id="356" class="l"><a class="l" href="#356">356 </a>                              . <span class="php-var">$this</span>-&gt;retry_time . <span class="php-quote">' seconds ['</span> . <span class="php-var">$attempt</span>
-</span><span id="357" class="l"><a class="l" href="#357">357 </a>                              . <span class="php-quote">'/'</span> . <span class="php-var">$this</span>-&gt;retry_count_max . <span class="php-quote">']'</span>);
-</span><span id="358" class="l"><a class="l" href="#358">358 </a>                  <span class="php-keyword2">sleep</span>(<span class="php-var">$this</span>-&gt;retry_time);
+</span><span id="356" class="l"><a class="l" href="#356">356 </a>                              . <span class="php-var">$this</span>-&gt;retryTime . <span class="php-quote">' seconds ['</span> . <span class="php-var">$attempt</span>
+</span><span id="357" class="l"><a class="l" href="#357">357 </a>                              . <span class="php-quote">'/'</span> . <span class="php-var">$this</span>-&gt;retryCountMax . <span class="php-quote">']'</span>);
+</span><span id="358" class="l"><a class="l" href="#358">358 </a>                  <span class="php-keyword2">sleep</span>(<span class="php-var">$this</span>-&gt;retryTime);
 </span><span id="359" class="l"><a class="l" href="#359">359 </a>
-</span><span id="360" class="l"><a class="l" href="#360">360 </a>                  <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;<span class="php-keyword2">ssh2_sftp</span>(<span class="php-var">$attempt</span>);
+</span><span id="360" class="l"><a class="l" href="#360">360 </a>                  <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;<span class="php-keyword2">ssh2Sftp</span>(<span class="php-var">$attempt</span>);
 </span><span id="361" class="l"><a class="l" href="#361">361 </a>               } <span class="php-keyword1">else</span> {
 </span><span id="362" class="l"><a class="l" href="#362">362 </a>                  <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> SE(<span class="php-var">$msg</span> . <span class="php-quote">' after '</span> . <span class="php-var">$attempt</span> . <span class="php-quote">' attempts'</span>, SE::E_SUBSYSTEM);
 </span><span id="363" class="l"><a class="l" href="#363">363 </a>               }
@@ -380,10 +380,10 @@
 </span><span id="380" class="l"><a class="l" href="#380">380 </a>         }
 </span><span id="381" class="l"><a class="l" href="#381">381 </a>
 </span><span id="382" class="l"><a class="l" href="#382">382 </a>         <span class="php-comment">/**
-</span></span><span id="383" class="l"><a class="l" href="#383">383 </a><span class="php-comment">          * Downloads a file to $this-&gt;local_dir
+</span></span><span id="383" class="l"><a class="l" href="#383">383 </a><span class="php-comment">          * Downloads a file to $this-&gt;localDir
 </span></span><span id="384" class="l"><a class="l" href="#384">384 </a><span class="php-comment">          *
 </span></span><span id="385" class="l"><a class="l" href="#385">385 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="386" class="l"><a class="l" href="#386">386 </a><span class="php-comment">          * @see    self::$local_dir
+</span></span><span id="386" class="l"><a class="l" href="#386">386 </a><span class="php-comment">          * @see    self::$localDir
 </span></span><span id="387" class="l"><a class="l" href="#387">387 </a><span class="php-comment">          *
 </span></span><span id="388" class="l"><a class="l" href="#388">388 </a><span class="php-comment">          * @param string $file Remote file name
 </span></span><span id="389" class="l"><a class="l" href="#389">389 </a><span class="php-comment">          *
@@ -392,11 +392,11 @@
 </span></span><span id="392" class="l"><a class="l" href="#392">392 </a><span class="php-comment">          * @return SFTP
 </span></span><span id="393" class="l"><a class="l" href="#393">393 </a><span class="php-comment">          */</span>
 </span><span id="394" class="l"><a class="l" href="#394">394 </a>         <span class="php-keyword1">function</span> <a id="_downloadFile" href="#_downloadFile">downloadFile</a>(<span class="php-var">$file</span>) {
-</span><span id="395" class="l"><a class="l" href="#395">395 </a>            \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Downloading file '</span> . <span class="php-var">$file</span> . <span class="php-quote">' to '</span> . <span class="php-var">$this</span>-&gt;local_dir);
+</span><span id="395" class="l"><a class="l" href="#395">395 </a>            \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Downloading file '</span> . <span class="php-var">$file</span> . <span class="php-quote">' to '</span> . <span class="php-var">$this</span>-&gt;localDir);
 </span><span id="396" class="l"><a class="l" href="#396">396 </a>            <span class="php-var">$fetch</span> = <span class="php-var">$this</span>-&gt;getFileContents(<span class="php-var">$file</span>);
 </span><span id="397" class="l"><a class="l" href="#397">397 </a>
 </span><span id="398" class="l"><a class="l" href="#398">398 </a>            <span class="php-var">$local</span> = <span class="php-keyword1">new</span> <span class="php-keyword2">File</span>();
-</span><span id="399" class="l"><a class="l" href="#399">399 </a>            <span class="php-var">$local</span>-&gt;<span class="php-keyword2">dir</span>(<span class="php-var">$this</span>-&gt;local_dir)-&gt;name(<span class="php-var">$file</span>);
+</span><span id="399" class="l"><a class="l" href="#399">399 </a>            <span class="php-var">$local</span>-&gt;<span class="php-keyword2">dir</span>(<span class="php-var">$this</span>-&gt;localDir)-&gt;name(<span class="php-var">$file</span>);
 </span><span id="400" class="l"><a class="l" href="#400">400 </a>            <span class="php-var">$local</span>-&gt;content(<span class="php-var">$fetch</span>)-&gt;write();
 </span><span id="401" class="l"><a class="l" href="#401">401 </a>
 </span><span id="402" class="l"><a class="l" href="#402">402 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
@@ -450,7 +450,7 @@
 </span></span><span id="450" class="l"><a class="l" href="#450">450 </a><span class="php-comment">          */</span>
 </span><span id="451" class="l"><a class="l" href="#451">451 </a>         <span class="php-keyword1">function</span> <a id="_upload" href="#_upload">upload</a>(<span class="php-var">$file</span>) {
 </span><span id="452" class="l"><a class="l" href="#452">452 </a>            <span class="php-var">$this</span>-&gt;checkSubsystem();
-</span><span id="453" class="l"><a class="l" href="#453">453 </a>            <span class="php-var">$path</span> = <span class="php-var">$this</span>-&gt;local_dir . DIRECTORY_SEPARATOR . <span class="php-var">$file</span>;
+</span><span id="453" class="l"><a class="l" href="#453">453 </a>            <span class="php-var">$path</span> = <span class="php-var">$this</span>-&gt;localDir . DIRECTORY_SEPARATOR . <span class="php-var">$file</span>;
 </span><span id="454" class="l"><a class="l" href="#454">454 </a>
 </span><span id="455" class="l"><a class="l" href="#455">455 </a>            <span class="php-keyword1">if</span>(!<span class="php-var">$content</span> = @<span class="php-keyword2">file_get_contents</span>(<span class="php-var">$path</span>)) {
 </span><span id="456" class="l"><a class="l" href="#456">456 </a>               <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> SE(<span class="php-quote">'Local file '</span> . <span class="php-var">$path</span> . <span class="php-quote">' cannot be read'</span>, SE::E_LOCAL_FILE_NOT_READ);

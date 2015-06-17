@@ -10,21 +10,21 @@
    } else {
 
       /**
-       * Object-oriented cURL wrapper
+       * Object-oriented Curl wrapper
        *
        * @author Art <a.molcanovas@gmail.com>
        */
-      class cURL {
+      class Curl {
 
          /**
           * Static reference to the last instance of the class
           *
-          * @var cURL
+          * @var Curl
           */
          static $this;
 
          /**
-          * The cURL resource
+          * The Curl resource
           *
           * @var resource
           */
@@ -59,7 +59,7 @@
           *
           * @var boolean
           */
-         protected $is_open;
+         protected $isOpen;
 
          /**
           * Instantiates the library
@@ -72,10 +72,10 @@
           */
          function __construct($url = null) {
             if(!function_exists('curl_init')) {
-               throw new EE('cURL PHP extension not loaded', EE::E_EXT_NOT_LOADED);
+               throw new EE('Curl PHP extension not loaded', EE::E_EXT_NOT_LOADED);
             } else {
-               $this->ch      = curl_init();
-               $this->is_open = true;
+               $this->ch     = curl_init();
+               $this->isOpen = true;
                curl_setopt_array($this->ch,
                                  [
                                     CURLOPT_RETURNTRANSFER => true,
@@ -84,7 +84,7 @@
                                     CURLOPT_FOLLOWLOCATION => true
                                  ]);
 
-               Log::debug('Initialised cURL');
+               Log::debug('Initialised Curl');
 
                if($url) {
                   $this->setURL($url);
@@ -101,10 +101,10 @@
           *
           * @param string $url The URL
           *
-          * @return cURL
+          * @return Curl
           */
          function setURL($url) {
-            Log::debug('Set cURL URL to ' . $url);
+            Log::debug('Set Curl URL to ' . $url);
             curl_setopt($this->ch, CURLOPT_URL, $url);
 
             return $this;
@@ -119,10 +119,10 @@
           *
           * @throws EE When the curl extention is not loaded
           *
-          * @return cURL
+          * @return Curl
           */
          static function cURL($url = null) {
-            return new cURL($url);
+            return new Curl($url);
          }
 
          /**
@@ -132,10 +132,10 @@
           *
           * @param string $url Optionally, the URL for curl_init()
           *
-          * @return cURL
+          * @return Curl
           */
          static function init($url = null) {
-            return new cURL($url);
+            return new Curl($url);
          }
 
          /**
@@ -162,13 +162,13 @@
          }
 
          /**
-          * Set whether cURL should time out
+          * Set whether Curl should time out
           *
           * @author Art <a.molcanovas@gmail.com>
           *
           * @param boolean $enabled The switch
           *
-          * @return cURL
+          * @return Curl
           */
          function notimeout($enabled = true) {
             $a = $enabled ? [
@@ -179,7 +179,7 @@
                CURLOPT_TIMEOUT        => 1
             ];
 
-            Log::debug('cURL timeout ' . ($enabled ? 'en' : 'dis') . 'abled');
+            Log::debug('Curl timeout ' . ($enabled ? 'en' : 'dis') . 'abled');
 
             return $this->setopt_array($a);
          }
@@ -192,7 +192,7 @@
           * @param array $a An array specifying which options to set and their values. The keys should be valid
           *                 curl_setopt() constants or their integer equivalents.
           *
-          * @return cURL
+          * @return Curl
           * @link   http://php.net/manual/en/function.curl-setopt-array.php
           */
          function setopt_array(array $a) {
@@ -208,7 +208,7 @@
           *
           * @param boolean $enabled Whether the mode is enabled or disabled
           *
-          * @return cURL
+          * @return Curl
           */
          function laxSSLMode($enabled = true) {
             Log::debug(($enabled ? 'Dis' : 'En') . 'abled CURLOPT_SSL_VERIFYPEER');
@@ -252,13 +252,13 @@
           * @link   http://php.net/manual/en/function.curl-pause.php
           */
          function pause($bitmask) {
-            Log::debug('Changed the cURL pause state');
+            Log::debug('Changed the Curl pause state');
 
             return curl_pause($this->ch, $bitmask);
          }
 
          /**
-          * Gets cURL version information
+          * Gets Curl version information
           *
           * @author Art <a.molcanovas@gmail.com>
           *
@@ -275,12 +275,12 @@
           * Checks whether the last transfer was successful
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return boolean|int If successful - true, if not & cURL error code exists
-          *         - cURL error code, false otherwise
+          * @return boolean|int If successful - true, if not & Curl error code exists
+          *         - Curl error code, false otherwise
           */
          function wasSuccessful() {
             if($this->errno !== CURLE_OK) {
-               return 'cURL error #' . $this->errno;
+               return 'Curl error #' . $this->errno;
             } else {
                $code = $this->getinfo(CURLINFO_HTTP_CODE);
                if(!in_array(substr('' . $this->getinfo(CURLINFO_HTTP_CODE), 0, 1), [1, 2, 3])) {
@@ -296,7 +296,7 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param int $opt One of the cURL constants
+          * @param int $opt One of the Curl constants
           *
           * @return mixed
           * @link   http://php.net/manual/en/function.curl-getinfo.php
@@ -309,11 +309,11 @@
           * Reset all options of a libcurl session handle
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return cURL
+          * @return Curl
           * @link   http://php.net/manual/en/function.curl-reset.php
           */
          function reset() {
-            Log::debug('Reset cURL');
+            Log::debug('Reset Curl');
             curl_reset($this->ch);
             curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -344,24 +344,24 @@
          }
 
          /**
-          * Closes a cURL connection
+          * Closes a Curl connection
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return cURL
+          * @return Curl
           * @link   http://php.net/manual/en/function.curl-close.php
           */
          function close() {
-            if($this->is_open) {
+            if($this->isOpen) {
                curl_close($this->ch);
-               $this->is_open = false;
-               Log::debug('Closed cURL connection');
+               $this->isOpen = false;
+               Log::debug('Closed Curl connection');
             }
 
             return $this;
          }
 
          /**
-          * Gets the results of a cURL exec. If $url is set, will exec on that URL
+          * Gets the results of a Curl exec. If $url is set, will exec on that URL
           *
           * @author Art <a.molcanovas@gmail.com>
           *
@@ -378,14 +378,14 @@
          }
 
          /**
-          * Executes the cURL connection parameters
+          * Executes the Curl connection parameters
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return cURL
+          * @return Curl
           * @link   http://php.net/manual/en/function.curl-exec.php
           */
          function exec() {
-            Log::debug('Started cURL exec');
+            Log::debug('Started Curl exec');
             $this->exec  = curl_exec($this->ch);
             $this->errno = curl_errno($this->ch);
             $this->error = curl_error($this->ch);
@@ -435,10 +435,10 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param int   $name  The option - see cURL constants
+          * @param int   $name  The option - see Curl constants
           * @param mixed $value The option value
           *
-          * @return cURL
+          * @return Curl
           * @link   http://php.net/manual/en/function.curl-setopt.php
           */
          function setopt($name, $value) {

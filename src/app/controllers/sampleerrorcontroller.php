@@ -20,10 +20,9 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param int    $code    The error HTTP code
-          * @param string $message Optional message override
+          * @param int $code The error HTTP code
           */
-         function error($code = 404, $message = null) {
+         function error($code = 404) {
             http_response_code((int)$code);
             $dir  = defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP;
             $path = $dir . 'error' . DIRECTORY_SEPARATOR . $code . '.html';

@@ -33,7 +33,7 @@
       function testEqualsProvider() {
          return [
             ['getMethod', 'index'],
-            ['is_cli_request', true],
+            ['isCliRequest', true],
             ['is_ajax_request', false],
             ['getPath', ''],
             ['getPort', ''],

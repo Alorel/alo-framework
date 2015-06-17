@@ -54,9 +54,9 @@
          static $email;
 
          /**
-          * Object-oriented cURL wrapper
+          * Object-oriented Curl wrapper
           *
-          * @var Alo\cURL
+          * @var Alo\Curl
           */
          static $curl;
 

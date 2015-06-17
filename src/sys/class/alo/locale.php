@@ -91,7 +91,7 @@
           * @throws LibraryException If the above reference is not supplied and Alo::$db is not instantiated
           * @return Locale
           */
-         static function Locale(DB &$db = null) {
+         static function locale(DB &$db = null) {
             return new Locale($db);
          }
 

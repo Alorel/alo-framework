@@ -2,7 +2,7 @@
 
    namespace Alo\CLI;
 
-   use Alo\cURL;
+   use Alo\Curl;
    use Alo\File;
 
    if(!defined('GEN_START')) {
@@ -23,9 +23,9 @@
           */
          static $this;
          /**
-          * cURL handler
+          * Curl handler
           *
-          * @var cURL
+          * @var Curl
           */
          protected $curl;
          /**
@@ -39,13 +39,13 @@
           *
           * @var int
           */
-         protected $last_report_time;
+         protected $lastReportTime;
          /**
           * The last reported status
           *
           * @var string
           */
-         protected $last_report_status;
+         protected $lastReportStatus;
          /**
           * Output
           *
@@ -57,7 +57,7 @@
           *
           * @var int
           */
-         protected $report_count;
+         protected $reportCount;
 
          /**
           * Instantiates the class
@@ -68,10 +68,10 @@
           * @param string $destination Download destination
           */
          function __construct($source, $destination) {
-            $this->dest         = $destination;
-            $this->report_count = 0;
+            $this->dest        = $destination;
+            $this->reportCount = 0;
 
-            $this->curl = new cURL($source);
+            $this->curl = new Curl($source);
             $this->curl->setProgressFunction([$this, 'progressFunction']);
 
             self::$this = &$this;
@@ -99,19 +99,19 @@
                $size = $upload_size;
             }
 
-            if($ed && $size && $this->report_count++ != 0) {
+            if($ed && $size && $this->reportCount++ != 0) {
                /** @noinspection PhpDeprecationInspection */
                $status = File::convert_size($ed) . '/' . File::convert_size($size) . ' downloaded ['
                          . round(($ed / $size) * 100, 3) . ' %]';
 
                $time = time();
-               if($status != $this->last_report_status && ($time != $this->last_report_time || $ed == $size)) {
-                  $this->last_report_time   = $time;
-                  $this->last_report_status = $status;
+               if($status != $this->lastReportStatus && ($time != $this->lastReportTime || $ed == $size)) {
+                  $this->lastReportTime   = $time;
+                  $this->lastReportStatus = $status;
                   echo $status . PHP_EOL;
                }
 
-               $this->report_count++;
+               $this->reportCount++;
             }
 
             //Unnecessary, but stops the IDE from thinking the variable is unused
@@ -122,7 +122,7 @@
           * Starts the download
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return bool Whther the download was successful (on the cURL side)
+          * @return bool Whther the download was successful (on the Curl side)
           */
          function download() {
             if(file_exists($this->dest)) {

@@ -18,10 +18,9 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param int    $code    The error HTTP response code
-          * @param string $message Optional message override
+          * @param int $code The error HTTP response code
           */
-         abstract function error($code = 404, $message = null);
+         abstract function error($code = 404);
 
          /**
           * Displays a generic error page for which there is no HTML file

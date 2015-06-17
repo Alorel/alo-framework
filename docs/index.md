@@ -213,31 +213,6 @@ $router->init(); //Or ->initNoCall() if you just want to initialise it, but not 
 See [changelog.md](changelog.md) for a full changelog of previous versions.
 ## 1.2 (pending) ##
 
-Bugs fixed
-
-* MemcachedWrapper->getAll() now returns correct results when running the Windows version of Memcache
-* AbstractDB can now reuse Alo::$cache instead of instantiating a new class
-
-PSR-1 standards-compliant renames:
-* AbstractController->http_error() renamed to httpError()
-
-Renamed classes
-
-* SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.
-
-Misc
-
-* ALO_SESSION_SECURE config constant added. Determines whether the session cookie should only be sent via SSL.
-* ALO_MYSQL_CHARSET config constant added. Determines the connection charset.
-* Global shorthands added for trigger_error():
-	* php_error($msg)
-	* php_warning($msg)
-	* php_notice($msg)
-	* php_deprecated($msg)
-* PDO now used ERRMODE_EXCEPTION instead of ERRMODE_WARNING
-* Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
-* A plethora of code quality improvements with the help of Sensio Labs Insights
-
 
 
 ^[TOC](#table-of-contents)

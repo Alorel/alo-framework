@@ -254,7 +254,7 @@
           * @throws OS When the machine is running Windows
           * @return Cron
           */
-         static function Cron() {
+         static function cron() {
             return new Cron();
          }
 
