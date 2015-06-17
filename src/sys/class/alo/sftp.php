@@ -150,7 +150,7 @@
           *
           * @return SFTP
           */
-         static function SFTP($params = []) {
+         static function sftp($params = []) {
             return new SFTP($params);
          }
 
