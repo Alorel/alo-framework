@@ -245,26 +245,26 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string $key         The key
-          * @param string $first_mark  The first mark
-          * @param string $second_mark The second mark
+          * @param string $key        The key
+          * @param string $firstMark  The first mark
+          * @param string $secondMark The second mark
           *
           * @return array
           * @throws PE If the key isn't found in one or both marks
           */
-         function diffOnKey($key, $first_mark, $second_mark) {
-            if(!isset($this->marks[$first_mark])) {
+         function diffOnKey($key, $firstMark, $secondMark) {
+            if(!isset($this->marks[$firstMark])) {
                throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
-            } elseif(!isset($this->marks[$second_mark])) {
+            } elseif(!isset($this->marks[$secondMark])) {
                throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
-            } elseif(!isset($this->marks[$first_mark][$key])) {
+            } elseif(!isset($this->marks[$firstMark][$key])) {
                throw new PE('Invalid $key.', PE::E_KEY_INVALID);
             } else {
-               $fm = $this->marks[$first_mark][$key];
-               $sm = $this->marks[$second_mark][$key];
+               $fm = $this->marks[$firstMark][$key];
+               $sm = $this->marks[$secondMark][$key];
 
-               $ret = [$first_mark  => $fm,
-                       $second_mark => $sm
+               $ret = [$firstMark  => $fm,
+                       $secondMark => $sm
                ];
 
                if(is_numeric($fm)) {

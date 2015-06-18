@@ -228,8 +228,8 @@
           * @throws \phpmailerException
           */
          function attachContent($name, $content) {
-            $dest_filename = Security::getUniqid('md5', 'email_attachment');
-            $dest          = DIR_TMP . $dest_filename;
+            $destFilename = Security::getUniqid('md5', 'email_attachment');
+            $dest         = DIR_TMP . $destFilename;
 
             if(file_exists($dest)) {
                //try again

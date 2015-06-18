@@ -120,12 +120,12 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param boolean $initialise_default_server Whether to add a server on construct
+          * @param boolean $initDefaultServer Whether to add a server on construct
           *
           * @return MemcachedWrapper
           */
-         static function MemcachedWrapper($initialise_default_server = true) {
-            return new MemcachedWrapper($initialise_default_server);
+         static function memcachedWrapper($initDefaultServer = true) {
+            return new MemcachedWrapper($initDefaultServer);
          }
 
          /**

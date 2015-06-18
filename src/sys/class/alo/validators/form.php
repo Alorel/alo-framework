@@ -175,7 +175,7 @@
                   ];
                   $ok        = false;
                } else {
-                  $local_ok               = true;
+                  $localOk                = true;
                   $breakdown['breakdown'] = [];
 
                   if(isset($this->binds[$dataKey])) {
@@ -183,12 +183,12 @@
                         $breakdown['breakdown'][$bindKey] = self::evalParam($dataValue, $bindKey, $bindValue);
 
                         if(!$breakdown['breakdown'][$bindKey]) {
-                           $local_ok = $ok = false;
+                           $localOk = $ok = false;
                         }
                      }
                   }
 
-                  $breakdown['OK']            = $local_ok;
+                  $breakdown['OK']            = $localOk;
                   $breakdown['global_errors'] = [];
                }
             }
