@@ -287,7 +287,7 @@
                               . $this->retryTime . ' seconds [' . $attempt
                               . '/' . $this->retryCountMax . ']');
 
-                  sleep($this->retryTime);
+                  time_sleep_until(time() + $this->retryTime);
 
                   return $this->connect($attempt);
                } else {
@@ -319,7 +319,7 @@
                   \Log::error($msg . '. Retrying in ' . $this->retryTime
                               . ' seconds [' . $attempt . '/'
                               . $this->retryCountMax . ']');
-                  sleep($this->retryTime);
+                  time_sleep_until(time() + $this->retryTime);
 
                   return $this->auth($attempt);
                } else {
@@ -355,7 +355,7 @@
                   \Log::error($msg . '. Retrying again' . ' in '
                               . $this->retryTime . ' seconds [' . $attempt
                               . '/' . $this->retryCountMax . ']');
-                  sleep($this->retryTime);
+                  time_sleep_until(time() + $this->retryTime);
 
                   return $this->ssh2Sftp($attempt);
                } else {

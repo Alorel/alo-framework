@@ -393,12 +393,21 @@
           */
          function commit() {
             $commit = trim(implode("\n", $this->crontab)) . "\n";
-            file_put_contents("/tmp/crontab.txt", $commit);
-            echo shell_exec('crontab /tmp/crontab.txt');
+            $path   = DIR_TMP . 'crontab.txt';
+            file_put_contents($path, $commit);
 
-            Log::debug('Saved crontab changes');
+            if(file_exists($path)) {
+               $exec = shell_exec('crontab "' . $path . '"');
+               echo $exec;
+               unlink($path);
+               Log::debug('Crontab change output: ' . $exec);
 
-            return $this;
+               return true;
+            } else {
+               trigger_error(Log::error('Failed to save crontab: temporary file could not be created.'), E_USER_WARNING);
+            }
+
+            return false;
          }
 
          /**
