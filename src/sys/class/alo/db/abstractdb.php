@@ -57,7 +57,7 @@
           *
           * @var array
           */
-         protected static $default_settings = [
+         protected static $defaultSettings = [
             self::V_CACHE     => false,
             self::V_TIME      => 300,
             self::V_PREFIX    => null,
@@ -74,13 +74,13 @@
           *
           * @var string
           */
-         protected $cache_prefix;
+         protected $cachePrefix;
          /**
           * The last cache hash generated
           *
           * @var string
           */
-         protected $last_hash;
+         protected $lastHash;
 
          /**
           * Instantiates the database connection
@@ -110,7 +110,7 @@
           * @return string
           */
          function getLastHash() {
-            return $this->last_hash;
+            return $this->lastHash;
          }
 
          /**
@@ -205,9 +205,9 @@
           * @return string An MD5 hash
           */
          protected function hash($sql, $params, $prefix = null) {
-            $this->last_hash = $this->cache_prefix . md5($prefix . $sql . json_encode($params));
+            $this->lastHash = $this->cachePrefix . md5($prefix . $sql . json_encode($params));
 
-            return $this->last_hash;
+            return $this->lastHash;
          }
       }
    }

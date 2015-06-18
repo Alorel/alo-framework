@@ -34,7 +34,7 @@
          return [
             ['getMethod', 'index'],
             ['isCliRequest', true],
-            ['is_ajax_request', false],
+            ['isAjaxRequest', false],
             ['getPath', ''],
             ['getPort', ''],
             ['getRemoteAddr', ''],

@@ -148,10 +148,10 @@
           *
           * @return string|array
           */
-         static function un_xss($item) {
+         static function unXss($item) {
             if(is_array($item)) {
                foreach($item as &$v) {
-                  $v = self::un_xss($item);
+                  $v = self::unXss($item);
                }
 
                return $item;
@@ -165,18 +165,18 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string $token_name The token name
-          * @param string $hash       Which hash algorithm to use
+          * @param string $tokenName The token name
+          * @param string $hash      Which hash algorithm to use
           *
           * @return string The generated token
           */
-         static function tokenGet($token_name, $hash = 'md5') {
-            $token = self::getUniqid($hash, 'token_' . $token_name);
+         static function tokenGet($tokenName, $hash = 'md5') {
+            $token = self::getUniqid($hash, 'token_' . $tokenName);
 
             if(!\Alo::$session) {
                php_warning('Session handler not initialised or not assigned to \\Alo::$session. Token not saved in session.');
             } else {
-               \Alo::$session->{$token_name} = $token;
+               \Alo::$session->{$tokenName} = $token;
             }
 
             return $token;

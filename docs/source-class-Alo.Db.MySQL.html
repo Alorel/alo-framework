@@ -166,7 +166,7 @@
 </span><span id="51" class="l"><a class="l" href="#51"> 51 </a>            <span class="php-var">$this</span>-&gt;pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 </span><span id="52" class="l"><a class="l" href="#52"> 52 </a>            <span class="php-var">$this</span>-&gt;pdo-&gt;setAttribute(PDO::ATTR_EMULATE_PREPARES, <span class="php-keyword1">false</span>);
 </span><span id="53" class="l"><a class="l" href="#53"> 53 </a>
-</span><span id="54" class="l"><a class="l" href="#54"> 54 </a>            <span class="php-var">$this</span>-&gt;cache_prefix = ALO_MYSQL_CACHE_PREFIX;
+</span><span id="54" class="l"><a class="l" href="#54"> 54 </a>            <span class="php-var">$this</span>-&gt;cachePrefix = ALO_MYSQL_CACHE_PREFIX;
 </span><span id="55" class="l"><a class="l" href="#55"> 55 </a>            parent::__construct(<span class="php-var">$cache</span>);
 </span><span id="56" class="l"><a class="l" href="#56"> 56 </a>            \<span class="php-keyword2">Log</span>::debug(<span class="php-quote">'Initialised MySQL database connection'</span>);
 </span><span id="57" class="l"><a class="l" href="#57"> 57 </a>         }
@@ -208,7 +208,7 @@
 </span></span><span id="93" class="l"><a class="l" href="#93"> 93 </a><span class="php-comment">          * @return int|float
 </span></span><span id="94" class="l"><a class="l" href="#94"> 94 </a><span class="php-comment">          */</span>
 </span><span id="95" class="l"><a class="l" href="#95"> 95 </a>         <span class="php-keyword1">function</span> <span class="php-keyword2">aggregate</span>(<span class="php-var">$sql</span>, <span class="php-var">$params</span> = <span class="php-keyword1">null</span>, <span class="php-keyword1">array</span> <span class="php-var">$settings</span> = []) {
-</span><span id="96" class="l"><a class="l" href="#96"> 96 </a>            <span class="php-var">$settings</span> = \<span class="php-keyword2">array_merge</span>(self::<span class="php-var">$default_settings</span>, <span class="php-var">$settings</span>);
+</span><span id="96" class="l"><a class="l" href="#96"> 96 </a>            <span class="php-var">$settings</span> = \<span class="php-keyword2">array_merge</span>(self::<span class="php-var">$defaultSettings</span>, <span class="php-var">$settings</span>);
 </span><span id="97" class="l"><a class="l" href="#97"> 97 </a>            <span class="php-var">$hash</span>     = <span class="php-var">$this</span>-&gt;<span class="php-keyword2">hash</span>(<span class="php-var">$sql</span>, <span class="php-var">$params</span>, <span class="php-var">$settings</span>[self::V_PREFIX]);
 </span><span id="98" class="l"><a class="l" href="#98"> 98 </a>            <span class="php-var">$cache</span>    = <span class="php-var">$settings</span>[self::V_CACHE];
 </span><span id="99" class="l"><a class="l" href="#99"> 99 </a>
@@ -244,7 +244,7 @@
 </span></span><span id="129" class="l"><a class="l" href="#129">129 </a><span class="php-comment">          * @return array|boolean Result array on SELECT queries, TRUE/FALSE for others
 </span></span><span id="130" class="l"><a class="l" href="#130">130 </a><span class="php-comment">          */</span>
 </span><span id="131" class="l"><a class="l" href="#131">131 </a>         <span class="php-keyword1">function</span> <a id="_prepQuery" href="#_prepQuery">prepQuery</a>(<span class="php-var">$sql</span>, <span class="php-var">$params</span> = <span class="php-keyword1">null</span>, <span class="php-keyword1">array</span> <span class="php-var">$settings</span> = []) {
-</span><span id="132" class="l"><a class="l" href="#132">132 </a>            <span class="php-var">$settings</span> = \<span class="php-keyword2">array_merge</span>(self::<span class="php-var">$default_settings</span>, <span class="php-var">$settings</span>);
+</span><span id="132" class="l"><a class="l" href="#132">132 </a>            <span class="php-var">$settings</span> = \<span class="php-keyword2">array_merge</span>(self::<span class="php-var">$defaultSettings</span>, <span class="php-var">$settings</span>);
 </span><span id="133" class="l"><a class="l" href="#133">133 </a>            <span class="php-var">$hash</span>     = <span class="php-var">$this</span>-&gt;<span class="php-keyword2">hash</span>(<span class="php-var">$sql</span>, <span class="php-var">$params</span>, <span class="php-var">$settings</span>[self::V_PREFIX]);
 </span><span id="134" class="l"><a class="l" href="#134">134 </a>
 </span><span id="135" class="l"><a class="l" href="#135">135 </a>            <span class="php-keyword1">if</span>(<span class="php-keyword2">stripos</span>(<span class="php-var">$sql</span>, <span class="php-quote">'insert into'</span>) !== <span class="php-keyword1">false</span> || <span class="php-keyword2">stripos</span>(<span class="php-var">$sql</span>, <span class="php-quote">'replace into'</span>) !== <span class="php-keyword1">false</span>) {

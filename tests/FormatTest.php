@@ -21,11 +21,11 @@
          ];
 
          foreach($true as $input) {
-            $this->assertTrue(Format::is_ipv4_ip($input), _unit_dump($input));
+            $this->assertTrue(Format::isIpv4($input), _unit_dump($input));
          }
 
          foreach($false as $input) {
-            $this->assertFalse(Format::is_ipv4_ip($input), _unit_dump($input));
+            $this->assertFalse(Format::isIpv4($input), _unit_dump($input));
          }
       }
 

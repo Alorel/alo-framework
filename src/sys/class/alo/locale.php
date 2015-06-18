@@ -31,7 +31,7 @@
           *
           * @var array
           */
-         protected static $query_settings = [
+         protected static $querySettings = [
             DB::V_CACHE => true,
             DB::V_TIME  => ALO_LOCALE_CACHE_TIME
          ];
@@ -58,7 +58,7 @@
           *
           * @var bool
           */
-         protected $first_fetch_done = false;
+         protected $firstFetchDone = false;
 
          /**
           * Instantiates the Locale handler
@@ -101,28 +101,28 @@
           * @author Art <a.molcanovas@gmail.com>
           *
           * @param array  $pages Pages to fetch.
-          * @param string $primary_locale
-          * @param null   $seconday_locale
+          * @param string $primaryLocale
+          * @param null   $secondaryLocale
           *
           * @return Locale
           */
-         function fetch(array $pages = null, $primary_locale = ALO_LOCALE_DEFAULT, $seconday_locale = null) {
-            $arr_global = ['global'];
+         function fetch(array $pages = null, $primaryLocale = ALO_LOCALE_DEFAULT, $secondaryLocale = null) {
+            $arrGlobal = ['global'];
 
-            if(!$this->first_fetch_done) {
-               $pages                  = is_array($pages) ? array_merge($arr_global, $pages) : $arr_global;
-               $this->first_fetch_done = true;
+            if(!$this->firstFetchDone) {
+               $pages                = is_array($pages) ? array_merge($arrGlobal, $pages) : $arrGlobal;
+               $this->firstFetchDone = true;
             }
 
             if($pages !== null) {
                if(!is_array($pages)) {
-                  $pages = $arr_global;
+                  $pages = $arrGlobal;
                }
 
-               if($seconday_locale) {
-                  $this->fetchTwo($pages, $primary_locale, $seconday_locale);
+               if($secondaryLocale) {
+                  $this->fetchTwo($pages, $primaryLocale, $secondaryLocale);
                } else {
-                  $this->fetchOne($pages, $primary_locale);
+                  $this->fetchOne($pages, $primaryLocale);
                }
 
                $this->formatRaw();
@@ -136,14 +136,14 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param array  $pages            Pages to fetch
-          * @param string $primary_locale   The primary locale
-          * @param string $secondary_locale The secondary locale
+          * @param array  $pages           Pages to fetch
+          * @param string $primaryLocale   The primary locale
+          * @param string $secondaryLocale The secondary locale
           */
-         protected function fetchTwo(array $pages, $primary_locale, $secondary_locale) {
+         protected function fetchTwo(array $pages, $primaryLocale, $secondaryLocale) {
             $params = [
-               ':first'  => $primary_locale,
-               ':second' => $secondary_locale
+               ':first'  => $primaryLocale,
+               ':second' => $secondaryLocale
             ];
 
             $sql = 'SELECT DISTINCT `default`.`key`,'
@@ -167,7 +167,7 @@
 
             $sql .= ' ORDER BY NULL';
 
-            $this->raw = $this->db->prepQuery($sql, $params, self::$query_settings);
+            $this->raw = $this->db->prepQuery($sql, $params, self::$querySettings);
          }
 
          /**
@@ -200,7 +200,7 @@
 
             $sql .= ' ORDER BY NULL';
 
-            $this->raw = $this->db->prepQuery($sql, $params, self::$query_settings);
+            $this->raw = $this->db->prepQuery($sql, $params, self::$querySettings);
          }
 
          /**

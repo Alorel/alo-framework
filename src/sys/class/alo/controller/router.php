@@ -141,7 +141,7 @@
           *
           * @var boolean
           */
-         protected $is_ajax_request;
+         protected $isAjaxRequest;
 
          /**
           * Initialises the router
@@ -198,8 +198,8 @@
                            '(' .
                            implode(',', $this->methodArgs) .
                            ')');
-               $controller_name = self::CONTROLLER_NAMESPACE . $this->controller;
-               Alo::$controller = new $controller_name;
+               $controllerName  = self::CONTROLLER_NAMESPACE . $this->controller;
+               Alo::$controller = new $controllerName;
                call_user_func_array([Alo::$controller, $this->method], $this->methodArgs);
             }
 
@@ -263,8 +263,8 @@
           * @return Router
           */
          function initNoCall() {
-            $this->isCliRequest    = php_sapi_name() == 'cli' || defined('STDIN');
-            $this->is_ajax_request = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
+            $this->isCliRequest  = php_sapi_name() == 'cli' || defined('STDIN');
+            $this->isAjaxRequest = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
 
             return $this->init_server_vars()
                         ->init_path()
@@ -468,8 +468,8 @@
           * @author Art <a.molcanovas@gmail.com>
           * @return bool
           */
-         function is_ajax_request() {
-            return $this->is_ajax_request;
+         function isAjaxRequest() {
+            return $this->isAjaxRequest;
          }
 
          /**

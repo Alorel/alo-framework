@@ -207,19 +207,19 @@
 </span><span id="91" class="l"><a class="l" href="#91"> 91 </a>
 </span><span id="92" class="l"><a class="l" href="#92"> 92 </a>         <span class="php-comment">/**
 </span></span><span id="93" class="l"><a class="l" href="#93"> 93 </a><span class="php-comment">          * Makes output scalar. If $input is already scalar, simply returns it; otherwise uses a function specified in
-</span></span><span id="94" class="l"><a class="l" href="#94"> 94 </a><span class="php-comment">          * $prettify_method to make the output scalar
+</span></span><span id="94" class="l"><a class="l" href="#94"> 94 </a><span class="php-comment">          * $prettifyMethod to make the output scalar
 </span></span><span id="95" class="l"><a class="l" href="#95"> 95 </a><span class="php-comment">          *
 </span></span><span id="96" class="l"><a class="l" href="#96"> 96 </a><span class="php-comment">          * @param mixed $input           The input to scalarise
-</span></span><span id="97" class="l"><a class="l" href="#97"> 97 </a><span class="php-comment">          * @param int   $prettify_method Function to use to make output scalar if $input isn't already scalar. See class
+</span></span><span id="97" class="l"><a class="l" href="#97"> 97 </a><span class="php-comment">          * @param int   $prettifyMethod Function to use to make output scalar if $input isn't already scalar. See class
 </span></span><span id="98" class="l"><a class="l" href="#98"> 98 </a><span class="php-comment">          *                               M_* constants.
 </span></span><span id="99" class="l"><a class="l" href="#99"> 99 </a><span class="php-comment">          *
 </span></span><span id="100" class="l"><a class="l" href="#100">100 </a><span class="php-comment">          * @return string
 </span></span><span id="101" class="l"><a class="l" href="#101">101 </a><span class="php-comment">          */</span>
-</span><span id="102" class="l"><a class="l" href="#102">102 </a>         <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_scalarOutput" href="#_scalarOutput">scalarOutput</a>(<span class="php-var">$input</span>, <span class="php-var">$prettify_method</span> = self::M_PRINT_R) {
+</span><span id="102" class="l"><a class="l" href="#102">102 </a>         <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_scalarOutput" href="#_scalarOutput">scalarOutput</a>(<span class="php-var">$input</span>, <span class="php-var">$prettifyMethod</span> = self::M_PRINT_R) {
 </span><span id="103" class="l"><a class="l" href="#103">103 </a>            <span class="php-keyword1">if</span>(<span class="php-keyword2">is_scalar</span>(<span class="php-var">$input</span>)) {
 </span><span id="104" class="l"><a class="l" href="#104">104 </a>               <span class="php-keyword1">return</span> <span class="php-var">$input</span>;
 </span><span id="105" class="l"><a class="l" href="#105">105 </a>            } <span class="php-keyword1">else</span> {
-</span><span id="106" class="l"><a class="l" href="#106">106 </a>               <span class="php-keyword1">switch</span>(<span class="php-var">$prettify_method</span>) {
+</span><span id="106" class="l"><a class="l" href="#106">106 </a>               <span class="php-keyword1">switch</span>(<span class="php-var">$prettifyMethod</span>) {
 </span><span id="107" class="l"><a class="l" href="#107">107 </a>                  <span class="php-keyword1">case</span> self::M_JSON:
 </span><span id="108" class="l"><a class="l" href="#108">108 </a>                     <span class="php-keyword1">return</span> <span class="php-keyword2">json_encode</span>(<span class="php-var">$input</span>);
 </span><span id="109" class="l"><a class="l" href="#109">109 </a>                  <span class="php-keyword1">case</span> self::M_SERIALIZE:

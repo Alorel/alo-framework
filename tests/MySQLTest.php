@@ -147,7 +147,7 @@
             $this->assertArrayHasKey($last_hash,
                                      $get_all,
                                      _unit_dump([
-                                                   'last_hash' => $last_hash,
+                                                   'lastHash' => $last_hash,
                                                    'get_all'   => $get_all,
                                                 ]));
 

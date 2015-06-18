@@ -27,7 +27,7 @@
           *
           * @param int $lines Amount of empty lines to output
           */
-         static function echo_lines($lines = 100) {
+         static function echoLines($lines = 100) {
             $l     = "";
             $lines = (int)$lines;
 
@@ -45,7 +45,7 @@
           *
           * @param string $path File path.
           */
-         static function open_file_default($path) {
+         static function openFileDefault($path) {
             if(server_is_windows()) {
                shell_exec('start "' . $path . '"');
             } else {

@@ -22,7 +22,7 @@
           */
          static $this;
          /**
-          * Classes to check in "is_available()"
+          * Classes to check in "isAvailable()"
           *
           * @var array
           */
@@ -53,7 +53,7 @@
           * @author Art <a.molcanovas@gmail.com>
           * @return boolean
           */
-         static function is_available() {
+         static function isAvailable() {
             foreach(self::$classes as $class) {
                if(class_exists('\\' . $class)) {
                   return true;

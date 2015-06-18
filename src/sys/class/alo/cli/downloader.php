@@ -82,26 +82,26 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param resource $resource      Coulsn't find documentation on this one, most likely the curl resource
-          * @param int      $download_size How much we are downloading
-          * @param int      $downloaded    How much we have downloaded
-          * @param int      $upload_size   How much we are uploading
-          * @param int      $uploaded      How much we have uploaded
+          * @param resource $resource     Coulsn't find documentation on this one, most likely the curl resource
+          * @param int      $downloadSize How much we are downloading
+          * @param int      $downloaded   How much we have downloaded
+          * @param int      $uploadSize   How much we are uploading
+          * @param int      $uploaded     How much we have uploaded
           */
-         function progressFunction($resource, $download_size, $downloaded, $upload_size, $uploaded) {
+         function progressFunction($resource, $downloadSize, $downloaded, $uploadSize, $uploaded) {
             $ed = $size = 0;
 
-            if($download_size > 0 && $downloaded > 0) {
+            if($downloadSize > 0 && $downloaded > 0) {
                $ed   = $downloaded;
-               $size = $download_size;
-            } elseif($upload_size > 0 && $uploaded > 0) {
+               $size = $downloadSize;
+            } elseif($uploadSize > 0 && $uploaded > 0) {
                $ed   = $uploaded;
-               $size = $upload_size;
+               $size = $uploadSize;
             }
 
             if($ed && $size && $this->reportCount++ != 0) {
                /** @noinspection PhpDeprecationInspection */
-               $status = File::convert_size($ed) . '/' . File::convert_size($size) . ' downloaded ['
+               $status = File::convertSize($ed) . '/' . File::convertSize($size) . ' downloaded ['
                          . round(($ed / $size) * 100, 3) . ' %]';
 
                $time = time();

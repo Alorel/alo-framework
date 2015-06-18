@@ -63,7 +63,7 @@
           *
           * @return bool
           */
-         static function is_ipv4_ip($input) {
+         static function isIpv4($input) {
             if(!is_scalar($input)) {
                return false;
             } else {
@@ -91,19 +91,19 @@
 
          /**
           * Makes output scalar. If $input is already scalar, simply returns it; otherwise uses a function specified in
-          * $prettify_method to make the output scalar
+          * $prettifyMethod to make the output scalar
           *
           * @param mixed $input           The input to scalarise
-          * @param int   $prettify_method Function to use to make output scalar if $input isn't already scalar. See class
+          * @param int   $prettifyMethod  Function to use to make output scalar if $input isn't already scalar. See class
           *                               M_* constants.
           *
           * @return string
           */
-         static function scalarOutput($input, $prettify_method = self::M_PRINT_R) {
+         static function scalarOutput($input, $prettifyMethod = self::M_PRINT_R) {
             if(is_scalar($input)) {
                return $input;
             } else {
-               switch($prettify_method) {
+               switch($prettifyMethod) {
                   case self::M_JSON:
                      return json_encode($input);
                   case self::M_SERIALIZE:

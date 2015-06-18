@@ -155,14 +155,14 @@
 </span></span><span id="34" class="l"><a class="l" href="#34"> 34 </a><span class="php-comment">          *
 </span></span><span id="35" class="l"><a class="l" href="#35"> 35 </a><span class="php-comment">          * @var array
 </span></span><span id="36" class="l"><a class="l" href="#36"> 36 </a><span class="php-comment">          */</span>
-</span><span id="37" class="l"><a class="l" href="#37"> 37 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$debug_output" href="#$debug_output">$debug_output</a></span>;
+</span><span id="37" class="l"><a class="l" href="#37"> 37 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$debug_output" href="#$debug_output">$debugOutput</a></span>;
 </span><span id="38" class="l"><a class="l" href="#38"> 38 </a>
 </span><span id="39" class="l"><a class="l" href="#39"> 39 </a>         <span class="php-comment">/**
 </span></span><span id="40" class="l"><a class="l" href="#40"> 40 </a><span class="php-comment">          * Array of content attachments to clean afterwards
 </span></span><span id="41" class="l"><a class="l" href="#41"> 41 </a><span class="php-comment">          *
 </span></span><span id="42" class="l"><a class="l" href="#42"> 42 </a><span class="php-comment">          * @var array
 </span></span><span id="43" class="l"><a class="l" href="#43"> 43 </a><span class="php-comment">          */</span>
-</span><span id="44" class="l"><a class="l" href="#44"> 44 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$attached_content" href="#$attached_content">$attached_content</a></span>;
+</span><span id="44" class="l"><a class="l" href="#44"> 44 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$attached_content" href="#$attached_content">$attachedContent</a></span>;
 </span><span id="45" class="l"><a class="l" href="#45"> 45 </a>
 </span><span id="46" class="l"><a class="l" href="#46"> 46 </a>         <span class="php-comment">/**
 </span></span><span id="47" class="l"><a class="l" href="#47"> 47 </a><span class="php-comment">          * Instantiates the class
@@ -215,7 +215,7 @@
 </span></span><span id="94" class="l"><a class="l" href="#94"> 94 </a><span class="php-comment">          *
 </span></span><span id="95" class="l"><a class="l" href="#95"> 95 </a><span class="php-comment">          * @return boolean
 </span></span><span id="96" class="l"><a class="l" href="#96"> 96 </a><span class="php-comment">          */</span>
-</span><span id="97" class="l"><a class="l" href="#97"> 97 </a>         <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_is_email" href="#_is_email">is_email</a>(<span class="php-var">$str</span>) {
+</span><span id="97" class="l"><a class="l" href="#97"> 97 </a>         <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_is_email" href="#_is_email">isEmailAddress</a>(<span class="php-var">$str</span>) {
 </span><span id="98" class="l"><a class="l" href="#98"> 98 </a>            <span class="php-keyword1">if</span>(!<span class="php-keyword2">is_string</span>((<span class="php-var">$str</span>))) {
 </span><span id="99" class="l"><a class="l" href="#99"> 99 </a>               <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
 </span><span id="100" class="l"><a class="l" href="#100">100 </a>            } <span class="php-keyword1">else</span> {
@@ -240,14 +240,14 @@
 </span></span><span id="119" class="l"><a class="l" href="#119">119 </a><span class="php-comment">          * @return Email
 </span></span><span id="120" class="l"><a class="l" href="#120">120 </a><span class="php-comment">          */</span>
 </span><span id="121" class="l"><a class="l" href="#121">121 </a>         <span class="php-keyword1">function</span> <a id="_cleanup" href="#_cleanup">cleanup</a>() {
-</span><span id="122" class="l"><a class="l" href="#122">122 </a>            <span class="php-keyword1">if</span>(!<span class="php-keyword1">empty</span>(<span class="php-var">$this</span>-&gt;attached_content)) {
-</span><span id="123" class="l"><a class="l" href="#123">123 </a>               <span class="php-keyword1">foreach</span>(<span class="php-var">$this</span>-&gt;attached_content <span class="php-keyword1">as</span> <span class="php-var">$file</span>) {
+</span><span id="122" class="l"><a class="l" href="#122">122 </a>            <span class="php-keyword1">if</span>(!<span class="php-keyword1">empty</span>(<span class="php-var">$this</span>-&gt;attachedContent)) {
+</span><span id="123" class="l"><a class="l" href="#123">123 </a>               <span class="php-keyword1">foreach</span>(<span class="php-var">$this</span>-&gt;attachedContent <span class="php-keyword1">as</span> <span class="php-var">$file</span>) {
 </span><span id="124" class="l"><a class="l" href="#124">124 </a>                  <span class="php-keyword1">if</span>(<span class="php-keyword2">file_exists</span>(<span class="php-var">$file</span>)) {
 </span><span id="125" class="l"><a class="l" href="#125">125 </a>                     <span class="php-keyword2">unlink</span>(<span class="php-var">$file</span>);
 </span><span id="126" class="l"><a class="l" href="#126">126 </a>                  }
 </span><span id="127" class="l"><a class="l" href="#127">127 </a>               }
 </span><span id="128" class="l"><a class="l" href="#128">128 </a>
-</span><span id="129" class="l"><a class="l" href="#129">129 </a>               <span class="php-var">$this</span>-&gt;attached_content = [];
+</span><span id="129" class="l"><a class="l" href="#129">129 </a>               <span class="php-var">$this</span>-&gt;attachedContent = [];
 </span><span id="130" class="l"><a class="l" href="#130">130 </a>            }
 </span><span id="131" class="l"><a class="l" href="#131">131 </a>
 </span><span id="132" class="l"><a class="l" href="#132">132 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
@@ -331,7 +331,7 @@
 </span><span id="210" class="l"><a class="l" href="#210">210 </a>         <span class="php-keyword1">function</span> <a id="_send" href="#_send">send</a>() {
 </span><span id="211" class="l"><a class="l" href="#211">211 </a>            <span class="php-keyword2">ob_start</span>();
 </span><span id="212" class="l"><a class="l" href="#212">212 </a>            <span class="php-var">$send</span>                 = parent::send();
-</span><span id="213" class="l"><a class="l" href="#213">213 </a>            <span class="php-var">$this</span>-&gt;debug_output[] = <span class="php-keyword2">ob_get_clean</span>();
+</span><span id="213" class="l"><a class="l" href="#213">213 </a>            <span class="php-var">$this</span>-&gt;debugOutput[] = <span class="php-keyword2">ob_get_clean</span>();
 </span><span id="214" class="l"><a class="l" href="#214">214 </a>
 </span><span id="215" class="l"><a class="l" href="#215">215 </a>            <span class="php-keyword1">return</span> <span class="php-var">$send</span>;
 </span><span id="216" class="l"><a class="l" href="#216">216 </a>         }
@@ -356,7 +356,7 @@
 </span><span id="235" class="l"><a class="l" href="#235">235 </a>               <span class="php-comment">//try again</span>
 </span><span id="236" class="l"><a class="l" href="#236">236 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;attachContent(<span class="php-var">$name</span>, <span class="php-var">$content</span>);
 </span><span id="237" class="l"><a class="l" href="#237">237 </a>            } <span class="php-keyword1">elseif</span>(<span class="php-keyword2">file_put_contents</span>(<span class="php-var">$dest</span>, <span class="php-var">$content</span>) !== <span class="php-keyword1">false</span>) {
-</span><span id="238" class="l"><a class="l" href="#238">238 </a>               <span class="php-var">$this</span>-&gt;attached_content[] = <span class="php-var">$dest</span>;
+</span><span id="238" class="l"><a class="l" href="#238">238 </a>               <span class="php-var">$this</span>-&gt;attachedContent[] = <span class="php-var">$dest</span>;
 </span><span id="239" class="l"><a class="l" href="#239">239 </a>
 </span><span id="240" class="l"><a class="l" href="#240">240 </a>               <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;addAttachment(<span class="php-var">$dest</span>, <span class="php-var">$name</span>);
 </span><span id="241" class="l"><a class="l" href="#241">241 </a>            } <span class="php-keyword1">else</span> {
@@ -371,7 +371,7 @@
 </span></span><span id="250" class="l"><a class="l" href="#250">250 </a><span class="php-comment">          * @return array
 </span></span><span id="251" class="l"><a class="l" href="#251">251 </a><span class="php-comment">          */</span>
 </span><span id="252" class="l"><a class="l" href="#252">252 </a>         <span class="php-keyword1">function</span> <a id="_getDebugOutput" href="#_getDebugOutput">getDebugOutput</a>() {
-</span><span id="253" class="l"><a class="l" href="#253">253 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;debug_output;
+</span><span id="253" class="l"><a class="l" href="#253">253 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;debugOutput;
 </span><span id="254" class="l"><a class="l" href="#254">254 </a>         }
 </span><span id="255" class="l"><a class="l" href="#255">255 </a>      }
 </span><span id="256" class="l"><a class="l" href="#256">256 </a>   }

@@ -32,7 +32,7 @@
                $this->client = new MemcachedWrapper(true);
             }
 
-            if(!MemcachedWrapper::is_available()) {
+            if(!MemcachedWrapper::isAvailable()) {
                throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
             } else {
                parent::__construct();
@@ -50,7 +50,7 @@
           *
           * @return MemcachedSession
           */
-         static function MemcachedSession() {
+         static function memcachedSession() {
             return new MemcachedSession();
          }
 

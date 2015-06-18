@@ -164,10 +164,10 @@
          function evaluate() {
             $ok = true;
 
-            foreach($this->data as $data_key => $data_value) {
-               $breakdown = &$this->evaluation['breakdown'][$data_key];
+            foreach($this->data as $dataKey => $dataValue) {
+               $breakdown = &$this->evaluation['breakdown'][$dataKey];
 
-               if(!is_scalar($data_value)) {
+               if(!is_scalar($dataValue)) {
                   $breakdown = [
                      'OK'            => false,
                      'global_errors' => [self::E_NONSCALAR],
@@ -178,11 +178,11 @@
                   $local_ok               = true;
                   $breakdown['breakdown'] = [];
 
-                  if(isset($this->binds[$data_key])) {
-                     foreach($this->binds[$data_key] as $bind_key => $bind_value) {
-                        $breakdown['breakdown'][$bind_key] = self::eval_param($data_value, $bind_key, $bind_value);
+                  if(isset($this->binds[$dataKey])) {
+                     foreach($this->binds[$dataKey] as $bindKey => $bindValue) {
+                        $breakdown['breakdown'][$bindKey] = self::evalParam($dataValue, $bindKey, $bindValue);
 
-                        if(!$breakdown['breakdown'][$bind_key]) {
+                        if(!$breakdown['breakdown'][$bindKey]) {
                            $local_ok = $ok = false;
                         }
                      }
@@ -203,44 +203,44 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string $data_value Element value
-          * @param int    $bind_key   The requirement identifier constant
-          * @param mixed  $bind_value The requirement specs if applicable
+          * @param string $dataValue Element value
+          * @param int    $bindKey   The requirement identifier constant
+          * @param mixed  $bindValue The requirement specs if applicable
           *
           * @return boolean
           */
-         protected static function eval_param($data_value, $bind_key, $bind_value) {
-            switch($bind_key) {
+         protected static function evalParam($dataValue, $bindKey, $bindValue) {
+            switch($bindKey) {
                case self::R_CONTAIN_LOWERCASE:
-                  return (bool)preg_match('/[a-z]/', $data_value);
+                  return (bool)preg_match('/[a-z]/', $dataValue);
                case self::R_CONTAIN_NONALPHANUM:
-                  return !((bool)preg_match('/^[a-z0-9]+$/i', trim($data_value)));
+                  return !((bool)preg_match('/^[a-z0-9]+$/i', trim($dataValue)));
                case self::R_CONTAIN_NUMBER:
-                  return (bool)preg_match('/[0-9]/', $data_value);
+                  return (bool)preg_match('/[0-9]/', $dataValue);
                case self::R_CONTAIN_UPPERCASE:
-                  return (bool)preg_match('/[A-Z]/', $data_value);
+                  return (bool)preg_match('/[A-Z]/', $dataValue);
                case self::R_EMAIL:
-                  return (bool)preg_match('/^[a-z0-9_\.\+-]+@[a-z0-9-]+\.[a-z0-9-\.]+$/i', trim($data_value));
+                  return (bool)preg_match('/^[a-z0-9_\.\+-]+@[a-z0-9-]+\.[a-z0-9-\.]+$/i', trim($dataValue));
                case self::R_LENGTH_MAX:
-                  return strlen(trim($data_value)) <= $bind_value;
+                  return strlen(trim($dataValue)) <= $bindValue;
                case self::R_LENGTH_MIN:
-                  return strlen($data_value) >= $bind_value;
+                  return strlen($dataValue) >= $bindValue;
                case self::R_NUMERIC:
-                  return is_numeric(trim($data_value));
+                  return is_numeric(trim($dataValue));
                case self::R_REGEX:
-                  return (bool)preg_match($bind_value, $data_value);
+                  return (bool)preg_match($bindValue, $dataValue);
                case self::R_REQUIRED:
-                  return $data_value != '';
+                  return $dataValue != '';
                case self::R_VAL_GT:
-                  return ((float)$data_value) > ((float)$bind_value);
+                  return ((float)$dataValue) > ((float)$bindValue);
                case self::R_VAL_GTE:
-                  return ((float)$data_value) >= ((float)$bind_value);
+                  return ((float)$dataValue) >= ((float)$bindValue);
                case self::R_VAL_LT:
-                  return ((float)$data_value) < ((float)$bind_value);
+                  return ((float)$dataValue) < ((float)$bindValue);
                case self::R_VAL_LTE:
-                  return ((float)$data_value) <= ((float)$bind_value);
+                  return ((float)$dataValue) <= ((float)$bindValue);
                case self::R_VAL_RANGE:
-                  return is_array($bind_value) ? in_array($data_value, $bind_value) : false;
+                  return is_array($bindValue) ? in_array($dataValue, $bindValue) : false;
             }
 
             return false;

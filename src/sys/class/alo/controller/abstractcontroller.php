@@ -29,13 +29,13 @@
          /**
           * Instantiates the class
           *
-          * @param boolean $echo_on_destruct Whether to echo contents on object destruct
+          * @param boolean $echoOnDestruct Whether to echo contents on object destruct
           *
           * @author Art <a.molcanovas@gmail.com>
           */
-         function __construct($echo_on_destruct = true) {
+         function __construct($echoOnDestruct = true) {
             ob_start();
-            $this->echoOnDestruct = (bool)$echo_on_destruct;
+            $this->echoOnDestruct = (bool)$echoOnDestruct;
 
             self::$this = &$this;
          }

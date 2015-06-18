@@ -73,17 +73,17 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string      $service_name The name of the service
-          * @param string      $exe_path     Path to the executable
-          * @param null|string $display_name Optionally, a custom display name for the service
+          * @param string      $serviceName The name of the service
+          * @param string      $exePath     Path to the executable
+          * @param null|string $displayName Optionally, a custom display name for the service
           *
           * @return string shell_exec() output
           */
-         static function installExe($service_name, $exe_path, $display_name = null) {
-            $cmd = 'sc create ' . $service_name . ' binPath= "' . $exe_path . '"';
+         static function installExe($serviceName, $exePath, $displayName = null) {
+            $cmd = 'sc create ' . $serviceName . ' binPath= "' . $exePath . '"';
 
-            if($display_name) {
-               $cmd .= ' DisplayName= "' . $display_name . '"';
+            if($displayName) {
+               $cmd .= ' DisplayName= "' . $displayName . '"';
             }
 
             return shell_exec($cmd);

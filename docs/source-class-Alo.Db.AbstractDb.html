@@ -172,7 +172,7 @@
 </span></span><span id="57" class="l"><a class="l" href="#57"> 57 </a><span class="php-comment">          *
 </span></span><span id="58" class="l"><a class="l" href="#58"> 58 </a><span class="php-comment">          * @var array
 </span></span><span id="59" class="l"><a class="l" href="#59"> 59 </a><span class="php-comment">          */</span>
-</span><span id="60" class="l"><a class="l" href="#60"> 60 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$default_settings" href="#$default_settings">$default_settings</a></span> = [
+</span><span id="60" class="l"><a class="l" href="#60"> 60 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$default_settings" href="#$default_settings">$defaultSettings</a></span> = [
 </span><span id="61" class="l"><a class="l" href="#61"> 61 </a>            self::V_CACHE     =&gt; <span class="php-keyword1">false</span>,
 </span><span id="62" class="l"><a class="l" href="#62"> 62 </a>            self::V_TIME      =&gt; <span class="php-num">300</span>,
 </span><span id="63" class="l"><a class="l" href="#63"> 63 </a>            self::V_PREFIX    =&gt; <span class="php-keyword1">null</span>,
@@ -189,13 +189,13 @@
 </span></span><span id="74" class="l"><a class="l" href="#74"> 74 </a><span class="php-comment">          *
 </span></span><span id="75" class="l"><a class="l" href="#75"> 75 </a><span class="php-comment">          * @var string
 </span></span><span id="76" class="l"><a class="l" href="#76"> 76 </a><span class="php-comment">          */</span>
-</span><span id="77" class="l"><a class="l" href="#77"> 77 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$cache_prefix" href="#$cache_prefix">$cache_prefix</a></span>;
+</span><span id="77" class="l"><a class="l" href="#77"> 77 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$cache_prefix" href="#$cache_prefix">$cachePrefix</a></span>;
 </span><span id="78" class="l"><a class="l" href="#78"> 78 </a>         <span class="php-comment">/**
 </span></span><span id="79" class="l"><a class="l" href="#79"> 79 </a><span class="php-comment">          * The last cache hash generated
 </span></span><span id="80" class="l"><a class="l" href="#80"> 80 </a><span class="php-comment">          *
 </span></span><span id="81" class="l"><a class="l" href="#81"> 81 </a><span class="php-comment">          * @var string
 </span></span><span id="82" class="l"><a class="l" href="#82"> 82 </a><span class="php-comment">          */</span>
-</span><span id="83" class="l"><a class="l" href="#83"> 83 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$last_hash" href="#$last_hash">$last_hash</a></span>;
+</span><span id="83" class="l"><a class="l" href="#83"> 83 </a>         <span class="php-keyword1">protected</span> <span class="php-var"><a id="$last_hash" href="#$last_hash">$lastHash</a></span>;
 </span><span id="84" class="l"><a class="l" href="#84"> 84 </a>
 </span><span id="85" class="l"><a class="l" href="#85"> 85 </a>         <span class="php-comment">/**
 </span></span><span id="86" class="l"><a class="l" href="#86"> 86 </a><span class="php-comment">          * Instantiates the database connection
@@ -225,7 +225,7 @@
 </span></span><span id="110" class="l"><a class="l" href="#110">110 </a><span class="php-comment">          * @return string
 </span></span><span id="111" class="l"><a class="l" href="#111">111 </a><span class="php-comment">          */</span>
 </span><span id="112" class="l"><a class="l" href="#112">112 </a>         <span class="php-keyword1">function</span> <a id="_getLastHash" href="#_getLastHash">getLastHash</a>() {
-</span><span id="113" class="l"><a class="l" href="#113">113 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;last_hash;
+</span><span id="113" class="l"><a class="l" href="#113">113 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;lastHash;
 </span><span id="114" class="l"><a class="l" href="#114">114 </a>         }
 </span><span id="115" class="l"><a class="l" href="#115">115 </a>
 </span><span id="116" class="l"><a class="l" href="#116">116 </a>         <span class="php-comment">/**
@@ -320,9 +320,9 @@
 </span></span><span id="205" class="l"><a class="l" href="#205">205 </a><span class="php-comment">          * @return string An MD5 hash
 </span></span><span id="206" class="l"><a class="l" href="#206">206 </a><span class="php-comment">          */</span>
 </span><span id="207" class="l"><a class="l" href="#207">207 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <span class="php-keyword2">hash</span>(<span class="php-var">$sql</span>, <span class="php-var">$params</span>, <span class="php-var">$prefix</span> = <span class="php-keyword1">null</span>) {
-</span><span id="208" class="l"><a class="l" href="#208">208 </a>            <span class="php-var">$this</span>-&gt;last_hash = <span class="php-var">$this</span>-&gt;cache_prefix . <span class="php-keyword2">md5</span>(<span class="php-var">$prefix</span> . <span class="php-var">$sql</span> . <span class="php-keyword2">json_encode</span>(<span class="php-var">$params</span>));
+</span><span id="208" class="l"><a class="l" href="#208">208 </a>            <span class="php-var">$this</span>-&gt;lastHash = <span class="php-var">$this</span>-&gt;cachePrefix . <span class="php-keyword2">md5</span>(<span class="php-var">$prefix</span> . <span class="php-var">$sql</span> . <span class="php-keyword2">json_encode</span>(<span class="php-var">$params</span>));
 </span><span id="209" class="l"><a class="l" href="#209">209 </a>
-</span><span id="210" class="l"><a class="l" href="#210">210 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;last_hash;
+</span><span id="210" class="l"><a class="l" href="#210">210 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;lastHash;
 </span><span id="211" class="l"><a class="l" href="#211">211 </a>         }
 </span><span id="212" class="l"><a class="l" href="#212">212 </a>      }
 </span><span id="213" class="l"><a class="l" href="#213">213 </a>   }

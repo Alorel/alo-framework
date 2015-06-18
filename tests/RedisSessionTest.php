@@ -38,7 +38,7 @@
                                              'id'           => $id,
                                              'fetched'      => $sess_fetched,
                                              'all'          => \Alo::$cache->getAll(),
-                                             'is_available' => RedisWrapper::is_available()
+                                             'is_available' => RedisWrapper::isAvailable()
                                           ]));
 
          $this->assertArrayHasKey('foo', $sess_fetched, _unit_dump($sess_fetched));

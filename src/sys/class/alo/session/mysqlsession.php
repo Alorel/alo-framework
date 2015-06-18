@@ -48,7 +48,7 @@
           *
           * @return MySQLSession
           */
-         static function MySQLSession() {
+         static function mysqlSession() {
             return new MySQLSession();
          }
 

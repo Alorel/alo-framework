@@ -30,11 +30,11 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param boolean $initialise_default_server Whether to add a server on construct
+          * @param boolean $initDefaultServer Whether to add a server on construct
           */
-         function __construct($initialise_default_server = true) {
+         function __construct($initDefaultServer = true) {
             $this->client = new Redis();
-            if($initialise_default_server) {
+            if($initDefaultServer) {
                $this->addServer();
             }
             parent::__construct();
@@ -56,6 +56,10 @@
          function addServer($ip = ALO_REDIS_IP, $port = ALO_REDIS_PORT, $weight = 1) {
             \Log::debug('Added RedisWrapper server ' . $ip . ':' . $port);
 
+            //Param required as per superclass declaration. Unsetting so it doesn't get flagged
+            //as unused
+            unset($weight);
+
             return $this->client->connect($ip, $port);
          }
 
@@ -71,6 +75,10 @@
          function delete($key) {
             $this->client->delete(func_get_args());
 
+            //Parameter required as per parent declaration; unsetting to prevent flagging
+            //as unused var.
+            unset($key);
+
             return true;
          }
 
@@ -79,12 +87,12 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param boolean $initialise_default_server Whether to add a server on construct
+          * @param boolean $initDefaultServer Whether to add a server on construct
           *
           * @return RedisWrapper
           */
-         static function RedisWrapper($initialise_default_server = true) {
-            return new RedisWrapper($initialise_default_server);
+         static function redisWrapper($initDefaultServer = true) {
+            return new RedisWrapper($initDefaultServer);
          }
 
          /**
@@ -111,7 +119,7 @@
           * @author Art <a.molcanovas@gmail.com>
           * @return boolean
           */
-         static function is_available() {
+         static function isAvailable() {
             return class_exists('\Redis');
          }
 

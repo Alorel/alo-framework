@@ -152,7 +152,7 @@
           *
           * @return Profiler
           */
-         static function Profiler() {
+         static function profiler() {
             return new Profiler();
          }
 

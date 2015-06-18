@@ -164,7 +164,7 @@
           *
           * @return File
           */
-         static function File() {
+         static function file() {
             return new File();
          }
 
@@ -177,7 +177,7 @@
           *
           * @return string The file size in its largest form, e.g. 1024 bytes become 1KB;
           */
-         static function convert_size($size) {
+         static function convertSize($size) {
             if(is_numeric($size)) {
                $size = (int)$size;
 

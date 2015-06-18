@@ -39,7 +39,7 @@
                                              'id'           => $id,
                                              'fetched'      => $sess_fetched,
                                              'all'          => \Alo::$cache->getAll(),
-                                             'is_available' => MemcachedWrapper::is_available()
+                                             'is_available' => MemcachedWrapper::isAvailable()
                                           ]));
 
          $this->assertArrayHasKey('foo', $sess_fetched, _unit_dump($sess_fetched));

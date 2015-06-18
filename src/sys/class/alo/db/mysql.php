@@ -51,7 +51,7 @@
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-            $this->cache_prefix = ALO_MYSQL_CACHE_PREFIX;
+            $this->cachePrefix = ALO_MYSQL_CACHE_PREFIX;
             parent::__construct($cache);
             \Log::debug('Initialised MySQL database connection');
          }
@@ -71,14 +71,14 @@
           *
           * @return MySQL
           */
-         static function MySQL($ip = ALO_MYSQL_SERVER,
+         static function mysql($ip = ALO_MYSQL_SERVER,
                                $port = ALO_MYSQL_PORT,
                                $user = ALO_MYSQL_USER,
                                $pw = ALO_MYSQL_PW,
                                $db = ALO_MYSQL_DATABASE,
                                $cache = ALO_MYSQL_CACHE,
                                array $options = null) {
-            return new MySQL(func_get_args());
+            return new MySQL($ip, $port, $user, $pw, $db, $cache, $options);
          }
 
          /**
@@ -93,7 +93,7 @@
           * @return int|float
           */
          function aggregate($sql, $params = null, array $settings = []) {
-            $settings = \array_merge(self::$default_settings, $settings);
+            $settings = \array_merge(self::$defaultSettings, $settings);
             $hash     = $this->hash($sql, $params, $settings[self::V_PREFIX]);
             $cache    = $settings[self::V_CACHE];
 
@@ -129,7 +129,7 @@
           * @return array|boolean Result array on SELECT queries, TRUE/FALSE for others
           */
          function prepQuery($sql, $params = null, array $settings = []) {
-            $settings = \array_merge(self::$default_settings, $settings);
+            $settings = \array_merge(self::$defaultSettings, $settings);
             $hash     = $this->hash($sql, $params, $settings[self::V_PREFIX]);
 
             if(stripos($sql, 'insert into') !== false || stripos($sql, 'replace into') !== false) {

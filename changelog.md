@@ -16,13 +16,27 @@ Code review required:
 * Router
    * Gettable variables renamed in camelCase (applies to getters too)
    * is_cli_request() --> isCliRequest()
+   * is_ajax_request() --> isAjaxRequest()
    * Config file
-      * $error_controller_class -> $errorControllerClass
-      * $default_controller -> $defaultController
-   * Alo
-      * $form_validator -> $formValidator
-   * Log
-      * log_level() -> logLevel()
+      * $error_controller_class --> $errorControllerClass
+      * $default_controller --> $defaultController
+* Alo
+   * $form_validator --> $formValidator
+* Log
+   * log_level() --> logLevel()
+* IO
+   * echo_lines() --> echoLines()
+   * open_file_default() --> openFileDefault()
+* AbstractCache
+   * is_available() --> isAvailable()
+* Format
+   * is_ipv4_ip() --> isIpv4()
+* Email
+   * is_email() --> isEmailAddress()
+* Security
+   * un_xss() --> unXss()
+* File
+   * convert_size() --> convertSize()
 
 No code review required:
 

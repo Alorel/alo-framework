@@ -34,14 +34,14 @@
           *
           * @var array
           */
-         protected $debug_output;
+         protected $debugOutput;
 
          /**
           * Array of content attachments to clean afterwards
           *
           * @var array
           */
-         protected $attached_content;
+         protected $attachedContent;
 
          /**
           * Instantiates the class
@@ -81,7 +81,7 @@
           *
           * @return Email
           */
-         static function Email($exceptions = false) {
+         static function email($exceptions = false) {
             return new Email($exceptions);
          }
 
@@ -94,7 +94,7 @@
           *
           * @return boolean
           */
-         static function is_email($str) {
+         static function isEmailAddress($str) {
             if(!is_string(($str))) {
                return false;
             } else {
@@ -119,14 +119,14 @@
           * @return Email
           */
          function cleanup() {
-            if(!empty($this->attached_content)) {
-               foreach($this->attached_content as $file) {
+            if(!empty($this->attachedContent)) {
+               foreach($this->attachedContent as $file) {
                   if(file_exists($file)) {
                      unlink($file);
                   }
                }
 
-               $this->attached_content = [];
+               $this->attachedContent = [];
             }
 
             return $this;
@@ -209,8 +209,8 @@
           */
          function send() {
             ob_start();
-            $send                 = parent::send();
-            $this->debug_output[] = ob_get_clean();
+            $send                = parent::send();
+            $this->debugOutput[] = ob_get_clean();
 
             return $send;
          }
@@ -235,7 +235,7 @@
                //try again
                return $this->attachContent($name, $content);
             } elseif(file_put_contents($dest, $content) !== false) {
-               $this->attached_content[] = $dest;
+               $this->attachedContent[] = $dest;
 
                return $this->addAttachment($dest, $name);
             } else {
@@ -250,7 +250,7 @@
           * @return array
           */
          function getDebugOutput() {
-            return $this->debug_output;
+            return $this->debugOutput;
          }
       }
    }

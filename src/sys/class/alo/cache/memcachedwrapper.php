@@ -51,9 +51,9 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param boolean $initialise_default_server Whether to add a server on construct
+          * @param boolean $initDefaultServer Whether to add a server on construct
           */
-         function __construct($initialise_default_server = true) {
+         function __construct($initDefaultServer = true) {
             if(self::$loaded === null) {
                if(class_exists('\Memcached', false)) {
                   self::$loaded = self::CLASS_MEMCACHED;
@@ -66,7 +66,7 @@
 
             if(self::$loaded !== null) {
                $this->client = self::$loaded === self::CLASS_MEMCACHED ? new Memcached() : new Memcache();
-               if($initialise_default_server) {
+               if($initDefaultServer) {
                   $this->addServer();
                }
             } else {
@@ -154,7 +154,7 @@
           * @author Art <a.molcanovas@gmail.com>
           * @return boolean
           */
-         static function is_available() {
+         static function isAvailable() {
             return class_exists('\Memcached') || class_exists('\Memcache');
          }
 

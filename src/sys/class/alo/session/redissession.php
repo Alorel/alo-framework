@@ -32,7 +32,7 @@
                $this->client = new RedisWrapper(true);
             }
 
-            if(!RedisWrapper::is_available()) {
+            if(!RedisWrapper::isAvailable()) {
                throw new EE('Redis extension not loaded.', EE::E_EXT_NOT_LOADED);
             } else {
                parent::__construct();
@@ -50,7 +50,7 @@
           *
           * @return RedisSession
           */
-         static function RedisSession() {
+         static function redisSession() {
             return new RedisSession();
          }
 
