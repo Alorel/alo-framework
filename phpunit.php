@@ -38,3 +38,14 @@
    ob_end_clean();
 
    include __DIR__ . '/vendor/autoload.php';
+
+   abstract class PHPUNIT_GLOBAL {
+      /**
+       * @var \Alo\Cron
+       */
+      static $cron;
+   }
+
+   if(!server_is_windows()) {
+      PHPUNIT_GLOBAL::$cron = new \Alo\Cron();
+   }
