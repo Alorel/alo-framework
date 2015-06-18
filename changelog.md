@@ -1,34 +1,33 @@
 # 1.2 (pending) #
-## Bugs fixed ##
+**Added features**
+Localisation support added! See [README.md](README.md#Localisation)
 
-* **MemcachedWrapper->getAll()** now returns correct results when running the Windows version of Memcache
-* **AbstractDB** can now reuse **Alo::$cache** instead of instantiating a new class
+**Bugs fixed**
 
-## PSR-1 standards-compliant renames ##
-### Code review required ###
-AbstractController
+* MemcachedWrapper->getAll() now returns correct results when running the Windows version of Memcache
+* AbstractDB can now reuse Alo::$cache instead of instantiating a new class
 
-* **http_error()** renamed to **httpError()**
+**PSR-1 standards-compliant renames**
 
-Router 
+* Code review required
+	* AbstractController
+		* http_error() renamed to httpError()
+	* Router
+		* Gettable variables renamed in camelCase (applies to getters too)
+		* is_cli_request() --> isCliRequest()
+* No code review required
+	* Static constructors are now in camelCase - no implications as of PHP 5.6.9
 
-* Gettable variables renamed in camelCase (applies to getters too)
-* **is_cli_request()** -> **isCliRequest()**
+**Renamed classes**
 
-### No code review required ###
+* SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.
 
-* Static constructors are now in camelCase - no implications as of PHP 5.6.9
+**Config constants**
 
-## Renamed classes ##
+* ALO_SESSION_SECURE config constant added. Determines whether the session cookie should only be sent via SSL.
+* ALO_MYSQL_CHARSET config constant added. Determines the connection charset.
 
-* **SQLSession** is now called **MySQLSession**. The previous class is now deprecated and extends the new one.
-
-## Config constants ##
-
-* **ALO_SESSION_SECURE** config constant added. Determines whether the session cookie should only be sent via SSL.
-* **ALO_MYSQL_CHARSET** config constant added. Determines the connection charset.
-
-## Globals ##
+**Globals**
 
 * Global shorthands added for trigger_error():
 	* php_error($msg)
@@ -36,57 +35,57 @@ Router
 	* php_notice($msg)
 	* php_deprecated($msg)
 	
-## Functionality/feature changes ##
+**Functionality/feature changes**
 
-* **PDO** now uses **ERRMODE_EXCEPTION** instead of **ERRMODE_WARNING**
-* Most classes now have **self::$this** so you can globally reference their last instances - useful for singletons.
-* **SampleErrorController->error()**'s **$message** parameter removed as it was unused
-* **AbstractController->httpError()** no longer has a die() statement to stop script execution once called. It only suppresses output now.
+* PDO now uses ERRMODE_EXCEPTION instead of ERRMODE_WARNING
+* Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
+* SampleErrorController->error()'s $message parameter removed as it was unused
+* AbstractController->httpError() no longer has a die() statement to stop script execution once called. It only suppresses output now.
 
-## Misc ##
+**Misc**
 
 * A plethora of code quality improvements with the help of SensioLabs Insights
-* Sample **.htaccess** file renamed to **.htaccess.sample**
+* Sample .htaccess file renamed to .htaccess.sample
 
 # 1.1.1 (2015-05-31) #
-Misc
+**Misc**
 
 * You can now include a global autoload file in app/core/autoload.php (this file is not created by default). It will be included before your controller is instantiated, so you can put any global project variables here.
 
-Added global functions
+**Added global functions**
 
 * includeifexists(): performs an include() operation only if a file exists to avoid E_NOTICE errors
 * includeonceifexists(): as above, but with include_once()
 
 # 1.1 (2015-05-30) #
-Gracefully deprecated
+**Gracefully deprecated**
 
 * \Alo\File has been moved to \Alo\FileSystem\File. The original class is now deprecated, but extends the new one.
 * FileException is now deprecated. Use FileSystemException.
 
-Deprecated
+**Deprecated**
 
 * Testing suite deprecated. Tools like [PHPUnit](https://phpunit.de/) serve as a far better alternative to test your code.
 
-Email
+**Email**
 
 * Some of PHPMailer's methods were overridden to return $this instead of bool
 * attachContent() method added to attach content as opposed to a file from disc
 * getDebugOutput() added. Sending an email now adds output to an array which can be fetched
 
-Classes added
+**Classes added**
 
 * Alo\IO\Downloader: downloads an external resource to disc and echoes progress
 * Alo\Windows\Service: Windows service manager
 * Alo\Cahce\RedisWrapper
 * Alo\Session\RedisSession
 
-Exception changes
+**Exception changes**
 
 * OSException added
 * Cron now throws an OSException with the code OSException::E_UNSUPPORTED if instantiated from Windows
 
-Misc
+**Misc**
 
 * Many classes now offer static constructors
 * Deprecated classes no longer have a static in Alo
@@ -94,15 +93,15 @@ Misc
 
 # 1.0 (2015-05-08) #
 
-Reworked
+**Reworked**
 
 * Router fully reworked. Refer to README for documentation on the new router.
 
-Major bugfixes
+**Major bugfixes**
 
 * Fixed the error message (and subsequent die() statement) when the log level is set to LOG_LEVEL_DEBUG.
 
-Misc bugfixes
+**Misc bugfixes**
 
 * Changed the event definition in setup/create_session_table_and_cleaner.sql to use the correct table name
 * Debug output in MemcachedWrapper->getAllMemcache() removed
@@ -113,7 +112,7 @@ Misc bugfixes
 * Crontab should now correctly reload if it fetches an empty string
 * Fixed code line detection in log messages
 
-Added features
+**Added features**
 
 * It's now possible to force a session write operation during runtime via AbstractSession->forceWrite()
 * clear(), getTokenExpected() and getTokenActual() and refreshToken() added to AbstractSession
@@ -124,11 +123,11 @@ Added features
 * __isset() and __unset() added to all classes that had __get() or __set() defined
 * \Alo\Statics\Format::is_ipv4_ip() method added
 
-Removed items
+**Removed items**
 
 * Format::isBoolean()
 
-Miscellaneous
+**Miscellaneous**
 
 * Switched to ApiGen as the code documentation provider
 * SQLSession now uses the ALO_SESSION_TABLE_NAME instead of self::TABLE_NAME
@@ -140,25 +139,25 @@ Miscellaneous
 * DIR_CONTROLLERS constant added
 
 # 0.2.1 (2015-05-05) #
-Major bugfixes
+**Major bugfixes**
 
 * Fixed error where config files wouldn't be loaded correctly
 * Fixed errors with the legacy Memcache getAll() alternative
 
-Misc bugfixes
+**Misc bugfixes**
 
 * Fixed router so it doesn't mistake an in-app ReflectionException with one that's caused by trying to initialise an invalid controller/method
 * Added chdir() in index.php if it's a CLI request to be completely sure the path is correct for CLI requests.
 * Debug backtrace removed from error controller
 * \debug() output removed from MemcachedWrapper->getAllMemcache()
 
-Added features
+**Added features**
 
 * Added an option in the router to initialise without attempting to call the controller
 * __get() and __set() methods in AbstractCache
 * It's now possible to get the last hash generated by AbstractDB via the getLastHash() method
 
-Other
+**Other**
 
 * PHPUNIT_RUNNING constant introduced for when you're running PHPUnit tests. This alters the automatic code flow in the sys files so they do not interfere.
 * Realised that array shorthands were introduced in 5.4, not 5.3, so the framework description needs some updating...
