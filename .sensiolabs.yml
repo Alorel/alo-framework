@@ -4,6 +4,7 @@ exclude_patterns:
  - src/sys/external/*
  - phpunit.php
  - vendor/*
+ - composer.json
 rules:
  php.use_global_variable_or_function:
   enabled: false
