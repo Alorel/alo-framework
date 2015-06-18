@@ -2,13 +2,19 @@
 
    if(!defined('GEN_START')) {
       http_response_code(404);
-   } elseif(!defined('LOG_LEVEL') || !defined('LOG_LEVEL_ERROR') || !defined('LOG_LEVEL_DEBUG') || !defined('LOG_LEVEL_NONE') || !in_array(LOG_LEVEL,
-                                                                                                                                           [
-                                                                                                                                              LOG_LEVEL_ERROR,
-                                                                                                                                              LOG_LEVEL_DEBUG,
-                                                                                                                                              LOG_LEVEL_NONE
-                                                                                                                                           ],
-                                                                                                                                           true)
+   } elseif(!defined('LOG_LEVEL') ||
+            !defined('LOG_LEVEL_ERROR') ||
+            !defined('LOG_LEVEL_DEBUG') ||
+            !defined('LOG_LEVEL_NONE') ||
+            !defined('LOG_LEVEL_WARNING') ||
+            !in_array(LOG_LEVEL,
+                      [
+                         LOG_LEVEL_ERROR,
+                         LOG_LEVEL_DEBUG,
+                         LOG_LEVEL_NONE,
+                         LOG_LEVEL_WARNING
+                      ],
+                      true)
    ) {
       echo 'Invalid LOG_LEVEL setting. Valid values are the framework constants LOG_LEVEL_ERROR, LOG_LEVEL_DEBUG and LOG_LEVEL_NONE!';
    } else {
@@ -33,6 +39,13 @@
           * @var string
           */
          const MSG_DEBUG = 'DEBUG';
+
+         /**
+          * Identifier for warning messages
+          *
+          * @var string
+          */
+         const MSG_WARNING = 'WARNING';
 
          /**
           * The logging level
@@ -65,7 +78,8 @@
                         [
                            LOG_LEVEL_DEBUG,
                            LOG_LEVEL_ERROR,
-                           LOG_LEVEL_NONE
+                           LOG_LEVEL_NONE,
+                           LOG_LEVEL_WARNING
                         ],
                         true)) {
                self::$logLevel = $level;
@@ -89,6 +103,24 @@
          static function debug($msg, $trace = null) {
             if(self::$logLevel === LOG_LEVEL_DEBUG && is_scalar($msg)) {
                self::doWrite($msg, self::MSG_DEBUG, $trace);
+            }
+
+            return $msg;
+         }
+
+         /**
+          * Logs a warning level message
+          *
+          * @author Art <a.molcanovas@gmail.com>
+          *
+          * @param string $msg   The message
+          * @param array  $trace optionally, supply the debug trace
+          *
+          * @return string The message you passed on
+          */
+         static function warning($msg, $trace = null) {
+            if((self::$logLevel === LOG_LEVEL_WARNING || self::$logLevel === LOG_LEVEL_DEBUG) && is_scalar($msg)) {
+               self::doWrite($msg, self::MSG_WARNING, $trace);
             }
 
             return $msg;

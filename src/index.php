@@ -14,7 +14,14 @@
     *
     * @var int
     */
-   define('LOG_LEVEL_DEBUG', 2);
+   define('LOG_LEVEL_DEBUG', 3);
+
+   /**
+    * Defines a logging level as "warning"
+    *
+    * @var int
+    */
+   define('LOG_LEVEL_WARNING', 2);
 
    /**
     * Defines a logging level as "error"
@@ -60,7 +67,7 @@
     *
     * @var string
     */
-   define('LOG_LEVEL', LOG_LEVEL_DEBUG);
+   define('LOG_LEVEL', LOG_LEVEL_WARNING);
 
    /**
     * If logging is set to intense, an entire debug backtrace will be appended to

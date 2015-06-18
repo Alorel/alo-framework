@@ -219,6 +219,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 * Localisation support added! See [README.md](README.md#Localisation)
 * MemcachedSession and RedisSession can now be passed an object instance reference and use it instead of relying on Alo::$cache
 * MySQLSession/SQLSession can now be passed an object instance reference and use it instead of relying on Alo::$db
+* LOG_LEVEL_WARNING is now defined in index.php and is the default logging level. Log::warning() method introduced.
 
 **Bugs fixed**
 
