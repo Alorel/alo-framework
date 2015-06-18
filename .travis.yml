@@ -11,8 +11,8 @@ services:
   - redis-server
 
 before_install:
-  - sudo apt-get install memcached -y -qq
   - sudo /etc/init.d/memcached start
+  - sudo /etc/init.d/redis start
 #  - composer self-update
 #  - composer install --prefer-source --no-interaction --dev
 
