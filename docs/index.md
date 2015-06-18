@@ -215,7 +215,9 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 ## 1.2 (pending) ##
 
 **Added features**
-Localisation support added! See [README.md](README.md#Localisation)
+
+* Localisation support added! See [README.md](README.md#Localisation)
+* MemcachedSession and RedisSession can now be passed an object instance and use it instead of relying on Alo::$cache
 
 **Bugs fixed**
 

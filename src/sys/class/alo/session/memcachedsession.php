@@ -22,24 +22,29 @@
          /**
           * Instantiates the class
           *
+          * @param MemcachedWrapper $cacheInstance If provided, will use this cache instance instead of Alo::$cache
+          *
           * @author Art <a.molcanovas@gmail.com>
           * @throws EE When a caching class is not available
           */
-         function __construct() {
+         function __construct(MemcachedWrapper &$cacheInstance = null) {
+            if($cacheInstance) {
+               $this->client = &$cacheInstance;
+            } elseif(Alo::$cache && Alo::$cache instanceof MemcachedWrapper) {
+               $this->client = &Alo::$cache;
+            } else {
+               throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
+            }
+
             if(Alo::$cache && (Alo::$cache instanceof MemcachedWrapper)) {
                $this->client = &Alo::$cache;
             } else {
                $this->client = new MemcachedWrapper(true);
             }
 
-            if(!MemcachedWrapper::isAvailable()) {
-               throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
-            } else {
-               parent::__construct();
-               $this->client = &Alo::$cache;
-               $this->prefix = ALO_SESSION_MC_PREFIX;
-               \Log::debug('Initialised Memcached session');
-            }
+            parent::__construct();
+            $this->prefix = ALO_SESSION_MC_PREFIX;
+            \Log::debug('Initialised Memcached session');
          }
 
          /**

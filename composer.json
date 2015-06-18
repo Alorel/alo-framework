@@ -28,5 +28,9 @@
       "apigen/apigen": "2.8.0",
       "squizlabs/php_codesniffer": "2.3.2",
       "phpmd/phpmd": "2.2.3"
+   },
+   "provide": {
+      "raveren/kint": "1.0.2",
+      "phpmailer/phpmailer": "v5.2.10"
    }
 }

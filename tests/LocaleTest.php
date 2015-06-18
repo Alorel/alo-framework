@@ -1,13 +1,23 @@
 <?php
 
-class LocaleTest extends PHPUnit_Framework_TestCase {
+   use Alo\Db\MySQL;
+   use Alo\Locale;
 
-   /**
-    * @var Locale
-    */
-   private $locale;
+   class LocaleTest extends PHPUnit_Framework_TestCase {
 
-   function __construct() {
-      parent::__construct();
+      /**
+       * @var Locale
+       */
+      private $locale;
+
+      /**
+       * @var MySQL
+       */
+      private $db;
+
+      function __construct($name = null, array $data = [], $dataName = '') {
+         parent::__construct($name, $data, $dataName);
+         $this->db     = new MySQL();
+         $this->locale = new Locale($this->db);
+      }
    }
-}
