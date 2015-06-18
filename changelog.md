@@ -1,19 +1,19 @@
 # 1.2 (pending) #
 ## Bugs fixed ##
 
-* MemcachedWrapper->getAll() now returns correct results when running the Windows version of Memcache
-* AbstractDB can now reuse Alo::$cache instead of instantiating a new class
+* **MemcachedWrapper->getAll()** now returns correct results when running the Windows version of Memcache
+* **AbstractDB** can now reuse **Alo::$cache** instead of instantiating a new class
 
 ## PSR-1 standards-compliant renames ##
 ### Code review required ###
 AbstractController
 
-* http_error() renamed to httpError()
+* **http_error()** renamed to **httpError()**
 
 Router 
 
 * Gettable variables renamed in camelCase (applies to getters too)
-* is_cli_request() -> isCliRequest()
+* **is_cli_request()** -> **isCliRequest()**
 
 ### No code review required ###
 
@@ -21,21 +21,31 @@ Router
 
 ## Renamed classes ##
 
-* SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.
+* **SQLSession** is now called **MySQLSession**. The previous class is now deprecated and extends the new one.
 
-## Misc ##
+## Config constants ##
 
-* ALO_SESSION_SECURE config constant added. Determines whether the session cookie should only be sent via SSL.
-* ALO_MYSQL_CHARSET config constant added. Determines the connection charset.
+* **ALO_SESSION_SECURE** config constant added. Determines whether the session cookie should only be sent via SSL.
+* **ALO_MYSQL_CHARSET** config constant added. Determines the connection charset.
+
+## Globals ##
+
 * Global shorthands added for trigger_error():
 	* php_error($msg)
 	* php_warning($msg)
 	* php_notice($msg)
 	* php_deprecated($msg)
-* PDO now uses ERRMODE_EXCEPTION instead of ERRMODE_WARNING
-* Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
+	
+## Functionality/feature changes ##
+
+* **PDO** now uses **ERRMODE_EXCEPTION** instead of **ERRMODE_WARNING**
+* Most classes now have **self::$this** so you can globally reference their last instances - useful for singletons.
+* **SampleErrorController->error()**'s **$message** parameter removed as it was unused
+* **AbstractController->httpError()** no longer has a die() statement to stop script execution once called. It only suppresses output now.
+
+## Misc ##
+
 * A plethora of code quality improvements with the help of SensioLabs Insights
-* SampleErrorController->error() $message parameter removed as it was unused
 * Sample **.htaccess** file renamed to **.htaccess.sample**
 
 # 1.1.1 (2015-05-31) #

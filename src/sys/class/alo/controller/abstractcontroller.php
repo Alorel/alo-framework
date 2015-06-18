@@ -50,7 +50,7 @@
          }
 
          /**
-          * Forces a HTTP error page to be displayed instead
+          * Forces a HTTP error page to be displayed. This does not stop script execution, but prevents further output.
           *
           * @author Art <a.molcanovas@gmail.com>
           *
@@ -58,14 +58,23 @@
           */
          protected function httpError($code = 404) {
             $this->echoOnDestruct = true;
-            ob_end_clean();
+            ob_clean();
 
-            $controller = \Alo::$router->getErrController();
+            $controller           = \Alo::$router->getErrController();
+            $controllerNamespaced = '\Controller\\' . $controller;
 
-            \Alo::$controller = new $controller;
-            /** @noinspection PhpUndefinedMethodInspection */
-            \Alo::$controller->error($code);
-            die();
+            includeonceifexists(DIR_APP . 'controllers' . DIRECTORY_SEPARATOR . strtolower($controller) . '.php');
+
+            if(!class_exists($controllerNamespaced, true)) {
+               http_response_code((int)$code);
+               echo 'HTTP ' . escape_html5($code) . '.';
+            } else {
+               \Alo::$controller = new $controllerNamespaced;
+               /** @noinspection PhpUndefinedMethodInspection */
+               \Alo::$controller->error($code);
+               ob_flush();
+               $this->echoOnDestruct = false;
+            }
          }
 
          /**

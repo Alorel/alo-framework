@@ -1,4 +1,125 @@
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="generator" content="ApiGen 2.8.0"/><meta name="robots" content="noindex"/><title>File sys/class/alo/profiler.php | AloFramework documentation</title><script type="text/javascript" src="resources/combined.js?3521877029"></script><script type="text/javascript" src="elementlist.js?140437267"></script><link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822"/><link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609"/></head><body><div id="navigation" class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a href="index.html" class="brand">AloFramework documentation</a><div class="nav-collapse"><ul class="nav"><li><a href="namespace-Alo.html" title="Summary of Alo"><span>Namespace</span></a></li><li><a href="class-Alo.Profiler.html" title="Summary of Alo\Profiler"><span>Class</span></a></li><li class="divider-vertical"></li><li><a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a></li><li><a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a></li><li><a href="todo.html" title="Todo list"><span>Todo</span></a></li></ul></div></div></div></div><div id="left"><div id="menu"><form id="search" class="form-search"><input type="hidden" name="cx" value=""/><input type="hidden" name="ie" value="UTF-8"/><input type="text" name="q" class="search-query" placeholder="Search"/></form><div id="groups"><h3>Namespaces</h3><ul><li class="active"><a href="namespace-Alo.html">Alo<span></span></a><ul><li><a href="namespace-Alo.Cache.html">Cache</a></li><li><a href="namespace-Alo.CLI.html">CLI</a></li><li><a href="namespace-Alo.Controller.html">Controller</a></li><li><a href="namespace-Alo.Db.html">Db</a></li><li><a href="namespace-Alo.Exception.html">Exception</a></li><li><a href="namespace-Alo.FileSystem.html">FileSystem</a></li><li><a href="namespace-Alo.Session.html">Session</a></li><li><a href="namespace-Alo.Statics.html">Statics</a></li><li><a href="namespace-Alo.Test.html">Test</a></li><li><a href="namespace-Alo.Validators.html">Validators</a></li><li><a href="namespace-Alo.Windows.html">Windows</a></li></ul></li><li><a href="namespace-Controller.html">Controller</a></li><li><a href="namespace-None.html">None</a></li><li><a href="namespace-PHP.html">PHP</a></li></ul></div><div id="elements"><h3>Classes</h3><ul><li><a href="class-Alo.Cron.html">Cron</a></li><li><a href="class-Alo.cURL.html">cURL</a></li><li><a href="class-Alo.Email.html">Email</a></li><li><a href="class-Alo.File.html" class="deprecated">File</a></li><li><a href="class-Alo.Handler.html">Handler</a></li><li><a href="class-Alo.Locale.html">locale</a></li><li class="active"><a href="class-Alo.Profiler.html">Profiler</a></li><li><a href="class-Alo.SFTP.html">SFTP</a></li></ul></div></div></div><div id="splitter"></div><div id="right"><div id="rightInner"><pre id="source"><code><span id="1" class="l"><a class="l" href="#1">  1 </a><span class="xlang">&lt;?php</span>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File sys/class/alo/profiler.php | AloFramework documentation</title>
+
+	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
+	<script type="text/javascript" src="elementlist.js?4145622623"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework documentation</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Alo.html" title="Summary of Alo"><span>Namespace</span></a>
+						</li>
+						<li>
+							<a href="class-Alo.Profiler.html" title="Summary of Alo\Profiler"><span>Class</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Alo.html">Alo<span></span></a>
+						<ul>
+				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
+						</li>
+				<li><a href="namespace-Alo.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Alo.Db.html">Db</a>
+						</li>
+				<li><a href="namespace-Alo.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Alo.FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Alo.Session.html">Session</a>
+						</li>
+				<li><a href="namespace-Alo.Statics.html">Statics</a>
+						</li>
+				<li><a href="namespace-Alo.Test.html">Test</a>
+						</li>
+				<li><a href="namespace-Alo.Validators.html">Validators</a>
+						</li>
+				<li><a href="namespace-Alo.Windows.html">Windows</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Alo.Cron.html">Cron</a></li>
+				<li><a href="class-Alo.Curl.html">Curl</a></li>
+				<li><a href="class-Alo.Email.html">Email</a></li>
+				<li><a href="class-Alo.File.html" class="deprecated">File</a></li>
+				<li><a href="class-Alo.Handler.html">Handler</a></li>
+				<li><a href="class-Alo.Locale.html">Locale</a></li>
+				<li class="active"><a href="class-Alo.Profiler.html">Profiler</a></li>
+				<li><a href="class-Alo.SFTP.html">SFTP</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<pre id="source"><code><span id="1" class="l"><a class="l" href="#1">  1 </a><span class="xlang">&lt;?php</span>
 </span><span id="2" class="l"><a class="l" href="#2">  2 </a>
 </span><span id="3" class="l"><a class="l" href="#3">  3 </a>   <span class="php-keyword1">namespace</span> Alo;
 </span><span id="4" class="l"><a class="l" href="#4">  4 </a>
@@ -67,31 +188,31 @@
 </span></span><span id="67" class="l"><a class="l" href="#67"> 67 </a><span class="php-comment">          *
 </span></span><span id="68" class="l"><a class="l" href="#68"> 68 </a><span class="php-comment">          * @var string
 </span></span><span id="69" class="l"><a class="l" href="#69"> 69 </a><span class="php-comment">          */</span>
-</span><span id="70" class="l"><a class="l" href="#70"> 70 </a>         <span class="php-keyword1">const</span> <a id="P_REMOTE_ADDR" href="#P_REMOTE_ADDR">P_REMOTE_ADDR</a> = <span class="php-quote">'remoteAddr'</span>;
+</span><span id="70" class="l"><a class="l" href="#70"> 70 </a>         <span class="php-keyword1">const</span> <a id="P_REMOTE_ADDR" href="#P_REMOTE_ADDR">P_REMOTE_ADDR</a> = <span class="php-quote">'remote_addr'</span>;
 </span><span id="71" class="l"><a class="l" href="#71"> 71 </a>         <span class="php-comment">/**
 </span></span><span id="72" class="l"><a class="l" href="#72"> 72 </a><span class="php-comment">          * Defines a parameter as &quot;request method&quot;
 </span></span><span id="73" class="l"><a class="l" href="#73"> 73 </a><span class="php-comment">          *
 </span></span><span id="74" class="l"><a class="l" href="#74"> 74 </a><span class="php-comment">          * @var string
 </span></span><span id="75" class="l"><a class="l" href="#75"> 75 </a><span class="php-comment">          */</span>
-</span><span id="76" class="l"><a class="l" href="#76"> 76 </a>         <span class="php-keyword1">const</span> <a id="P_REQUEST_METHOD" href="#P_REQUEST_METHOD">P_REQUEST_METHOD</a> = <span class="php-quote">'requestMethod'</span>;
+</span><span id="76" class="l"><a class="l" href="#76"> 76 </a>         <span class="php-keyword1">const</span> <a id="P_REQUEST_METHOD" href="#P_REQUEST_METHOD">P_REQUEST_METHOD</a> = <span class="php-quote">'request_method'</span>;
 </span><span id="77" class="l"><a class="l" href="#77"> 77 </a>         <span class="php-comment">/**
 </span></span><span id="78" class="l"><a class="l" href="#78"> 78 </a><span class="php-comment">          * Defines a parameter as &quot;request scheme&quot;
 </span></span><span id="79" class="l"><a class="l" href="#79"> 79 </a><span class="php-comment">          *
 </span></span><span id="80" class="l"><a class="l" href="#80"> 80 </a><span class="php-comment">          * @var string
 </span></span><span id="81" class="l"><a class="l" href="#81"> 81 </a><span class="php-comment">          */</span>
-</span><span id="82" class="l"><a class="l" href="#82"> 82 </a>         <span class="php-keyword1">const</span> <a id="P_REQUEST_SCHEME" href="#P_REQUEST_SCHEME">P_REQUEST_SCHEME</a> = <span class="php-quote">'requestScheme'</span>;
+</span><span id="82" class="l"><a class="l" href="#82"> 82 </a>         <span class="php-keyword1">const</span> <a id="P_REQUEST_SCHEME" href="#P_REQUEST_SCHEME">P_REQUEST_SCHEME</a> = <span class="php-quote">'request_scheme'</span>;
 </span><span id="83" class="l"><a class="l" href="#83"> 83 </a>         <span class="php-comment">/**
 </span></span><span id="84" class="l"><a class="l" href="#84"> 84 </a><span class="php-comment">          * Defines a parameter as &quot;server internal IP&quot;
 </span></span><span id="85" class="l"><a class="l" href="#85"> 85 </a><span class="php-comment">          *
 </span></span><span id="86" class="l"><a class="l" href="#86"> 86 </a><span class="php-comment">          * @var string
 </span></span><span id="87" class="l"><a class="l" href="#87"> 87 </a><span class="php-comment">          */</span>
-</span><span id="88" class="l"><a class="l" href="#88"> 88 </a>         <span class="php-keyword1">const</span> <a id="P_SERVER_ADDR" href="#P_SERVER_ADDR">P_SERVER_ADDR</a> = <span class="php-quote">'serverAddr'</span>;
+</span><span id="88" class="l"><a class="l" href="#88"> 88 </a>         <span class="php-keyword1">const</span> <a id="P_SERVER_ADDR" href="#P_SERVER_ADDR">P_SERVER_ADDR</a> = <span class="php-quote">'server_addr'</span>;
 </span><span id="89" class="l"><a class="l" href="#89"> 89 </a>         <span class="php-comment">/**
 </span></span><span id="90" class="l"><a class="l" href="#90"> 90 </a><span class="php-comment">          * Defines a parameter as &quot;server name&quot;
 </span></span><span id="91" class="l"><a class="l" href="#91"> 91 </a><span class="php-comment">          *
 </span></span><span id="92" class="l"><a class="l" href="#92"> 92 </a><span class="php-comment">          * @var string
 </span></span><span id="93" class="l"><a class="l" href="#93"> 93 </a><span class="php-comment">          */</span>
-</span><span id="94" class="l"><a class="l" href="#94"> 94 </a>         <span class="php-keyword1">const</span> <a id="P_SERVER_NAME" href="#P_SERVER_NAME">P_SERVER_NAME</a> = <span class="php-quote">'serverName'</span>;
+</span><span id="94" class="l"><a class="l" href="#94"> 94 </a>         <span class="php-keyword1">const</span> <a id="P_SERVER_NAME" href="#P_SERVER_NAME">P_SERVER_NAME</a> = <span class="php-quote">'server_name'</span>;
 </span><span id="95" class="l"><a class="l" href="#95"> 95 </a>         <span class="php-comment">/**
 </span></span><span id="96" class="l"><a class="l" href="#96"> 96 </a><span class="php-comment">          * Defines a parameter as &quot;Request headers set&quot;
 </span></span><span id="97" class="l"><a class="l" href="#97"> 97 </a><span class="php-comment">          *
@@ -288,4 +409,13 @@
 </span><span id="288" class="l"><a class="l" href="#288">288 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;marks;
 </span><span id="289" class="l"><a class="l" href="#289">289 </a>         }
 </span><span id="290" class="l"><a class="l" href="#290">290 </a>      }
-</span><span id="291" class="l"><a class="l" href="#291">291 </a></span>   }</code></pre></div><div id="footer">AloFramework documentation API documentation generated by<a href="http://apigen.org">ApiGen 2.8.0</a></div></div></body></html>
+</span><span id="291" class="l"><a class="l" href="#291">291 </a>   }
+</span><span id="292" class="l"><a class="l" href="#292">292 </a></span></code></pre>
+	</div>
+
+	<div id="footer">
+		AloFramework documentation API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

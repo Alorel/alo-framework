@@ -18,13 +18,15 @@
 
             $post_append = $c->getCrontab();
 
-            $c->commit()
-              ->reloadCrontab()
+            $c->commit();
+            $c->reloadCrontab()
               ->clearCrontab();
 
             $post_clear = $c->getCrontab();
 
-            $c->commit()->reloadCrontab();
+            $c->commit();
+
+            $c->reloadCrontab();
 
             $final = $c->getCrontab();
 
@@ -45,8 +47,9 @@
             $initial = $c->getCrontab();
 
             $c->clearCrontab()
-              ->commit()
-              ->reloadCrontab();
+              ->commit();
+
+            $c->reloadCrontab();
 
             $post_reload = $c->getCrontab();
 
@@ -54,8 +57,9 @@
 
             $post_append = $c->getCrontab();
 
-            $c->commit()
-              ->reloadCrontab();
+            $c->commit();
+
+            $c->reloadCrontab();
 
             $final = $c->getCrontab();
 

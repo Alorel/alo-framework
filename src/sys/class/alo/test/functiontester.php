@@ -13,8 +13,6 @@
        * @package    TestingSuite
        * @deprecated Since v1.1
        */
-
-      /** @noinspection PhpDeprecationInspection */
       class FunctionTester extends AbstractTester {
 
          /**

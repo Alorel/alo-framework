@@ -1,1 +1,736 @@
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="generator" content="ApiGen 2.8.0"/><title>Class Alo | AloFramework documentation</title><script type="text/javascript" src="resources/combined.js?3521877029"></script><script type="text/javascript" src="elementlist.js?140437267"></script><link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822"/><link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609"/></head><body><div id="navigation" class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a href="index.html" class="brand">AloFramework documentation</a><div class="nav-collapse"><ul class="nav"><li><a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a></li><li class="active"><span>Class</span></li><li class="divider-vertical"></li><li><a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a></li><li><a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a></li><li><a href="todo.html" title="Todo list"><span>Todo</span></a></li></ul></div></div></div></div><div id="left"><div id="menu"><form id="search" class="form-search"><input type="hidden" name="cx" value=""/><input type="hidden" name="ie" value="UTF-8"/><input type="text" name="q" class="search-query" placeholder="Search"/></form><div id="groups"><h3>Namespaces</h3><ul><li><a href="namespace-Alo.html">Alo<span></span></a><ul><li><a href="namespace-Alo.Cache.html">Cache</a></li><li><a href="namespace-Alo.CLI.html">CLI</a></li><li><a href="namespace-Alo.Controller.html">Controller</a></li><li><a href="namespace-Alo.Db.html">Db</a></li><li><a href="namespace-Alo.Exception.html">Exception</a></li><li><a href="namespace-Alo.FileSystem.html">FileSystem</a></li><li><a href="namespace-Alo.Session.html">Session</a></li><li><a href="namespace-Alo.Statics.html">Statics</a></li><li><a href="namespace-Alo.Test.html">Test</a></li><li><a href="namespace-Alo.Validators.html">Validators</a></li><li><a href="namespace-Alo.Windows.html">Windows</a></li></ul></li><li><a href="namespace-Controller.html">Controller</a></li><li class="active"><a href="namespace-None.html">None</a></li><li><a href="namespace-PHP.html">PHP</a></li></ul></div><div id="elements"><h3>Classes</h3><ul><li class="active"><a href="class-Alo.html">Alo</a></li><li><a href="class-Log.html">Log</a></li></ul><h3>Functions</h3><ul><li><a href="function-debug.html">debug</a></li><li><a href="function-escape_html5.html">escape_html5</a></li><li><a href="function-get.html">get</a></li><li><a href="function-getallheaders.html">getallheaders</a></li><li><a href="function-includeifexists.html">includeifexists</a></li><li><a href="function-includeonceifexists.html">includeonceifexists</a></li><li><a href="function-lite_debug.html">lite_debug</a></li><li><a href="function-php_deprecated.html">php_deprecated</a></li><li><a href="function-php_error.html">php_error</a></li><li><a href="function-php_notice.html">php_notice</a></li><li><a href="function-php_warning.html">php_warning</a></li><li><a href="function-server_is_windows.html">server_is_windows</a></li><li><a href="function-timestamp_precise.html">timestamp_precise</a></li></ul></div></div></div><div id="splitter"></div><div id="right"><div id="rightInner"><div id="content" class="class"><h1>Class Alo</h1><div class="description"><p>The global framework class</p></div><div class="alert alert-info"><b>Author:</b>Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/><b>Located at</b><a href="source-class-Alo.html#7-190" title="Go to source code">sys/core/alo.php</a><br/></div><h2>Methods summary</h2><table class="summary table table-bordered table-striped" id="methods"><tr data-order="loadSession" id="_loadSession"><td class="attributes"><code>public static<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code></td><td class="name"><div><a class="anchor" href="#_loadSession">#</a><code><a href="source-class-Alo.html#133-149" title="Go to source code">loadSession</a>(<span>string<var>$type</var>=<code><a href="class-Alo.html#SESS_MYSQL">Alo::<b>SESS_MYSQL</b></a></code></span>)</code><div class="description short"><p>Loads a session</p></div><div class="description detailed hidden"><p>Loads a session</p><h4>Parameters</h4><div class="list"><dl><dt><var>$type</var></dt><dd><code>string</code><br>$type The session class name - see Alo::SESS_* constants</dd></dl></div><h4>Returns</h4><div class="list"><code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br/></div><h4>See</h4><div class="list"><code><code><a href="class-Alo.html#SESS_MYSQL">Alo::<b>SESS_MYSQL</b></a></code></code><br/><code><code><a href="class-Alo.html#SESS_MEMCACHED">Alo::<b>SESS_MEMCACHED</b></a></code></code><br/></div></div></div></td></tr><tr data-order="loadConfig" id="_loadConfig"><td class="attributes"><code>public static string|boolean</code></td><td class="name"><div><a class="anchor" href="#_loadConfig">#</a><code><a href="source-class-Alo.html#151-189" title="Go to source code">loadConfig</a>(<span>string<var>$path</var></span>,<span>boolean<var>$return_path</var>=<span class="php-keyword1">false</span></span>)</code><div class="description short"><p>Loads a configuration file based on environment: from DIR_SYS/config during setup &amp; DIR_APP/config during production/development</p></div><div class="description detailed hidden"><p>Loads a configuration file based on environment: from DIR_SYS/config during setup &amp; DIR_APP/config during production/development</p><h4>Parameters</h4><div class="list"><dl><dt><var>$path</var></dt><dd><code>string</code><br>$path The config file relative path without the file extension, e.g. to load a file found in config/db/mysql.php provide db/mysql</dd><dt><var>$return_path</var></dt><dd><code>boolean</code><br>$return_path If set to true it will return the calculated path instead of requiring the file</dd></dl></div><h4>Returns</h4><div class="list"><code>string|boolean</code><br>The path is $return_path is true, TRUE if it is false<br/></div><h4>Author</h4><div class="list">Art &lt;<a href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;gmail.com</a>&gt;<br/></div></div></div></td></tr></table><h3>Magic methods summary</h3><h2>Constants summary</h2><table class="summary table table-bordered table-striped" id="constants"><tr data-order="SESS_MYSQL" id="SESS_MYSQL"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.html#14-19" title="Go to source code"><b>SESS_MYSQL</b></a></code></td><td class="value"><code><span class="php-quote">'SQLSession'</span></code></td><td class="description"><div><a href="#SESS_MYSQL" class="anchor">#</a><div class="description short"><p>Defines a session type as SQL</p></div><div class="description detailed hidden"><p>Defines a session type as SQL</p></div></div></td></tr><tr data-order="SESS_MEMCACHED" id="SESS_MEMCACHED"><td class="attributes"><code>string</code></td><td class="name"><code><a href="source-class-Alo.html#21-26" title="Go to source code"><b>SESS_MEMCACHED</b></a></code></td><td class="value"><code><span class="php-quote">'MemcachedSession'</span></code></td><td class="description"><div><a href="#SESS_MEMCACHED" class="anchor">#</a><div class="description short"><p>Defines a session type as Memcached</p></div><div class="description detailed hidden"><p>Defines a session type as Memcached</p></div></div></td></tr></table><h2>Properties summary</h2><table class="summary table table-bordered table-striped" id="properties"><tr data-order="sftp" id="$sftp"><td class="attributes"><code>public static<code><a href="class-Alo.SFTP.html">Alo\SFTP</a></code></code></td><td class="name"><a href="source-class-Alo.html#28-33" title="Go to source code"><var>$sftp</var></a></td><td class="description"><div><a href="#$sftp" class="anchor">#</a><div class="description short"><p>SFTP connection manager</p></div><div class="description detailed hidden"><p>SFTP connection manager</p></div></div></td></tr><tr data-order="profiler" id="$profiler"><td class="attributes"><code>public static<code><a href="class-Alo.Profiler.html">Alo\Profiler</a></code></code></td><td class="name"><a href="source-class-Alo.html#35-40" title="Go to source code"><var>$profiler</var></a></td><td class="description"><div><a href="#$profiler" class="anchor">#</a><div class="description short"><p>Code profiler</p></div><div class="description detailed hidden"><p>Code profiler</p></div></div></td></tr><tr data-order="file" id="$file"><td class="attributes"><code>public static<code><a href="class-Alo.File.html" class="deprecated">Alo\File</a></code></code></td><td class="name"><a href="source-class-Alo.html#42-47" title="Go to source code"><var>$file</var></a></td><td class="description"><div><a href="#$file" class="anchor">#</a><div class="description short"><p>File manager</p></div><div class="description detailed hidden"><p>File manager</p></div></div></td></tr><tr data-order="email" id="$email"><td class="attributes"><code>public static<code><a href="class-Alo.Email.html">Alo\Email</a></code></code></td><td class="name"><a href="source-class-Alo.html#49-54" title="Go to source code"><var>$email</var></a></td><td class="description"><div><a href="#$email" class="anchor">#</a><div class="description short"><p>Email manager</p></div><div class="description detailed hidden"><p>Email manager</p></div></div></td></tr><tr data-order="curl" id="$curl"><td class="attributes"><code>public static<code><a href="class-Alo.cURL.html">Alo\cURL</a></code></code></td><td class="name"><a href="source-class-Alo.html#56-61" title="Go to source code"><var>$curl</var></a></td><td class="description"><div><a href="#$curl" class="anchor">#</a><div class="description short"><p>Object-oriented cURL wrapper</p></div><div class="description detailed hidden"><p>Object-oriented cURL wrapper</p></div></div></td></tr><tr data-order="cron" id="$cron"><td class="attributes"><code>public static<code><a href="class-Alo.Cron.html">Alo\Cron</a></code></code></td><td class="name"><a href="source-class-Alo.html#63-68" title="Go to source code"><var>$cron</var></a></td><td class="description"><div><a href="#$cron" class="anchor">#</a><div class="description short"><p>Crontab manager</p></div><div class="description detailed hidden"><p>Crontab manager</p></div></div></td></tr><tr data-order="form_validator" id="$form_validator"><td class="attributes"><code>public static<code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code></code></td><td class="name"><a href="source-class-Alo.html#70-75" title="Go to source code"><var>$form_validator</var></a></td><td class="description"><div><a href="#$form_validator" class="anchor">#</a><div class="description short"><p>HTML form validator</p></div><div class="description detailed hidden"><p>HTML form validator</p></div></div></td></tr><tr data-order="db" id="$db"><td class="attributes"><code>public static<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code></code></td><td class="name"><a href="source-class-Alo.html#77-82" title="Go to source code"><var>$db</var></a></td><td class="description"><div><a href="#$db" class="anchor">#</a><div class="description short"><p>Database connection</p></div><div class="description detailed hidden"><p>Database connection</p></div></div></td></tr><tr data-order="cache" id="$cache"><td class="attributes"><code>public static<code><a href="class-Alo.Cache.AbstractCache.html">Alo\Cache\AbstractCache</a></code></code></td><td class="name"><a href="source-class-Alo.html#84-89" title="Go to source code"><var>$cache</var></a></td><td class="description"><div><a href="#$cache" class="anchor">#</a><div class="description short"><p>Cache instance</p></div><div class="description detailed hidden"><p>Cache instance</p></div></div></td></tr><tr data-order="session" id="$session"><td class="attributes"><code>public static<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code></td><td class="name"><a href="source-class-Alo.html#91-96" title="Go to source code"><var>$session</var></a></td><td class="description"><div><a href="#$session" class="anchor">#</a><div class="description short"><p>The session handler</p></div><div class="description detailed hidden"><p>The session handler</p></div></div></td></tr><tr data-order="controller" id="$controller"><td class="attributes"><code>public static<code><a href="class-Alo.Controller.AbstractController.html">Alo\Controller\AbstractController</a></code></code></td><td class="name"><a href="source-class-Alo.html#98-103" title="Go to source code"><var>$controller</var></a></td><td class="description"><div><a href="#$controller" class="anchor">#</a><div class="description short"><p>The loaded controller</p></div><div class="description detailed hidden"><p>The loaded controller</p></div></div></td></tr><tr data-order="router" id="$router"><td class="attributes"><code>public static<code><a href="class-Alo.Controller.Router.html">Alo\Controller\Router</a></code></code></td><td class="name"><a href="source-class-Alo.html#105-110" title="Go to source code"><var>$router</var></a></td><td class="description"><div><a href="#$router" class="anchor">#</a><div class="description short"><p>The routing class</p></div><div class="description detailed hidden"><p>The routing class</p></div></div></td></tr><tr data-order="service" id="$service"><td class="attributes"><code>public static<code><a href="class-Alo.Windows.Service.html">Alo\Windows\Service</a></code></code></td><td class="name"><a href="source-class-Alo.html#112-117" title="Go to source code"><var>$service</var></a></td><td class="description"><div><a href="#$service" class="anchor">#</a><div class="description short"><p>Windows service handler</p></div><div class="description detailed hidden"><p>Windows service handler</p></div></div></td></tr><tr data-order="downloader" id="$downloader"><td class="attributes"><code>public static<code><a href="class-Alo.CLI.Downloader.html">Alo\CLI\Downloader</a></code></code></td><td class="name"><a href="source-class-Alo.html#119-124" title="Go to source code"><var>$downloader</var></a></td><td class="description"><div><a href="#$downloader" class="anchor">#</a><div class="description short"><p>Download manager</p></div><div class="description detailed hidden"><p>Download manager</p></div></div></td></tr><tr data-order="locale" id="$locale"><td class="attributes"><code>public static<code><a href="class-Alo.Locale.html">Alo\locale</a></code></code></td><td class="name"><a href="source-class-Alo.html#126-131" title="Go to source code"><var>$locale</var></a></td><td class="description"><div><a href="#$locale" class="anchor">#</a><div class="description short"><p>locale manager</p></div><div class="description detailed hidden"><p>locale manager</p></div></div></td></tr></table></div></div><div id="footer">AloFramework documentation API documentation generated by<a href="http://apigen.org">ApiGen 2.8.0</a></div></div></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Alo | AloFramework documentation</title>
+
+	<script type="text/javascript" src="resources/combined.js?3521877029"></script>
+	<script type="text/javascript" src="elementlist.js?4145622623"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822" />
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609" />
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework documentation</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" class="search-query" placeholder="Search" />
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Alo.html">Alo<span></span></a>
+						<ul>
+				<li><a href="namespace-Alo.Cache.html">Cache</a>
+						</li>
+				<li><a href="namespace-Alo.CLI.html">CLI</a>
+						</li>
+				<li><a href="namespace-Alo.Controller.html">Controller</a>
+						</li>
+				<li><a href="namespace-Alo.Db.html">Db</a>
+						</li>
+				<li><a href="namespace-Alo.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Alo.FileSystem.html">FileSystem</a>
+						</li>
+				<li><a href="namespace-Alo.Session.html">Session</a>
+						</li>
+				<li><a href="namespace-Alo.Statics.html">Statics</a>
+						</li>
+				<li><a href="namespace-Alo.Test.html">Test</a>
+						</li>
+				<li><a href="namespace-Alo.Validators.html">Validators</a>
+						</li>
+				<li><a href="namespace-Alo.Windows.html">Windows</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Controller.html">Controller</a>
+						</li>
+				<li class="active"><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Alo.html">Alo</a></li>
+				<li><a href="class-Log.html">Log</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-debug.html">debug</a></li>
+				<li><a href="function-escape_html5.html">escape_html5</a></li>
+				<li><a href="function-get.html">get</a></li>
+				<li><a href="function-getallheaders.html">getallheaders</a></li>
+				<li><a href="function-includeifexists.html">includeifexists</a></li>
+				<li><a href="function-includeonceifexists.html">includeonceifexists</a></li>
+				<li><a href="function-lite_debug.html">lite_debug</a></li>
+				<li><a href="function-php_deprecated.html">php_deprecated</a></li>
+				<li><a href="function-php_error.html">php_error</a></li>
+				<li><a href="function-php_notice.html">php_notice</a></li>
+				<li><a href="function-php_warning.html">php_warning</a></li>
+				<li><a href="function-server_is_windows.html">server_is_windows</a></li>
+				<li><a href="function-timestamp_precise.html">timestamp_precise</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Alo</h1>
+
+
+	<div class="description">
+	
+<p>The global framework class</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		
+		
+
+				<b>Author:</b>
+				Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Alo.html#7-191" title="Go to source code">sys/core/alo.php</a><br />
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="loadSession" id="_loadSession">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_loadSession">#</a>
+			<code><a href="source-class-Alo.html#133-149" title="Go to source code">loadSession</a>( <span>string <var>$type</var> = <code><a href="class-Alo.html#SESS_MYSQL">Alo::<b>SESS_MYSQL</b></a></code></span> )</code>
+
+			<div class="description short">
+				
+<p>Loads a session</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Loads a session</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd><code>string</code><br>$type The session class name - see Alo::SESS_* constants</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code></code><br />
+					</div>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Alo.html#SESS_MYSQL">Alo::<b>SESS_MYSQL</b></a></code></code><br />
+							<code><code><a href="class-Alo.html#SESS_MEMCACHED">Alo::<b>SESS_MEMCACHED</b></a></code></code><br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="loadConfig" id="_loadConfig">
+
+			<td class="attributes"><code>
+				 public static
+				string|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_loadConfig">#</a>
+			<code><a href="source-class-Alo.html#151-190" title="Go to source code">loadConfig</a>( <span>string <var>$path</var></span>, <span>boolean <var>$return_path</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Loads a configuration file based on environment: from DIR_SYS/config during
+setup &amp; DIR_APP/config during production/development</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Loads a configuration file based on environment: from DIR_SYS/config during
+setup &amp; DIR_APP/config during production/development</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$path</var></dt>
+						<dd><code>string</code><br>$path The config file relative path without the file extension, e.g. to load a
+file found in config/db/mysql.php provide db/mysql</dd>
+						<dt><var>$return_path</var></dt>
+						<dd><code>boolean</code><br>$return_path If set to true it will return the calculated path instead of
+requiring the file</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string|boolean</code><br>The path is $return_path is true, TRUE if it is false<br />
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art &lt;<a
+href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&gt;<br />
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+		<table class="summary table table-bordered table-striped" id="constants">
+		<tr data-order="SESS_MYSQL" id="SESS_MYSQL">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.html#14-19" title="Go to source code"><b>SESS_MYSQL</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'SQLSession'</span></code></td>
+			<td class="description"><div>
+				<a href="#SESS_MYSQL" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Defines a session type as SQL</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Defines a session type as SQL</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="SESS_MEMCACHED" id="SESS_MEMCACHED">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Alo.html#21-26" title="Go to source code"><b>SESS_MEMCACHED</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">'MemcachedSession'</span></code></td>
+			<td class="description"><div>
+				<a href="#SESS_MEMCACHED" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Defines a session type as Memcached</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Defines a session type as Memcached</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="sftp" id="$sftp">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.SFTP.html">Alo\SFTP</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#28-33" title="Go to source code"><var>$sftp</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$sftp" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>SFTP connection manager</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>SFTP connection manager</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="profiler" id="$profiler">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Profiler.html">Alo\Profiler</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#35-40" title="Go to source code"><var>$profiler</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$profiler" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Code profiler</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Code profiler</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="file" id="$file">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.File.html" class="deprecated">Alo\File</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#42-47" title="Go to source code"><var>$file</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$file" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>File manager</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>File manager</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="email" id="$email">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Email.html">Alo\Email</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#49-54" title="Go to source code"><var>$email</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$email" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Email manager</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Email manager</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="curl" id="$curl">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Curl.html">Alo\Curl</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#56-61" title="Go to source code"><var>$curl</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$curl" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Object-oriented Curl wrapper</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Object-oriented Curl wrapper</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="cron" id="$cron">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Cron.html">Alo\Cron</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#63-68" title="Go to source code"><var>$cron</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$cron" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Crontab manager</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Crontab manager</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="form_validator" id="$form_validator">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Validators.Form.html">Alo\Validators\Form</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#70-75" title="Go to source code"><var>$form_validator</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$form_validator" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>HTML form validator</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>HTML form validator</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="db" id="$db">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Db.AbstractDb.html">Alo\Db\AbstractDb</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#77-82" title="Go to source code"><var>$db</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$db" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Database connection</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Database connection</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="cache" id="$cache">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Cache.AbstractCache.html">Alo\Cache\AbstractCache</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#84-89" title="Go to source code"><var>$cache</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$cache" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Cache instance</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Cache instance</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="session" id="$session">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Session.AbstractSession.html">Alo\Session\AbstractSession</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#91-96" title="Go to source code"><var>$session</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$session" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The session handler</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The session handler</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="controller" id="$controller">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Controller.AbstractController.html">Alo\Controller\AbstractController</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#98-103" title="Go to source code"><var>$controller</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$controller" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The loaded controller</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The loaded controller</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="router" id="$router">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Controller.Router.html">Alo\Controller\Router</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#105-110" title="Go to source code"><var>$router</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$router" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>The routing class</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>The routing class</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="service" id="$service">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Windows.Service.html">Alo\Windows\Service</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#112-117" title="Go to source code"><var>$service</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$service" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Windows service handler</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Windows service handler</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="downloader" id="$downloader">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.CLI.Downloader.html">Alo\CLI\Downloader</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#119-124" title="Go to source code"><var>$downloader</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$downloader" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Download manager</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Download manager</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="locale" id="$locale">
+			<td class="attributes"><code>
+				public static 
+				<code><a href="class-Alo.Locale.html">Alo\Locale</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Alo.html#126-131" title="Go to source code"><var>$locale</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$locale" class="anchor">#</a>
+
+				<div class="description short">
+					
+<p>Locale manager</p>
+
+				</div>
+
+				<div class="description detailed hidden">
+					
+<p>Locale manager</p>
+
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AloFramework documentation API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

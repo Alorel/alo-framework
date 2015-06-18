@@ -389,7 +389,7 @@
           * Saves any changes made
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return Cron
+          * @return bool
           */
          function commit() {
             $commit = trim(implode("\n", $this->crontab)) . "\n";
