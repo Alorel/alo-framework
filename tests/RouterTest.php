@@ -8,6 +8,9 @@
          $path = \Alo::loadConfig('router', true);
          require $path;
 
+         /** @var string $errorControllerClass */
+         /** @var string $errorControllerClass */
+         /** @var array $errorControllerClass */
          $this->assertTrue(isset($errorControllerClass), '$error_controller_class not set');
          $this->assertTrue(isset($defaultController), '$default_controller not set');
          $this->assertTrue(isset($routes), '$routes not set');
