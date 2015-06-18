@@ -1,12 +1,8 @@
 <?php
-   /**
-    * Created by PhpStorm.
-    * User: Art
-    * Date: 30/05/2015
-    * Time: 14:39
-    */
 
    namespace Alo\Cache;
+
+   use PHPUNIT_GLOBAL;
 
    class RedisTest extends \PHPUnit_Framework_TestCase {
       /**
@@ -27,10 +23,8 @@
        * @dataProvider provideTestValueSet
        */
       function testValueSet($key, $val) {
-         $mc = self::mc();
-
-         $mc->set($key, $val);
-         $get = $mc->get($key);
+         PHPUNIT_GLOBAL::$redisWrapper->set($key, $val);
+         $get = PHPUNIT_GLOBAL::$redisWrapper->get($key);
 
          $this->assertEquals($val,
                              $get,
@@ -42,37 +36,23 @@
                                         ]));
       }
 
-      protected static function mc() {
-         if(!\Alo::$cache || !(\Alo::$cache instanceof RedisWrapper)) {
-            \Alo::$cache = new RedisWrapper();
-         }
-
-         return \Alo::$cache;
-      }
-
       function testPurge() {
-         $mc = self::mc();
+         PHPUNIT_GLOBAL::$redisWrapper->set('foo', 1);
 
-         $mc->set('foo', 1);
-
-         $this->assertTrue($mc->purge(), 'Purge returned false');
+         $this->assertTrue(PHPUNIT_GLOBAL::$redisWrapper->purge(), 'Purge returned false');
       }
 
       function testDelete() {
-         $mc = self::mc();
+         PHPUNIT_GLOBAL::$redisWrapper->set('test_del', 1);
+         PHPUNIT_GLOBAL::$redisWrapper->delete('test_del');
 
-         $mc->set('test_del', 1);
-         $mc->delete('test_del');
-
-         $this->assertEmpty($mc->get('test_del'), 'Test_del returned: ' . $mc->get('test_del'));
+         $this->assertEmpty(PHPUNIT_GLOBAL::$redisWrapper->get('test_del'), 'Test_del returned: ' . PHPUNIT_GLOBAL::$redisWrapper->get('test_del'));
       }
 
       function testGetAll() {
-         $mc = self::mc();
-
-         $mc->purge();
-         $mc->set('aloframework', 'just works');
-         $getall = $mc->getAll();
+         PHPUNIT_GLOBAL::$redisWrapper->purge();
+         PHPUNIT_GLOBAL::$redisWrapper->set('aloframework', 'just works');
+         $getall = PHPUNIT_GLOBAL::$redisWrapper->getAll();
 
          $this->assertEquals(['aloframework' => 'just works'], $getall, _unit_dump($getall));
       }
