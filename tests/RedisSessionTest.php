@@ -3,6 +3,7 @@
    namespace Alo\Session;
 
    use Alo\Cache\RedisWrapper;
+   use PHPUNIT_GLOBAL;
 
    class RedisSessionTest extends \PHPUnit_Framework_TestCase {
 
@@ -25,47 +26,29 @@
       }
 
       function testSave() {
-         $s = self::sess();
+         PHPUNIT_GLOBAL::$redisSession->foo = 'bar';
+         PHPUNIT_GLOBAL::$redisSession->forceWrite();
 
-         $s->foo      = 'bar';
-         $force_write = $s->forceWrite();
+         $id          = PHPUNIT_GLOBAL::$redisSession->getID();
+         $sessFetched = \Alo::$cache->get(ALO_SESSION_REDIS_PREFIX . $id);
 
-         $id           = $s->getID();
-         $sess_fetched = \Alo::$cache->get(ALO_SESSION_REDIS_PREFIX . $id);
-
-         $this->assertNotEmpty($sess_fetched,
+         $this->assertNotEmpty($sessFetched,
                                _unit_dump([
                                              'id'           => $id,
-                                             'fetched'      => $sess_fetched,
+                                             'fetched'      => $sessFetched,
                                              'all'          => \Alo::$cache->getAll(),
                                              'is_available' => RedisWrapper::isAvailable()
                                           ]));
 
-         $this->assertArrayHasKey('foo', $sess_fetched, _unit_dump($sess_fetched));
-         $this->assertEquals('bar', $sess_fetched['foo']);
-      }
-
-      static function sess() {
-         if(!\Alo::$cache || !(\Alo::$cache instanceof RedisWrapper)) {
-            \Alo::$cache = new RedisWrapper();
-         }
-
-         if(!\Alo::$session || !(\Alo::$session instanceof RedisSession)) {
-            \Alo::$session = new RedisSession();
-         }
-
-         return \Alo::$session;
+         $this->assertArrayHasKey('foo', $sessFetched, _unit_dump($sessFetched));
+         $this->assertEquals('bar', $sessFetched['foo']);
       }
 
       function testToken() {
-         $s = self::sess();
-
-         $this->assertEquals($s->getTokenExpected(), $s->getTokenActual());
+         $this->assertEquals(PHPUNIT_GLOBAL::$redisSession->getTokenExpected(), PHPUNIT_GLOBAL::$redisSession->getTokenActual());
       }
 
       function testRefreshToken() {
-         $s = self::sess();
-
-         $this->assertTrue($s->refreshToken());
+         $this->assertTrue(PHPUNIT_GLOBAL::$redisSession->refreshToken());
       }
    }
