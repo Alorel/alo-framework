@@ -197,43 +197,43 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string $first_mark  The first mark identifier
-          * @param string $second_mark The second mark identifier
+          * @param string $firstMark  The first mark identifier
+          * @param string $secondMark The second mark identifier
           *
           * @throws PE When one of the marks cannot be found
           * @return float
           */
-         function timeBetween($first_mark, $second_mark) {
-            if(!isset($this->marks[$first_mark])) {
+         function timeBetween($firstMark, $secondMark) {
+            if(!isset($this->marks[$firstMark])) {
                throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
-            } elseif(!isset($this->marks[$second_mark])) {
+            } elseif(!isset($this->marks[$secondMark])) {
                throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
             } else {
-               return abs($this->marks[$first_mark][self::P_MICROTIME] - $this->marks[$second_mark][self::P_MICROTIME]);
+               return abs($this->marks[$firstMark][self::P_MICROTIME] - $this->marks[$secondMark][self::P_MICROTIME]);
             }
          }
 
          /**
-          * Returns the difference between the two marks, i.e. all key/value pairs in $second_mark that differ from those
-          * of $first_mark
+          * Returns the difference between the two marks, i.e. all key/value pairs in $secondMark that differ from those
+          * of $firstMark
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string $first_mark  The first mark identifier
-          * @param string $second_mark The second mark identifier
+          * @param string $firstMark  The first mark identifier
+          * @param string $secondMark The second mark identifier
           *
           * @throws PE When one of the marks cannot be found
           * @return array
           */
-         function diff($first_mark, $second_mark) {
-            if(!isset($this->marks[$first_mark])) {
+         function diff($firstMark, $secondMark) {
+            if(!isset($this->marks[$firstMark])) {
                throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
-            } elseif(!isset($this->marks[$second_mark])) {
+            } elseif(!isset($this->marks[$secondMark])) {
                throw new PE('The second mark could not be found.', PE::E_MARK_NOT_SET);
             } else {
                //Hide illogical array to string conversion notices
                ob_start();
-               $diff = array_diff_assoc($this->marks[$second_mark], $this->marks[$first_mark]);
+               $diff = array_diff_assoc($this->marks[$secondMark], $this->marks[$firstMark]);
                ob_end_clean();
 
                return $diff;
@@ -252,7 +252,7 @@
           * @return array
           * @throws PE If the key isn't found in one or both marks
           */
-         function diff_on_key($key, $first_mark, $second_mark) {
+         function diffOnKey($key, $first_mark, $second_mark) {
             if(!isset($this->marks[$first_mark])) {
                throw new PE('The first mark could not be found.', PE::E_MARK_NOT_SET);
             } elseif(!isset($this->marks[$second_mark])) {

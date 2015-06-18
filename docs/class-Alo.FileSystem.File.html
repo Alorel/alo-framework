@@ -448,7 +448,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getExtension">#</a>
-			<code><a href="source-class-Alo.FileSystem.File.html#253-268" title="Go to source code">getExtension</a>( <span>integer <var>$depth</var> = <span class="php-num">1</span></span>, <span>boolean <var>$only_that_member</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-Alo.FileSystem.File.html#253-268" title="Go to source code">getExtension</a>( <span>integer <var>$depth</var> = <span class="php-num">1</span></span>, <span>boolean <var>$onlyThatMember</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 
@@ -467,8 +467,8 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 						<dt><var>$depth</var></dt>
 						<dd><code>integer</code><br>$depth The depth to search for, e.g. if the file name is foo.tar.gz, depth=1
 would return "gz" while depth=2 would return .tar.gz</dd>
-						<dt><var>$only_that_member</var></dt>
-						<dd><code>boolean</code><br>$only_that_member Only effective if $depth &gt; 1. If FALSE and the extension is
+						<dt><var>$onlyThatMember</var></dt>
+						<dd><code>boolean</code><br>$onlyThatMember Only effective if $depth &gt; 1. If FALSE and the extension is
 tar.gz, will return "tar.gz", if TRUE, will return "tar".</dd>
 					</dl></div>
 
@@ -485,14 +485,14 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 					</div>
 					<h4>Uses</h4>
 					<div class="list">
-							<code><code><a href="class-Alo.FileSystem.File.html#_get_extension">Alo\FileSystem\File::get_extension()</a></code></code> <br />
+							<code><code><a href="class-Alo.FileSystem.File.html#_get_extension">Alo\FileSystem\File::getExtensionStatically()</a></code></code> <br />
 					</div>
 
 
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="get_extension" id="_get_extension">
+		<tr data-order="getExtensionStatically" id="_get_extension">
 
 			<td class="attributes"><code>
 				 public static
@@ -503,7 +503,7 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get_extension">#</a>
-			<code><a href="source-class-Alo.FileSystem.File.html#270-291" title="Go to source code">get_extension</a>( <span>string <var>$filename</var></span>, <span>integer <var>$depth</var> = <span class="php-num">1</span></span>, <span>boolean <var>$only_that_member</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-Alo.FileSystem.File.html#270-291" title="Go to source code">getExtensionStatically</a>( <span>string <var>$filename</var></span>, <span>integer <var>$depth</var> = <span class="php-num">1</span></span>, <span>boolean <var>$onlyThatMember</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 
@@ -524,8 +524,8 @@ href="mailto:a.molcanovas&#64;gmail.com">a.molcanovas&#64;<!---->gmail.com</a>&g
 						<dt><var>$depth</var></dt>
 						<dd><code>integer</code><br>$depth The depth to search for, e.g. if the file name is foo.tar.gz, depth=1
 would return "gz" while depth=2 would return .tar.gz</dd>
-						<dt><var>$only_that_member</var></dt>
-						<dd><code>boolean</code><br>$only_that_member Only effective if $depth &gt; 1. If FALSE and the extension is
+						<dt><var>$onlyThatMember</var></dt>
+						<dd><code>boolean</code><br>$onlyThatMember Only effective if $depth &gt; 1. If FALSE and the extension is
 tar.gz, will return "tar.gz", if TRUE, will return "tar".</dd>
 					</dl></div>
 

@@ -232,13 +232,15 @@
             $allSlabs = $this->client->getExtendedStats('slabs');
             ob_start();
 
-            foreach($allSlabs as $server => $slabs) {
-               foreach($slabs AS $slabId => $slabMeta) {
+            foreach($allSlabs as $slabs) {
+               $slabs = array_keys($slabs);
+               foreach($slabs AS $slabId) {
                   try {
                      if($cdump = $this->client->getExtendedStats('cachedump', (int)$slabId)) {
-                        foreach($cdump AS $keys => $arrVal) {
+                        foreach($cdump AS $arrVal) {
                            if(is_array($arrVal)) {
-                              foreach($arrVal AS $k => $v) {
+                              $arrVal = array_keys($arrVal);
+                              foreach($arrVal AS $k) {
                                  if($k != 'CLIENT_ERROR') {
                                     $dump[$k] = $this->get($k);
                                  }

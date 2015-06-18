@@ -250,8 +250,14 @@ Code review required:
    * is_email() --> isEmailAddress()
 * Security
    * un_xss() --> unXss()
+   * ascii_rand() --> asciiRand()
 * File
    * convert_size() --> convertSize()
+   * get_extension() --> getExtensionStatically()
+* Curl
+   * setopt_array() --> setoptArray()
+* Profiler
+   * diff_on_key() --> diffOnKey()
 
 No code review required:
 

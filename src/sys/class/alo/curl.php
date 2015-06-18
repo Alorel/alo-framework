@@ -181,7 +181,7 @@
 
             Log::debug('Curl timeout ' . ($enabled ? 'en' : 'dis') . 'abled');
 
-            return $this->setopt_array($a);
+            return $this->setoptArray($a);
          }
 
          /**
@@ -195,7 +195,7 @@
           * @return Curl
           * @link   http://php.net/manual/en/function.curl-setopt-array.php
           */
-         function setopt_array(array $a) {
+         function setoptArray(array $a) {
             curl_setopt_array($this->ch, $a);
 
             return $this;

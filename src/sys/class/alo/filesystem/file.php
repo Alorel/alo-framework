@@ -257,14 +257,14 @@
           *
           * @param int     $depth            The depth to search for, e.g. if the file name is
           *                                  foo.tar.gz, depth=1 would return "gz" while depth=2 would return .tar.gz
-          * @param boolean $only_that_member Only effective if $depth > 1. If FALSE
+          * @param boolean $onlyThatMember   Only effective if $depth > 1. If FALSE
           *                                  and the extension is tar.gz, will return "tar.gz", if TRUE, will return "tar".
           *
           * @return string
           * @uses   self::get_extension()
           */
-         function getExtension($depth = 1, $only_that_member = false) {
-            return $this->name ? self::get_extension($this->name, $depth, $only_that_member) : null;
+         function getExtension($depth = 1, $onlyThatMember = false) {
+            return $this->name ? self::getExtensionStatically($this->name, $depth, $onlyThatMember) : null;
          }
 
          /**
@@ -275,18 +275,18 @@
           * @param string  $filename         The file name
           * @param int     $depth            The depth to search for, e.g. if the file name is
           *                                  foo.tar.gz, depth=1 would return "gz" while depth=2 would return .tar.gz
-          * @param boolean $only_that_member Only effective if $depth > 1. If FALSE
+          * @param boolean $onlyThatMember   Only effective if $depth > 1. If FALSE
           *                                  and the extension is tar.gz, will return "tar.gz", if TRUE, will return "tar".
           *
           * @return string
           */
-         static function get_extension($filename, $depth = 1, $only_that_member = false) {
+         static function getExtensionStatically($filename, $depth = 1, $onlyThatMember = false) {
             $exploded = explode('.', strtolower($filename));
             if(!is_numeric($depth) || $depth < 1) {
                $depth = 1;
             }
 
-            return $only_that_member && $depth > 1 ? get($exploded[count($exploded) - $depth]) :
+            return $onlyThatMember && $depth > 1 ? get($exploded[count($exploded) - $depth]) :
                implode('.', array_slice($exploded, $depth * -1));
          }
 

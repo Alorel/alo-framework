@@ -223,14 +223,14 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param int $sorting_order The sorting order
+          * @param int $sortingOrder The sorting order
           *
           * @return array ["dirs" => [], "files" => []]
           */
-         function scandir($sorting_order = self::SORT_ASC) {
+         function scandir($sortingOrder = self::SORT_ASC) {
             $this->checkSubsystem();
 
-            $dir = scandir('ssh2.sftp://' . $this->sftp . DIRECTORY_SEPARATOR . $this->dir, $sorting_order);
+            $dir = scandir('ssh2.sftp://' . $this->sftp . DIRECTORY_SEPARATOR . $this->dir, $sortingOrder);
             $r   = [
                'dirs'  => [],
                'files' => []

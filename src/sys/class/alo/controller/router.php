@@ -266,9 +266,9 @@
             $this->isCliRequest  = php_sapi_name() == 'cli' || defined('STDIN');
             $this->isAjaxRequest = \get($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHttpRequest';
 
-            return $this->init_server_vars()
-                        ->init_path()
-                        ->init_routes()
+            return $this->initServerVars()
+                        ->initPath()
+                        ->initRoutes()
                         ->resolvePath();
          }
 
@@ -296,9 +296,9 @@
 
                //Check if there's a route
                foreach($this->routes as $source => $dest) {
-                  $source_replace = trim(str_replace(self::PREG_DELIMITER, '\\' . self::PREG_DELIMITER, $source), '/');
-                  $regex          =
-                     self::PREG_DELIMITER . '^' . $source_replace . '/?' . '$' . self::PREG_DELIMITER . 'is';
+                  $sourceReplace = trim(str_replace(self::PREG_DELIMITER, '\\' . self::PREG_DELIMITER, $source), '/');
+                  $regex         =
+                     self::PREG_DELIMITER . '^' . $sourceReplace . '/?' . '$' . self::PREG_DELIMITER . 'is';
 
                   if(preg_match($regex, $this->path)) {
                      $resolved = true;
@@ -380,7 +380,7 @@
           * @throws CE When a route value is not an array.
           * @return Router
           */
-         protected function init_routes() {
+         protected function initRoutes() {
             $path = \Alo::loadConfig('router', true);
 
             if(!file_exists($path)) {
@@ -419,7 +419,7 @@
           * @author Art <a.molcanovas@gmail.com>
           * @return Router
           */
-         protected function init_path() {
+         protected function initPath() {
             if(isset($_SERVER['PATH_INFO'])) {
                $this->path = ltrim($_SERVER['PATH_INFO'], '/');
             } elseif(isset($_SERVER['argv'])) {
@@ -441,7 +441,7 @@
           * @author Art <a.molcanovas@gmail.com>
           * @return Router
           */
-         protected function init_server_vars() {
+         protected function initServerVars() {
             $this->port          = \get($_SERVER['SERVER_PORT']) ? (int)$_SERVER['SERVER_PORT'] : null;
             $this->remoteAddr    = \get($_SERVER['REMOTE_ADDR']);
             $this->requestScheme = \get($_SERVER['REQUEST_SCHEME']);

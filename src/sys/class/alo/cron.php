@@ -232,11 +232,11 @@
                $this->crontab = explode("\n", $this->crontab);
 
                //Make sure it's really empty
-               $last_index = count($this->crontab) - 1;
+               $lastIndex = count($this->crontab) - 1;
 
-               while($last_index >= 0 && !$this->crontab[$last_index]) {
-                  unset($this->crontab[$last_index]);
-                  $last_index--;
+               while($lastIndex >= 0 && !$this->crontab[$lastIndex]) {
+                  unset($this->crontab[$lastIndex]);
+                  $lastIndex--;
                }
             } else {
                $this->crontab = [];
@@ -265,13 +265,13 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param int        $index        The job index in the crontab array
-          * @param string     $command      The command to run
-          * @param int|string $minute_const The minute parameter
-          * @param int|string $hour         The hour parameter
-          * @param int|string $day          The day of the month parameter
-          * @param int|string $month        The month parameter
-          * @param int|string $weekday      The day of the week parameter
+          * @param int        $index   The job index in the crontab array
+          * @param string     $command The command to run
+          * @param int|string $minute  The minute parameter
+          * @param int|string $hour    The hour parameter
+          * @param int|string $day     The day of the month parameter
+          * @param int|string $month   The month parameter
+          * @param int|string $weekday The day of the week parameter
           *
           * @throws CE When the minute expression is invalid
           * @throws CE When the parameters are invalid
@@ -280,7 +280,7 @@
           */
          function editCronJob($index,
                               $command,
-                              $minute_const = '*',
+                              $minute = '*',
                               $hour = '*',
                               $day = '*',
                               $month = '*',
@@ -293,7 +293,7 @@
                }
             }
 
-            return $this->editCrontab($index, $command, $minute_const, $hour, $day, $month, $weekday);
+            return $this->editCrontab($index, $command, $minute, $hour, $day, $month, $weekday);
          }
 
          /**
@@ -373,16 +373,16 @@
           * @return boolean
           */
          protected static function formatOK($min, $hour, $day, $month, $weekday) {
-            $pat_min_h_mth = '/^(\*|[0-9]{1,2}|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
-            $pat_day       = '/^(\*|[0-9]{1,2}|[0-9]{1,2}(L|W)|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
-            $pat_weekday   = '/^(\*|[0-9]{1,2}|[0-9]{1,2}L|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
+            $patMinHMth = '/^(\*|[0-9]{1,2}|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
+            $patDay     = '/^(\*|[0-9]{1,2}|[0-9]{1,2}(L|W)|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
+            $patWeekday = '/^(\*|[0-9]{1,2}|[0-9]{1,2}L|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/';
 
             return
-               preg_match($pat_min_h_mth, $min) &&
-               preg_match($pat_min_h_mth, $hour) &&
-               preg_match($pat_min_h_mth, $month) &&
-               preg_match($pat_day, $day) &&
-               preg_match($pat_weekday, $weekday);
+               preg_match($patMinHMth, $min) &&
+               preg_match($patMinHMth, $hour) &&
+               preg_match($patMinHMth, $month) &&
+               preg_match($patDay, $day) &&
+               preg_match($patWeekday, $weekday);
          }
 
          /**
@@ -415,20 +415,20 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string     $command      The command to run
-          * @param int|string $minute_const The minute parameter
-          * @param int|string $hour         The hour parameter
-          * @param int|string $day          The day of the month parameter
-          * @param int|string $month        The month parameter
-          * @param int|string $weekday      The day of the week parameter
+          * @param string     $command     The command to run
+          * @param int|string $minuteConst The minute parameter
+          * @param int|string $hour        The hour parameter
+          * @param int|string $day         The day of the month parameter
+          * @param int|string $month       The month parameter
+          * @param int|string $weekday     The day of the week parameter
           *
           * @throws CE When the minute expression is invalid
           * @throws CE When the parameters are invalid
           * @throws CE When one or more parameters are non-scalar
           * @return Cron
           */
-         function appendCrontab($command, $minute_const = '*', $hour = '*', $day = '*', $month = '*', $weekday = '*') {
-            return $this->editCrontab(null, $command, $minute_const, $hour, $day, $month, $weekday);
+         function appendCrontab($command, $minuteConst = '*', $hour = '*', $day = '*', $month = '*', $weekday = '*') {
+            return $this->editCrontab(null, $command, $minuteConst, $hour, $day, $month, $weekday);
          }
 
          /**

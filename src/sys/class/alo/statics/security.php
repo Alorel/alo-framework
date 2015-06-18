@@ -204,7 +204,7 @@
                                                                              $_SERVER
                                                                           ]),
                           true)
-                   . $prefix . self::ascii_rand($entropy);
+                   . $prefix . self::asciiRand($entropy);
 
             if(function_exists('\openssl_random_pseudo_bytes')) {
                $str .= \openssl_random_pseudo_bytes($entropy);
@@ -223,7 +223,7 @@
           *
           * @return string
           */
-         static function ascii_rand($length, $subset = self::ASCII_ALL) {
+         static function asciiRand($length, $subset = self::ASCII_ALL) {
             switch($subset) {
                case self::ASCII_ALPHANUM:
                   $subset = self::$asciiAlphanum;
@@ -251,24 +251,24 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string $token_name The token name
-          * @param array  $data_array Which data array to check. Defaults to $_POST
+          * @param string $tokenName The token name
+          * @param array  $dataArray Which data array to check. Defaults to $_POST
           *
           * @return bool TRUE if the token is valid, false if not
           */
-         static function tokenValid($token_name, array $data_array = null) {
+         static function tokenValid($tokenName, array $dataArray = null) {
             if(!\Alo::$session) {
                php_warning('Session handler not initialised or not assigned to \\Alo::$session. FALSE will be returned. ');
 
                return false;
             } else {
-               if($data_array === null) {
-                  $data_array = $_POST;
+               if($dataArray === null) {
+                  $dataArray = $_POST;
                }
 
-               $sess_token = \Alo::$session->{$token_name};
+               $sessToken = \Alo::$session->{$tokenName};
 
-               return $sess_token && \get($data_array[$token_name]) && $sess_token == $data_array[$token_name];
+               return $sessToken && \get($dataArray[$tokenName]) && $sessToken == $dataArray[$tokenName];
             }
          }
 
@@ -277,13 +277,13 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
-          * @param string $token_name The token's name
+          * @param string $tokenName The token's name
           *
           * @return bool TRUE if the session handler was loaded, false if not
           */
-         static function tokenRemove($token_name) {
+         static function tokenRemove($tokenName) {
             if(\Alo::$session) {
-               \Alo::$session->delete($token_name);
+               \Alo::$session->delete($tokenName);
 
                return true;
             }

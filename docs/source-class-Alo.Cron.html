@@ -353,11 +353,11 @@
 </span><span id="232" class="l"><a class="l" href="#232">232 </a>               <span class="php-var">$this</span>-&gt;crontab = <span class="php-keyword2">explode</span>(<span class="php-quote">&quot;\n&quot;</span>, <span class="php-var">$this</span>-&gt;crontab);
 </span><span id="233" class="l"><a class="l" href="#233">233 </a>
 </span><span id="234" class="l"><a class="l" href="#234">234 </a>               <span class="php-comment">//Make sure it's really empty</span>
-</span><span id="235" class="l"><a class="l" href="#235">235 </a>               <span class="php-var">$last_index</span> = <span class="php-keyword2">count</span>(<span class="php-var">$this</span>-&gt;crontab) - <span class="php-num">1</span>;
+</span><span id="235" class="l"><a class="l" href="#235">235 </a>               <span class="php-var">$lastIndex</span> = <span class="php-keyword2">count</span>(<span class="php-var">$this</span>-&gt;crontab) - <span class="php-num">1</span>;
 </span><span id="236" class="l"><a class="l" href="#236">236 </a>
-</span><span id="237" class="l"><a class="l" href="#237">237 </a>               <span class="php-keyword1">while</span>(<span class="php-var">$last_index</span> &gt;= <span class="php-num">0</span> &amp;&amp; !<span class="php-var">$this</span>-&gt;crontab[<span class="php-var">$last_index</span>]) {
-</span><span id="238" class="l"><a class="l" href="#238">238 </a>                  <span class="php-keyword1">unset</span>(<span class="php-var">$this</span>-&gt;crontab[<span class="php-var">$last_index</span>]);
-</span><span id="239" class="l"><a class="l" href="#239">239 </a>                  <span class="php-var">$last_index</span>--;
+</span><span id="237" class="l"><a class="l" href="#237">237 </a>               <span class="php-keyword1">while</span>(<span class="php-var">$lastIndex</span> &gt;= <span class="php-num">0</span> &amp;&amp; !<span class="php-var">$this</span>-&gt;crontab[<span class="php-var">$lastIndex</span>]) {
+</span><span id="238" class="l"><a class="l" href="#238">238 </a>                  <span class="php-keyword1">unset</span>(<span class="php-var">$this</span>-&gt;crontab[<span class="php-var">$lastIndex</span>]);
+</span><span id="239" class="l"><a class="l" href="#239">239 </a>                  <span class="php-var">$lastIndex</span>--;
 </span><span id="240" class="l"><a class="l" href="#240">240 </a>               }
 </span><span id="241" class="l"><a class="l" href="#241">241 </a>            } <span class="php-keyword1">else</span> {
 </span><span id="242" class="l"><a class="l" href="#242">242 </a>               <span class="php-var">$this</span>-&gt;crontab = [];
@@ -388,7 +388,7 @@
 </span></span><span id="267" class="l"><a class="l" href="#267">267 </a><span class="php-comment">          *
 </span></span><span id="268" class="l"><a class="l" href="#268">268 </a><span class="php-comment">          * @param int        $index        The job index in the crontab array
 </span></span><span id="269" class="l"><a class="l" href="#269">269 </a><span class="php-comment">          * @param string     $command      The command to run
-</span></span><span id="270" class="l"><a class="l" href="#270">270 </a><span class="php-comment">          * @param int|string $minute_const The minute parameter
+</span></span><span id="270" class="l"><a class="l" href="#270">270 </a><span class="php-comment">          * @param int|string $minute The minute parameter
 </span></span><span id="271" class="l"><a class="l" href="#271">271 </a><span class="php-comment">          * @param int|string $hour         The hour parameter
 </span></span><span id="272" class="l"><a class="l" href="#272">272 </a><span class="php-comment">          * @param int|string $day          The day of the month parameter
 </span></span><span id="273" class="l"><a class="l" href="#273">273 </a><span class="php-comment">          * @param int|string $month        The month parameter
@@ -401,7 +401,7 @@
 </span></span><span id="280" class="l"><a class="l" href="#280">280 </a><span class="php-comment">          */</span>
 </span><span id="281" class="l"><a class="l" href="#281">281 </a>         <span class="php-keyword1">function</span> <a id="_editCronJob" href="#_editCronJob">editCronJob</a>(<span class="php-var">$index</span>,
 </span><span id="282" class="l"><a class="l" href="#282">282 </a>                              <span class="php-var">$command</span>,
-</span><span id="283" class="l"><a class="l" href="#283">283 </a>                              <span class="php-var">$minute_const</span> = <span class="php-quote">'*'</span>,
+</span><span id="283" class="l"><a class="l" href="#283">283 </a>                              <span class="php-var">$minute</span> = <span class="php-quote">'*'</span>,
 </span><span id="284" class="l"><a class="l" href="#284">284 </a>                              <span class="php-var">$hour</span> = <span class="php-quote">'*'</span>,
 </span><span id="285" class="l"><a class="l" href="#285">285 </a>                              <span class="php-var">$day</span> = <span class="php-quote">'*'</span>,
 </span><span id="286" class="l"><a class="l" href="#286">286 </a>                              <span class="php-var">$month</span> = <span class="php-quote">'*'</span>,
@@ -414,7 +414,7 @@
 </span><span id="293" class="l"><a class="l" href="#293">293 </a>               }
 </span><span id="294" class="l"><a class="l" href="#294">294 </a>            }
 </span><span id="295" class="l"><a class="l" href="#295">295 </a>
-</span><span id="296" class="l"><a class="l" href="#296">296 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;editCrontab(<span class="php-var">$index</span>, <span class="php-var">$command</span>, <span class="php-var">$minute_const</span>, <span class="php-var">$hour</span>, <span class="php-var">$day</span>, <span class="php-var">$month</span>, <span class="php-var">$weekday</span>);
+</span><span id="296" class="l"><a class="l" href="#296">296 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;editCrontab(<span class="php-var">$index</span>, <span class="php-var">$command</span>, <span class="php-var">$minute</span>, <span class="php-var">$hour</span>, <span class="php-var">$day</span>, <span class="php-var">$month</span>, <span class="php-var">$weekday</span>);
 </span><span id="297" class="l"><a class="l" href="#297">297 </a>         }
 </span><span id="298" class="l"><a class="l" href="#298">298 </a>
 </span><span id="299" class="l"><a class="l" href="#299">299 </a>         <span class="php-comment">/**
@@ -494,16 +494,16 @@
 </span></span><span id="373" class="l"><a class="l" href="#373">373 </a><span class="php-comment">          * @return boolean
 </span></span><span id="374" class="l"><a class="l" href="#374">374 </a><span class="php-comment">          */</span>
 </span><span id="375" class="l"><a class="l" href="#375">375 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_formatOK" href="#_formatOK">formatOK</a>(<span class="php-var">$min</span>, <span class="php-var">$hour</span>, <span class="php-var">$day</span>, <span class="php-var">$month</span>, <span class="php-var">$weekday</span>) {
-</span><span id="376" class="l"><a class="l" href="#376">376 </a>            <span class="php-var">$pat_min_h_mth</span> = <span class="php-quote">'/^(\*|[0-9]{1,2}|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/'</span>;
-</span><span id="377" class="l"><a class="l" href="#377">377 </a>            <span class="php-var">$pat_day</span>       = <span class="php-quote">'/^(\*|[0-9]{1,2}|[0-9]{1,2}(L|W)|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/'</span>;
-</span><span id="378" class="l"><a class="l" href="#378">378 </a>            <span class="php-var">$pat_weekday</span>   = <span class="php-quote">'/^(\*|[0-9]{1,2}|[0-9]{1,2}L|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/'</span>;
+</span><span id="376" class="l"><a class="l" href="#376">376 </a>            <span class="php-var">$patMinHMth</span> = <span class="php-quote">'/^(\*|[0-9]{1,2}|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/'</span>;
+</span><span id="377" class="l"><a class="l" href="#377">377 </a>            <span class="php-var">$patDay</span>       = <span class="php-quote">'/^(\*|[0-9]{1,2}|[0-9]{1,2}(L|W)|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/'</span>;
+</span><span id="378" class="l"><a class="l" href="#378">378 </a>            <span class="php-var">$patWeekday</span>   = <span class="php-quote">'/^(\*|[0-9]{1,2}|[0-9]{1,2}L|\*\/[0-9]{1,2}|[0-9,]+|[0-9\-]+)$/'</span>;
 </span><span id="379" class="l"><a class="l" href="#379">379 </a>
 </span><span id="380" class="l"><a class="l" href="#380">380 </a>            <span class="php-keyword1">return</span>
-</span><span id="381" class="l"><a class="l" href="#381">381 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$pat_min_h_mth</span>, <span class="php-var">$min</span>) &amp;&amp;
-</span><span id="382" class="l"><a class="l" href="#382">382 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$pat_min_h_mth</span>, <span class="php-var">$hour</span>) &amp;&amp;
-</span><span id="383" class="l"><a class="l" href="#383">383 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$pat_min_h_mth</span>, <span class="php-var">$month</span>) &amp;&amp;
-</span><span id="384" class="l"><a class="l" href="#384">384 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$pat_day</span>, <span class="php-var">$day</span>) &amp;&amp;
-</span><span id="385" class="l"><a class="l" href="#385">385 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$pat_weekday</span>, <span class="php-var">$weekday</span>);
+</span><span id="381" class="l"><a class="l" href="#381">381 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$patMinHMth</span>, <span class="php-var">$min</span>) &amp;&amp;
+</span><span id="382" class="l"><a class="l" href="#382">382 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$patMinHMth</span>, <span class="php-var">$hour</span>) &amp;&amp;
+</span><span id="383" class="l"><a class="l" href="#383">383 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$patMinHMth</span>, <span class="php-var">$month</span>) &amp;&amp;
+</span><span id="384" class="l"><a class="l" href="#384">384 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$patDay</span>, <span class="php-var">$day</span>) &amp;&amp;
+</span><span id="385" class="l"><a class="l" href="#385">385 </a>               <span class="php-keyword2">preg_match</span>(<span class="php-var">$patWeekday</span>, <span class="php-var">$weekday</span>);
 </span><span id="386" class="l"><a class="l" href="#386">386 </a>         }
 </span><span id="387" class="l"><a class="l" href="#387">387 </a>
 </span><span id="388" class="l"><a class="l" href="#388">388 </a>         <span class="php-comment">/**
@@ -537,7 +537,7 @@
 </span></span><span id="416" class="l"><a class="l" href="#416">416 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
 </span></span><span id="417" class="l"><a class="l" href="#417">417 </a><span class="php-comment">          *
 </span></span><span id="418" class="l"><a class="l" href="#418">418 </a><span class="php-comment">          * @param string     $command      The command to run
-</span></span><span id="419" class="l"><a class="l" href="#419">419 </a><span class="php-comment">          * @param int|string $minute_const The minute parameter
+</span></span><span id="419" class="l"><a class="l" href="#419">419 </a><span class="php-comment">          * @param int|string $minute The minute parameter
 </span></span><span id="420" class="l"><a class="l" href="#420">420 </a><span class="php-comment">          * @param int|string $hour         The hour parameter
 </span></span><span id="421" class="l"><a class="l" href="#421">421 </a><span class="php-comment">          * @param int|string $day          The day of the month parameter
 </span></span><span id="422" class="l"><a class="l" href="#422">422 </a><span class="php-comment">          * @param int|string $month        The month parameter
@@ -548,8 +548,8 @@
 </span></span><span id="427" class="l"><a class="l" href="#427">427 </a><span class="php-comment">          * @throws CE When one or more parameters are non-scalar
 </span></span><span id="428" class="l"><a class="l" href="#428">428 </a><span class="php-comment">          * @return Cron
 </span></span><span id="429" class="l"><a class="l" href="#429">429 </a><span class="php-comment">          */</span>
-</span><span id="430" class="l"><a class="l" href="#430">430 </a>         <span class="php-keyword1">function</span> <a id="_appendCrontab" href="#_appendCrontab">appendCrontab</a>(<span class="php-var">$command</span>, <span class="php-var">$minute_const</span> = <span class="php-quote">'*'</span>, <span class="php-var">$hour</span> = <span class="php-quote">'*'</span>, <span class="php-var">$day</span> = <span class="php-quote">'*'</span>, <span class="php-var">$month</span> = <span class="php-quote">'*'</span>, <span class="php-var">$weekday</span> = <span class="php-quote">'*'</span>) {
-</span><span id="431" class="l"><a class="l" href="#431">431 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;editCrontab(<span class="php-keyword1">null</span>, <span class="php-var">$command</span>, <span class="php-var">$minute_const</span>, <span class="php-var">$hour</span>, <span class="php-var">$day</span>, <span class="php-var">$month</span>, <span class="php-var">$weekday</span>);
+</span><span id="430" class="l"><a class="l" href="#430">430 </a>         <span class="php-keyword1">function</span> <a id="_appendCrontab" href="#_appendCrontab">appendCrontab</a>(<span class="php-var">$command</span>, <span class="php-var">$minute</span> = <span class="php-quote">'*'</span>, <span class="php-var">$hour</span> = <span class="php-quote">'*'</span>, <span class="php-var">$day</span> = <span class="php-quote">'*'</span>, <span class="php-var">$month</span> = <span class="php-quote">'*'</span>, <span class="php-var">$weekday</span> = <span class="php-quote">'*'</span>) {
+</span><span id="431" class="l"><a class="l" href="#431">431 </a>            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;editCrontab(<span class="php-keyword1">null</span>, <span class="php-var">$command</span>, <span class="php-var">$minute</span>, <span class="php-var">$hour</span>, <span class="php-var">$day</span>, <span class="php-var">$month</span>, <span class="php-var">$weekday</span>);
 </span><span id="432" class="l"><a class="l" href="#432">432 </a>         }
 </span><span id="433" class="l"><a class="l" href="#433">433 </a>
 </span><span id="434" class="l"><a class="l" href="#434">434 </a>         <span class="php-comment">/**
