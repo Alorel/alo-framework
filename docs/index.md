@@ -77,7 +77,7 @@ In **src** the main components are **app*, **resources**, **sys** and files unde
 * **sys** contains all the framework files
 * **resources** is where you're meant to put all your images, css and whatnot
 * **app** is where your code should go
-* **.htaccess** makes sure requests get routed correctly
+* **.htaccess.sample** contains the contents for mod_rewrite: if you have access to your web server's file system copy these to the global config file. If not, rename it to **.htaccess**.
 * **index.php** contains some core constants
 
 ^[TOC](#table-of-contents)
@@ -177,6 +177,7 @@ All logging is done via the global static class **\Log**'s public methods - plea
 * You will want to copy the contents of **sys/config** into **app/config**. Open them and set the values as appropriate.
 * Open **index.php**, scroll to **// ===== General setup BEGIN =====** and set the values as you please.
 * Next you'll want to run the appropriate files under **setup** if you are using that functionality.
+* If you have access to your web server's file system, copy the contents of **.htaccess.sample** to the configuration file; if you don't, rename it to **.htaccess**
 
 ^[TOC](#table-of-contents)
 
@@ -186,10 +187,10 @@ All logging is done via the global static class **\Log**'s public methods - plea
 Updates are applied by following these 6 steps:
 
 1. Look through the changelog for to see if any changes will cause issues (e.g. a deprecated method being removed), prepare your code if necessary.
-2. Make a copy of your **index.php** and **.htaccess** files.
+2. Make a copy of your **index.php** file.
 3. Delete the above, as well as the **sys** directory.
 4. Extract the new code. It will never contain files other than blank **index.html**s and **sample.php**s under **app/**, so no application code will be overwritten.
-5. If there are any changes to **.htaccess**, merge them with your version.
+5. If there are any changes to **.htaccess.sample**, merge them with your version.
 6. Re-apply your personal settings under **index.php**'s **// ===== General setup BEGIN =====**
 
 ^[TOC](#table-of-contents)

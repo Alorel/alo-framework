@@ -36,6 +36,7 @@ Router
 * Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
 * A plethora of code quality improvements with the help of SensioLabs Insights
 * SampleErrorController->error() $message parameter removed as it was unused
+* Sample **.htaccess** file renamed to **.htaccess.sample**
 
 # 1.1.1 (2015-05-31) #
 Misc
