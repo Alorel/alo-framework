@@ -8,6 +8,7 @@
 
       function testFunctionAvailable() {
          $this->assertTrue(function_exists('server_is_windows'));
+         ob_flush();
       }
 
       function testClear() {
@@ -20,7 +21,7 @@
 
             PhuGlobal::$cron->commit();
             PhuGlobal::$cron->reloadCrontab()
-                                 ->clearCrontab();
+               ->clearCrontab();
 
             $postClear = PhuGlobal::$cron->getCrontab();
 
@@ -38,6 +39,7 @@
                                              'final'      => $final
                                           ]));
          }
+         ob_flush();
       }
 
       function testAppend() {
@@ -45,7 +47,7 @@
             $initial = PhuGlobal::$cron->getCrontab();
 
             PhuGlobal::$cron->clearCrontab()
-                                 ->commit();
+               ->commit();
 
             PhuGlobal::$cron->reloadCrontab();
 
@@ -69,6 +71,7 @@
                                                 'final'      => $final
                                              ]));
          }
+         ob_flush();
       }
 
       function testAutocommitAndGetAtIndex() {
@@ -84,6 +87,7 @@
             $this->assertEquals('* * * * * php foo.php', PhuGlobal::$cron->getAtIndex(0));
             $this->assertEquals('* * * * * php bar.php', PhuGlobal::$cron->getAtIndex(1));
          }
+         ob_flush();
       }
 
    }

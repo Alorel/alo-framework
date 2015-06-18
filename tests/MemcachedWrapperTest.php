@@ -2,6 +2,8 @@
 
    namespace Alo\Cache;
 
+   use PhuGlobal;
+
    class MemcachedWrapperTest extends \PHPUnit_Framework_TestCase {
 
       /**
@@ -9,6 +11,7 @@
        */
       function testDefined($const) {
          $this->assertTrue(defined($const), $const . ' wasn\'t defined.');
+         ob_flush();
       }
 
       function definedProvider() {
@@ -22,10 +25,8 @@
        * @dataProvider provideTestValueSet
        */
       function testValueSet($key, $val) {
-         $mc = self::mc();
-
-         $mc->set($key, $val);
-         $get = $mc->get($key);
+         PhuGlobal::$mcWrapper->set($key, $val);
+         $get = PhuGlobal::$mcWrapper->get($key);
 
          $this->assertEquals($val,
                              $get,
@@ -35,31 +36,22 @@
                                            'Expected' => $val,
                                            'Actual'   => $get
                                         ]));
-      }
-
-      protected static function mc() {
-         if(!\Alo::$cache || !(\Alo::$cache instanceof MemcachedWrapper)) {
-            \Alo::$cache = new MemcachedWrapper();
-         }
-
-         return \Alo::$cache;
+         ob_flush();
       }
 
       function testPurge() {
-         $mc = self::mc();
+         PhuGlobal::$mcWrapper->set('foo', 1);
 
-         $mc->set('foo', 1);
-
-         $this->assertTrue($mc->purge(), 'Purge returned false');
+         $this->assertTrue(PhuGlobal::$mcWrapper->purge(), 'Purge returned false');
+         ob_flush();
       }
 
       function testDelete() {
-         $mc = self::mc();
+         PhuGlobal::$mcWrapper->set('test_del', 1);
+         PhuGlobal::$mcWrapper->delete('test_del');
 
-         $mc->set('test_del', 1);
-         $mc->delete('test_del');
-
-         $this->assertEmpty($mc->get('test_del'), 'Test_del returned: ' . $mc->get('test_del'));
+         $this->assertEmpty(PhuGlobal::$mcWrapper->get('test_del'), 'Test_del returned: ' . PhuGlobal::$mcWrapper->get('test_del'));
+         ob_flush();
       }
 
       function provideTestValueSet() {

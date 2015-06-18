@@ -10,6 +10,7 @@
        */
       function testDefined($const) {
          $this->assertTrue(defined($const), $const . ' wasn\'t defined.');
+         ob_flush();
       }
 
       function definedProvider() {
@@ -34,12 +35,14 @@
                                            'Expected' => $val,
                                            'Actual'   => $get
                                         ]));
+         ob_flush();
       }
 
       function testPurge() {
          PhuGlobal::$redisWrapper->set('foo', 1);
 
          $this->assertTrue(PhuGlobal::$redisWrapper->purge(), 'Purge returned false');
+         ob_flush();
       }
 
       function testDelete() {
@@ -47,6 +50,7 @@
          PhuGlobal::$redisWrapper->delete('test_del');
 
          $this->assertEmpty(PhuGlobal::$redisWrapper->get('test_del'), 'Test_del returned: ' . PhuGlobal::$redisWrapper->get('test_del'));
+         ob_flush();
       }
 
       function testGetAll() {
@@ -55,6 +59,7 @@
          $getall = PhuGlobal::$redisWrapper->getAll();
 
          $this->assertEquals(['aloframework' => 'just works'], $getall, _unit_dump($getall));
+         ob_flush();
       }
 
       function provideTestValueSet() {

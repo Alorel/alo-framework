@@ -9,6 +9,7 @@
        */
       function testDefined($key) {
          $this->assertTrue(defined($key), $key . ' wasn\'t defined');
+         ob_flush();
       }
 
       function definedProvider() {
@@ -29,6 +30,7 @@
        */
       function testInvalidConstructorCredentials() {
          new MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'bad_table');
+         ob_flush();
       }
 
       function testPrepare() {
@@ -37,6 +39,7 @@
          $this->assertInstanceOf('PDOStatement', PhuGlobal::$mysql->prepare('INSERT INTO `test_table`(`key0`) VALUES (?)'));
 
          self::deleteSQL();
+         ob_flush();
       }
 
       protected static function createSQL($cols = 1) {
@@ -48,10 +51,12 @@
          }
 
          PhuGlobal::$mysql->prepQuery($sql . 'PRIMARY KEY (`key0`));');
+         ob_flush();
       }
 
       protected static function deleteSQL() {
          PhuGlobal::$mysql->prepQuery('DROP TABLE IF EXISTS `test_table`');
+         ob_flush();
       }
 
       function testInTransaction() {
@@ -62,6 +67,7 @@
 
          PhuGlobal::$mysql->commit();
          $this->assertFalse(PhuGlobal::$mysql->transactionActive(), 'Transaction was active');
+         ob_flush();
       }
 
       function testPrepQuery() {
@@ -86,6 +92,7 @@
                                         ]));
 
          self::deleteSQL();
+         ob_flush();
       }
 
       function testAggregate() {
@@ -104,6 +111,7 @@
                                         ]));
 
          self::deleteSQL();
+         ob_flush();
       }
 
       function testCache() {
@@ -144,5 +152,6 @@
 
          self::deleteSQL();
 //         }
+         ob_flush();
       }
    }

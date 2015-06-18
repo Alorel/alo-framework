@@ -22,10 +22,12 @@
 
          foreach($true as $input) {
             $this->assertTrue(Format::isIpv4($input), _unit_dump($input));
+            ob_flush();
          }
 
          foreach($false as $input) {
             $this->assertFalse(Format::isIpv4($input), _unit_dump($input));
+            ob_flush();
          }
       }
 
@@ -35,9 +37,11 @@
 
          foreach($true as $v) {
             $this->assertTrue(Format::isJSON($v), _unit_dump($v));
+            ob_flush();
          }
          foreach($false as $v) {
             $this->assertFalse(Format::isJSON($v), _unit_dump($v));
+            ob_flush();
          }
       }
    }

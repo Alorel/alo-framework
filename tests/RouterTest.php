@@ -14,6 +14,7 @@
          $this->assertTrue(isset($errorControllerClass), '$error_controller_class not set');
          $this->assertTrue(isset($defaultController), '$default_controller not set');
          $this->assertTrue(isset($routes), '$routes not set');
+         ob_flush();
       }
 
       /**
@@ -31,6 +32,7 @@
                                            'expected' => $val,
                                            'actual'   => $call
                                         ]));
+         ob_flush();
       }
 
       function testEqualsProvider() {

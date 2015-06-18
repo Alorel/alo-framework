@@ -12,6 +12,7 @@
        */
       function testDefined($key) {
          $this->assertTrue(defined($key), $key . ' wasn\'t defined');
+         ob_flush();
       }
 
       function definedProvider() {
@@ -42,13 +43,16 @@
 
          $this->assertArrayHasKey('foo', $sessFetched, _unit_dump($sessFetched));
          $this->assertEquals('bar', $sessFetched['foo']);
+         ob_flush();
       }
 
       function testToken() {
          $this->assertEquals(PhuGlobal::$redisSession->getTokenExpected(), PhuGlobal::$redisSession->getTokenActual());
+         ob_flush();
       }
 
       function testRefreshToken() {
          $this->assertTrue(PhuGlobal::$redisSession->refreshToken());
+         ob_flush();
       }
    }

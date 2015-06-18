@@ -23,5 +23,6 @@
 
       function testTmp() {
          $this->assertTrue(true);
+         ob_flush();
       }
    }

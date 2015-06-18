@@ -28,6 +28,7 @@
                                          '$exptOutcome'        => $exptOutcome,
                                          '$eval'               => $eval
                                       ]));
+         ob_flush();
       }
 
       /**
@@ -54,6 +55,7 @@
                                           '$exptOutcome'        => $exptOutcome,
                                           '$eval'               => $eval
                                        ]));
+         ob_flush();
       }
 
       function trueProvider() {

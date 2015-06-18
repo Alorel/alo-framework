@@ -10,8 +10,10 @@
       require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'handler.php';
 
       spl_autoload_register('\Alo\Handler::autoloader');
-      set_error_handler('\Alo\Handler::error', ini_get('error_reporting'));
-      set_exception_handler('\Alo\Handler::ecxeption');
+      if(!defined('PHPUNIT_RUNNING')) {
+         set_error_handler('\Alo\Handler::error', ini_get('error_reporting'));
+         set_exception_handler('\Alo\Handler::ecxeption');
+      }
 
       /**
        * A shortcut to isset($var) ? $var : null

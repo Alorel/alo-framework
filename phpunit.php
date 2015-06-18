@@ -35,7 +35,7 @@
    _load_classes(DIR_APP . 'traits');
 
    Alo::$router = new \Alo\Controller\Router();
-   ob_end_clean();
+   ob_clean();
 
    includeonceifexists(__DIR__ . '/vendor/autoload.php');
    error_reporting(E_ALL);
@@ -71,7 +71,7 @@
    PhuGlobal::$redisWrapper = new \Alo\Cache\RedisWrapper();
    PhuGlobal::$mcSession    = new \Alo\Session\MemcachedSession(PhuGlobal::$mcWrapper);
    PhuGlobal::$redisSession = new \Alo\Session\RedisSession(PhuGlobal::$redisWrapper);
-   PhuGlobal::$mysql        = new \Alo\Db\MySQL();
+   PhuGlobal::$mysql = new \Alo\Db\MySQL(ALO_MYSQL_SERVER, ALO_MYSQL_PORT, ALO_MYSQL_USER, ALO_MYSQL_PW, 'phpunit', ALO_MYSQL_CACHE);
 
    PhuGlobal::$mysql->prepQuery('CREATE TABLE IF NOT EXISTS `alo_session` (`id`     CHAR(128)
            CHARACTER SET `ascii` NOT NULL,
@@ -84,3 +84,5 @@
   DEFAULT CHARSET =`utf8mb4`;');
 
    PhuGlobal::$mysqlsession = new \Alo\Session\MySQLSession(PhuGlobal::$mysql);
+
+   ob_start();
