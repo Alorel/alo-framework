@@ -1,6 +1,6 @@
 <?php
 
-   use Alo\Cache\MemcachedWrapper;
+   use Alo\Db\MySQL;
 
    class MySQLTest extends \PHPUnit_Framework_TestCase {
 
@@ -28,60 +28,47 @@
        * @expectedException PDOException
        */
       function testInvalidConstructorCredentials() {
-         new Alo\Db\MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'bad_table');
+         new MySQL('127.0.0.1', 3306, 'bad_username', 'bad_password', 'bad_table');
       }
 
       function testPrepare() {
-         $sql = self::new_mysql();
+         self::createSQL();
 
-         self::create_sql();
+         $this->assertInstanceOf('PDOStatement', PHPUNIT_GLOBAL::$mysql->prepare('INSERT INTO `test_table`(`key0`) VALUES (?)'));
 
-         $this->assertInstanceOf('PDOStatement', $sql->prepare('INSERT INTO `test_table`(`key0`) VALUES (?)'));
-
-         self::delete_sql();
+         self::deleteSQL();
       }
 
-      protected static function new_mysql() {
-         if(!Alo::$db || !(Alo::$db instanceof \Alo\Db\MySQL)) {
-            Alo::$db = new Alo\Db\MySQL('127.0.0.1', 3306, 'root', '', 'phpunit');
-         }
-
-         return Alo::$db;
-      }
-
-      protected static function create_sql($cols = 1) {
-         self::delete_sql();
+      protected static function createSQL($cols = 1) {
+         self::deleteSQL();
          $sql = 'CREATE TABLE `test_table` (';
 
          for($i = 0; $i < $cols; $i++) {
             $sql .= '`key' . $i . '` TINYINT(3) UNSIGNED NOT NULL,';
          }
 
-         self::new_mysql()->prepQuery($sql . 'PRIMARY KEY (`key0`));');
+         PHPUNIT_GLOBAL::$mysql->prepQuery($sql . 'PRIMARY KEY (`key0`));');
       }
 
-      protected static function delete_sql() {
-         self::new_mysql()->prepQuery('DROP TABLE IF EXISTS `test_table`');
+      protected static function deleteSQL() {
+         PHPUNIT_GLOBAL::$mysql->prepQuery('DROP TABLE IF EXISTS `test_table`');
       }
 
       function testInTransaction() {
-         $db = self::new_mysql();
+         $this->assertFalse(PHPUNIT_GLOBAL::$mysql->transactionActive(), 'Transaction was active');
 
-         $this->assertFalse($db->transactionActive(), 'Transaction was active');
+         PHPUNIT_GLOBAL::$mysql->beginTransaction();
+         $this->assertTrue(PHPUNIT_GLOBAL::$mysql->transactionActive(), 'Transaction wasn\'t active');
 
-         $db->beginTransaction();
-         $this->assertTrue($db->transactionActive(), 'Transaction wasn\'t active');
-
-         $db->commit();
-         $this->assertFalse($db->transactionActive(), 'Transaction was active');
+         PHPUNIT_GLOBAL::$mysql->commit();
+         $this->assertFalse(PHPUNIT_GLOBAL::$mysql->transactionActive(), 'Transaction was active');
       }
 
       function testPrepQuery() {
-         $db = self::new_mysql();
-         self::create_sql();
+         self::createSQL();
 
-         $db->prepQuery('INSERT INTO `test_table` VALUES (?), (?), (?)', [1, 2, 3]);
-         $sel    = $db->prepQuery('SELECT * FROM `test_table` WHERE `key0` > ?', [1]);
+         PHPUNIT_GLOBAL::$mysql->prepQuery('INSERT INTO `test_table` VALUES (?), (?), (?)', [1, 2, 3]);
+         $sel = PHPUNIT_GLOBAL::$mysql->prepQuery('SELECT * FROM `test_table` WHERE `key0` > ?', [1]);
          $expect = [
             ['key0' => '2'],
             ['key0' => '3']
@@ -98,15 +85,14 @@
                                            'Actual'        => $sel
                                         ]));
 
-         self::delete_sql();
+         self::deleteSQL();
       }
 
       function testAggregate() {
-         $db = self::new_mysql();
-         self::create_sql();
+         self::createSQL();
 
-         $db->prepQuery('INSERT INTO `test_table` VALUES (1), (2), (3)');
-         $ag = $db->aggregate('SELECT SUM(`key0`) FROM `test_table`');
+         PHPUNIT_GLOBAL::$mysql->prepQuery('INSERT INTO `test_table` VALUES (1), (2), (3)');
+         $ag = PHPUNIT_GLOBAL::$mysql->aggregate('SELECT SUM(`key0`) FROM `test_table`');
 
          $this->assertEquals(6,
                              $ag,
@@ -117,38 +103,36 @@
                                            'Actual'         => $ag
                                         ]));
 
-         self::delete_sql();
+         self::deleteSQL();
       }
 
       function testCache() {
          if(!server_is_windows()) {
-            $db = self::new_mysql();
-            $mc = self::mc();
-            $mc->purge();
+            PHPUNIT_GLOBAL::$mcWrapper->purge();
 
-            self::create_sql();
+            self::createSQL();
 
-            $prep_sql    = 'INSERT INTO `test_table` VALUES (?), (?), (?)';
-            $prep_params = [1, 2, 3];
-            $ag_sql      = 'SELECT SUM(`key0`) FROM `test_table`';
-            $ag_settings = [
-               Alo\Db\MySQL::V_CACHE => true,
-               Alo\Db\MySQL::V_TIME  => 20
+            $prepSQL    = 'INSERT INTO `test_table` VALUES (?), (?), (?)';
+            $prepParams = [1, 2, 3];
+            $agSQL      = 'SELECT SUM(`key0`) FROM `test_table`';
+            $agSettings = [
+               MySQL::V_CACHE => true,
+               MySQL::V_TIME  => 20
             ];
 
-            $db->prepQuery($prep_sql, $prep_params);
+            PHPUNIT_GLOBAL::$mysql->prepQuery($prepSQL, $prepParams);
 
-            $agg = $db->aggregate($ag_sql, null, $ag_settings);
+            $agg = PHPUNIT_GLOBAL::$mysql->aggregate($agSQL, null, $agSettings);
 
-            $last_hash = $db->getLastHash();
-            $get_all   = $mc->getAll();
-            $get       = $mc->get($last_hash);
+            $lastHash = PHPUNIT_GLOBAL::$mysql->getLastHash();
+            $getAll   = PHPUNIT_GLOBAL::$mcWrapper->getAll();
+            $get      = PHPUNIT_GLOBAL::$mcWrapper->get($lastHash);
 
-            $this->assertArrayHasKey($last_hash,
-                                     $get_all,
+            $this->assertArrayHasKey($lastHash,
+                                     $getAll,
                                      _unit_dump([
-                                                   'lastHash' => $last_hash,
-                                                   'get_all'   => $get_all,
+                                                   'lastHash' => $lastHash,
+                                                   'getAll'   => $getAll,
                                                 ]));
 
             $this->assertEquals($agg,
@@ -158,15 +142,7 @@
                                               'get'       => $get,
                                            ]));
 
-            self::delete_sql();
+            self::deleteSQL();
          }
-      }
-
-      protected static function mc() {
-         if(!Alo::$cache || !(Alo::$cache instanceof MemcachedWrapper)) {
-            Alo::$cache = new MemcachedWrapper();
-         }
-
-         return Alo::$cache;
       }
    }
