@@ -20,4 +20,8 @@
          $this->db     = new MySQL();
          $this->locale = new Locale($this->db);
       }
+
+      function testTmp() {
+         $this->assertTrue(true);
+      }
    }
