@@ -44,8 +44,33 @@
        * @var \Alo\Cron
        */
       static $cron;
+
+      /**
+       * @var \Alo\Cache\MemcachedWrapper
+       */
+      static $mcWrapper;
+
+      /**
+       * @var \Alo\Cache\RedisWrapper
+       */
+      static $redisWrapper;
+
+      /**
+       * @var \Alo\Session\MemcachedSession
+       */
+      static $mcSession;
+
+      /**
+       * @var \Alo\Session\RedisSession
+       */
+      static $redisSession;
    }
 
    if(!server_is_windows()) {
       PHPUNIT_GLOBAL::$cron = new \Alo\Cron();
    }
+
+   PHPUNIT_GLOBAL::$mcWrapper    = new \Alo\Cache\MemcachedWrapper();
+   PHPUNIT_GLOBAL::$redisWrapper = new \Alo\Cache\RedisWrapper();
+   PHPUNIT_GLOBAL::$mcSession    = new \Alo\Session\MemcachedSession(PHPUNIT_GLOBAL::$mcWrapper);
+   PHPUNIT_GLOBAL::$redisSession = new \Alo\Session\RedisSession(PHPUNIT_GLOBAL::$redisWrapper);
