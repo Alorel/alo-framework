@@ -2,3 +2,5 @@
 copy_readme_to_docs.php
 update_changelog.php
 *.nupkg
+composer.lock
+vendor

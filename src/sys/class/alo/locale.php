@@ -16,7 +16,6 @@
        * Locale handler
        *
        * @author     Arturas Molcanovas <a.molcanovas@gmail.com>
-       * @todo       Write tests
        */
       class Locale {
 
