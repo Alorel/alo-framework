@@ -3,6 +3,7 @@ exclude_patterns:
  - tests/*
  - src/sys/external/*
  - phpunit.php
+ - vendor/*
 rules:
  php.use_global_variable_or_function:
   enabled: false
