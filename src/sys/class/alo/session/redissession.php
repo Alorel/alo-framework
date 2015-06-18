@@ -50,13 +50,15 @@
          /**
           * Instantiates the class
           *
+          * @param RedisWrapper $cacheInstance If provided, will use this cache instance instead of Alo::$cache
+          *
           * @author Art <a.molcanovas@gmail.com>
           * @throws EE When a caching class is not available
           *
           * @return RedisSession
           */
-         static function redisSession() {
-            return new RedisSession();
+         static function redisSession(RedisWrapper &$cacheInstance = null) {
+            return new RedisSession($cacheInstance);
          }
 
       }
