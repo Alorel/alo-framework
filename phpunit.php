@@ -37,7 +37,7 @@
    Alo::$router = new \Alo\Controller\Router();
    ob_end_clean();
 
-   include __DIR__ . '/vendor/autoload.php';
+   includeonceifexists(__DIR__ . '/vendor/autoload.php');
    error_reporting(E_ALL);
 
    abstract class PhuGlobal {
