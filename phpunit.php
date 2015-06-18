@@ -40,30 +40,26 @@
    include __DIR__ . '/vendor/autoload.php';
 
    abstract class PHPUNIT_GLOBAL {
-      /**
-       * @var \Alo\Cron
-       */
+      /** @var \Alo\Cron */
       static $cron;
 
-      /**
-       * @var \Alo\Cache\MemcachedWrapper
-       */
+      /** @var \Alo\Cache\MemcachedWrapper */
       static $mcWrapper;
 
-      /**
-       * @var \Alo\Cache\RedisWrapper
-       */
+      /** @var \Alo\Cache\RedisWrapper */
       static $redisWrapper;
 
-      /**
-       * @var \Alo\Session\MemcachedSession
-       */
+      /** @var \Alo\Session\MemcachedSession */
       static $mcSession;
 
-      /**
-       * @var \Alo\Session\RedisSession
-       */
+      /** @var \Alo\Session\RedisSession */
       static $redisSession;
+
+      /** @var  \Alo\Db\MySQL */
+      static $mysql;
+
+      /** @var  \Alo\Session\MySQLSession */
+      static $mysqlsession;
    }
 
    if(!server_is_windows()) {
@@ -74,3 +70,16 @@
    PHPUNIT_GLOBAL::$redisWrapper = new \Alo\Cache\RedisWrapper();
    PHPUNIT_GLOBAL::$mcSession    = new \Alo\Session\MemcachedSession(PHPUNIT_GLOBAL::$mcWrapper);
    PHPUNIT_GLOBAL::$redisSession = new \Alo\Session\RedisSession(PHPUNIT_GLOBAL::$redisWrapper);
+   PHPUNIT_GLOBAL::$mysql        = new \Alo\Db\MySQL();
+
+   PHPUNIT_GLOBAL::$mysql->prepQuery('CREATE TABLE IF NOT EXISTS `alo_session` (`id`     CHAR(128)
+           CHARACTER SET `ascii` NOT NULL,
+  `data`   VARCHAR(16000)      NOT NULL,
+  `access` TIMESTAMP           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `access` (`access`)
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =`utf8mb4`;');
+
+   PHPUNIT_GLOBAL::$mysqlsession = new \Alo\Session\MySQLSession(PHPUNIT_GLOBAL::$mysql);
