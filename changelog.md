@@ -2,7 +2,8 @@
 **Added features**
 
 * Localisation support added! See [README.md](README.md#Localisation)
-* MemcachedSession and RedisSession can now be passed an object instance and use it instead of relying on Alo::$cache
+* MemcachedSession and RedisSession can now be passed an object instance reference and use it instead of relying on Alo::$cache
+* MySQLSession/SQLSession can now be passed an object instance reference and use it instead of relying on Alo::$db
 
 **Bugs fixed**
 

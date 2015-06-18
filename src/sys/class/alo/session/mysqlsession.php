@@ -30,13 +30,18 @@
           * Instantiates the class
           *
           * @author Art <a.molcanovas@gmail.com>
+          *
+          * @param MySQL $db If a parameter is passed here its instance will be used instead of Alo::$db
           */
-         function __construct() {
-            if (!Alo::$db) {
-               Alo::$db = new MySQL();
+         function __construct(MySQL &$db = null) {
+            if ($db) {
+               $this->db = &$db;
+            } elseif (Alo::$db && Alo::$db instanceof MySQL) {
+               $this->db = &Alo::$db;
+            } else {
+               php_error('MySQL unavailable');
             }
 
-            $this->db = &Alo::$db;
             parent::__construct();
             \Log::debug('Initialised MySQL session');
          }
@@ -46,10 +51,11 @@
           *
           * @author Art <a.molcanovas@gmail.com>
           *
+          * @param MySQL $db If a parameter is passed here its instance will be used instead of Alo::$db
           * @return MySQLSession
           */
-         static function mysqlSession() {
-            return new MySQLSession();
+         static function mysqlSession(MySQL &$db = null) {
+            return new MySQLSession($db);
          }
 
          /**
