@@ -74,6 +74,7 @@ No code review required:
 * Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
 * SampleErrorController->error()'s $message parameter removed as it was unused
 * AbstractController->httpError() no longer has a die() statement to stop script execution once called. It only suppresses output now.
+* MemcachedSession, RedisSession and MySQLSession constructors now throw a LibraryException instead.
 
 **Misc**
 

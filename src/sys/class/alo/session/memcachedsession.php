@@ -4,7 +4,7 @@
 
    use Alo;
    use Alo\Cache\MemcachedWrapper;
-   use Alo\Exception\ExtensionException as EE;
+   use Alo\Exception\LibraryException as Libex;
 
    if(!defined('GEN_START')) {
       http_response_code(404);
@@ -25,7 +25,7 @@
           * @param MemcachedWrapper $cacheInstance If provided, will use this cache instance instead of Alo::$cache
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @throws EE When a caching class is not available
+          * @throws Libex When $cacheInstance is not passed and Alo::$cache does not contain a MemcachedWrapper instance
           */
          function __construct(MemcachedWrapper &$cacheInstance = null) {
             if($cacheInstance) {
@@ -33,7 +33,7 @@
             } elseif(Alo::$cache && Alo::$cache instanceof MemcachedWrapper) {
                $this->client = &Alo::$cache;
             } else {
-               throw new EE('No caching PHP extension is loaded', EE::E_EXT_NOT_LOADED);
+               throw new Libex('MemcachedWrapper instance not found.', Libex::E_REQUIRED_LIB_NOT_FOUND);
             }
 
             if(Alo::$cache && (Alo::$cache instanceof MemcachedWrapper)) {
@@ -53,7 +53,7 @@
           * @param MemcachedWrapper $cacheInstance If provided, will use this cache instance instead of Alo::$cache
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @throws EE When a caching class is not available
+          * @throws Libex When $cacheInstance is not passed and Alo::$cache does not contain a MemcachedWrapper instance
           *
           * @return MemcachedSession
           */

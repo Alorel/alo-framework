@@ -4,6 +4,7 @@
 
    use Alo;
    use Alo\Db\MySQL;
+   use Alo\Exception\LibraryException as Libex;
 
    if (!defined('GEN_START')) {
       http_response_code(404);
@@ -30,6 +31,7 @@
           * Instantiates the class
           *
           * @author Art <a.molcanovas@gmail.com>
+          * @throws Libex When $cacheInstance is not passed and Alo::$cache does not contain a MemcachedWrapper instance
           *
           * @param MySQL $db If a parameter is passed here its instance will be used instead of Alo::$db
           */
@@ -39,7 +41,7 @@
             } elseif (Alo::$db && Alo::$db instanceof MySQL) {
                $this->db = &Alo::$db;
             } else {
-               php_error('MySQL unavailable');
+               throw new Libex('MySQL instance not found',Libex::E_REQUIRED_LIB_NOT_FOUND);
             }
 
             parent::__construct();
