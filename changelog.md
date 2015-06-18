@@ -9,17 +9,24 @@ Localisation support added! See [README.md](README.md#Localisation)
 
 **PSR-1 standards-compliant renames**
 
-* Code review required
-	* AbstractController
-		* http_error() renamed to httpError()
-	* Router
-		* Gettable variables renamed in camelCase (applies to getters too)
-		* is_cli_request() --> isCliRequest()
-		* Config file
-		   * $error_controller_class -> $errorControllerClass
-		   * $default_controller -> $defaultController
-* No code review required
-	* Static constructors are now in camelCase - no implications as of PHP 5.6.9
+Code review required:
+
+* AbstractController
+   * http_error() renamed to httpError()
+* Router
+   * Gettable variables renamed in camelCase (applies to getters too)
+   * is_cli_request() --> isCliRequest()
+   * Config file
+      * $error_controller_class -> $errorControllerClass
+      * $default_controller -> $defaultController
+   * Alo
+      * $form_validator -> $formValidator
+   * Log
+      * log_level() -> logLevel()
+
+No code review required:
+
+* Static constructors are now in camelCase - no implications as of PHP 5.6.9
 
 **Renamed classes**
 

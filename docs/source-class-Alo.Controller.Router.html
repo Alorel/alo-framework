@@ -504,15 +504,15 @@
 </span><span id="388" class="l"><a class="l" href="#388">388 </a>            } <span class="php-keyword1">else</span> {
 </span><span id="389" class="l"><a class="l" href="#389">389 </a>               <span class="php-keyword1">require</span> <span class="php-var">$path</span>;
 </span><span id="390" class="l"><a class="l" href="#390">390 </a>
-</span><span id="391" class="l"><a class="l" href="#391">391 </a>               <span class="php-keyword1">if</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$error_controller_class</span>)) {
+</span><span id="391" class="l"><a class="l" href="#391">391 </a>               <span class="php-keyword1">if</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$errorControllerClass</span>)) {
 </span><span id="392" class="l"><a class="l" href="#392">392 </a>                  <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> CE(<span class="php-quote">'Error controller class not found in config file.'</span>, CE::E_ERR_NOT_FOUND);
-</span><span id="393" class="l"><a class="l" href="#393">393 </a>               } <span class="php-keyword1">elseif</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$default_controller</span>)) {
+</span><span id="393" class="l"><a class="l" href="#393">393 </a>               } <span class="php-keyword1">elseif</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$defaultController</span>)) {
 </span><span id="394" class="l"><a class="l" href="#394">394 </a>                  <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> CE(<span class="php-quote">'$default_controller undefined in config file.'</span>, CE::E_DEFAULT_UNDEFINED);
 </span><span id="395" class="l"><a class="l" href="#395">395 </a>               } <span class="php-keyword1">elseif</span>(!<span class="php-keyword2">is_array</span>(get(<span class="php-var">$routes</span>))) {
 </span><span id="396" class="l"><a class="l" href="#396">396 </a>                  <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> CE(<span class="php-quote">'The routes variable must be an associative array'</span>, CE::E_MALFORMED_ROUTES);
 </span><span id="397" class="l"><a class="l" href="#397">397 </a>               } <span class="php-keyword1">else</span> {
-</span><span id="398" class="l"><a class="l" href="#398">398 </a>                  <span class="php-var">$this</span>-&gt;errController     = <span class="php-var">$error_controller_class</span>;
-</span><span id="399" class="l"><a class="l" href="#399">399 </a>                  <span class="php-var">$this</span>-&gt;defaultController = <span class="php-var">$default_controller</span>;
+</span><span id="398" class="l"><a class="l" href="#398">398 </a>                  <span class="php-var">$this</span>-&gt;errController     = <span class="php-var">$errorControllerClass</span>;
+</span><span id="399" class="l"><a class="l" href="#399">399 </a>                  <span class="php-var">$this</span>-&gt;defaultController = <span class="php-var">$defaultController</span>;
 </span><span id="400" class="l"><a class="l" href="#400">400 </a>
 </span><span id="401" class="l"><a class="l" href="#401">401 </a>                  <span class="php-keyword1">foreach</span>(<span class="php-var">$routes</span> <span class="php-keyword1">as</span> <span class="php-var">$k</span> =&gt; <span class="php-var">$v</span>) {
 </span><span id="402" class="l"><a class="l" href="#402">402 </a>                     <span class="php-keyword1">if</span>(<span class="php-keyword2">is_array</span>(<span class="php-var">$v</span>)) {

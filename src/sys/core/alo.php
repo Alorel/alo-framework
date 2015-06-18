@@ -72,7 +72,7 @@
           *
           * @var Alo\Validators\Form
           */
-         static $form_validator;
+         static $formValidator;
 
          /**
           * Database connection
@@ -156,11 +156,11 @@
           *
           * @param string $path        The config file relative path without the file extension, e.g. to load a file found
           *                            in config/db/mysql.php provide db/mysql
-          * @param bool   $return_path If set to true it will return the calculated path instead of requiring the file
+          * @param bool   $returnPath  If set to true it will return the calculated path instead of requiring the file
           *
-          * @return string|bool The path is $return_path is true, TRUE if it is false
+          * @return string|bool The path is $returnPath is true, TRUE if it is false
           */
-         static function loadConfig($path, $return_path = false) {
+         static function loadConfig($path, $returnPath = false) {
             $dir  =
                (defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP) . 'config' . DIRECTORY_SEPARATOR;
             $path = strtolower($path);
@@ -169,21 +169,21 @@
             }
 
             /** @noinspection PhpUnusedLocalVariableInspection */
-            $final_path = '';
+            $finalPath = '';
             if(file_exists($dir . $path . '.php')) {
-               $final_path = $dir . $path . '.php';
+               $finalPath = $dir . $path . '.php';
             } else {
                trigger_error('Configuration file ' .
                              $path .
                              ' not found in the application folder. Attempting to load from sys.',
                              E_USER_WARNING);
-               $final_path = DIR_SYS . 'config' . DIRECTORY_SEPARATOR . $path . '.php';
+               $finalPath = DIR_SYS . 'config' . DIRECTORY_SEPARATOR . $path . '.php';
             }
 
-            if($return_path) {
-               return $final_path;
+            if($returnPath) {
+               return $finalPath;
             } else {
-               include_once $final_path;
+               include_once $finalPath;
 
                return true;
             }

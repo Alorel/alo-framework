@@ -39,7 +39,7 @@
           *
           * @var string
           */
-         protected static $log_level = LOG_LEVEL;
+         protected static $logLevel = LOG_LEVEL;
 
          /**
           * Today's date
@@ -50,7 +50,7 @@
 
          /**
           * Gets or sets the log level. If no parameter is passed, returns
-          * self::$log_level, if it's set and has a valid value, sets it and
+          * self::$logLevel, if it's set and has a valid value, sets it and
           * returns TRUE;
           *
           * @author Art <a.molcanovas@gmail.com>
@@ -58,9 +58,9 @@
           * @param string|null $level The logging level
           *
           * @return boolean|string
-          * @see    self::$log_level
+          * @see    self::$logLevel
           */
-         static function log_level($level = null) {
+         static function logLevel($level = null) {
             if(in_array($level,
                         [
                            LOG_LEVEL_DEBUG,
@@ -68,11 +68,11 @@
                            LOG_LEVEL_NONE
                         ],
                         true)) {
-               self::$log_level = $level;
+               self::$logLevel = $level;
 
                return true;
             } else {
-               return self::$log_level;
+               return self::$logLevel;
             }
          }
 
@@ -87,8 +87,8 @@
           * @return string The message you passed on
           */
          static function debug($msg, $trace = null) {
-            if(self::$log_level === LOG_LEVEL_DEBUG && is_scalar($msg)) {
-               self::do_write($msg, self::MSG_DEBUG, $trace);
+            if(self::$logLevel === LOG_LEVEL_DEBUG && is_scalar($msg)) {
+               self::doWrite($msg, self::MSG_DEBUG, $trace);
             }
 
             return $msg;
@@ -105,8 +105,8 @@
           * @return string The message you passed on
           */
          static function error($msg, $trace = null) {
-            if(self::$log_level != LOG_LEVEL_NONE && is_scalar($msg)) {
-               self::do_write($msg, self::MSG_ERROR, $trace);
+            if(self::$logLevel != LOG_LEVEL_NONE && is_scalar($msg)) {
+               self::doWrite($msg, self::MSG_ERROR, $trace);
             }
 
             return $msg;
@@ -123,7 +123,7 @@
           *
           * @return boolean
           */
-         protected static function do_write($msg, $level, $trace = null) {
+         protected static function doWrite($msg, $level, $trace = null) {
             $filepath = DIR_APP . 'logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '.log';
             $fp       = @fopen($filepath, 'ab');
 
@@ -136,17 +136,17 @@
                }
 
                if(defined('LOG_INTENSE') && LOG_INTENSE) {
-                  $trace_append = serialize($trace);
+                  $traceAppend = serialize($trace);
                } else {
                   $xpl = explode(DIR_INDEX, isset($trace[0]['file']) ? $trace[0]['file'] : null);
 
-                  $trace_append = (isset($trace[0]['line']) ? $trace[0]['line'] : '[unknown line]') . ' @ "'
-                                  . str_replace('"', '\"', isset($xpl[1]) ? $xpl[1] : $xpl[0]) . '"';
+                  $traceAppend = (isset($trace[0]['line']) ? $trace[0]['line'] : '[unknown line]') . ' @ "'
+                                 . str_replace('"', '\"', isset($xpl[1]) ? $xpl[1] : $xpl[0]) . '"';
                }
 
                $message = str_pad('[' . timestamp_precise() . ']', 25, ' ')
                           . ' ' . str_pad($level, 5, ' ') . ' | "'
-                          . str_replace('"', '\"', $msg) . '" | ' . $trace_append . PHP_EOL;
+                          . str_replace('"', '\"', $msg) . '" | ' . $traceAppend . PHP_EOL;
 
                flock($fp, LOCK_EX);
                fwrite($fp, $message);

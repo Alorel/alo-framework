@@ -18,16 +18,16 @@
           *
           * @var bool
           */
-         protected static $css_injected = false;
+         protected static $cssInjected = false;
 
          /**
           * Injects CSS into the page to preffity our output
           *
           * @author Art <a.molcanovas@gmail.com>
           */
-         protected static function inject_css() {
-            if(!self::$css_injected) {
-               self::$css_injected = true;
+         protected static function injectCss() {
+            if(!self::$cssInjected) {
+               self::$cssInjected = true;
                echo '<style>';
                include DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'error.css.php';
                echo '</style>';
@@ -45,7 +45,7 @@
           * @param int    $errline The line number the error was raised at
           */
          static function error($errno, $errstr, $errfile, $errline) {
-            self::inject_css();
+            self::injectCss();
             $type = $errno;
 
             switch($errno) {
@@ -81,7 +81,7 @@
             $trace = array_reverse(debug_backtrace());
             array_pop($trace);
 
-            self::echo_trace($trace);
+            self::echoTrace($trace);
 
             echo '</div>'
                  . '</div>';
@@ -122,13 +122,13 @@
           *
           * @param null|\Exception $e The previous exception
           */
-         protected static function echo_previous_exceptions($e) {
+         protected static function echoPreviousExceptions($e) {
             if($e instanceof \Exception) {
                echo '<div></div>Preceded by <span style="font-weight: bold">'
                     . $e->getCode() . ': ' . $e->getMessage() . ' @ ' . $e->getFile() . '\'s line ' . $e->getLine()
                     . '.</span>';
 
-               self::echo_previous_exceptions($e->getPrevious());
+               self::echoPreviousExceptions($e->getPrevious());
             }
          }
 
@@ -139,7 +139,7 @@
           *
           * @param array $trace The backtrace
           */
-         protected static function echo_trace($trace) {
+         protected static function echoTrace($trace) {
             echo '<table cellpadding="2" border="1" class="alo-trace-table">'
                  . '<thead>'
                  . '<tr>'
@@ -196,7 +196,7 @@
           * @param \Exception $e The exception
           */
          static function ecxeption(\Exception $e) {
-            self::inject_css();
+            self::injectCss();
             $msg   = $e->getMessage();
             $trace = $e->getTrace();
             array_pop($trace);
@@ -206,13 +206,13 @@
                  . '<div class="alo-error-type alo-bold">'
                  . '[' . $e->getCode() . '] uncaught exception: ' . $e->getMessage();
 
-            self::echo_previous_exceptions($e->getPrevious());
+            self::echoPreviousExceptions($e->getPrevious());
 
             echo '</div>'
                  . '<div>Raised in <span class="alo-bold">' . $e->getFile() . ': ' . $e->getLine() . '</span></div>'
                  . '<div>Backtrace:</div>';
 
-            self::echo_trace($trace);
+            self::echoTrace($trace);
 
             echo '</div>'
                  . '</div>';

@@ -170,7 +170,7 @@
 </span></span><span id="39" class="l"><a class="l" href="#39"> 39 </a><span class="php-comment">          *
 </span></span><span id="40" class="l"><a class="l" href="#40"> 40 </a><span class="php-comment">          * @var string
 </span></span><span id="41" class="l"><a class="l" href="#41"> 41 </a><span class="php-comment">          */</span>
-</span><span id="42" class="l"><a class="l" href="#42"> 42 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$log_level" href="#$log_level">$log_level</a></span> = LOG_LEVEL;
+</span><span id="42" class="l"><a class="l" href="#42"> 42 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$logLevel" href="#$logLevel">$logLevel</a></span> = LOG_LEVEL;
 </span><span id="43" class="l"><a class="l" href="#43"> 43 </a>
 </span><span id="44" class="l"><a class="l" href="#44"> 44 </a>         <span class="php-comment">/**
 </span></span><span id="45" class="l"><a class="l" href="#45"> 45 </a><span class="php-comment">          * Today's date
@@ -181,7 +181,7 @@
 </span><span id="50" class="l"><a class="l" href="#50"> 50 </a>
 </span><span id="51" class="l"><a class="l" href="#51"> 51 </a>         <span class="php-comment">/**
 </span></span><span id="52" class="l"><a class="l" href="#52"> 52 </a><span class="php-comment">          * Gets or sets the log level. If no parameter is passed, returns
-</span></span><span id="53" class="l"><a class="l" href="#53"> 53 </a><span class="php-comment">          * self::$log_level, if it's set and has a valid value, sets it and
+</span></span><span id="53" class="l"><a class="l" href="#53"> 53 </a><span class="php-comment">          * self::$logLevel, if it's set and has a valid value, sets it and
 </span></span><span id="54" class="l"><a class="l" href="#54"> 54 </a><span class="php-comment">          * returns TRUE;
 </span></span><span id="55" class="l"><a class="l" href="#55"> 55 </a><span class="php-comment">          *
 </span></span><span id="56" class="l"><a class="l" href="#56"> 56 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
@@ -189,9 +189,9 @@
 </span></span><span id="58" class="l"><a class="l" href="#58"> 58 </a><span class="php-comment">          * @param string|null $level The logging level
 </span></span><span id="59" class="l"><a class="l" href="#59"> 59 </a><span class="php-comment">          *
 </span></span><span id="60" class="l"><a class="l" href="#60"> 60 </a><span class="php-comment">          * @return boolean|string
-</span></span><span id="61" class="l"><a class="l" href="#61"> 61 </a><span class="php-comment">          * @see    self::$log_level
+</span></span><span id="61" class="l"><a class="l" href="#61"> 61 </a><span class="php-comment">          * @see    self::$logLevel
 </span></span><span id="62" class="l"><a class="l" href="#62"> 62 </a><span class="php-comment">          */</span>
-</span><span id="63" class="l"><a class="l" href="#63"> 63 </a>         <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_log_level" href="#_log_level">log_level</a>(<span class="php-var">$level</span> = <span class="php-keyword1">null</span>) {
+</span><span id="63" class="l"><a class="l" href="#63"> 63 </a>         <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_logLevel" href="#_logLevel">logLevel</a>(<span class="php-var">$level</span> = <span class="php-keyword1">null</span>) {
 </span><span id="64" class="l"><a class="l" href="#64"> 64 </a>            <span class="php-keyword1">if</span>(<span class="php-keyword2">in_array</span>(<span class="php-var">$level</span>,
 </span><span id="65" class="l"><a class="l" href="#65"> 65 </a>                        [
 </span><span id="66" class="l"><a class="l" href="#66"> 66 </a>                           LOG_LEVEL_DEBUG,
@@ -199,11 +199,11 @@
 </span><span id="68" class="l"><a class="l" href="#68"> 68 </a>                           LOG_LEVEL_NONE
 </span><span id="69" class="l"><a class="l" href="#69"> 69 </a>                        ],
 </span><span id="70" class="l"><a class="l" href="#70"> 70 </a>                        <span class="php-keyword1">true</span>)) {
-</span><span id="71" class="l"><a class="l" href="#71"> 71 </a>               self::<span class="php-var">$log_level</span> = <span class="php-var">$level</span>;
+</span><span id="71" class="l"><a class="l" href="#71"> 71 </a>               self::<span class="php-var">$logLevel</span> = <span class="php-var">$level</span>;
 </span><span id="72" class="l"><a class="l" href="#72"> 72 </a>
 </span><span id="73" class="l"><a class="l" href="#73"> 73 </a>               <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
 </span><span id="74" class="l"><a class="l" href="#74"> 74 </a>            } <span class="php-keyword1">else</span> {
-</span><span id="75" class="l"><a class="l" href="#75"> 75 </a>               <span class="php-keyword1">return</span> self::<span class="php-var">$log_level</span>;
+</span><span id="75" class="l"><a class="l" href="#75"> 75 </a>               <span class="php-keyword1">return</span> self::<span class="php-var">$logLevel</span>;
 </span><span id="76" class="l"><a class="l" href="#76"> 76 </a>            }
 </span><span id="77" class="l"><a class="l" href="#77"> 77 </a>         }
 </span><span id="78" class="l"><a class="l" href="#78"> 78 </a>
@@ -218,8 +218,8 @@
 </span></span><span id="87" class="l"><a class="l" href="#87"> 87 </a><span class="php-comment">          * @return string The message you passed on
 </span></span><span id="88" class="l"><a class="l" href="#88"> 88 </a><span class="php-comment">          */</span>
 </span><span id="89" class="l"><a class="l" href="#89"> 89 </a>         <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_debug" href="#_debug">debug</a>(<span class="php-var">$msg</span>, <span class="php-var">$trace</span> = <span class="php-keyword1">null</span>) {
-</span><span id="90" class="l"><a class="l" href="#90"> 90 </a>            <span class="php-keyword1">if</span>(self::<span class="php-var">$log_level</span> === LOG_LEVEL_DEBUG &amp;&amp; <span class="php-keyword2">is_scalar</span>(<span class="php-var">$msg</span>)) {
-</span><span id="91" class="l"><a class="l" href="#91"> 91 </a>               self::do_write(<span class="php-var">$msg</span>, self::MSG_DEBUG, <span class="php-var">$trace</span>);
+</span><span id="90" class="l"><a class="l" href="#90"> 90 </a>            <span class="php-keyword1">if</span>(self::<span class="php-var">$logLevel</span> === LOG_LEVEL_DEBUG &amp;&amp; <span class="php-keyword2">is_scalar</span>(<span class="php-var">$msg</span>)) {
+</span><span id="91" class="l"><a class="l" href="#91"> 91 </a>               self::doWrite(<span class="php-var">$msg</span>, self::MSG_DEBUG, <span class="php-var">$trace</span>);
 </span><span id="92" class="l"><a class="l" href="#92"> 92 </a>            }
 </span><span id="93" class="l"><a class="l" href="#93"> 93 </a>
 </span><span id="94" class="l"><a class="l" href="#94"> 94 </a>            <span class="php-keyword1">return</span> <span class="php-var">$msg</span>;
@@ -236,8 +236,8 @@
 </span></span><span id="105" class="l"><a class="l" href="#105">105 </a><span class="php-comment">          * @return string The message you passed on
 </span></span><span id="106" class="l"><a class="l" href="#106">106 </a><span class="php-comment">          */</span>
 </span><span id="107" class="l"><a class="l" href="#107">107 </a>         <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_error" href="#_error">error</a>(<span class="php-var">$msg</span>, <span class="php-var">$trace</span> = <span class="php-keyword1">null</span>) {
-</span><span id="108" class="l"><a class="l" href="#108">108 </a>            <span class="php-keyword1">if</span>(self::<span class="php-var">$log_level</span> != LOG_LEVEL_NONE &amp;&amp; <span class="php-keyword2">is_scalar</span>(<span class="php-var">$msg</span>)) {
-</span><span id="109" class="l"><a class="l" href="#109">109 </a>               self::do_write(<span class="php-var">$msg</span>, self::MSG_ERROR, <span class="php-var">$trace</span>);
+</span><span id="108" class="l"><a class="l" href="#108">108 </a>            <span class="php-keyword1">if</span>(self::<span class="php-var">$logLevel</span> != LOG_LEVEL_NONE &amp;&amp; <span class="php-keyword2">is_scalar</span>(<span class="php-var">$msg</span>)) {
+</span><span id="109" class="l"><a class="l" href="#109">109 </a>               self::doWrite(<span class="php-var">$msg</span>, self::MSG_ERROR, <span class="php-var">$trace</span>);
 </span><span id="110" class="l"><a class="l" href="#110">110 </a>            }
 </span><span id="111" class="l"><a class="l" href="#111">111 </a>
 </span><span id="112" class="l"><a class="l" href="#112">112 </a>            <span class="php-keyword1">return</span> <span class="php-var">$msg</span>;
@@ -254,7 +254,7 @@
 </span></span><span id="123" class="l"><a class="l" href="#123">123 </a><span class="php-comment">          *
 </span></span><span id="124" class="l"><a class="l" href="#124">124 </a><span class="php-comment">          * @return boolean
 </span></span><span id="125" class="l"><a class="l" href="#125">125 </a><span class="php-comment">          */</span>
-</span><span id="126" class="l"><a class="l" href="#126">126 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_do_write" href="#_do_write">do_write</a>(<span class="php-var">$msg</span>, <span class="php-var">$level</span>, <span class="php-var">$trace</span> = <span class="php-keyword1">null</span>) {
+</span><span id="126" class="l"><a class="l" href="#126">126 </a>         <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_doWrite" href="#_doWrite">doWrite</a>(<span class="php-var">$msg</span>, <span class="php-var">$level</span>, <span class="php-var">$trace</span> = <span class="php-keyword1">null</span>) {
 </span><span id="127" class="l"><a class="l" href="#127">127 </a>            <span class="php-var">$filepath</span> = DIR_APP . <span class="php-quote">'logs'</span> . DIRECTORY_SEPARATOR . <span class="php-keyword2">date</span>(<span class="php-quote">'Y-m-d'</span>) . <span class="php-quote">'.log'</span>;
 </span><span id="128" class="l"><a class="l" href="#128">128 </a>            <span class="php-var">$fp</span>       = @<span class="php-keyword2">fopen</span>(<span class="php-var">$filepath</span>, <span class="php-quote">'ab'</span>);
 </span><span id="129" class="l"><a class="l" href="#129">129 </a>
@@ -267,17 +267,17 @@
 </span><span id="136" class="l"><a class="l" href="#136">136 </a>               }
 </span><span id="137" class="l"><a class="l" href="#137">137 </a>
 </span><span id="138" class="l"><a class="l" href="#138">138 </a>               <span class="php-keyword1">if</span>(<span class="php-keyword2">defined</span>(<span class="php-quote">'LOG_INTENSE'</span>) &amp;&amp; LOG_INTENSE) {
-</span><span id="139" class="l"><a class="l" href="#139">139 </a>                  <span class="php-var">$trace_append</span> = <span class="php-keyword2">serialize</span>(<span class="php-var">$trace</span>);
+</span><span id="139" class="l"><a class="l" href="#139">139 </a>                  <span class="php-var">$traceAppend</span> = <span class="php-keyword2">serialize</span>(<span class="php-var">$trace</span>);
 </span><span id="140" class="l"><a class="l" href="#140">140 </a>               } <span class="php-keyword1">else</span> {
 </span><span id="141" class="l"><a class="l" href="#141">141 </a>                  <span class="php-var">$xpl</span> = <span class="php-keyword2">explode</span>(DIR_INDEX, <span class="php-keyword1">isset</span>(<span class="php-var">$trace</span>[<span class="php-num">0</span>][<span class="php-quote">'file'</span>]) ? <span class="php-var">$trace</span>[<span class="php-num">0</span>][<span class="php-quote">'file'</span>] : <span class="php-keyword1">null</span>);
 </span><span id="142" class="l"><a class="l" href="#142">142 </a>
-</span><span id="143" class="l"><a class="l" href="#143">143 </a>                  <span class="php-var">$trace_append</span> = (<span class="php-keyword1">isset</span>(<span class="php-var">$trace</span>[<span class="php-num">0</span>][<span class="php-quote">'line'</span>]) ? <span class="php-var">$trace</span>[<span class="php-num">0</span>][<span class="php-quote">'line'</span>] : <span class="php-quote">'[unknown line]'</span>) . <span class="php-quote">' @ &quot;'</span>
-</span><span id="144" class="l"><a class="l" href="#144">144 </a>                                  . <span class="php-keyword2">str_replace</span>(<span class="php-quote">'&quot;'</span>, <span class="php-quote">'\&quot;'</span>, <span class="php-keyword1">isset</span>(<span class="php-var">$xpl</span>[<span class="php-num">1</span>]) ? <span class="php-var">$xpl</span>[<span class="php-num">1</span>] : <span class="php-var">$xpl</span>[<span class="php-num">0</span>]) . <span class="php-quote">'&quot;'</span>;
+</span><span id="143" class="l"><a class="l" href="#143">143 </a>                  <span class="php-var">$traceAppend</span> = (<span class="php-keyword1">isset</span>(<span class="php-var">$trace</span>[<span class="php-num">0</span>][<span class="php-quote">'line'</span>]) ? <span class="php-var">$trace</span>[<span class="php-num">0</span>][<span class="php-quote">'line'</span>] : <span class="php-quote">'[unknown line]'</span>) . <span class="php-quote">' @ &quot;'</span>
+</span><span id="144" class="l"><a class="l" href="#144">144 </a>                                 . <span class="php-keyword2">str_replace</span>(<span class="php-quote">'&quot;'</span>, <span class="php-quote">'\&quot;'</span>, <span class="php-keyword1">isset</span>(<span class="php-var">$xpl</span>[<span class="php-num">1</span>]) ? <span class="php-var">$xpl</span>[<span class="php-num">1</span>] : <span class="php-var">$xpl</span>[<span class="php-num">0</span>]) . <span class="php-quote">'&quot;'</span>;
 </span><span id="145" class="l"><a class="l" href="#145">145 </a>               }
 </span><span id="146" class="l"><a class="l" href="#146">146 </a>
 </span><span id="147" class="l"><a class="l" href="#147">147 </a>               <span class="php-var">$message</span> = <span class="php-keyword2">str_pad</span>(<span class="php-quote">'['</span> . timestamp_precise() . <span class="php-quote">']'</span>, <span class="php-num">25</span>, <span class="php-quote">' '</span>)
 </span><span id="148" class="l"><a class="l" href="#148">148 </a>                          . <span class="php-quote">' '</span> . <span class="php-keyword2">str_pad</span>(<span class="php-var">$level</span>, <span class="php-num">5</span>, <span class="php-quote">' '</span>) . <span class="php-quote">' | &quot;'</span>
-</span><span id="149" class="l"><a class="l" href="#149">149 </a>                          . <span class="php-keyword2">str_replace</span>(<span class="php-quote">'&quot;'</span>, <span class="php-quote">'\&quot;'</span>, <span class="php-var">$msg</span>) . <span class="php-quote">'&quot; | '</span> . <span class="php-var">$trace_append</span> . PHP_EOL;
+</span><span id="149" class="l"><a class="l" href="#149">149 </a>                          . <span class="php-keyword2">str_replace</span>(<span class="php-quote">'&quot;'</span>, <span class="php-quote">'\&quot;'</span>, <span class="php-var">$msg</span>) . <span class="php-quote">'&quot; | '</span> . <span class="php-var">$traceAppend</span> . PHP_EOL;
 </span><span id="150" class="l"><a class="l" href="#150">150 </a>
 </span><span id="151" class="l"><a class="l" href="#151">151 </a>               <span class="php-keyword2">flock</span>(<span class="php-var">$fp</span>, LOCK_EX);
 </span><span id="152" class="l"><a class="l" href="#152">152 </a>               <span class="php-keyword2">fwrite</span>(<span class="php-var">$fp</span>, <span class="php-var">$message</span>);
