@@ -1,10 +1,10 @@
 <div>I am the sample view. If you pass me the variable 'foo' I will display its value here:<span style="font-weight:bold"><?= isset($foo) ? $foo : '' ?></span></div>
 <div>The sample router config file should contain the following:<pre>
    //Controller called for error page handling
-   $error_controller_class = 'SampleErrorController';
+   $errorControllerClass = 'SampleErrorController';
 
    //The default controller if one isn't supplied
-   $default_controller = 'sample';
+   $defaultController = 'sample';
 
    //Routes array
    $routes = [

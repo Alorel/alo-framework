@@ -5,10 +5,10 @@
    } else {
 
       //Controller called for error page handling
-      $error_controller_class = 'SampleErrorController';
+      $errorControllerClass = 'SampleErrorController';
 
       //The default controller if one isn't supplied
-      $default_controller = 'sample';
+      $defaultController = 'sample';
 
       //Routes array
       $routes = [

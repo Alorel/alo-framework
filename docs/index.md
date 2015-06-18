@@ -230,6 +230,9 @@ Localisation support added! See [README.md](README.md#Localisation)
 	* Router
 		* Gettable variables renamed in camelCase (applies to getters too)
 		* is_cli_request() --> isCliRequest()
+		* Config file
+		   * $error_controller_class -> $errorControllerClass
+		   * $default_controller -> $defaultController
 * No code review required
 	* Static constructors are now in camelCase - no implications as of PHP 5.6.9
 

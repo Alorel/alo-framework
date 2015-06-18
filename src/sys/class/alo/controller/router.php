@@ -388,15 +388,15 @@
             } else {
                require $path;
 
-               if(!isset($error_controller_class)) {
+               if(!isset($errorControllerClass)) {
                   throw new CE('Error controller class not found in config file.', CE::E_ERR_NOT_FOUND);
-               } elseif(!isset($default_controller)) {
+               } elseif(!isset($defaultController)) {
                   throw new CE('$default_controller undefined in config file.', CE::E_DEFAULT_UNDEFINED);
                } elseif(!is_array(get($routes))) {
                   throw new CE('The routes variable must be an associative array', CE::E_MALFORMED_ROUTES);
                } else {
-                  $this->errController     = $error_controller_class;
-                  $this->defaultController = $default_controller;
+                  $this->errController     = $errorControllerClass;
+                  $this->defaultController = $defaultController;
 
                   foreach($routes as $k => $v) {
                      if(is_array($v)) {
