@@ -38,8 +38,9 @@
    ob_end_clean();
 
    include __DIR__ . '/vendor/autoload.php';
+   error_reporting(E_ALL);
 
-   abstract class PHPUNIT_GLOBAL {
+   abstract class PhuGlobal {
       /** @var \Alo\Cron */
       static $cron;
 
@@ -63,16 +64,16 @@
    }
 
    if(!server_is_windows()) {
-      PHPUNIT_GLOBAL::$cron = new \Alo\Cron();
+      PhuGlobal::$cron = new \Alo\Cron();
    }
 
-   PHPUNIT_GLOBAL::$mcWrapper    = new \Alo\Cache\MemcachedWrapper();
-   PHPUNIT_GLOBAL::$redisWrapper = new \Alo\Cache\RedisWrapper();
-   PHPUNIT_GLOBAL::$mcSession    = new \Alo\Session\MemcachedSession(PHPUNIT_GLOBAL::$mcWrapper);
-   PHPUNIT_GLOBAL::$redisSession = new \Alo\Session\RedisSession(PHPUNIT_GLOBAL::$redisWrapper);
-   PHPUNIT_GLOBAL::$mysql        = new \Alo\Db\MySQL();
+   PhuGlobal::$mcWrapper    = new \Alo\Cache\MemcachedWrapper();
+   PhuGlobal::$redisWrapper = new \Alo\Cache\RedisWrapper();
+   PhuGlobal::$mcSession    = new \Alo\Session\MemcachedSession(PhuGlobal::$mcWrapper);
+   PhuGlobal::$redisSession = new \Alo\Session\RedisSession(PhuGlobal::$redisWrapper);
+   PhuGlobal::$mysql        = new \Alo\Db\MySQL();
 
-   PHPUNIT_GLOBAL::$mysql->prepQuery('CREATE TABLE IF NOT EXISTS `alo_session` (`id`     CHAR(128)
+   PhuGlobal::$mysql->prepQuery('CREATE TABLE IF NOT EXISTS `alo_session` (`id`     CHAR(128)
            CHARACTER SET `ascii` NOT NULL,
   `data`   VARCHAR(16000)      NOT NULL,
   `access` TIMESTAMP           NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -82,4 +83,4 @@
   ENGINE =InnoDB
   DEFAULT CHARSET =`utf8mb4`;');
 
-   PHPUNIT_GLOBAL::$mysqlsession = new \Alo\Session\MySQLSession(PHPUNIT_GLOBAL::$mysql);
+   PhuGlobal::$mysqlsession = new \Alo\Session\MySQLSession(PhuGlobal::$mysql);

@@ -3,7 +3,7 @@
    namespace Alo\Session;
 
    use Alo\Cache\RedisWrapper;
-   use PHPUNIT_GLOBAL;
+   use PhuGlobal;
 
    class RedisSessionTest extends \PHPUnit_Framework_TestCase {
 
@@ -26,10 +26,10 @@
       }
 
       function testSave() {
-         PHPUNIT_GLOBAL::$redisSession->foo = 'bar';
-         PHPUNIT_GLOBAL::$redisSession->forceWrite();
+         PhuGlobal::$redisSession->foo = 'bar';
+         PhuGlobal::$redisSession->forceWrite();
 
-         $id          = PHPUNIT_GLOBAL::$redisSession->getID();
+         $id = PhuGlobal::$redisSession->getID();
          $sessFetched = \Alo::$cache->get(ALO_SESSION_REDIS_PREFIX . $id);
 
          $this->assertNotEmpty($sessFetched,
@@ -45,10 +45,10 @@
       }
 
       function testToken() {
-         $this->assertEquals(PHPUNIT_GLOBAL::$redisSession->getTokenExpected(), PHPUNIT_GLOBAL::$redisSession->getTokenActual());
+         $this->assertEquals(PhuGlobal::$redisSession->getTokenExpected(), PhuGlobal::$redisSession->getTokenActual());
       }
 
       function testRefreshToken() {
-         $this->assertTrue(PHPUNIT_GLOBAL::$redisSession->refreshToken());
+         $this->assertTrue(PhuGlobal::$redisSession->refreshToken());
       }
    }

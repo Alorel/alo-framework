@@ -2,7 +2,7 @@
 
    namespace Alo\Cache;
 
-   use PHPUNIT_GLOBAL;
+   use PhuGlobal;
 
    class RedisTest extends \PHPUnit_Framework_TestCase {
       /**
@@ -23,8 +23,8 @@
        * @dataProvider provideTestValueSet
        */
       function testValueSet($key, $val) {
-         PHPUNIT_GLOBAL::$redisWrapper->set($key, $val);
-         $get = PHPUNIT_GLOBAL::$redisWrapper->get($key);
+         PhuGlobal::$redisWrapper->set($key, $val);
+         $get = PhuGlobal::$redisWrapper->get($key);
 
          $this->assertEquals($val,
                              $get,
@@ -37,22 +37,22 @@
       }
 
       function testPurge() {
-         PHPUNIT_GLOBAL::$redisWrapper->set('foo', 1);
+         PhuGlobal::$redisWrapper->set('foo', 1);
 
-         $this->assertTrue(PHPUNIT_GLOBAL::$redisWrapper->purge(), 'Purge returned false');
+         $this->assertTrue(PhuGlobal::$redisWrapper->purge(), 'Purge returned false');
       }
 
       function testDelete() {
-         PHPUNIT_GLOBAL::$redisWrapper->set('test_del', 1);
-         PHPUNIT_GLOBAL::$redisWrapper->delete('test_del');
+         PhuGlobal::$redisWrapper->set('test_del', 1);
+         PhuGlobal::$redisWrapper->delete('test_del');
 
-         $this->assertEmpty(PHPUNIT_GLOBAL::$redisWrapper->get('test_del'), 'Test_del returned: ' . PHPUNIT_GLOBAL::$redisWrapper->get('test_del'));
+         $this->assertEmpty(PhuGlobal::$redisWrapper->get('test_del'), 'Test_del returned: ' . PhuGlobal::$redisWrapper->get('test_del'));
       }
 
       function testGetAll() {
-         PHPUNIT_GLOBAL::$redisWrapper->purge();
-         PHPUNIT_GLOBAL::$redisWrapper->set('aloframework', 'just works');
-         $getall = PHPUNIT_GLOBAL::$redisWrapper->getAll();
+         PhuGlobal::$redisWrapper->purge();
+         PhuGlobal::$redisWrapper->set('aloframework', 'just works');
+         $getall = PhuGlobal::$redisWrapper->getAll();
 
          $this->assertEquals(['aloframework' => 'just works'], $getall, _unit_dump($getall));
       }

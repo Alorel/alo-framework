@@ -34,7 +34,7 @@
       function testPrepare() {
          self::createSQL();
 
-         $this->assertInstanceOf('PDOStatement', PHPUNIT_GLOBAL::$mysql->prepare('INSERT INTO `test_table`(`key0`) VALUES (?)'));
+         $this->assertInstanceOf('PDOStatement', PhuGlobal::$mysql->prepare('INSERT INTO `test_table`(`key0`) VALUES (?)'));
 
          self::deleteSQL();
       }
@@ -47,28 +47,28 @@
             $sql .= '`key' . $i . '` TINYINT(3) UNSIGNED NOT NULL,';
          }
 
-         PHPUNIT_GLOBAL::$mysql->prepQuery($sql . 'PRIMARY KEY (`key0`));');
+         PhuGlobal::$mysql->prepQuery($sql . 'PRIMARY KEY (`key0`));');
       }
 
       protected static function deleteSQL() {
-         PHPUNIT_GLOBAL::$mysql->prepQuery('DROP TABLE IF EXISTS `test_table`');
+         PhuGlobal::$mysql->prepQuery('DROP TABLE IF EXISTS `test_table`');
       }
 
       function testInTransaction() {
-         $this->assertFalse(PHPUNIT_GLOBAL::$mysql->transactionActive(), 'Transaction was active');
+         $this->assertFalse(PhuGlobal::$mysql->transactionActive(), 'Transaction was active');
 
-         PHPUNIT_GLOBAL::$mysql->beginTransaction();
-         $this->assertTrue(PHPUNIT_GLOBAL::$mysql->transactionActive(), 'Transaction wasn\'t active');
+         PhuGlobal::$mysql->beginTransaction();
+         $this->assertTrue(PhuGlobal::$mysql->transactionActive(), 'Transaction wasn\'t active');
 
-         PHPUNIT_GLOBAL::$mysql->commit();
-         $this->assertFalse(PHPUNIT_GLOBAL::$mysql->transactionActive(), 'Transaction was active');
+         PhuGlobal::$mysql->commit();
+         $this->assertFalse(PhuGlobal::$mysql->transactionActive(), 'Transaction was active');
       }
 
       function testPrepQuery() {
          self::createSQL();
 
-         PHPUNIT_GLOBAL::$mysql->prepQuery('INSERT INTO `test_table` VALUES (?), (?), (?)', [1, 2, 3]);
-         $sel = PHPUNIT_GLOBAL::$mysql->prepQuery('SELECT * FROM `test_table` WHERE `key0` > ?', [1]);
+         PhuGlobal::$mysql->prepQuery('INSERT INTO `test_table` VALUES (?), (?), (?)', [1, 2, 3]);
+         $sel = PhuGlobal::$mysql->prepQuery('SELECT * FROM `test_table` WHERE `key0` > ?', [1]);
          $expect = [
             ['key0' => '2'],
             ['key0' => '3']
@@ -91,8 +91,8 @@
       function testAggregate() {
          self::createSQL();
 
-         PHPUNIT_GLOBAL::$mysql->prepQuery('INSERT INTO `test_table` VALUES (1), (2), (3)');
-         $ag = PHPUNIT_GLOBAL::$mysql->aggregate('SELECT SUM(`key0`) FROM `test_table`');
+         PhuGlobal::$mysql->prepQuery('INSERT INTO `test_table` VALUES (1), (2), (3)');
+         $ag = PhuGlobal::$mysql->aggregate('SELECT SUM(`key0`) FROM `test_table`');
 
          $this->assertEquals(6,
                              $ag,
@@ -107,42 +107,42 @@
       }
 
       function testCache() {
-         if(!server_is_windows()) {
-            PHPUNIT_GLOBAL::$mcWrapper->purge();
+//         if(!server_is_windows()) {
+         PhuGlobal::$mcWrapper->purge();
 
-            self::createSQL();
+         self::createSQL();
 
-            $prepSQL    = 'INSERT INTO `test_table` VALUES (?), (?), (?)';
-            $prepParams = [1, 2, 3];
-            $agSQL      = 'SELECT SUM(`key0`) FROM `test_table`';
-            $agSettings = [
-               MySQL::V_CACHE => true,
-               MySQL::V_TIME  => 20
-            ];
+         $prepSQL    = 'INSERT INTO `test_table` VALUES (?), (?), (?)';
+         $prepParams = [1, 2, 3];
+         $agSQL      = 'SELECT SUM(`key0`) FROM `test_table`';
+         $agSettings = [
+            MySQL::V_CACHE => true,
+            MySQL::V_TIME  => 20
+         ];
 
-            PHPUNIT_GLOBAL::$mysql->prepQuery($prepSQL, $prepParams);
+         PhuGlobal::$mysql->prepQuery($prepSQL, $prepParams);
 
-            $agg = PHPUNIT_GLOBAL::$mysql->aggregate($agSQL, null, $agSettings);
+         $agg = PhuGlobal::$mysql->aggregate($agSQL, null, $agSettings);
 
-            $lastHash = PHPUNIT_GLOBAL::$mysql->getLastHash();
-            $getAll   = PHPUNIT_GLOBAL::$mcWrapper->getAll();
-            $get      = PHPUNIT_GLOBAL::$mcWrapper->get($lastHash);
+         $lastHash = PhuGlobal::$mysql->getLastHash();
+         $getAll   = PhuGlobal::$mcWrapper->getAll();
+         $get      = PhuGlobal::$mcWrapper->get($lastHash);
 
-            $this->assertArrayHasKey($lastHash,
-                                     $getAll,
-                                     _unit_dump([
-                                                   'lastHash' => $lastHash,
-                                                   'getAll'   => $getAll,
-                                                ]));
+         $this->assertArrayHasKey($lastHash,
+                                  $getAll,
+                                  _unit_dump([
+                                                'lastHash' => $lastHash,
+                                                'getAll'   => $getAll,
+                                             ]));
 
-            $this->assertEquals($agg,
-                                $get,
-                                _unit_dump([
-                                              'aggregate' => $agg,
-                                              'get'       => $get,
-                                           ]));
+         $this->assertEquals($agg,
+                             $get,
+                             _unit_dump([
+                                           'aggregate' => $agg,
+                                           'get'       => $get,
+                                        ]));
 
-            self::deleteSQL();
-         }
+         self::deleteSQL();
+//         }
       }
    }

@@ -3,7 +3,7 @@
    namespace Alo\Session;
 
    use Alo\Db\MySQL;
-   use PHPUNIT_GLOBAL;
+   use PhuGlobal;
 
    class MySQLSessionTest extends \PHPUnit_Framework_TestCase {
 
@@ -27,24 +27,24 @@
       }
 
       function testSave() {
-         PHPUNIT_GLOBAL::$mysqlsession->foo = 'bar';
-         PHPUNIT_GLOBAL::$mysqlsession->forceWrite();
+         PhuGlobal::$mysqlsession->foo = 'bar';
+         PhuGlobal::$mysqlsession->forceWrite();
 
-         $id          = PHPUNIT_GLOBAL::$mysqlsession->getID();
+         $id          = PhuGlobal::$mysqlsession->getID();
          $sql         = 'SELECT `data` FROM `alo_session` WHERE `id`=?';
          $sqlParams   = [$id];
-         $sessFetched = PHPUNIT_GLOBAL::$mysql->prepQuery($sql,
-                                                          $sqlParams,
-                                                          [
-                                                             mySQL::V_CACHE => false
-                                                          ]);
+         $sessFetched = PhuGlobal::$mysql->prepQuery($sql,
+                                                     $sqlParams,
+                                                     [
+                                                        mySQL::V_CACHE => false
+                                                     ]);
 
          $this->assertNotEmpty($sessFetched,
                                _unit_dump([
                                              'sql'     => $sql,
                                              'params'  => $sqlParams,
                                              'fetched' => $sessFetched,
-                                             'all'     => PHPUNIT_GLOBAL::$mysql->prepQuery('SELECT * FROM `alo_session`')
+                                             'all' => PhuGlobal::$mysql->prepQuery('SELECT * FROM `alo_session`')
                                           ]));
 
          $sessFetched = json_decode($sessFetched[0]['data'], true);
@@ -54,10 +54,10 @@
       }
 
       function testToken() {
-         $this->assertEquals(PHPUNIT_GLOBAL::$mysqlsession->getTokenExpected(), PHPUNIT_GLOBAL::$mysqlsession->getTokenActual());
+         $this->assertEquals(PhuGlobal::$mysqlsession->getTokenExpected(), PhuGlobal::$mysqlsession->getTokenActual());
       }
 
       function testRefreshToken() {
-         $this->assertTrue(PHPUNIT_GLOBAL::$mysqlsession->refreshToken());
+         $this->assertTrue(PhuGlobal::$mysqlsession->refreshToken());
       }
    }

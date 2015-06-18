@@ -2,7 +2,7 @@
 
    namespace Alo;
 
-   use PHPUNIT_GLOBAL;
+   use PhuGlobal;
 
    class CronTest extends \PHPUnit_Framework_TestCase {
 
@@ -12,23 +12,23 @@
 
       function testClear() {
          if(!server_is_windows()) {
-            $initial = PHPUNIT_GLOBAL::$cron->getCrontab();
+            $initial = PhuGlobal::$cron->getCrontab();
 
-            PHPUNIT_GLOBAL::$cron->appendCrontab('php foo.php');
+            PhuGlobal::$cron->appendCrontab('php foo.php');
 
-            $postAppend = PHPUNIT_GLOBAL::$cron->getCrontab();
+            $postAppend = PhuGlobal::$cron->getCrontab();
 
-            PHPUNIT_GLOBAL::$cron->commit();
-            PHPUNIT_GLOBAL::$cron->reloadCrontab()
+            PhuGlobal::$cron->commit();
+            PhuGlobal::$cron->reloadCrontab()
                                  ->clearCrontab();
 
-            $postClear = PHPUNIT_GLOBAL::$cron->getCrontab();
+            $postClear = PhuGlobal::$cron->getCrontab();
 
-            PHPUNIT_GLOBAL::$cron->commit();
+            PhuGlobal::$cron->commit();
 
-            PHPUNIT_GLOBAL::$cron->reloadCrontab();
+            PhuGlobal::$cron->reloadCrontab();
 
-            $final = PHPUNIT_GLOBAL::$cron->getCrontab();
+            $final = PhuGlobal::$cron->getCrontab();
 
             $this->assertEmpty($final,
                                _unit_dump([
@@ -42,24 +42,24 @@
 
       function testAppend() {
          if(!server_is_windows()) {
-            $initial = PHPUNIT_GLOBAL::$cron->getCrontab();
+            $initial = PhuGlobal::$cron->getCrontab();
 
-            PHPUNIT_GLOBAL::$cron->clearCrontab()
+            PhuGlobal::$cron->clearCrontab()
                                  ->commit();
 
-            PHPUNIT_GLOBAL::$cron->reloadCrontab();
+            PhuGlobal::$cron->reloadCrontab();
 
-            $postReload = PHPUNIT_GLOBAL::$cron->getCrontab();
+            $postReload = PhuGlobal::$cron->getCrontab();
 
-            PHPUNIT_GLOBAL::$cron->appendCrontab('php foo.php');
+            PhuGlobal::$cron->appendCrontab('php foo.php');
 
-            $postAppend = PHPUNIT_GLOBAL::$cron->getCrontab();
+            $postAppend = PhuGlobal::$cron->getCrontab();
 
-            PHPUNIT_GLOBAL::$cron->commit();
+            PhuGlobal::$cron->commit();
 
-            PHPUNIT_GLOBAL::$cron->reloadCrontab();
+            PhuGlobal::$cron->reloadCrontab();
 
-            $final = PHPUNIT_GLOBAL::$cron->getCrontab();
+            $final = PhuGlobal::$cron->getCrontab();
 
             $this->assertNotEmpty($final,
                                   _unit_dump([
@@ -73,16 +73,16 @@
 
       function testAutocommitAndGetAtIndex() {
          if(!\server_is_windows()) {
-            PHPUNIT_GLOBAL::$cron->autocommit(true)->clearCrontab()->appendCrontab('php foo.php');
+            PhuGlobal::$cron->autocommit(true)->clearCrontab()->appendCrontab('php foo.php');
 
-            $get = PHPUNIT_GLOBAL::$cron->reloadCrontab()->getCrontab();
+            $get = PhuGlobal::$cron->reloadCrontab()->getCrontab();
 
             $this->assertEquals(1, count($get), _unit_dump($get));
 
-            PHPUNIT_GLOBAL::$cron->appendCrontab('php bar.php')->reloadCrontab();
+            PhuGlobal::$cron->appendCrontab('php bar.php')->reloadCrontab();
 
-            $this->assertEquals('* * * * * php foo.php', PHPUNIT_GLOBAL::$cron->getAtIndex(0));
-            $this->assertEquals('* * * * * php bar.php', PHPUNIT_GLOBAL::$cron->getAtIndex(1));
+            $this->assertEquals('* * * * * php foo.php', PhuGlobal::$cron->getAtIndex(0));
+            $this->assertEquals('* * * * * php bar.php', PhuGlobal::$cron->getAtIndex(1));
          }
       }
 

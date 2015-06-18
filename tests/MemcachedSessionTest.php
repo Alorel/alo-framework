@@ -3,7 +3,7 @@
    namespace Alo\Session;
 
    use Alo\Cache\MemcachedWrapper;
-   use PHPUNIT_GLOBAL;
+   use PhuGlobal;
 
    class MemcachedSessionTest extends \PHPUnit_Framework_TestCase {
 
@@ -28,10 +28,10 @@
 
       function testSave() {
 
-         PHPUNIT_GLOBAL::$mcSession->foo = 'bar';
-         PHPUNIT_GLOBAL::$mcSession->forceWrite();
+         PhuGlobal::$mcSession->foo = 'bar';
+         PhuGlobal::$mcSession->forceWrite();
 
-         $id          = PHPUNIT_GLOBAL::$mcSession->getID();
+         $id = PhuGlobal::$mcSession->getID();
          $sessFetched = \Alo::$cache->get(ALO_SESSION_MC_PREFIX . $id);
 
          $this->assertNotEmpty($sessFetched,
@@ -47,10 +47,10 @@
       }
 
       function testToken() {
-         $this->assertEquals(PHPUNIT_GLOBAL::$mcSession->getTokenExpected(), PHPUNIT_GLOBAL::$mcSession->getTokenActual());
+         $this->assertEquals(PhuGlobal::$mcSession->getTokenExpected(), PhuGlobal::$mcSession->getTokenActual());
       }
 
       function testRefreshToken() {
-         $this->assertTrue(PHPUNIT_GLOBAL::$mcSession->refreshToken());
+         $this->assertTrue(PhuGlobal::$mcSession->refreshToken());
       }
    }

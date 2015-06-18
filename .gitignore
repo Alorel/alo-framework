@@ -4,3 +4,4 @@ update_changelog.php
 *.nupkg
 composer.lock
 vendor
+phpunit_log
