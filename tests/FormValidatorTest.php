@@ -7,14 +7,14 @@
       /**
        * @dataProvider trueProvider
        */
-      function testTrue($validation_criteria, $validated_value, $validation_expected_outcome = true) {
+      function testTrue($validationCriteria, $validatedValue, $exptOutcome = true) {
          $f = new F([
-                       'foo' => $validated_value
+                       'foo' => $validatedValue
                     ]);
 
          $f->bind('foo',
                   [
-                     $validation_criteria => $validation_expected_outcome
+                     $validationCriteria => $exptOutcome
                   ]);
 
          $f->evaluate();
@@ -23,24 +23,24 @@
 
          $this->assertTrue($eval['OK'],
                            _unit_dump([
-                                         '$validated_value'             => $validated_value,
-                                         '$validation_criteria'         => $validation_criteria,
-                                         '$validation_expected_outcome' => $validation_expected_outcome,
-                                         '$eval'                        => $eval
+                                         '$validatedValue'     => $validatedValue,
+                                         '$validationCriteria' => $validationCriteria,
+                                         '$exptOutcome'        => $exptOutcome,
+                                         '$eval'               => $eval
                                       ]));
       }
 
       /**
        * @dataProvider falseProvider
        */
-      function testFalse($validation_criteria, $validated_value, $validation_expected_outcome = true) {
+      function testFalse($validationCriteria, $validatedValue, $exptOutcome = true) {
          $f = new F([
-                       'foo' => $validated_value
+                       'foo' => $validatedValue
                     ]);
 
          $f->bind('foo',
                   [
-                     $validation_criteria => $validation_expected_outcome
+                     $validationCriteria => $exptOutcome
                   ]);
 
          $f->evaluate();
@@ -49,10 +49,10 @@
 
          $this->assertFalse($eval['OK'],
                             _unit_dump([
-                                          '$validated_value'             => $validated_value,
-                                          '$validation_criteria'         => $validation_criteria,
-                                          '$validation_expected_outcome' => $validation_expected_outcome,
-                                          '$eval'                        => $eval
+                                          '$validatedValue'     => $validatedValue,
+                                          '$validationCriteria' => $validationCriteria,
+                                          '$exptOutcome'        => $exptOutcome,
+                                          '$eval'               => $eval
                                        ]));
       }
 
