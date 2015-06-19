@@ -53,7 +53,17 @@
           * @return bool
           */
          public function destroy($sessionID) {
+            parent::destroy($sessionID);
             return $this->db->prepQuery('DELETE FROM `' . ALO_SESSION_TABLE_NAME . '` WHERE `id`=?',[$sessionID]);
+         }
+
+         /**
+          * Initialises a MySQLSession
+          * @author Art <a.molcanovas@gmail.com>
+          * @param MySQL $dependcyObject If you don't want to use Alo::$db you can pass a MySQL instance reference here.
+          */
+         static function init(MySQL &$dependcyObject = null) {
+            parent::initSession($dependcyObject,get_class());
          }
 
          /**

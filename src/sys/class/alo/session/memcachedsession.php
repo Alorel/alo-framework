@@ -38,5 +38,16 @@
 
             parent::__construct();
          }
+
+         /**
+          * Initialises a MySQLSession
+          *
+          * @author Art <a.molcanovas@gmail.com>
+          *
+          * @param MemcachedWrapper $dependcyObject If you don't want to use Alo::$db you can pass a MemcachedWrapper instance reference here.
+          */
+         static function init(MemcachedWrapper &$dependcyObject = null) {
+            parent::initSession($dependcyObject, get_class());
+         }
       }
    }

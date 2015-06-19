@@ -71,11 +71,12 @@
                }
             } else {
                phpWarning('Memcached extension not loaded - caching '
-                           . 'functions will not work');
+                          . 'functions will not work');
             }
             parent::__construct();
 
-            \Log::debug(self::$loaded ? 'Loaded MemcachedWrapper' : 'MemcachedWrapper not loaded: extension unavailable');
+            \Log::debug(self::$loaded ? 'Loaded MemcachedWrapper' :
+                           'MemcachedWrapper not loaded: extension unavailable');
          }
 
          /**

@@ -38,5 +38,16 @@
 
             parent::__construct();
          }
+
+         /**
+          * Initialises a MySQLSession
+          *
+          * @author Art <a.molcanovas@gmail.com>
+          *
+          * @param RedisWrapper $dependcyObject If you don't want to use Alo::$db you can pass a RedisWrapper instance reference here.
+          */
+         static function init(RedisWrapper &$dependcyObject = null) {
+            parent::initSession($dependcyObject, get_class());
+         }
       }
    }

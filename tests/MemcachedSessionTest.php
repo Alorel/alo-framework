@@ -7,6 +7,11 @@
 
    class MemcachedSessionTest extends \PHPUnit_Framework_TestCase {
 
+      function __construct($name=null,$data=[],$dataName='') {
+         parent::__construct($name,$data,$dataName);
+         initSession(PhuGlobal::$mcWrapper,'\Alo\Session\MemcachedSession');
+      }
+
       /**
        * @dataProvider definedProvider
        */

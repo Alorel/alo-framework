@@ -50,17 +50,8 @@
       /** @var \Alo\Cache\RedisWrapper */
       static $redisWrapper;
 
-      /** @var \Alo\Session\MemcachedSession */
-      static $mcSession;
-
-      /** @var \Alo\Session\RedisSession */
-      static $redisSession;
-
       /** @var  \Alo\Db\MySQL */
       static $mysql;
-
-      /** @var  \Alo\Session\MySQLSessionOld */
-      static $mysqlsession;
    }
 
    if(!serverIsWindows()) {
@@ -69,9 +60,8 @@
 
    PhuGlobal::$mcWrapper    = new \Alo\Cache\MemcachedWrapper();
    PhuGlobal::$redisWrapper = new \Alo\Cache\RedisWrapper();
-   PhuGlobal::$mcSession    = new \Alo\Session\MemcachedSession(PhuGlobal::$mcWrapper);
-   PhuGlobal::$redisSession = new \Alo\Session\RedisSession(PhuGlobal::$redisWrapper);
-   PhuGlobal::$mysql = new \Alo\Db\MySQL(ALO_MYSQL_SERVER, ALO_MYSQL_PORT, ALO_MYSQL_USER, ALO_MYSQL_PW, 'phpunit', ALO_MYSQL_CACHE);
+   PhuGlobal::$mysql        =
+      new \Alo\Db\MySQL(ALO_MYSQL_SERVER, ALO_MYSQL_PORT, ALO_MYSQL_USER, ALO_MYSQL_PW, 'phpunit', ALO_MYSQL_CACHE);
 
    PhuGlobal::$mysql->prepQuery('CREATE TABLE IF NOT EXISTS `alo_session` (`id`     CHAR(128)
            CHARACTER SET `ascii` NOT NULL,
@@ -82,7 +72,5 @@
 )
   ENGINE =InnoDB
   DEFAULT CHARSET =`utf8mb4`;');
-
-   PhuGlobal::$mysqlsession = new \Alo\Session\MySQLSessionOld(PhuGlobal::$mysql);
 
    ob_start();

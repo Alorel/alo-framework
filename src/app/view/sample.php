@@ -1,4 +1,5 @@
 <?php
 
-   $client = new \Alo\Cache\RedisWrapper();
-   initSession($client);
+   //   \Alo\Session\MySQLSession::init();
+   //   \Alo\Session\RedisSession::init();
+   //   \Alo\Session\MemcachedSession::init();

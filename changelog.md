@@ -73,9 +73,9 @@ No code review required:
 
 * Sessions
    * SQLSession, Alo::$session & Alo::loadSession() have been removed
-   * Sessions are now invoked via initSession(). Any dependencies' instances, e.g. MySQL or RedisWrapper can be passed as a parameter or used from Alo::$db/Alo::$cache respectively
+   * Sessions are now invoked via the handler's static init() method, e.g. to initialise a MySQL session you would call MySQLSession::init(). Any dependencies' instances, e.g. MySQL or RedisWrapper can be passed as a parameter or used from Alo::$db/Alo::$cache respectively
    * The session handler to be used will is now defined in config/session.php with ALO_SESSION_HANDLER
-   * Sessions will now be used in the standard PHP way of $_SESSION. There is no need to do session_start(), only initSession().
+   * Sessions will now be used in the standard PHP way of $_SESSION. There is no need to do session_start(), only ::init().
 	
 **Removed deprecated items**
 

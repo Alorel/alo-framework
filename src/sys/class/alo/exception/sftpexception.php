@@ -13,7 +13,7 @@
        *
        * @author Art <a.molcanovas@gmail.com>
        */
-      class SFTPException extends FileException {
+      class SFTPException extends FileSystemException {
 
          /**
           * Code when the authentication process fails

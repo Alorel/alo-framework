@@ -39,6 +39,8 @@
           * @return bool
           */
          public function destroy($sessionID) {
+            parent::destroy($sessionID);
+
             return $this->client->delete($this->prefix . $sessionID);
          }
 
@@ -74,7 +76,7 @@
           * @return bool
           */
          public function write($sessionID, $sessionData) {
-            return $this->client->set($sessionID, $sessionData);
+            return $this->client->set($this->prefix . $sessionID, $sessionData, ALO_SESSION_TIMEOUT);
          }
       }
    }
