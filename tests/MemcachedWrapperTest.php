@@ -21,22 +21,33 @@
          ];
       }
 
-      /**
-       * @dataProvider provideTestValueSet
-       */
-      function testValueSet($key, $val) {
-         PhuGlobal::$mcWrapper->set($key, $val);
-         $get = PhuGlobal::$mcWrapper->get($key);
+      function testValueSet() {
+         $toTest = [
+            'val_int'    => 515,
+            'val_string' => 'str',
+            'val_float'  => 1.1,
+            'val_array'  => ['foo' => 'bar'],
+            'val_obj'    => new \stdClass
+         ];
 
-         $this->assertEquals($val,
-                             $get,
-                             _unit_dump([
-                                           'Key'      => $key,
-                                           'Val'      => $val,
-                                           'Expected' => $val,
-                                           'Actual'   => $get
-                                        ]));
-         ob_flush();
+         foreach($toTest as $key => $val) {
+            $this->assertTrue(PhuGlobal::$mcWrapper->set($key, $val),
+                              'Failed to set MemcachedWrapper ' . json_encode([
+                                                                                 'key' => $key,
+                                                                                 'val' => $val
+                                                                              ]));
+            $get = PhuGlobal::$mcWrapper->get($key);
+
+            $this->assertEquals($val,
+                                $get,
+                                _unit_dump([
+                                              'Key'      => $key,
+                                              'Val'      => $val,
+                                              'Expected' => $val,
+                                              'Actual'   => $get
+                                           ]));
+            ob_flush();
+         }
       }
 
       function testPurge() {
@@ -52,15 +63,5 @@
 
          $this->assertEmpty(PhuGlobal::$mcWrapper->get('test_del'), 'Test_del returned: ' . PhuGlobal::$mcWrapper->get('test_del'));
          ob_flush();
-      }
-
-      function provideTestValueSet() {
-         return [
-            ['val_string', 'str'],
-            ['val_int', 515],
-            ['val_float', 1.1],
-            ['val_array', ['foo' => 'bar']],
-            ['val_obj', new \stdClass]
-         ];
       }
    }
