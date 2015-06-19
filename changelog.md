@@ -1,9 +1,7 @@
-# 1.2 (pending) #
+# 2.0-beta (pending) #
 **Added features**
 
 * Localisation support added! See [README.md](README.md#Localisation)
-* MemcachedSession and RedisSession can now be passed an object instance reference and use it instead of relying on Alo::$cache
-* MySQLSession/SQLSession can now be passed an object instance reference and use it instead of relying on Alo::$db
 * LOG_LEVEL_WARNING is now defined in index.php and is the default logging level. Log::warning() method introduced.
 
 **Bugs fixed**
@@ -15,6 +13,11 @@
 
 Code review required:
 
+* Global functions
+   * server_is_windows() --> serverIsWindows()
+   * timestamp_precise() --> timestampPrecise()
+   * lite_debug() --> debugLite()
+   * escape_html5() --> escapeHTML()
 * AbstractController
    * http_error() renamed to httpError()
 * Router
@@ -52,24 +55,35 @@ No code review required:
 
 * Static constructors are now in camelCase - no implications as of PHP 5.6.9
 
-**Renamed classes**
-
-* SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.
-
 **Config constants**
 
-* ALO_SESSION_SECURE config constant added. Determines whether the session cookie should only be sent via SSL.
-* ALO_MYSQL_CHARSET config constant added. Determines the connection charset.
+* ADDED | ALO_SESSION_SECURE: Determines whether the session cookie should only be sent via SSL.
+* ADDED | ALO_MYSQL_CHARSET: Determines the connection charset.
+* ADDED | ALO_SESSION_HANDLER: Determines which session handler will be used
 
 **Globals**
 
 * Global shorthands added for trigger_error():
-	* php_error($msg)
-	* php_warning($msg)
-	* php_notice($msg)
-	* php_deprecated($msg)
+	* phpError($msg)
+	* phpWarning($msg)
+	* phpNotice($msg)
+	* phpDeprecated($msg)
 	
-**Functionality/feature changes**
+**Major functionality changes**
+
+* Sessions
+   * SQLSession, Alo::$session & Alo::loadSession() have been removed
+   * Sessions are now invoked via initSession(). Any dependencies' instances, e.g. MySQL or RedisWrapper can be passed as a parameter or used from Alo::$db/Alo::$cache respectively
+   * The session handler to be used will is now defined in config/session.php with ALO_SESSION_HANDLER
+   * Sessions will now be used in the standard PHP way of $_SESSION. There is no need to do session_start(), only initSession().
+	
+**Removed deprecated items**
+
+* Alo\File
+* Testing suite
+* FileException
+	
+**Misc Functionality/feature changes**
 
 * PDO now uses ERRMODE_EXCEPTION instead of ERRMODE_WARNING
 * Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
@@ -77,7 +91,7 @@ No code review required:
 * AbstractController->httpError() no longer has a die() statement to stop script execution once called. It only suppresses output now.
 * MemcachedSession, RedisSession and MySQLSession constructors now throw a LibraryException instead.
 
-**Misc**
+**Other/Minor**
 
 * A plethora of code quality improvements with the help of SensioLabs Insights
 * Sample .htaccess file renamed to .htaccess.sample

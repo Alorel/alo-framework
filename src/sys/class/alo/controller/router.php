@@ -589,7 +589,7 @@
           * @return string
           */
          function __toString() {
-            return strip_tags(\lite_debug($this));
+            return strip_tags(\debugLite($this));
          }
 
       }

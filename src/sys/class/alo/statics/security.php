@@ -174,7 +174,7 @@
             $token = self::getUniqid($hash, 'token_' . $tokenName);
 
             if(!\Alo::$session) {
-               php_warning('Session handler not initialised or not assigned to \\Alo::$session. Token not saved in session.');
+               phpWarning('Session handler not initialised or not assigned to \\Alo::$session. Token not saved in session.');
             } else {
                \Alo::$session->{$tokenName} = $token;
             }
@@ -258,7 +258,7 @@
           */
          static function tokenValid($tokenName, array $dataArray = null) {
             if(!\Alo::$session) {
-               php_warning('Session handler not initialised or not assigned to \\Alo::$session. FALSE will be returned. ');
+               phpWarning('Session handler not initialised or not assigned to \\Alo::$session. FALSE will be returned. ');
 
                return false;
             } else {

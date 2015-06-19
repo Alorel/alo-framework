@@ -75,13 +75,6 @@
          static $cache;
 
          /**
-          * The session handler
-          *
-          * @var Alo\Session\AbstractSession
-          */
-         static $session;
-
-         /**
           * The loaded controller
           *
           * @var Alo\Controller\AbstractController
@@ -130,7 +123,8 @@
           */
          static function loadConfig($path, $returnPath = false) {
             $dir  =
-               (defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP) . 'config' . DIRECTORY_SEPARATOR;
+               (defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP) . 'config' .
+               DIRECTORY_SEPARATOR;
             $path = strtolower($path);
             if(substr($path, -4) == '.php') {
                $path = substr($path, 0, -4);

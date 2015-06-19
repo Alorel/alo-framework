@@ -209,7 +209,7 @@
           * @throws OS When the machine is running Windows
           */
          function __construct() {
-            if(\server_is_windows()) {
+            if(\serverIsWindows()) {
                throw new OS('Windows does not support cron!', OS::E_UNSUPPORTED);
             } else {
                $this->autocommit = false;
@@ -517,7 +517,7 @@
           * @return string
           */
          function __toString() {
-            return \lite_debug($this);
+            return \debugLite($this);
          }
 
       }

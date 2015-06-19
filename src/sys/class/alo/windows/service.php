@@ -5,7 +5,7 @@
 
    if(!defined('GEN_START')) {
       http_response_code(404);
-   } elseif(!defined('PHPUNIT_RUNNING') && !server_is_windows()) {
+   } elseif(!defined('PHPUNIT_RUNNING') && !serverIsWindows()) {
       throw new OSException('The service manager is only supported on Windows.');
    } else {
 

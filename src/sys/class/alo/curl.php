@@ -224,7 +224,7 @@
           * @return string
           */
          function __toString() {
-            return \lite_debug($this);
+            return \debugLite($this);
          }
 
          /**

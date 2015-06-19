@@ -46,7 +46,7 @@
           * @param string $path File path.
           */
          static function openFileDefault($path) {
-            if(server_is_windows()) {
+            if(serverIsWindows()) {
                shell_exec('start "' . $path . '"');
             } else {
                shell_exec('xdg-open "' . $path . '"');

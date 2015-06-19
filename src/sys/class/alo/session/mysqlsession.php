@@ -11,9 +11,10 @@
    } else {
 
       /**
-       * MySQL-based session handler
+       * MySQL-based session handler. The ALO_SESSION_CLEANUP constant is not used here as session should be cleaned up
+       * by the MySQL event scheduler.
        *
-*@author Art <a.molcanovas@gmail.com>
+       * @author Art <a.molcanovas@gmail.com>
        */
       class MySQLSession extends AbstractSession {
 
@@ -28,7 +29,7 @@
           * Constructor
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @throws Libex When $cacheInstance is not passed and Alo::$cache does not contain a MemcachedWrapper instance
+          * @throws Libex When $instance is not passed and Alo::$db does not contain a MySQL instance
           *
           * @param MySQL $instance If a parameter is passed here its instance will be used instead of Alo::$db
           */
@@ -45,13 +46,11 @@
          }
 
          /**
-          * Destroys the session
+          * Destroys a session
+          * @author Art <a.molcanovas@gmail.com>
+          * @param string $sessionID The ID to destroy
           *
-*@author Art <a.molcanovas@gmail.com>
-          *
-*@param string $sessionID The session ID
-          *
-          * @return array|bool
+          * @return bool
           */
          public function destroy($sessionID) {
             return $this->db->prepQuery('DELETE FROM `' . ALO_SESSION_TABLE_NAME . '` WHERE `id`=?',[$sessionID]);

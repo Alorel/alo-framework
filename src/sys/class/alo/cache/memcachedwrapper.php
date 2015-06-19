@@ -70,7 +70,7 @@
                   $this->addServer();
                }
             } else {
-               php_warning('Memcached extension not loaded - caching '
+               phpWarning('Memcached extension not loaded - caching '
                            . 'functions will not work');
             }
             parent::__construct();

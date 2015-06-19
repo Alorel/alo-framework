@@ -7,12 +7,12 @@
    class CronTest extends \PHPUnit_Framework_TestCase {
 
       function testFunctionAvailable() {
-         $this->assertTrue(function_exists('server_is_windows'));
+         $this->assertTrue(function_exists('serverIsWindows'));
          ob_flush();
       }
 
       function testClear() {
-         if(!server_is_windows()) {
+         if(!serverIsWindows()) {
             $initial = PhuGlobal::$cron->getCrontab();
 
             PhuGlobal::$cron->appendCrontab('php foo.php');
@@ -43,7 +43,7 @@
       }
 
       function testAppend() {
-         if(!server_is_windows()) {
+         if(!serverIsWindows()) {
             $initial = PhuGlobal::$cron->getCrontab();
 
             PhuGlobal::$cron->clearCrontab()
@@ -75,7 +75,7 @@
       }
 
       function testAutocommitAndGetAtIndex() {
-         if(!\server_is_windows()) {
+         if(!\serverIsWindows()) {
             PhuGlobal::$cron->autocommit(true)->clearCrontab()->appendCrontab('php foo.php');
 
             $get = PhuGlobal::$cron->reloadCrontab()->getCrontab();

@@ -115,7 +115,7 @@
       }
 
       function testCache() {
-//         if(!server_is_windows()) {
+//         if(!serverIsWindows()) {
          PhuGlobal::$mcWrapper->purge();
 
          self::createSQL();

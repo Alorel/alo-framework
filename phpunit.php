@@ -63,7 +63,7 @@
       static $mysqlsession;
    }
 
-   if(!server_is_windows()) {
+   if(!serverIsWindows()) {
       PhuGlobal::$cron = new \Alo\Cron();
    }
 

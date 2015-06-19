@@ -2,77 +2,79 @@
 
    namespace Alo\Session;
 
-   use Alo\Cache\AbstractCache;
+   use Alo;
 
    if(!defined('GEN_START')) {
       http_response_code(404);
    } else {
 
-      \Alo::loadConfig('session');
-
       /**
-       * The session interface
+       * Abstraction for cache-based session handlers
        *
-       * @author  Art <a.molcanovas@gmail.com>
-       * @package Session
+       * @author Art <a.molcanovas@gmail.com>
        */
       abstract class AbstractCacheSession extends AbstractSession {
 
          /**
-          * Reference to cache wrapper instance
+          * MemcachedWrapper instance
           *
-          * @var AbstractCache
+          * @var Alo\Cache\MemcachedWrapper|Alo\Cache\RedisWrapper
           */
          protected $client;
 
          /**
-          * Cache prefix to use
+          * Cache key prefix
           *
           * @var string
           */
          protected $prefix;
 
          /**
-          * Fetches session data
+          * Destroys a session
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return MemcachedSession
+          *
+          * @param string $sessionID The ID to destroy
+          *
+          * @return bool
           */
-         protected function fetch() {
-            $data = $this->client->get($this->prefix . $this->id);
-
-            if($data) {
-               $this->data = $data;
-            }
-
-            \Log::debug('Fetched session data');
-
-            return $this;
+         public function destroy($sessionID) {
+            return $this->client->delete($this->prefix . $sessionID);
          }
 
          /**
-          * Terminates the session
+          * Read ssession data
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return MemcachedSession
+          * @link   http://php.net/manual/en/sessionhandlerinterface.read.php
+          *
+          * @param string $sessionID The session id to read data for.
+          *
+          * @return string
           */
-         function terminate() {
-            $this->client->delete($this->prefix . $this->id);
+         public function read($sessionID) {
+            $data = $this->client->get($this->prefix . $sessionID);
 
-            return parent::terminate();
+            return $data ? $data : '';
          }
 
          /**
-          * Saves session data
+          * Write session data
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return MemcachedSession
+          * @link   http://php.net/manual/en/sessionhandlerinterface.write.php
+          *
+          * @param string $sessionID    The session id.
+          * @param string $sessionData  The encoded session data. This data is the
+          *                             result of the PHP internally encoding
+          *                             the $_SESSION superglobal to a serialized
+          *                             string and passing it as this parameter.
+          *                             Please note sessions use an alternative serialization method.
+          *
+          * @return bool
           */
-         protected function write() {
-            $this->client->set($this->prefix . $this->id, $this->data, ALO_SESSION_TIMEOUT);
-            \Log::debug('Saved session data');
-
-            return $this;
+         public function write($sessionID, $sessionData) {
+            return $this->client->set($sessionID, $sessionData);
          }
       }
    }

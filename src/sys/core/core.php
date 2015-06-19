@@ -51,7 +51,7 @@
        * @author Art <a.molcanovas@gmail.com>
        * @return bool
        */
-      function server_is_windows() {
+      function serverIsWindows() {
          return substr(strtoupper(php_uname('s')), 0, 3) === 'WIN';
       }
 
@@ -60,7 +60,7 @@
        *
        * @return string
        */
-      function lite_debug() {
+      function debugLite() {
          if(!Kint::enabled()) {
             return '';
          } else {
@@ -86,7 +86,7 @@
        *
        * @return string Y-m-d H:i:s:{milliseconds}
        */
-      function timestamp_precise($microtime = null) {
+      function timestampPrecise($microtime = null) {
          if(!$microtime) {
             $microtime = microtime(true);
          }
@@ -125,7 +125,7 @@
        *
        * @return string
        */
-      function escape_html5($str) {
+      function escapeHTML($str) {
          return htmlspecialchars($str, ENT_QUOTES | ENT_HTML5);
       }
 
@@ -173,7 +173,7 @@
        * @link   http://php.net/manual/en/function.trigger-error.php
        * @return bool
        */
-      function php_error($msg) {
+      function phpError($msg) {
          return trigger_error($msg, E_USER_ERROR);
       }
 
@@ -187,7 +187,7 @@
        * @link   http://php.net/manual/en/function.trigger-error.php
        * @return bool
        */
-      function php_warning($msg) {
+      function phpWarning($msg) {
          return trigger_error($msg, E_USER_WARNING);
       }
 
@@ -201,7 +201,7 @@
        * @link   http://php.net/manual/en/function.trigger-error.php
        * @return bool
        */
-      function php_notice($msg) {
+      function phpNotice($msg) {
          return trigger_error($msg, E_USER_NOTICE);
       }
 
@@ -215,7 +215,7 @@
        * @link   http://php.net/manual/en/function.trigger-error.php
        * @return bool
        */
-      function php_deprecated($msg) {
+      function phpDeprecated($msg) {
          return trigger_error($msg, E_USER_DEPRECATED);
       }
 
@@ -246,7 +246,7 @@
             session_start();
             $handler->identityCheck();
          } else {
-            php_warning('A session has already been started');
+            phpWarning('A session has already been started');
          }
       }
 

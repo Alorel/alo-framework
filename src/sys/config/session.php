@@ -9,7 +9,7 @@
        *
        * @var string
        */
-      define('ALO_SESSION_HANDLER', '\Alo\Session\MySQLSession');
+      define('ALO_SESSION_HANDLER', '\Alo\Session\RedisSession');
 
       /**
        * Probability of a session cleanup. To be called on request. Entering 100

@@ -11,55 +11,32 @@
    } else {
 
       /**
-       * The Memcached-based session handler. ALO_SESSION_CLEANUP is not used here as
-       * cleanup is handled by the MySQL event handler
+       * Memcached-based session handler
        *
-       * @author  Art <a.molcanovas@gmail.com>
-       * @package Session
+       * @author Art <a.molcanovas@gmail.com>
        */
       class MemcachedSession extends AbstractCacheSession {
 
          /**
-          * Instantiates the class
-          *
-          * @param MemcachedWrapper $cacheInstance If provided, will use this cache instance instead of Alo::$cache
+          * Constructor
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @throws Libex When $cacheInstance is not passed and Alo::$cache does not contain a MemcachedWrapper instance
+          * @throws Libex When $instance is not passed and Alo::$cache does not contain a MemcachedWrapper instance
+          *
+          * @param MemcachedWrapper $instance If a parameter is passed here its instance will be used instead of Alo::$cache
           */
-         function __construct(MemcachedWrapper &$cacheInstance = null) {
-            if($cacheInstance) {
-               $this->client = &$cacheInstance;
+         function __construct(MemcachedWrapper &$instance = null) {
+            if($instance) {
+               $this->client = &$instance;
             } elseif(Alo::$cache && Alo::$cache instanceof MemcachedWrapper) {
                $this->client = &Alo::$cache;
             } else {
-               throw new Libex('MemcachedWrapper instance not found.', Libex::E_REQUIRED_LIB_NOT_FOUND);
+               throw new Libex('MemcachedWrapper instance not found', Libex::E_REQUIRED_LIB_NOT_FOUND);
             }
 
-            if(Alo::$cache && (Alo::$cache instanceof MemcachedWrapper)) {
-               $this->client = &Alo::$cache;
-            } else {
-               $this->client = new MemcachedWrapper(true);
-            }
+            $this->prefix = ALO_SESSION_MC_PREFIX;
 
             parent::__construct();
-            $this->prefix = ALO_SESSION_MC_PREFIX;
-            \Log::debug('Initialised Memcached session');
          }
-
-         /**
-          * Instantiates the class
-          *
-          * @param MemcachedWrapper $cacheInstance If provided, will use this cache instance instead of Alo::$cache
-          *
-          * @author Art <a.molcanovas@gmail.com>
-          * @throws Libex When $cacheInstance is not passed and Alo::$cache does not contain a MemcachedWrapper instance
-          *
-          * @return MemcachedSession
-          */
-         static function memcachedSession(MemcachedWrapper &$cacheInstance = null) {
-            return new MemcachedSession($cacheInstance);
-         }
-
       }
    }

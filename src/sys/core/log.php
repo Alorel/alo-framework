@@ -176,7 +176,7 @@
                                  . str_replace('"', '\"', isset($xpl[1]) ? $xpl[1] : $xpl[0]) . '"';
                }
 
-               $message = str_pad('[' . timestamp_precise() . ']', 25, ' ')
+               $message = str_pad('[' . timestampPrecise() . ']', 25, ' ')
                           . ' ' . str_pad($level, 5, ' ') . ' | "'
                           . str_replace('"', '\"', $msg) . '" | ' . $traceAppend . PHP_EOL;
 

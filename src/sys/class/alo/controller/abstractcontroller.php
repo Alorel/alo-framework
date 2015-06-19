@@ -67,7 +67,7 @@
 
             if(!class_exists($controllerNamespaced, true)) {
                http_response_code((int)$code);
-               echo 'HTTP ' . escape_html5($code) . '.';
+               echo 'HTTP ' . escapeHTML($code) . '.';
             } else {
                \Alo::$controller = new $controllerNamespaced;
                /** @noinspection PhpUndefinedMethodInspection */
@@ -136,7 +136,7 @@
             $path = DIR_APP . 'view' . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $name) . '.php';
 
             if(!file_exists($path)) {
-               php_error('View file for ' . $name . ' could not be found');
+               phpError('View file for ' . $name . ' could not be found');
             } else {
                extract($params);
 
