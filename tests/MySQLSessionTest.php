@@ -7,6 +7,12 @@
 
    class MySQLSessionTest extends \PHPUnit_Framework_TestCase {
 
+      function __construct($name = null, $data = [], $dataName = '') {
+         parent::__construct($name, $data, $dataName);
+         MySQLSession::destroySafely();
+         MySQLSession::init(PhuGlobal::$mysql);
+      }
+
       /**
        * @dataProvider definedProvider
        */
@@ -28,10 +34,10 @@
       }
 
       function testSave() {
-         PhuGlobal::$mysqlsession->foo = 'bar';
-         PhuGlobal::$mysqlsession->forceWrite();
+         $_SESSION['foo'] = 'bar';
+         $id              = session_id();
+         session_write_close();
 
-         $id          = PhuGlobal::$mysqlsession->getID();
          $sql         = 'SELECT `data` FROM `alo_session` WHERE `id`=?';
          $sqlParams   = [$id];
          $sessFetched = PhuGlobal::$mysql->prepQuery($sql,
@@ -45,23 +51,13 @@
                                              'sql'     => $sql,
                                              'params'  => $sqlParams,
                                              'fetched' => $sessFetched,
-                                             'all' => PhuGlobal::$mysql->prepQuery('SELECT * FROM `alo_session`')
+                                             'all'     => PhuGlobal::$mysql->prepQuery('SELECT * FROM `alo_session`')
                                           ]));
 
-         $sessFetched = json_decode($sessFetched[0]['data'], true);
+         $sessFetched = $sessFetched[0]['data'];
 
-         $this->assertArrayHasKey('foo', $sessFetched, _unit_dump($sessFetched));
-         $this->assertEquals('bar', $sessFetched['foo']);
-         ob_flush();
-      }
-
-      function testToken() {
-         $this->assertEquals(PhuGlobal::$mysqlsession->getTokenExpected(), PhuGlobal::$mysqlsession->getTokenActual());
-         ob_flush();
-      }
-
-      function testRefreshToken() {
-         $this->assertTrue(PhuGlobal::$mysqlsession->refreshToken());
+         $this->assertTrue(stripos($sessFetched, 'foo') !== false, '"foo" not found in session data');
+         $this->assertTrue(stripos($sessFetched, 'bar') !== false, '"bar" not found in session data');
          ob_flush();
       }
    }

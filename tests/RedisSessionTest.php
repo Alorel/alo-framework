@@ -7,6 +7,12 @@
 
    class RedisSessionTest extends \PHPUnit_Framework_TestCase {
 
+      function __construct($name = null, $data = [], $dataName = '') {
+         parent::__construct($name, $data, $dataName);
+         RedisSession::destroySafely();
+         RedisSession::init(PhuGlobal::$redisWrapper);
+      }
+
       /**
        * @dataProvider definedProvider
        */
@@ -27,32 +33,23 @@
       }
 
       function testSave() {
-         PhuGlobal::$redisSession->foo = 'bar';
-         PhuGlobal::$redisSession->forceWrite();
+         $_SESSION['foo'] = 'bar';
 
-         $id = PhuGlobal::$redisSession->getID();
-         $sessFetched = \Alo::$cache->get(ALO_SESSION_REDIS_PREFIX . $id);
+         sleep(2);
+
+         $id          = session_id();
+         $sessFetched = PhuGlobal::$redisWrapper->get(ALO_SESSION_REDIS_PREFIX . $id);
 
          $this->assertNotEmpty($sessFetched,
                                _unit_dump([
                                              'id'           => $id,
                                              'fetched'      => $sessFetched,
-                                             'all'          => \Alo::$cache->getAll(),
+                                             'all'          => PhuGlobal::$redisWrapper->getAll(),
                                              'is_available' => RedisWrapper::isAvailable()
                                           ]));
 
-         $this->assertArrayHasKey('foo', $sessFetched, _unit_dump($sessFetched));
-         $this->assertEquals('bar', $sessFetched['foo']);
-         ob_flush();
-      }
-
-      function testToken() {
-         $this->assertEquals(PhuGlobal::$redisSession->getTokenExpected(), PhuGlobal::$redisSession->getTokenActual());
-         ob_flush();
-      }
-
-      function testRefreshToken() {
-         $this->assertTrue(PhuGlobal::$redisSession->refreshToken());
+         $this->assertTrue(stripos($sessFetched, 'foo') !== false, '"foo" not found in session data');
+         $this->assertTrue(stripos($sessFetched, 'bar') !== false, '"bar" not found in session data');
          ob_flush();
       }
    }

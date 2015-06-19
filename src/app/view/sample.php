@@ -1,5 +1,6 @@
 <?php
 
-   //   \Alo\Session\MySQLSession::init();
-   //   \Alo\Session\RedisSession::init();
-   //   \Alo\Session\MemcachedSession::init();
+   //   echo serialize([
+   //                     '_'   => md5(1),
+   //                     'foo' => 'bar'
+   //                  ]);

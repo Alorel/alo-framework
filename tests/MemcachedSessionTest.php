@@ -7,9 +7,10 @@
 
    class MemcachedSessionTest extends \PHPUnit_Framework_TestCase {
 
-      function __construct($name=null,$data=[],$dataName='') {
-         parent::__construct($name,$data,$dataName);
-         initSession(PhuGlobal::$mcWrapper,'\Alo\Session\MemcachedSession');
+      function __construct($name = null, $data = [], $dataName = '') {
+         parent::__construct($name, $data, $dataName);
+         MemcachedSession::destroySafely();
+         MemcachedSession::init(PhuGlobal::$mcWrapper);
       }
 
       /**
@@ -33,32 +34,23 @@
       }
 
       function testSave() {
-         PhuGlobal::$mcSession->foo = 'bar';
-         PhuGlobal::$mcSession->forceWrite();
+         $_SESSION['foo'] = 'bar';
 
-         $id = PhuGlobal::$mcSession->getID();
-         $sessFetched = \Alo::$cache->get(ALO_SESSION_MC_PREFIX . $id);
+         sleep(2);
+
+         $id          = session_id();
+         $sessFetched = PhuGlobal::$mcWrapper->get(ALO_SESSION_MC_PREFIX . $id);
 
          $this->assertNotEmpty($sessFetched,
                                _unit_dump([
                                              'id'           => $id,
                                              'fetched'      => $sessFetched,
-                                             'all'          => \Alo::$cache->getAll(),
+                                             'all'          => PhuGlobal::$mcWrapper->getAll(),
                                              'is_available' => MemcachedWrapper::isAvailable()
                                           ]));
 
-         $this->assertArrayHasKey('foo', $sessFetched, _unit_dump($sessFetched));
-         $this->assertEquals('bar', $sessFetched['foo']);
-         ob_flush();
-      }
-
-      function testToken() {
-         $this->assertEquals(PhuGlobal::$mcSession->getTokenExpected(), PhuGlobal::$mcSession->getTokenActual());
-         ob_flush();
-      }
-
-      function testRefreshToken() {
-         $this->assertTrue(PhuGlobal::$mcSession->refreshToken());
+         $this->assertTrue(stripos($sessFetched, 'foo') !== false, '"foo" not found in session data');
+         $this->assertTrue(stripos($sessFetched, 'bar') !== false, '"bar" not found in session data');
          ob_flush();
       }
    }
