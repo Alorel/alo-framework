@@ -1,5 +1,11 @@
 <?php
 
-   $mcw = new \Alo\Cache\MemcachedWrapper();
+   $db = new \Alo\Db\MySQL();
 
-   echo debug($mcw->purge());
+   initSession($db);
+
+   echo debug($_SESSION);
+
+   $_SESSION['rand'] = microtime(true);
+
+   echo debug($_SESSION);

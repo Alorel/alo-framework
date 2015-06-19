@@ -59,7 +59,7 @@
       /** @var  \Alo\Db\MySQL */
       static $mysql;
 
-      /** @var  \Alo\Session\MySQLSession */
+      /** @var  \Alo\Session\MySQLSessionOld */
       static $mysqlsession;
    }
 
@@ -83,6 +83,6 @@
   ENGINE =InnoDB
   DEFAULT CHARSET =`utf8mb4`;');
 
-   PhuGlobal::$mysqlsession = new \Alo\Session\MySQLSession(PhuGlobal::$mysql);
+   PhuGlobal::$mysqlsession = new \Alo\Session\MySQLSessionOld(PhuGlobal::$mysql);
 
    ob_start();

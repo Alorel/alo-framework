@@ -218,7 +218,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 
 * Localisation support added! See [README.md](README.md#Localisation)
 * MemcachedSession and RedisSession can now be passed an object instance reference and use it instead of relying on Alo::$cache
-* MySQLSession/SQLSession can now be passed an object instance reference and use it instead of relying on Alo::$db
+* MySQLSessionOld/SQLSessionOld can now be passed an object instance reference and use it instead of relying on Alo::$db
 * LOG_LEVEL_WARNING is now defined in index.php and is the default logging level. Log::warning() method introduced.
 
 **Bugs fixed**
@@ -269,7 +269,7 @@ No code review required:
 
 **Renamed classes**
 
-* SQLSession is now called MySQLSession. The previous class is now deprecated and extends the new one.
+* SQLSessionOld is now called MySQLSessionOld. The previous class is now deprecated and extends the new one.
 
 **Config constants**
 
@@ -290,7 +290,7 @@ No code review required:
 * Most classes now have self::$this so you can globally reference their last instances - useful for singletons.
 * SampleErrorController->error()'s $message parameter removed as it was unused
 * AbstractController->httpError() no longer has a die() statement to stop script execution once called. It only suppresses output now.
-* MemcachedSession, RedisSession and MySQLSession constructors now throw a LibraryException instead.
+* MemcachedSession, RedisSession and MySQLSessionOld constructors now throw a LibraryException instead.
 
 **Misc**
 

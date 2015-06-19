@@ -12,20 +12,6 @@
       class Alo {
 
          /**
-          * Defines a session type as SQL
-          *
-          * @var string
-          */
-         const SESS_MYSQL = 'SQLSession';
-
-         /**
-          * Defines a session type as Memcached
-          *
-          * @var string
-          */
-         const SESS_MEMCACHED = 'MemcachedSession';
-
-         /**
           * SFTP connection manager
           *
           * @var Alo\SFTP
@@ -129,24 +115,6 @@
           * @var Alo\Locale
           */
          static $locale;
-
-         /**
-          * Loads a session
-          *
-          * @param string $type The session class name - see Alo::SESS_* constants
-          *
-          * @return Alo\Session\AbstractSession
-          * @see self::SESS_MYSQL
-          * @see self::SESS_MEMCACHED
-          */
-         static function loadSession($type = self::SESS_MYSQL) {
-            if(!self::$session) {
-               $sess          = '\Alo\Session\\' . $type;
-               self::$session = new $sess();
-            }
-
-            return self::$session;
-         }
 
          /**
           * Loads a configuration file based on environment: from DIR_SYS/config during setup & DIR_APP/config during

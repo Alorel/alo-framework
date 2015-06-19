@@ -5,6 +5,13 @@
    } else {
 
       /**
+       * The session handler to use
+       *
+       * @var string
+       */
+      define('ALO_SESSION_HANDLER', '\Alo\Session\MySQLSession');
+
+      /**
        * Probability of a session cleanup. To be called on request. Entering 100
        * would mean that there is a 1/100 chance.
        *

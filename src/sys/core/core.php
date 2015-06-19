@@ -107,7 +107,8 @@
             $headers = [];
             foreach($_SERVER as $name => $value) {
                if(substr($name, 0, 5) == 'HTTP_') {
-                  $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+                  $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] =
+                     $value;
                }
             }
 
@@ -219,6 +220,35 @@
       }
 
       require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
+
+      /**
+       * Initialises a session
+       *
+       * @author Art <a.molcanovas@gmail.com>
+       *
+       * @param Alo\Db\MySQL|Alo\Cache\AbstractCache $dependcyObject Session handlers have a dependency, e.g. a MySQL
+       *                                                             instance for MySQLSession, a RedisWrapper instance
+       *                                                             for RedisSession etc. You can provide an object
+       *                                                             reference containing such an instance here,
+       *                                                             otherwise Alo::$db/Alo::$cache will be used.
+       */
+      function initSession(&$dependcyObject = null) {
+         if(session_status() !== PHP_SESSION_ACTIVE) {
+            Alo::loadConfig('session');
+            session_set_cookie_params(ALO_SESSION_TIMEOUT, null, null, ALO_SESSION_SECURE, true);
+            session_name(ALO_SESSION_COOKIE);
+
+            $handler = ALO_SESSION_HANDLER;
+            /** @var Alo\Session\AbstractSession $handler */
+            $handler = new $handler($dependcyObject);
+
+            session_set_save_handler($handler, true);
+            session_start();
+            $handler->identityCheck();
+         } else {
+            php_warning('A session has already been started');
+         }
+      }
 
       includeonceifexists(DIR_APP . 'core' . DIRECTORY_SEPARATOR . 'autoload.php');
 

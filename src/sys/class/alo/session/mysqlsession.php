@@ -6,115 +6,99 @@
    use Alo\Db\MySQL;
    use Alo\Exception\LibraryException as Libex;
 
-   if (!defined('GEN_START')) {
+   if(!defined('GEN_START')) {
       http_response_code(404);
    } else {
 
-
       /**
-       * The MySQL-based session handler. ALO_SESSION_CLEANUP is not used here as
-       * cleanup is handled by the MySQL event handler
+       * MySQL-based session handler
        *
-       * @author  Art <a.molcanovas@gmail.com>
-       * @package Session
+*@author Art <a.molcanovas@gmail.com>
        */
       class MySQLSession extends AbstractSession {
 
          /**
-          * Reference to database instance
+          * Database instance
           *
           * @var MySQL
           */
          protected $db;
 
          /**
-          * Instantiates the class
+          * Constructor
           *
           * @author Art <a.molcanovas@gmail.com>
           * @throws Libex When $cacheInstance is not passed and Alo::$cache does not contain a MemcachedWrapper instance
           *
-          * @param MySQL $db If a parameter is passed here its instance will be used instead of Alo::$db
+          * @param MySQL $instance If a parameter is passed here its instance will be used instead of Alo::$db
           */
-         function __construct(MySQL &$db = null) {
-            if ($db) {
-               $this->db = &$db;
-            } elseif (Alo::$db && Alo::$db instanceof MySQL) {
+         function __construct(MySQL &$instance = null) {
+            if($instance) {
+               $this->db = &$instance;
+            } elseif(Alo::$db && Alo::$db instanceof MySQL) {
                $this->db = &Alo::$db;
             } else {
-               throw new Libex('MySQL instance not found',Libex::E_REQUIRED_LIB_NOT_FOUND);
+               throw new Libex('MySQL instance not found', Libex::E_REQUIRED_LIB_NOT_FOUND);
             }
 
             parent::__construct();
-            \Log::debug('Initialised MySQL session');
          }
 
          /**
-          * Instantiates the class
+          * Destroys the session
           *
-          * @author Art <a.molcanovas@gmail.com>
+*@author Art <a.molcanovas@gmail.com>
           *
-          * @param MySQL $db If a parameter is passed here its instance will be used instead of Alo::$db
-          * @return MySQLSession
+*@param string $sessionID The session ID
+          *
+          * @return array|bool
           */
-         static function mysqlSession(MySQL &$db = null) {
-            return new MySQLSession($db);
+         public function destroy($sessionID) {
+            return $this->db->prepQuery('DELETE FROM `' . ALO_SESSION_TABLE_NAME . '` WHERE `id`=?',[$sessionID]);
          }
 
          /**
-          * Fetches session data
+          * Read ssession data
           *
           * @author Art <a.molcanovas@gmail.com>
-          * @return MySQLSession
+          * @link http://php.net/manual/en/sessionhandlerinterface.read.php
+          *
+          * @param string $sessionID The session id to read data for.
+          *
+          * @return string
           */
-         protected function fetch() {
-            $sql = $this->db->prepQuery('SELECT `data` '
-                                        . 'FROM `' . ALO_SESSION_TABLE_NAME . '` '
-                                        . 'WHERE `id`=? '
-                                        . 'LIMIT 1', [$this->id], [
-                                           MySQL::V_CACHE => false
+         public function read($sessionID) {
+            $data = $this->db->prepQuery('SELECT `data` FROM `' . ALO_SESSION_TABLE_NAME . '` WHERE `id`=?',[$sessionID]);
+
+            return $data ? $data[0]['data'] : '';
+         }
+
+         /**
+          * Write session data
+          *
+          * @author Art <a.molcanovas@gmail.com>
+          * @link http://php.net/manual/en/sessionhandlerinterface.write.php
+          *
+          * @param string $sessionID    The session id.
+          * @param string $sessionData  The encoded session data. This data is the
+          *                             result of the PHP internally encoding
+          *                             the $_SESSION superglobal to a serialized
+          *                             string and passing it as this parameter.
+          *                             Please note sessions use an alternative serialization method.
+          *
+          * @return bool
+          */
+         public function write($sessionID, $sessionData) {
+            return $this->db->prepQuery('INSERT INTO `' . ALO_SESSION_TABLE_NAME . '`('
+                                        .'`id`,'
+                                        .'`data`,'
+                                        .'`access`) VALUES(:id,:data,CURRENT_TIMESTAMP) '
+                                        .'ON DUPLICATE KEY UPDATE '
+                                        .'`data`=VALUES(`data`),'
+                                        .'`access`=CURRENT_TIMESTAMP',[
+                                           ':id' => $sessionID,
+                                           ':data' => $sessionData
                                         ]);
-
-            if (!empty($sql)) {
-               $this->data = json_decode($sql[0]['data'], true);
-            }
-
-            \Log::debug('Saved session data');
-
-            return $this;
          }
-
-         /**
-          * Terminates the session
-          *
-          * @author Art <a.molcanovas@gmail.com>
-          * @return MySQLSession
-          */
-         function terminate() {
-            $this->db->prepQuery('DELETE FROM `' . ALO_SESSION_TABLE_NAME . '` '
-                                 . 'WHERE `id`=? '
-                                 . 'LIMIT 1', [$this->id], [MySQL::V_CACHE => false]);
-
-            return parent::terminate();
-         }
-
-         /**
-          * Saves session data
-          *
-          * @author Art <a.molcanovas@gmail.com>
-          * @return MySQLSession
-          */
-         protected function write() {
-            $this->db->prepQuery('REPLACE INTO `'
-                                 . ALO_SESSION_TABLE_NAME . '`(`id`,`data`,`access`) VALUES('
-                                 . '?,?,CURRENT_TIMESTAMP)', [
-                                    $this->id,
-                                    json_encode($this->data)
-                                 ], [MySQL::V_CACHE => false]);
-
-            \Log::debug('Saved session data');
-
-            return $this;
-         }
-
       }
    }

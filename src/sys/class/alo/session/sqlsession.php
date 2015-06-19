@@ -7,12 +7,12 @@
    } else {
 
       /**
-       * Legacy class name of the MySQLSession class
+       * Legacy class name of the MySQLSessionOld class
        *
        * @author     Art <a.molcanovas@gmail.com>
        * @deprecated Since 1.2
        */
-      class SQLSession extends MySQLSession {
+      class SQLSessionOld extends MySQLSessionOld {
 
       }
    }
