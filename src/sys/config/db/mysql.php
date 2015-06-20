@@ -41,7 +41,7 @@
        *
        * @var string
        */
-      define('ALO_MYSQL_CACHE', '\Alo\Cache\MemcachedWrapper');
+      define('ALO_MYSQL_CACHE', '\Alo\Cache\RedisWrapper');
 
       /**
        * The prefix to use for DB cache keys

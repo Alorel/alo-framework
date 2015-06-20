@@ -3,7 +3,7 @@
    namespace Alo\CLI;
 
    use Alo\Curl;
-   use Alo\File;
+   use Alo\FileSystem\File;
 
    if(!defined('GEN_START')) {
       http_response_code(404);

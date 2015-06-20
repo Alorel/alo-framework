@@ -5,6 +5,7 @@
    use Alo\Exception\ExtensionException as EE;
    use Alo\Exception\FileSystemException as FE;
    use Alo\Exception\SFTPException as SE;
+   use Alo\FileSystem\File;
 
    if(!defined('GEN_START')) {
       http_response_code(404);

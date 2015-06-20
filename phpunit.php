@@ -58,9 +58,9 @@
       PhuGlobal::$cron = new \Alo\Cron();
    }
 
-   PhuGlobal::$mcWrapper    = new \Alo\Cache\MemcachedWrapper();
-   PhuGlobal::$redisWrapper = new \Alo\Cache\RedisWrapper();
-   PhuGlobal::$mysql        =
+   PhuGlobal::$mcWrapper = new \Alo\Cache\MemcachedWrapper();
+//   PhuGlobal::$redisWrapper = new \Alo\Cache\RedisWrapper();
+   PhuGlobal::$mysql =
       new \Alo\Db\MySQL(ALO_MYSQL_SERVER, ALO_MYSQL_PORT, ALO_MYSQL_USER, ALO_MYSQL_PW, 'phpunit', ALO_MYSQL_CACHE);
 
    PhuGlobal::$mysql->prepQuery('CREATE TABLE IF NOT EXISTS `alo_session` (`id`     CHAR(128)
