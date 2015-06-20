@@ -100,7 +100,6 @@
             }
 
             if($ed && $size && $this->reportCount++ != 0) {
-               /** @noinspection PhpDeprecationInspection */
                $status = File::convertSize($ed) . '/' . File::convertSize($size) . ' downloaded ['
                          . round(($ed / $size) * 100, 3) . ' %]';
 
