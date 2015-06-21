@@ -1,19 +1,9 @@
 ![Logo](https://cloud.githubusercontent.com/assets/4998038/7528096/370297ba-f51b-11e4-9c26-5d01ac66fc4d.png)
 
-[![Licence](https://img.shields.io/github/license/alorel/alo-framework.svg?style=plastic&label=Licence)](LICENSE)
-
-[![NuGet release](http://img.shields.io/nuget/v/AloFramework.svg?label=NuGet%20release&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![NuGET pre-release](http://img.shields.io/nuget/vpre/AloFramework.svg?label=NuGet%20pre-release&color=orange&style=plastic)](https://www.nuget.org/packages/AloFramework/)
-
-[![Packagist release](https://img.shields.io/packagist/v/alorel/alo-framework.svg?style=plastic&label=Packagist%20release)](https://packagist.org/packages/alorel/alo-framework) [![Packagist pre-release](https://img.shields.io/packagist/vpre/alorel/alo-framework.svg?style=plastic&label=Packagist%20pre-release)](https://packagist.org/packages/alorel/alo-framework)
-
-[![NuGET downloads](http://img.shields.io/nuget/dt/AloFramework.svg?label=NuGET%20downloads&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=Packagist%20downloads)](https://packagist.org/packages/alorel/alo-framework)
+[![License](https://poser.pugx.org/alorel/alo-framework/license)](LICENSE) [![NuGet release](http://img.shields.io/nuget/v/AloFramework.svg?label=nuget&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![Packagist release](https://img.shields.io/packagist/v/alorel/alo-framework.svg?style=plastic&label=packagist-stable)](https://packagist.org/packages/alorel/alo-framework) [![Packagist pre-release](https://img.shields.io/packagist/vpre/alorel/alo-framework.svg?style=plastic&label=Packagist-dev)](https://packagist.org/packages/alorel/alo-framework) [![NuGET downloads](http://img.shields.io/nuget/dt/AloFramework.svg?label=nuget&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=packagist)](https://packagist.org/packages/alorel/alo-framework)
 
 
-Latest release: [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.0)](https://travis-ci.org/Alorel/alo-framework)
-
-Dev: [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
-
-Master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
+2.0: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.0)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
