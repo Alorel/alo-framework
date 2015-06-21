@@ -66,13 +66,22 @@
              * @return bool
              */
             static function destroySafely() {
-                if (session_status() === PHP_SESSION_ACTIVE) {
+                if (self::isActive()) {
                     session_destroy();
 
                     return true;
                 } else {
                     return false;
                 }
+            }
+
+            /**
+             * Checks whether a session is currently active
+             * @author Art <a.molcanovas@gmail.com>
+             * @return bool
+             */
+            static function isActive() {
+                return session_status() === PHP_SESSION_ACTIVE;
             }
 
             /**

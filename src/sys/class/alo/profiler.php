@@ -3,6 +3,7 @@
     namespace Alo;
 
     use Alo\Exception\ProfilerException as PE;
+    use Alo\Session\AbstractSession;
 
     if (!defined('GEN_START')) {
         http_response_code(404);
@@ -170,7 +171,7 @@
                 $r = &\Alo::$router;
 
                 $m = [self::P_MICROTIME         => microtime(true),
-                      self::P_SESSION_DATA      => \Alo::$session ? \Alo::$session->getAll() : false,
+                      self::P_SESSION_DATA      => AbstractSession::isActive() ? $_SESSION : false,
                       self::P_GET               => $_GET,
                       self::P_POST              => $_POST,
                       self::P_FILES             => $_FILES,

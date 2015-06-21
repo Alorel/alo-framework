@@ -2,6 +2,8 @@
 
     namespace Alo\Statics;
 
+    use Alo\Session\AbstractSession;
+
     if (!defined('GEN_START')) {
         http_response_code(404);
     } else {
@@ -173,10 +175,10 @@
             static function tokenGet($tokenName, $hash = 'md5') {
                 $token = self::getUniqid($hash, 'token_' . $tokenName);
 
-                if (!\Alo::$session) {
-                    phpWarning('Session handler not initialised or not assigned to \\Alo::$session. Token not saved in session.');
+                if (!AbstractSession::isActive()) {
+                    phpWarning('A session is not currently active - tokens are unusable.');
                 } else {
-                    \Alo::$session->{$tokenName} = $token;
+                    $_SESSION[$tokenName] = $token;
                 }
 
                 return $token;
@@ -254,8 +256,8 @@
              * @return bool TRUE if the token is valid, false if not
              */
             static function tokenValid($tokenName, array $dataArray = null) {
-                if (!\Alo::$session) {
-                    phpWarning('Session handler not initialised or not assigned to \\Alo::$session. FALSE will be returned. ');
+                if (!AbstractSession::isActive()) {
+                    phpWarning('Session isn\'t initialised - tokens unavailable.');
 
                     return false;
                 } else {
@@ -263,9 +265,8 @@
                         $dataArray = $_POST;
                     }
 
-                    $sessToken = \Alo::$session->{$tokenName};
-
-                    return $sessToken && \get($dataArray[$tokenName]) && $sessToken == $dataArray[$tokenName];
+                    return $_SESSION[$tokenName] && \get($dataArray[$tokenName]) &&
+                           $_SESSION[$tokenName] == $dataArray[$tokenName];
                 }
             }
 
@@ -279,13 +280,15 @@
              * @return bool TRUE if the session handler was loaded, false if not
              */
             static function tokenRemove($tokenName) {
-                if (\Alo::$session) {
-                    \Alo::$session->delete($tokenName);
+                if (AbstractSession::isActive()) {
+                    unset($_SESSION[$tokenName]);
 
                     return true;
-                }
+                } else {
+                    phpWarning('Session not initialised - tokens unavailable.');
 
-                return false;
+                    return false;
+                }
             }
 
             /**
