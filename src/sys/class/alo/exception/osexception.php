@@ -1,24 +1,24 @@
 <?php
 
-   namespace Alo\Exception;
+    namespace Alo\Exception;
 
-   if(!defined('GEN_START')) {
-      http_response_code(404);
-   } else {
+    if (!defined('GEN_START')) {
+        http_response_code(404);
+    } else {
 
-      /**
-       * Operating system-related exceptions
-       *
-       * @author Art <a.molcanovas@gmail.com>
-       */
-      class OSException extends AbstractException {
+        /**
+         * Operating system-related exceptions
+         *
+         * @author Art <a.molcanovas@gmail.com>
+         */
+        class OSException extends AbstractException {
 
-         /**
-          * Code when the operation is not supported on the operating system
-          *
-          * @var int
-          */
-         const E_UNSUPPORTED = 101;
+            /**
+             * Code when the operation is not supported on the operating system
+             *
+             * @var int
+             */
+            const E_UNSUPPORTED = 101;
 
-      }
-   }
+        }
+    }

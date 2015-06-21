@@ -1,68 +1,68 @@
 <!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="ApiGen 2.8.0"><meta name="robots" content="noindex"><title>File app/controllers/sample.php | AloFramework documentation</title><script type="text/javascript" src="resources/combined.js?2158407760"></script><script type="text/javascript" src="elementlist.js?3590753143"></script><link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822"><link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609"></head><body><div id="navigation" class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a href="index.html" class="brand">AloFramework documentation</a><div class="nav-collapse"><ul class="nav"><li><a href="namespace-Controller.html" title="Summary of Controller"><span>Namespace</span></a></li><li><a href="class-Controller.Sample.html" title="Summary of Controller\Sample"><span>Class</span></a></li><li class="divider-vertical"></li><li><a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a></li><li><a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a></li><li><a href="todo.html" title="Todo list"><span>Todo</span></a></li></ul></div></div></div></div><div id="left"><div id="menu"><form id="search" class="form-search"><input type="hidden" name="cx" value=""><input type="hidden" name="ie" value="UTF-8"><input type="text" name="q" class="search-query" placeholder="Search"></form><div id="groups"><h3>Namespaces</h3><ul><li><a href="namespace-Alo.html">Alo<span></span></a><ul><li><a href="namespace-Alo.Cache.html">Cache</a></li><li><a href="namespace-Alo.CLI.html">CLI</a></li><li><a href="namespace-Alo.Controller.html">Controller</a></li><li><a href="namespace-Alo.Db.html">Db</a></li><li><a href="namespace-Alo.Exception.html">Exception</a></li><li><a href="namespace-Alo.FileSystem.html">FileSystem</a></li><li><a href="namespace-Alo.Session.html">Session</a></li><li><a href="namespace-Alo.Statics.html">Statics</a></li><li><a href="namespace-Alo.Validators.html">Validators</a></li><li><a href="namespace-Alo.Windows.html">Windows</a></li></ul></li><li class="active"><a href="namespace-Controller.html">Controller</a></li><li><a href="namespace-None.html">None</a></li><li><a href="namespace-PHP.html">PHP</a></li></ul></div><div id="elements"><h3>Classes</h3><ul><li><a href="class-Controller.Cart.html">Cart</a></li><li class="active"><a href="class-Controller.Sample.html">Sample</a></li><li><a href="class-Controller.SampleErrorController.html">SampleErrorController</a></li></ul></div></div></div><div id="splitter"></div><div id="right"><div id="rightInner"><pre id="source"><code><span id="1" class="l"><a class="l" href="#1"> 1 </a><span class="xlang">&lt;?php</span>
 </span><span id="2" class="l"><a class="l" href="#2"> 2 </a>
-</span><span id="3" class="l"><a class="l" href="#3"> 3 </a>   <span class="php-keyword1">namespace</span> Controller;
+</span><span id="3" class="l"><a class="l" href="#3"> 3 </a>    <span class="php-keyword1">namespace</span> Controller;
 </span><span id="4" class="l"><a class="l" href="#4"> 4 </a>
-</span><span id="5" class="l"><a class="l" href="#5"> 5 </a>   <span class="php-keyword1">use</span> Alo\Controller\AbstractController;
+</span><span id="5" class="l"><a class="l" href="#5"> 5 </a>    <span class="php-keyword1">use</span> Alo\Controller\AbstractController;
 </span><span id="6" class="l"><a class="l" href="#6"> 6 </a>
-</span><span id="7" class="l"><a class="l" href="#7"> 7 </a>   <span class="php-keyword1">if</span>(!<span class="php-keyword2">defined</span>(<span class="php-quote">'GEN_START'</span>)) {
-</span><span id="8" class="l"><a class="l" href="#8"> 8 </a>      <span class="php-keyword2">http_response_code</span>(<span class="php-num">404</span>);
-</span><span id="9" class="l"><a class="l" href="#9"> 9 </a>   } <span class="php-keyword1">else</span> {
+</span><span id="7" class="l"><a class="l" href="#7"> 7 </a>    <span class="php-keyword1">if</span> (!<span class="php-keyword2">defined</span>(<span class="php-quote">'GEN_START'</span>)) {
+</span><span id="8" class="l"><a class="l" href="#8"> 8 </a>        <span class="php-keyword2">http_response_code</span>(<span class="php-num">404</span>);
+</span><span id="9" class="l"><a class="l" href="#9"> 9 </a>    } <span class="php-keyword1">else</span> {
 </span><span id="10" class="l"><a class="l" href="#10">10 </a>
-</span><span id="11" class="l"><a class="l" href="#11">11 </a>      <span class="php-comment">/**
-</span></span><span id="12" class="l"><a class="l" href="#12">12 </a><span class="php-comment">       * A sample controller
-</span></span><span id="13" class="l"><a class="l" href="#13">13 </a><span class="php-comment">       *
-</span></span><span id="14" class="l"><a class="l" href="#14">14 </a><span class="php-comment">       * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="15" class="l"><a class="l" href="#15">15 </a><span class="php-comment">       */</span>
-</span><span id="16" class="l"><a class="l" href="#16">16 </a>      <span class="php-keyword1">class</span> <a id="Sample" href="#Sample">Sample</a> <span class="php-keyword1">extends</span> AbstractController {
+</span><span id="11" class="l"><a class="l" href="#11">11 </a>        <span class="php-comment">/**
+</span></span><span id="12" class="l"><a class="l" href="#12">12 </a><span class="php-comment">         * A sample controller
+</span></span><span id="13" class="l"><a class="l" href="#13">13 </a><span class="php-comment">         *
+</span></span><span id="14" class="l"><a class="l" href="#14">14 </a><span class="php-comment">         * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="15" class="l"><a class="l" href="#15">15 </a><span class="php-comment">         */</span>
+</span><span id="16" class="l"><a class="l" href="#16">16 </a>        <span class="php-keyword1">class</span> <a id="Sample" href="#Sample">Sample</a> <span class="php-keyword1">extends</span> AbstractController {
 </span><span id="17" class="l"><a class="l" href="#17">17 </a>
-</span><span id="18" class="l"><a class="l" href="#18">18 </a>         <span class="php-comment">/**
-</span></span><span id="19" class="l"><a class="l" href="#19">19 </a><span class="php-comment">          * Default index page
-</span></span><span id="20" class="l"><a class="l" href="#20">20 </a><span class="php-comment">          *
-</span></span><span id="21" class="l"><a class="l" href="#21">21 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="22" class="l"><a class="l" href="#22">22 </a><span class="php-comment">          */</span>
-</span><span id="23" class="l"><a class="l" href="#23">23 </a>         <span class="php-keyword1">function</span> <a id="_index" href="#_index">index</a>() {
-</span><span id="24" class="l"><a class="l" href="#24">24 </a>            <span class="php-var">$this</span>-&gt;loadView(<span class="php-quote">'sample'</span>, [<span class="php-quote">'foo'</span> =&gt; <span class="php-quote">'bar'</span>]);
-</span><span id="25" class="l"><a class="l" href="#25">25 </a>         }
+</span><span id="18" class="l"><a class="l" href="#18">18 </a>            <span class="php-comment">/**
+</span></span><span id="19" class="l"><a class="l" href="#19">19 </a><span class="php-comment">             * Default index page
+</span></span><span id="20" class="l"><a class="l" href="#20">20 </a><span class="php-comment">             *
+</span></span><span id="21" class="l"><a class="l" href="#21">21 </a><span class="php-comment">             * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="22" class="l"><a class="l" href="#22">22 </a><span class="php-comment">             */</span>
+</span><span id="23" class="l"><a class="l" href="#23">23 </a>            <span class="php-keyword1">function</span> <a id="_index" href="#_index">index</a>() {
+</span><span id="24" class="l"><a class="l" href="#24">24 </a>                <span class="php-var">$this</span>-&gt;loadView(<span class="php-quote">'sample'</span>, [<span class="php-quote">'foo'</span> =&gt; <span class="php-quote">'bar'</span>]);
+</span><span id="25" class="l"><a class="l" href="#25">25 </a>            }
 </span><span id="26" class="l"><a class="l" href="#26">26 </a>
-</span><span id="27" class="l"><a class="l" href="#27">27 </a>         <span class="php-comment">/**
-</span></span><span id="28" class="l"><a class="l" href="#28">28 </a><span class="php-comment">          * Sample method for a more complex route
-</span></span><span id="29" class="l"><a class="l" href="#29">29 </a><span class="php-comment">          *
-</span></span><span id="30" class="l"><a class="l" href="#30">30 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="31" class="l"><a class="l" href="#31">31 </a><span class="php-comment">          *
-</span></span><span id="32" class="l"><a class="l" href="#32">32 </a><span class="php-comment">          * @param string $first  The first string to echo
-</span></span><span id="33" class="l"><a class="l" href="#33">33 </a><span class="php-comment">          * @param string $second The second string to echo
-</span></span><span id="34" class="l"><a class="l" href="#34">34 </a><span class="php-comment">          */</span>
-</span><span id="35" class="l"><a class="l" href="#35">35 </a>         <span class="php-keyword1">function</span> <a id="_echoer" href="#_echoer">echoer</a>(<span class="php-var">$first</span> = <span class="php-quote">'[not supplied]'</span>, <span class="php-var">$second</span> = <span class="php-quote">'[not supplied]'</span>) {
-</span><span id="36" class="l"><a class="l" href="#36">36 </a>            <span class="php-keyword1">echo</span> <span class="php-quote">'Your first param was '</span> . <span class="php-var">$first</span> . <span class="php-quote">' and your second was '</span> . <span class="php-var">$second</span>;
-</span><span id="37" class="l"><a class="l" href="#37">37 </a>         }
+</span><span id="27" class="l"><a class="l" href="#27">27 </a>            <span class="php-comment">/**
+</span></span><span id="28" class="l"><a class="l" href="#28">28 </a><span class="php-comment">             * Sample method for a more complex route
+</span></span><span id="29" class="l"><a class="l" href="#29">29 </a><span class="php-comment">             *
+</span></span><span id="30" class="l"><a class="l" href="#30">30 </a><span class="php-comment">             * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="31" class="l"><a class="l" href="#31">31 </a><span class="php-comment">             *
+</span></span><span id="32" class="l"><a class="l" href="#32">32 </a><span class="php-comment">             * @param string $first  The first string to echo
+</span></span><span id="33" class="l"><a class="l" href="#33">33 </a><span class="php-comment">             * @param string $second The second string to echo
+</span></span><span id="34" class="l"><a class="l" href="#34">34 </a><span class="php-comment">             */</span>
+</span><span id="35" class="l"><a class="l" href="#35">35 </a>            <span class="php-keyword1">function</span> <a id="_echoer" href="#_echoer">echoer</a>(<span class="php-var">$first</span> = <span class="php-quote">'[not supplied]'</span>, <span class="php-var">$second</span> = <span class="php-quote">'[not supplied]'</span>) {
+</span><span id="36" class="l"><a class="l" href="#36">36 </a>                <span class="php-keyword1">echo</span> <span class="php-quote">'Your first param was '</span> . <span class="php-var">$first</span> . <span class="php-quote">' and your second was '</span> . <span class="php-var">$second</span>;
+</span><span id="37" class="l"><a class="l" href="#37">37 </a>            }
 </span><span id="38" class="l"><a class="l" href="#38">38 </a>
-</span><span id="39" class="l"><a class="l" href="#39">39 </a>         <span class="php-comment">/**
-</span></span><span id="40" class="l"><a class="l" href="#40">40 </a><span class="php-comment">          * Sample method for when the class parameter isn't supplied.
-</span></span><span id="41" class="l"><a class="l" href="#41">41 </a><span class="php-comment">          *
-</span></span><span id="42" class="l"><a class="l" href="#42">42 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="43" class="l"><a class="l" href="#43">43 </a><span class="php-comment">          */</span>
-</span><span id="44" class="l"><a class="l" href="#44">44 </a>         <span class="php-keyword1">function</span> <a id="_noclass" href="#_noclass">noclass</a>() {
-</span><span id="45" class="l"><a class="l" href="#45">45 </a>            <span class="php-keyword1">echo</span> <span class="php-quote">'You\'re in the noclass method! Your routed args are '</span> . <span class="php-keyword2">implode</span>(<span class="php-quote">', '</span>, <span class="php-keyword2">func_get_args</span>());
-</span><span id="46" class="l"><a class="l" href="#46">46 </a>         }
+</span><span id="39" class="l"><a class="l" href="#39">39 </a>            <span class="php-comment">/**
+</span></span><span id="40" class="l"><a class="l" href="#40">40 </a><span class="php-comment">             * Sample method for when the class parameter isn't supplied.
+</span></span><span id="41" class="l"><a class="l" href="#41">41 </a><span class="php-comment">             *
+</span></span><span id="42" class="l"><a class="l" href="#42">42 </a><span class="php-comment">             * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="43" class="l"><a class="l" href="#43">43 </a><span class="php-comment">             */</span>
+</span><span id="44" class="l"><a class="l" href="#44">44 </a>            <span class="php-keyword1">function</span> <a id="_noclass" href="#_noclass">noclass</a>() {
+</span><span id="45" class="l"><a class="l" href="#45">45 </a>                <span class="php-keyword1">echo</span> <span class="php-quote">'You\'re in the noclass method! Your routed args are '</span> . <span class="php-keyword2">implode</span>(<span class="php-quote">', '</span>, <span class="php-keyword2">func_get_args</span>());
+</span><span id="46" class="l"><a class="l" href="#46">46 </a>            }
 </span><span id="47" class="l"><a class="l" href="#47">47 </a>
-</span><span id="48" class="l"><a class="l" href="#48">48 </a>         <span class="php-comment">/**
-</span></span><span id="49" class="l"><a class="l" href="#49">49 </a><span class="php-comment">          * Sample method for the final route test
-</span></span><span id="50" class="l"><a class="l" href="#50">50 </a><span class="php-comment">          *
-</span></span><span id="51" class="l"><a class="l" href="#51">51 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="52" class="l"><a class="l" href="#52">52 </a><span class="php-comment">          */</span>
-</span><span id="53" class="l"><a class="l" href="#53">53 </a>         <span class="php-keyword1">function</span> <a id="_noparam" href="#_noparam">noparam</a>() {
-</span><span id="54" class="l"><a class="l" href="#54">54 </a>            <span class="php-keyword1">echo</span> <span class="php-quote">'You\'re in the no-param method!'</span>;
-</span><span id="55" class="l"><a class="l" href="#55">55 </a>         }
+</span><span id="48" class="l"><a class="l" href="#48">48 </a>            <span class="php-comment">/**
+</span></span><span id="49" class="l"><a class="l" href="#49">49 </a><span class="php-comment">             * Sample method for the final route test
+</span></span><span id="50" class="l"><a class="l" href="#50">50 </a><span class="php-comment">             *
+</span></span><span id="51" class="l"><a class="l" href="#51">51 </a><span class="php-comment">             * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="52" class="l"><a class="l" href="#52">52 </a><span class="php-comment">             */</span>
+</span><span id="53" class="l"><a class="l" href="#53">53 </a>            <span class="php-keyword1">function</span> <a id="_noparam" href="#_noparam">noparam</a>() {
+</span><span id="54" class="l"><a class="l" href="#54">54 </a>                <span class="php-keyword1">echo</span> <span class="php-quote">'You\'re in the no-param method!'</span>;
+</span><span id="55" class="l"><a class="l" href="#55">55 </a>            }
 </span><span id="56" class="l"><a class="l" href="#56">56 </a>
-</span><span id="57" class="l"><a class="l" href="#57">57 </a>         <span class="php-comment">/**
-</span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment">          * Sample method for showing parameters
-</span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment">          *
-</span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment">          * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment">          */</span>
-</span><span id="62" class="l"><a class="l" href="#62">62 </a>         <span class="php-keyword1">function</span> <a id="_paramed" href="#_paramed">paramed</a>() {
-</span><span id="63" class="l"><a class="l" href="#63">63 </a>            <span class="php-var">$vars</span> = <span class="php-keyword2">func_get_args</span>();
-</span><span id="64" class="l"><a class="l" href="#64">64 </a>            <span class="php-keyword1">echo</span> <span class="php-quote">'Your path params are'</span> . (<span class="php-var">$vars</span> ? <span class="php-quote">' '</span> . <span class="php-keyword2">implode</span>(<span class="php-quote">', '</span>, <span class="php-var">$vars</span>) : <span class="php-quote">'... not set.'</span>);
-</span><span id="65" class="l"><a class="l" href="#65">65 </a>         }
-</span><span id="66" class="l"><a class="l" href="#66">66 </a>      }
-</span><span id="67" class="l"><a class="l" href="#67">67 </a>   }
+</span><span id="57" class="l"><a class="l" href="#57">57 </a>            <span class="php-comment">/**
+</span></span><span id="58" class="l"><a class="l" href="#58">58 </a><span class="php-comment">             * Sample method for showing parameters
+</span></span><span id="59" class="l"><a class="l" href="#59">59 </a><span class="php-comment">             *
+</span></span><span id="60" class="l"><a class="l" href="#60">60 </a><span class="php-comment">             * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="61" class="l"><a class="l" href="#61">61 </a><span class="php-comment">             */</span>
+</span><span id="62" class="l"><a class="l" href="#62">62 </a>            <span class="php-keyword1">function</span> <a id="_paramed" href="#_paramed">paramed</a>() {
+</span><span id="63" class="l"><a class="l" href="#63">63 </a>                <span class="php-var">$vars</span> = <span class="php-keyword2">func_get_args</span>();
+</span><span id="64" class="l"><a class="l" href="#64">64 </a>                <span class="php-keyword1">echo</span> <span class="php-quote">'Your path params are'</span> . (<span class="php-var">$vars</span> ? <span class="php-quote">' '</span> . <span class="php-keyword2">implode</span>(<span class="php-quote">', '</span>, <span class="php-var">$vars</span>) : <span class="php-quote">'... not set.'</span>);
+</span><span id="65" class="l"><a class="l" href="#65">65 </a>            }
+</span><span id="66" class="l"><a class="l" href="#66">66 </a>        }
+</span><span id="67" class="l"><a class="l" href="#67">67 </a>    }
 </span><span id="68" class="l"><a class="l" href="#68">68 </a></span></code></pre></div><div id="footer">AloFramework documentation API documentation generated by<a href="http://apigen.org">ApiGen 2.8.0</a></div></div></body></html>

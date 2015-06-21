@@ -6,6 +6,27 @@
 
     class CronTest extends \PHPUnit_Framework_TestCase {
 
+        /** @var  array */
+        private $initialCrontab;
+
+        function __construct($name = null, $data = [], $dataName = '') {
+            parent::__construct($name, $data, $dataName);
+            if (function_exists('serverIsWindows') && !serverIsWindows()) {
+                $this->initialCrontab = PhuGlobal::$cron->getCrontab();
+            }
+        }
+
+        function __destruct() {
+            if ($this->initialCrontab && function_exists('serverIsWindows') && !serverIsWindows()) {
+                PhuGlobal::$cron->clearCrontab();
+                foreach ($this->initialCrontab as $cmd) {
+                    $cmd = explode(' ', $cmd);
+                    PhuGlobal::$cron->appendCrontab($cmd[5], $cmd[0], $cmd[1], $cmd[2], $cmd[3], $cmd[4]);
+                }
+                PhuGlobal::$cron->commit();
+            }
+        }
+
         function testFunctionAvailable() {
             $this->assertTrue(function_exists('serverIsWindows'));
         }
