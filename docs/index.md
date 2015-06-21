@@ -9,7 +9,7 @@
 [![NuGET downloads](http://img.shields.io/nuget/dt/AloFramework.svg?label=NuGET%20downloads&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=Packagist%20downloads)](https://packagist.org/packages/alorel/alo-framework)
 
 
-Latest release: [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=1.1.1)](https://travis-ci.org/Alorel/alo-framework)
+Latest release: [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.0)](https://travis-ci.org/Alorel/alo-framework)
 
 Dev: [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)
 
@@ -190,7 +190,7 @@ RedisSession::init(); // or a Redis session
 MySQLSession::init(); // or a MySQL session
 ```
 
-The session managers are dependent on the **MySQL**, **RedisWrapper** and **MemcachedWrapper** respectively. These can be assigned to **Alo::\$db** or **Alo::\$cache** or passed on as a reference to the init() method. **There is no need to call session_start() as the handler does this for you**.
+The session managers are dependent on the **MySQL**, **RedisWrapper** and **MemcachedWrapper** respectively. These can be assigned to **Alo::$db** or **Alo::$cache** or passed on as a reference to the init() method. **There is no need to call session_start() as the handler does this for you**.
 
 ^[TOC](#table-of-contents)
 
