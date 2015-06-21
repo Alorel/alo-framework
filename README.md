@@ -242,7 +242,7 @@ $router->init(); //Or ->initNoCall() if you just want to initialise it, but not 
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.0-beta (pending) ##
+## 2.0-beta (2015-06-21) ##
 
 **Added features**
 

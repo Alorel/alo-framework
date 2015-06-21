@@ -1,4 +1,4 @@
-# 2.0-beta (pending) #
+# 2.0-beta (2015-06-21) #
 **Added features**
 
 * Localisation support added! See [README.md](README.md#Localisation)
