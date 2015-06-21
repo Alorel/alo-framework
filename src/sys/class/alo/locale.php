@@ -69,7 +69,7 @@
             function __construct(DB &$db = null) {
                 if ($db) {
                     $this->db = &$db;
-                } elseif (Alo::$db) {
+                } elseif (Alo::$db && Alo::$db instanceof DB) {
                     $this->db = &Alo::$db;
                 } else {
                     throw new LibraryException('Alo::$db does not have a database connection assigned.',

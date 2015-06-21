@@ -99,7 +99,7 @@
         }
 
         function falseProvider() {
-            return [[F::R_EMAIL, 'fuck@off'],
+            return [[F::R_EMAIL, 'foo@bar'],
                     [F::R_EMAIL, 'nope'],
                     [F::R_EMAIL, '1'],
                     [F::R_EMAIL, ''],
