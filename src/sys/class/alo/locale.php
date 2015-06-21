@@ -98,14 +98,18 @@
              *
              * @author Art <a.molcanovas@gmail.com>
              *
-             * @param array  $pages Pages to fetch.
-             * @param string $primaryLocale
-             * @param null   $secondaryLocale
+             * @param array  $pages           Pages to fetch.
+             * @param string $primaryLocale   The main locale - will be used as a fallback if a string is unavailable
+             *                                for the secondary locale
+             * @param string $secondaryLocale If you're fetching for the secondary locale, input it here.
              *
              * @return Locale
              */
-            function fetch(array $pages = null, $primaryLocale = ALO_LOCALE_DEFAULT, $secondaryLocale = null) {
+            function fetch(array $pages = null, $primaryLocale = null, $secondaryLocale = null) {
                 $arrGlobal = ['global'];
+                if (!$primaryLocale) {
+                    $primaryLocale = ALO_LOCALE_DEFAULT;
+                }
 
                 if (!$this->firstFetchDone) {
                     $pages                = is_array($pages) ? array_merge($arrGlobal, $pages) : $arrGlobal;
@@ -117,7 +121,7 @@
                         $pages = $arrGlobal;
                     }
 
-                    if ($secondaryLocale) {
+                    if ($secondaryLocale && $secondaryLocale !== $primaryLocale) {
                         $this->fetchTwo($pages, $primaryLocale, $secondaryLocale);
                     } else {
                         $this->fetchOne($pages, $primaryLocale);
@@ -217,6 +221,15 @@
              */
             function __get($key) {
                 return get($this->fetched[$key]);
+            }
+
+            /**
+             * Returns the fetched locale array
+             * @author Art <a.molcanovas@gmail.com>
+             * @return array
+             */
+            function getAll() {
+                return $this->fetched;
             }
         }
     }
