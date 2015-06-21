@@ -11,7 +11,7 @@ services:
   - redis-server
   - memcached
 
-before_install:
+#before_install:
 #  - composer self-update
 #  - composer install --prefer-source --no-interaction --dev
 
@@ -24,3 +24,6 @@ script: phpunit
 notifications:
   on_success: change
   on_failure: always
+
+matrix:
+  fast_finish: true
