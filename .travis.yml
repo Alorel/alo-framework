@@ -19,7 +19,7 @@ before_script:
   - phpenv config-add phpunit.cnf.ini
   - mysql -e 'create database phpunit;'
 
-script: phpunit
+script: phpunit --stderr
 
 notifications:
   on_success: change
