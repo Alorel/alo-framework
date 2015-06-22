@@ -10,7 +10,6 @@ Moved namespaces
 
 * The **Alo\Statics** namespace has been removed. All its classes are now found in the **Alo** namespace.
 
-
 # 2.0 (2015-06-21) #
 **Added features**
 
