@@ -95,7 +95,7 @@ This class is always loaded by default and contains static references to objects
 ^[TOC](#table-of-contents)
 
 ## Controllers ##
-All controllers must go under **app/controllers** (accessible via the **DIR_CONTROLLERS** method), have the **Controller** namespace and extend the class **Alo\Controller\AbstractController**. To make this easier, you can write your own Abstract controller and extend that of Alo\ from within, for example:
+All controllers must go under **app/controllers** (accessible via the **DIR_CONTROLLERS** constant), have the **Controller** namespace and extend the class **Alo\Controller\AbstractController**. To make this easier, you can write your own Abstract controller and extend that of Alo\ from within, for example:
 
 **app/class/controller/abstractcontroller.php**
 ```
