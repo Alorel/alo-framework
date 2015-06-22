@@ -37,7 +37,7 @@
 # What is this? #
 AloFramework is an incredibly lightweight and flexible MVC framework for PHP 5.4+. It has a lot of built-in functionality including but not limited to:
 
-* Memcached wrapper
+* Memcached & Redis wrappers
 * Database connection class
 * MySQL,Redis or Memcached-based session managers
 * HTML form validator
