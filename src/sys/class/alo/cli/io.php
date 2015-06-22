@@ -2,6 +2,8 @@
 
     namespace Alo\CLI;
 
+    use Alo;
+
     if (!defined('GEN_START')) {
         http_response_code(404);
     } else {
