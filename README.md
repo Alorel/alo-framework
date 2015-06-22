@@ -226,6 +226,8 @@ $router = new \Alo\Controller\Router();
 $router->init(); //Or ->initNoCall() if you just want to initialise it, but not call the relevant controller
 ```
 
+If testing sessions please use **phpunit --stderr** to the test status output does not cause header errors.
+
 ^[TOC](#table-of-contents)
 
 ----------
