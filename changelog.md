@@ -1,4 +1,4 @@
-# 2.1-alpha.1 (pending) #
+# 2.1-alpha.1 (2015-06-22) #
 
 Moved global functions
 
