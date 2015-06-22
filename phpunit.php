@@ -59,7 +59,7 @@
     Alo::$router = new \Alo\Controller\Router();
     ob_clean();
 
-    includeonceifexists(__DIR__ . '/vendor/autoload.php');
+    Alo::includeonceifexists(__DIR__ . '/vendor/autoload.php');
     error_reporting(E_ALL);
 
     /** @var array $runThisSQL The SQL in this array will be executed once the PHPUnit MySQL instance is up */
@@ -110,7 +110,7 @@
         static $locale;
     }
 
-    if (!serverIsWindows()) {
+    if (!Alo::serverIsWindows()) {
         PhuGlobal::$cron = new Cron();
     }
 

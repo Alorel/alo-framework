@@ -46,7 +46,7 @@
              * @param string $path File path.
              */
             static function openFileDefault($path) {
-                if (serverIsWindows()) {
+                if (Alo::serverIsWindows()) {
                     shell_exec('start "' . $path . '"');
                 } else {
                     shell_exec('xdg-open "' . $path . '"');

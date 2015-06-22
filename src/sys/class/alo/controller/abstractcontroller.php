@@ -2,6 +2,8 @@
 
     namespace Alo\Controller;
 
+    use Alo\Statics\Security;
+
     if (!defined('GEN_START')) {
         http_response_code(404);
     } else {
@@ -63,11 +65,12 @@
                 $controller           = \Alo::$router->getErrController();
                 $controllerNamespaced = '\Controller\\' . $controller;
 
-                includeonceifexists(DIR_APP . 'controllers' . DIRECTORY_SEPARATOR . strtolower($controller) . '.php');
+                \Alo::includeonceifexists(DIR_APP . 'controllers' . DIRECTORY_SEPARATOR . strtolower($controller) .
+                                          '.php');
 
                 if (!class_exists($controllerNamespaced, true)) {
                     http_response_code((int)$code);
-                    echo 'HTTP ' . escapeHTML($code) . '.';
+                    echo 'HTTP ' . Security::unXss($code) . '.';
                 } else {
                     \Alo::$controller = new $controllerNamespaced;
                     /** @noinspection PhpUndefinedMethodInspection */

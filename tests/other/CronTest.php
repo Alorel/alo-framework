@@ -3,21 +3,26 @@
     namespace Alo;
 
     use PhuGlobal;
+    use Alo;
 
     class CronTest extends \PHPUnit_Framework_TestCase {
 
         /** @var  array */
         private $initialCrontab;
 
+        /** @var bool */
+        private $available;
+
         function __construct($name = null, $data = [], $dataName = '') {
             parent::__construct($name, $data, $dataName);
-            if (function_exists('serverIsWindows') && !serverIsWindows()) {
+            $this->available = method_exists('Alo', 'serverIsWindows') && !Alo::serverIsWindows();
+            if ($this->available) {
                 $this->initialCrontab = PhuGlobal::$cron->getCrontab();
             }
         }
 
         function __destruct() {
-            if ($this->initialCrontab && function_exists('serverIsWindows') && !serverIsWindows()) {
+            if ($this->initialCrontab && $this->available) {
                 PhuGlobal::$cron->clearCrontab();
                 foreach ($this->initialCrontab as $cmd) {
                     $cmd = explode(' ', $cmd);
@@ -28,11 +33,11 @@
         }
 
         function testFunctionAvailable() {
-            $this->assertTrue(function_exists('serverIsWindows'));
+            $this->assertTrue(method_exists('Alo', 'serverIsWindows'));
         }
 
         function testClear() {
-            if (!serverIsWindows()) {
+            if ($this->available) {
                 $initial = PhuGlobal::$cron->getCrontab();
 
                 PhuGlobal::$cron->appendCrontab('php foo.php');
@@ -58,7 +63,7 @@
         }
 
         function testAppend() {
-            if (!serverIsWindows()) {
+            if ($this->available) {
                 $initial = PhuGlobal::$cron->getCrontab();
 
                 PhuGlobal::$cron->clearCrontab()->commit();
@@ -85,7 +90,7 @@
         }
 
         function testAutocommitAndGetAtIndex() {
-            if (!\serverIsWindows()) {
+            if ($this->available) {
                 PhuGlobal::$cron->autocommit(true)->clearCrontab()->appendCrontab('php foo.php');
 
                 $get = PhuGlobal::$cron->reloadCrontab()->getCrontab();

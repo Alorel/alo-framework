@@ -1,3 +1,12 @@
+# 2.1-alpha.1 (pending) #
+
+Moved global functions
+
+* escapeHTML5() was removed. Use Security::unXss()
+* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static 
+methods of **Alo**.
+
+
 # 2.0 (2015-06-21) #
 **Added features**
 

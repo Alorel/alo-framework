@@ -4,6 +4,7 @@
 
     use Alo\Exception\CronException as CE;
     use Alo\Exception\OSException as OS;
+    use Alo;
     use Log;
 
     if (!defined('GEN_START')) {
@@ -207,7 +208,7 @@
              * @throws OS When the machine is running Windows
              */
             function __construct() {
-                if (\serverIsWindows()) {
+                if (\Alo::serverIsWindows()) {
                     throw new OS('Windows does not support cron!', OS::E_UNSUPPORTED);
                 } else {
                     $this->autocommit = false;

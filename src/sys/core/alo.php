@@ -147,6 +147,50 @@
                     return true;
                 }
             }
+
+            /**
+             * Performs include() only if a file exists
+             *
+             * @param string $path Path to the file
+             *
+             * @return bool true if the file exists, false if not.
+             */
+            static function includeifexists($path) {
+                if (file_exists($path)) {
+                    include $path;
+
+                    return true;
+                }
+
+                return false;
+            }
+
+            /**
+             * Performs include_once() only if a file exists
+             *
+             * @param string $path Path to the file
+             *
+             * @return bool true if the file exists, false if not.
+             */
+            static function includeonceifexists($path) {
+                if (file_exists($path)) {
+                    include_once $path;
+
+                    return true;
+                }
+
+                return false;
+            }
+
+            /**
+             * Check if the server is running Windows
+             *
+             * @author Art <a.molcanovas@gmail.com>
+             * @return bool
+             */
+            static function serverIsWindows() {
+                return substr(strtoupper(php_uname('s')), 0, 3) === 'WIN';
+            }
         }
 
         \Log::debug('Alo framework class initialised');

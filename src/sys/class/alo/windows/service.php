@@ -2,10 +2,11 @@
     namespace Alo\Windows;
 
     use Alo\Exception\OSException;
+    use Alo;
 
     if (!defined('GEN_START')) {
         http_response_code(404);
-    } elseif (!defined('PHPUNIT_RUNNING') && !serverIsWindows()) {
+    } elseif (!defined('PHPUNIT_RUNNING') && !Alo::serverIsWindows()) {
         throw new OSException('The service manager is only supported on Windows.');
     } else {
 

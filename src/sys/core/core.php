@@ -46,16 +46,6 @@
         }
 
         /**
-         * Check if the server is running Windows
-         *
-         * @author Art <a.molcanovas@gmail.com>
-         * @return bool
-         */
-        function serverIsWindows() {
-            return substr(strtoupper(php_uname('s')), 0, 3) === 'WIN';
-        }
-
-        /**
          * Returns a lite debug string of passed on variables
          *
          * @return string
@@ -117,53 +107,6 @@
         }
 
         /**
-         * Escapes sensitive characters for HTML5 output
-         *
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param string $str The input string
-         *
-         * @return string
-         */
-        function escapeHTML($str) {
-            return htmlspecialchars($str, ENT_QUOTES | ENT_HTML5);
-        }
-
-        /**
-         * Performs include() only if a file exists
-         *
-         * @param string $path Path to the file
-         *
-         * @return bool true if the file exists, false if not.
-         */
-        function includeifexists($path) {
-            if (file_exists($path)) {
-                include $path;
-
-                return true;
-            }
-
-            return false;
-        }
-
-        /**
-         * Performs include_once() only if a file exists
-         *
-         * @param string $path Path to the file
-         *
-         * @return bool true if the file exists, false if not.
-         */
-        function includeonceifexists($path) {
-            if (file_exists($path)) {
-                include_once $path;
-
-                return true;
-            }
-
-            return false;
-        }
-
-        /**
          * Triggers a PHP-level error with the level E_USER_ERROR
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -221,7 +164,7 @@
 
         require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
 
-        includeonceifexists(DIR_APP . 'core' . DIRECTORY_SEPARATOR . 'autoload.php');
+        Alo::includeonceifexists(DIR_APP . 'core' . DIRECTORY_SEPARATOR . 'autoload.php');
 
         if (!defined('PHPUNIT_RUNNING')) {
             Alo::$router = new Alo\Controller\Router();
