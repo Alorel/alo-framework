@@ -1,6 +1,6 @@
 <?php
 
-    namespace Alo\Statics;
+    namespace Alo;
 
     if (!defined('GEN_START')) {
         http_response_code(404);

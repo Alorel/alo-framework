@@ -242,6 +242,10 @@ Moved global functions
 * **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static 
 methods of **Alo**.
 
+Moved namespaces
+
+* The **Alo\Statics** namespace has been removed. All its classes are now found in the **Alo** namespace.
+
 
 
 

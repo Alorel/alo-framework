@@ -1,6 +1,6 @@
 <?php
 
-    namespace Alo\Statics;
+    namespace Alo;
 
     use Alo\Session\AbstractSession;
 

@@ -3,7 +3,7 @@
     namespace Alo\Session;
 
     use Alo;
-    use Alo\Statics\Security;
+    use Alo\Security;
     use SessionHandlerInterface;
 
     if (!defined('GEN_START')) {

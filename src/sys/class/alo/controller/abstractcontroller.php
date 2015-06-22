@@ -2,7 +2,7 @@
 
     namespace Alo\Controller;
 
-    use Alo\Statics\Security;
+    use Alo\Security;
 
     if (!defined('GEN_START')) {
         http_response_code(404);

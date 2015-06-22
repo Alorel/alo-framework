@@ -2,7 +2,6 @@
 
     namespace Alo;
 
-    use Alo\Statics\Security;
     use PHPMailer;
 
     if (!defined('GEN_START')) {

@@ -1,6 +1,6 @@
 <?php
 
-    namespace Alo\Statics;
+    namespace Alo;
 
     class FormatTest extends \PHPUnit_Framework_TestCase {
 
