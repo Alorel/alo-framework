@@ -1,3 +1,7 @@
+# 2.0.1 (2015-06-24) #
+
+Fixed a bug that would throw an error when NULL was passed on to AbstractController->loadView()
+
 # 2.0 (2015-06-21) #
 **Added features**
 
