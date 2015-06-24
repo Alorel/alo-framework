@@ -234,9 +234,18 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.0.1 (2015-06-24) ##
+## 2.1-alpha.1 (2015-06-22) ##
 
-Fixed a bug that would throw an error when NULL was passed on to AbstractController->loadView()
+Moved global functions
+
+* escapeHTML5() was removed. Use Security::unXss()
+* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static 
+methods of **Alo**.
+
+Moved namespaces
+
+* The **Alo\Statics** namespace has been removed. All its classes are now found in the **Alo** namespace.
+
 
 
 
