@@ -1,20 +1,16 @@
 <?php
 
-    namespace Alo\Session;
-
     use Alo\Db\MySQL;
-    use PhuGlobal;
+    use Alo\Session\MySQLSession;
 
     ob_start();
 
-    class MySQLSessionTest extends \PHPUnit_Framework_TestCase {
+    class MySQLSessionTest extends AbstractSessionTest {
 
-        /**
-         * @dataProvider definedProvider
-         */
-        function testDefined($key) {
-            $this->assertTrue(defined($key), $key . ' wasn\'t defined');
-            ob_flush();
+        function __construct($name = null, $data = [], $dataName = '') {
+            parent::__construct($name, $data, $dataName);
+            $this->wrapper = &PhuGlobal::$mysql;
+            $this->handler = 'Alo\Db\MySQL';
         }
 
         function definedProvider() {

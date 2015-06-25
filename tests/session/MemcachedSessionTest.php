@@ -1,19 +1,14 @@
 <?php
 
-    namespace Alo\Session;
-
-    use Alo\Cache\MemcachedWrapper;
-    use PhuGlobal;
-
     ob_start();
 
-    class MemcachedSessionTest extends \PHPUnit_Framework_TestCase {
+    class MemcachedSessionTest extends AbstractSessionTest {
 
-        /**
-         * @dataProvider definedProvider
-         */
-        function testDefined($key) {
-            $this->assertTrue(defined($key), $key . ' wasn\'t defined');
+        function __construct($name = null, $data = [], $dataName = '') {
+            parent::__construct($name, $data, $dataName);
+            $this->wrapper = &PhuGlobal::$mcWrapper;
+            $this->handler = 'Alo\Session\MemcachedSession';
+            $this->prefix  = defined('ALO_SESSION_MC_PREFIX') ? ALO_SESSION_MC_PREFIX : '';
         }
 
         function definedProvider() {
@@ -24,26 +19,5 @@
                     ['ALO_SESSION_MC_PREFIX'],
                     ['ALO_SESSION_TABLE_NAME'],
                     ['ALO_SESSION_SECURE']];
-        }
-
-        function testSave() {
-            MemcachedSession::destroySafely();
-            MemcachedSession::init(PhuGlobal::$mcWrapper);
-
-            $_SESSION['foo'] = 'bar';
-            $id              = session_id();
-            session_write_close();
-
-            sleep(1);
-
-            $sessFetched = PhuGlobal::$mcWrapper->get(ALO_SESSION_MC_PREFIX . $id);
-
-            $this->assertNotEmpty($sessFetched, _unit_dump(['id'           => $id,
-                                                            'fetched'      => $sessFetched,
-                                                            'all'          => PhuGlobal::$mcWrapper->getAll(),
-                                                            'is_available' => MemcachedWrapper::isAvailable()]));
-
-            $this->assertTrue(stripos($sessFetched, 'foo') !== false, '"foo" not found in session data');
-            $this->assertTrue(stripos($sessFetched, 'bar') !== false, '"bar" not found in session data');
         }
     }

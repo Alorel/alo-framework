@@ -1,9 +1,3 @@
 <?php
 
-    use Alo\Cache\RedisWrapper;
-
-    $r = new RedisWrapper();
-
-    foreach ($r as $k => $v) {
-        echo debug($k, $v);
-    }
+    echo debug(is_callable('Alo\Session\MemcachedSession::init'));

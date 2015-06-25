@@ -124,3 +124,6 @@
     }
 
     PhuGlobal::$locale = new Locale(PhuGlobal::$mysql);
+
+    include_once 'tests/abstractcachetest.php';
+    include_once 'tests/abstractsessiontest.php';
