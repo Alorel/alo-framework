@@ -140,9 +140,7 @@
              */
             protected static function doWrite($msg, $level, $trace = null) {
                 $filepath = DIR_APP . 'logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '.log';
-                ob_start();
-                $fp = fopen($filepath, 'ab');
-                ob_end_clean();
+                $fp       = fopen($filepath, 'ab');
 
                 if (!$fp) {
                     return false;
@@ -170,9 +168,7 @@
                     flock($fp, LOCK_UN);
                     fclose($fp);
 
-                    ob_start();
-                    chmod($filepath, '0666');
-                    ob_end_clean();
+                    @chmod($filepath, '0666');
 
                     return true;
                 }

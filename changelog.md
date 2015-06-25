@@ -6,6 +6,7 @@ Added items
 example, recursively remove duplicate values from an array.
 * All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
 * Alo\Locale now extends Alo\Traversables\SmartObj
+* Fixed bugs from alpha.1 where old references to includeonceifexists() and escapeHTML5() were still in the code
 
 # 2.1-alpha.1 (2015-06-22) #
 

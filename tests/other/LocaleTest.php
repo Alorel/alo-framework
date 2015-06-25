@@ -1,7 +1,5 @@
 <?php
 
-    use Alo\Locale;
-
     class LocaleTest extends PHPUnit_Framework_TestCase {
 
         function testDefined() {

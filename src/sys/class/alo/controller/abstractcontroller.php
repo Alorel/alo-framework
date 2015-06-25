@@ -2,6 +2,9 @@
 
     namespace Alo\Controller;
 
+    use Alo;
+    use Alo\Security;
+
     if (!defined('GEN_START')) {
         http_response_code(404);
     } else {
@@ -60,18 +63,19 @@
                 $this->echoOnDestruct = true;
                 ob_clean();
 
-                $controller           = \Alo::$router->getErrController();
+                $controller           = Alo::$router->getErrController();
                 $controllerNamespaced = '\Controller\\' . $controller;
 
-                includeonceifexists(DIR_APP . 'controllers' . DIRECTORY_SEPARATOR . strtolower($controller) . '.php');
+                Alo::includeonceifexists(DIR_APP . 'controllers' . DIRECTORY_SEPARATOR . strtolower($controller) .
+                                         '.php');
 
                 if (!class_exists($controllerNamespaced, true)) {
                     http_response_code((int)$code);
-                    echo 'HTTP ' . escapeHTML($code) . '.';
+                    echo 'HTTP ' . Security::unXss($code) . '.';
                 } else {
-                    \Alo::$controller = new $controllerNamespaced;
+                    Alo::$controller = new $controllerNamespaced;
                     /** @noinspection PhpUndefinedMethodInspection */
-                    \Alo::$controller->error($code);
+                    Alo::$controller->error($code);
                     ob_flush();
                     $this->echoOnDestruct = false;
                 }
@@ -86,7 +90,7 @@
                 if ($this->echoOnDestruct) {
                     $ob = ob_get_clean();
 
-                    if (\Alo::$router->isCliRequest()) {
+                    if (Alo::$router->isCliRequest()) {
                         $ob = strip_tags($ob);
                     }
 
