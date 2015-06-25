@@ -1,4 +1,4 @@
-# 2.1-alpha.2 (pending) #
+# 2.1-alpha.2 (2015-06-25) #
 
 Added items
 

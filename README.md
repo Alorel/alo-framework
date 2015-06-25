@@ -233,7 +233,7 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.1-alpha.2 (pending) ##
+## 2.1-alpha.2 (2015-06-25) ##
 
 Added items
 
