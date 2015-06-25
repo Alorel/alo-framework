@@ -1,3 +1,12 @@
+# 2.1-alpha.2 (pending) #
+
+Added items
+
+* Alo\Traversables\SmartObj added. The class currently hasn't got much functionality, but can be used to, for 
+example, recursively remove duplicate values from an array.
+* All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
+* Alo\Locale now extends Alo\Traversables\SmartObj
+
 # 2.1-alpha.1 (2015-06-22) #
 
 Moved global functions
@@ -9,7 +18,6 @@ methods of **Alo**.
 Moved namespaces
 
 * The **Alo\Statics** namespace has been removed. All its classes are now found in the **Alo** namespace.
-
 
 # 2.0.1 (2015-06-24) #
 

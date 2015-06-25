@@ -233,18 +233,14 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.1-alpha.1 (2015-06-22) ##
+## 2.1-alpha.2 (pending) ##
 
-Moved global functions
+Added items
 
-* escapeHTML5() was removed. Use Security::unXss()
-* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static 
-methods of **Alo**.
-
-Moved namespaces
-
-* The **Alo\Statics** namespace has been removed. All its classes are now found in the **Alo** namespace.
-
+* Alo\Traversables\SmartObj added. The class currently hasn't got much functionality, but can be used to, for 
+example, recursively remove duplicate values from an array.
+* All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
+* Alo\Locale now extends Alo\Traversables\SmartObj
 
 
 

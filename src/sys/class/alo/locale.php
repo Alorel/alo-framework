@@ -5,6 +5,7 @@
     use Alo;
     use Alo\Db\AbstractDb as DB;
     use Alo\Exception\LibraryException;
+    use Alo\Traversables\SmartObj;
 
     if (!defined('GEN_START')) {
         http_response_code(404);
@@ -17,7 +18,7 @@
          *
          * @author     Arturas Molcanovas <a.molcanovas@gmail.com>
          */
-        class Locale {
+        class Locale extends SmartObj {
 
             /**
              * Static reference to the last instance of this class
@@ -25,6 +26,7 @@
              * @var Locale
              */
             static $this;
+
             /**
              * prepQuery settings
              *
@@ -32,24 +34,21 @@
              */
             protected static $querySettings = [DB::V_CACHE => true,
                                                DB::V_TIME  => ALO_LOCALE_CACHE_TIME];
+
             /**
              * Reference to the database connection
              *
              * @var DB
              */
             protected $db;
-            /**
-             * Fetched items
-             *
-             * @var array
-             */
-            protected $fetched = [];
+
             /**
              * Raw fetched array
              *
              * @var array
              */
             protected $raw;
+
             /**
              * Whether the initial fetch has been done
              *
@@ -76,6 +75,7 @@
                                                LibraryException::E_REQUIRED_LIB_NOT_FOUND);
                 }
 
+                parent::__construct();
                 self::$this = &$this;
             }
 
@@ -171,8 +171,8 @@
              *
              * @author Art <a.molcanovas@gmail.com>
              *
-             * @param array    $pages  pages to fetch
-             * @param   string $locale Locale to fetch
+             * @param array  $pages  pages to fetch
+             * @param string $locale Locale to fetch
              */
             protected function fetchOne(array $pages, $locale) {
                 $params = [':first' => $locale];
@@ -203,24 +203,11 @@
             protected function formatRaw() {
                 if ($this->raw) {
                     foreach ($this->raw as $row) {
-                        $this->fetched[$row['key']] = $row['value'];
+                        $this->data[$row['key']] = $row['value'];
                     }
                 }
 
                 return $this;
-            }
-
-            /**
-             * Returns a localised string
-             *
-             * @author Art <a.molcanovas@gmail.com>
-             *
-             * @param string $key String key
-             *
-             * @return string|null
-             */
-            function __get($key) {
-                return get($this->fetched[$key]);
             }
 
             /**
@@ -229,7 +216,7 @@
              * @return array
              */
             function getAll() {
-                return $this->fetched;
+                return $this->data;
             }
         }
     }

@@ -1,19 +1,9 @@
 <?php
 
-    class Foo implements IteratorAggregate {
+    use Alo\Cache\RedisWrapper;
 
-        private $data = ['foo' => 'bar'];
+    $r = new RedisWrapper();
 
-        public function getIterator() {
-            return new ArrayIterator($this->data);
-        }
+    foreach ($r as $k => $v) {
+        echo debug($k, $v);
     }
-
-    $f = new Foo();
-
-    foreach ($f as $k => $v) {
-        echo $k . '=>' . $v . '<br/>';
-    }
-
-    $a = (array)$f;
-    echo debug($a);

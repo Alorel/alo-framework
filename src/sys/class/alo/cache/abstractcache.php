@@ -3,6 +3,10 @@
     namespace Alo\Cache;
 
     use Alo;
+    use Countable;
+    use ArrayAccess;
+    use IteratorAggregate;
+    use ArrayIterator;
 
     if (!defined('GEN_START')) {
         http_response_code(404);
@@ -13,7 +17,7 @@
          * @author  Art <a.molcanovas@gmail.com>
          * @package Cache
          */
-        abstract class AbstractCache {
+        abstract class AbstractCache implements Countable, ArrayAccess, IteratorAggregate {
 
             /**
              * Static reference to the last instance of the class
@@ -21,12 +25,14 @@
              * @var AbstractCache
              */
             static $this;
+
             /**
              * Classes to check in "isAvailable()"
              *
              * @var array
              */
             private static $classes = ['Memcache', 'Memcached', 'Redis'];
+
             /**
              * The abstract client
              *
@@ -45,6 +51,65 @@
                 }
 
                 self::$this = &$this;
+            }
+
+            /**
+             * Returns an iterator for a "foreach" loop
+             * @author Art <a.molcanovas@gmail.com>
+             * @return ArrayIterator
+             */
+            function getIterator() {
+                $all = $this->getAll();
+
+                return new ArrayIterator(is_array($all) ? $all : []);
+            }
+
+            /**
+             * Sets a value
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $key   The key to set
+             * @param mixed  $value The value to set
+             */
+            function offsetSet($key, $value) {
+                if ($key === null) {
+                    $key = microtime(true);
+                }
+
+                $this->set($key, $value);
+            }
+
+            /**
+             * Checks if a key exists
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $key The key to look for
+             *
+             * @return bool
+             */
+            function offsetExists($key) {
+                return $this->get($key) !== null;
+            }
+
+            /**
+             * Deletes a key
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $key The key
+             */
+            function offsetUnset($key) {
+                $this->delete($key);
+            }
+
+            /**
+             * Returns the number of cached items
+             * @author Art <a.molcanovas@gmail.com>
+             * @return int
+             */
+            function count() {
+                $ga = $this->getAll();
+
+                return count($ga);
             }
 
             /**
@@ -138,7 +203,7 @@
              * @return bool
              */
             function __isset($key) {
-                return $this->get($key) ? true : false;
+                return $this->offsetExists($key);
             }
 
             /**
@@ -150,6 +215,18 @@
              */
             function __unset($key) {
                 $this->delete($key);
+            }
+
+            /**
+             * Gets a cached item
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $key The key
+             *
+             * @return mixed
+             */
+            function offsetGet($key) {
+                return $this->get($key);
             }
 
             /**
