@@ -1,3 +1,8 @@
+# 2.1-alpha3 (pending) #
+
+* ArrayObj, a more abstract version of SmartObj, was created. Locale now extends it instead.
+* SmartObj now has a deleteWithRegex() method
+
 # 2.1-alpha.2 (2015-06-25) #
 
 Added items

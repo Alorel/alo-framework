@@ -5,7 +5,7 @@
     use Alo;
     use Alo\Db\AbstractDb as DB;
     use Alo\Exception\LibraryException;
-    use Alo\Traversables\SmartObj;
+    use Alo\Traversables\ArrayObj;
 
     if (!defined('GEN_START')) {
         http_response_code(404);
@@ -18,7 +18,7 @@
          *
          * @author     Arturas Molcanovas <a.molcanovas@gmail.com>
          */
-        class Locale extends SmartObj {
+        class Locale extends ArrayObj {
 
             /**
              * Static reference to the last instance of this class

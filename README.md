@@ -233,15 +233,10 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.1-alpha.2 (2015-06-25) ##
+## 2.1-alpha3 (pending) ##
 
-Added items
-
-* Alo\Traversables\SmartObj added. The class currently hasn't got much functionality, but can be used to, for 
-example, recursively remove duplicate values from an array.
-* All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
-* Alo\Locale now extends Alo\Traversables\SmartObj and therefore can be used as an array in many scenarios.
-* Fixed bugs from alpha.1 where old references to includeonceifexists() and escapeHTML5() were still in the code
+* ArrayObj, a more abstract version of SmartObj, was created. Locale now extends it instead.
+* SmartObj now has a deleteWithRegex() method
 
 
 
