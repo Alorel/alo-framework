@@ -14,6 +14,7 @@ example, recursively remove duplicate values from an array.
 * All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
 * Alo\Locale now extends Alo\Traversables\SmartObj and therefore can be used as an array in many scenarios.
 * Fixed bugs from alpha.1 where old references to includeonceifexists() and escapeHTML5() were still in the code
+* Added Alo\Db\Resultset - can be used to manipulate a SQL resultset array
 
 # 2.1-alpha.1 (2015-06-22) #
 
