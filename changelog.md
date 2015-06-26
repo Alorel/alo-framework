@@ -2,6 +2,8 @@
 
 * ArrayObj, a more abstract version of SmartObj, was created. Locale now extends it instead.
 * SmartObj now has a deleteWithRegex() method
+* Alo\Db\Resultset class added. It extends ArrayObj and can be used to manipulate a SQL resultset (or any array of 
+associative arrays)
 
 # 2.1-alpha.2 (2015-06-25) #
 

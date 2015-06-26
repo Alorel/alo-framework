@@ -33,8 +33,6 @@
             $id              = session_id();
             session_write_close();
 
-            sleep(1);
-
             $sessFetched = $this->wrapper->get($this->prefix . $id);
 
             $this->assertNotEmpty($sessFetched, _unit_dump(['id'           => $id,

@@ -1,14 +1,20 @@
 <?php
 
-    use Alo\Traversables\SmartObj;
+    use Alo\Db\Resultset;
 
-    $a = ['d_foo' => 1,
-          'd_bar' => 3,
-          'foo'   => ['d_qux' => 2,
-                      'derp'  => 1]];
+    $r = [];
+    for ($i = 0; $i < 10; $i++) {
+        $r[] = ['foo' => $i,
+                'bar' => $i * -1];
+    }
 
-    $s = new SmartObj($a);
-    echo debug($a, $s->deleteWithKeyRegex('~^d\_~', true, true)->toArray());
+    $spec = ['foo' => [Resultset::MOD_GT, 5],
+             'bar' => [Resultset::MOD_GET, -8]];
+
+    $set = new Resultset($r);
+
+    $set->deleteWhere($spec);
+    echo debug($r, $spec, $set->toArray());
 ?>
 <!--<div>I am the sample view. If you pass me the variable 'foo' I will display its value here:<span style="font-weight:bold">--><? //= isset($foo) ? $foo : '' ?>use Alo\Cache\RedisWrapper;<!--</span></div>-->
 <!--<div>The sample router config file should contain the following:<pre>-->

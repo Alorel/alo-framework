@@ -32,8 +32,6 @@
 
             session_write_close();
 
-            sleep(1);
-
             $sql         = 'SELECT `data` FROM `alo_session` WHERE `id`=?';
             $sqlParams   = [$id];
             $sessFetched = PhuGlobal::$mysql->prepQuery($sql, $sqlParams, [mySQL::V_CACHE => false]);

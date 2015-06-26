@@ -86,7 +86,15 @@
 	UNIQUE KEY `lang_page_key` (`lang`, `page`, `key`)
 )
 	ENGINE = InnoDB
-	DEFAULT CHARSET = `utf8mb4`;'];
+	DEFAULT CHARSET = `utf8mb4`;',
+                   'TRUNCATE TABLE alo_locale;',
+                   'TRUNCATE TABLE alo_session;',
+                   "INSERT INTO alo_locale(`lang`,`page`,`key`,`value`) VALUES
+('en','global','glob_one','one'),
+('en','global','glob_two','two'),
+('en','local','loc_three','three'),
+('en','local','loc_four','four'),
+('lt','local','loc_four','keturi')"];
 
     /**
      * Global PHPUnit container class
@@ -124,6 +132,7 @@
     }
 
     PhuGlobal::$locale = new Locale(PhuGlobal::$mysql);
+    PhuGlobal::$locale->fetch(['local'], 'en', 'lt');
 
     include_once 'tests/abstractcachetest.php';
     include_once 'tests/abstractsessiontest.php';

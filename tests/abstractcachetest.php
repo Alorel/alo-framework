@@ -61,4 +61,16 @@
 
             $this->assertEquals(['aloframework' => 'just works'], $getall, _unit_dump($getall));
         }
+
+        function testSetArray() {
+            $setkey                 = md5(microtime(true) . mt_rand(PHP_INT_MIN, PHP_INT_MAX));
+            $this->wrapper[$setkey] = 1;
+            $this->assertNotEmpty($this->wrapper->get($setkey));
+        }
+
+        function testGetArray() {
+            $setkey = md5(microtime(true) . mt_rand(PHP_INT_MIN, PHP_INT_MAX));
+            $this->wrapper->set($setkey, 1);
+            $this->assertNotEmpty($this->wrapper[$setkey]);
+        }
     }
