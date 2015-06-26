@@ -2,7 +2,6 @@
 
     namespace Alo\Db;
 
-    use Alo\Security;
     use Alo\Traversables\ArrayObj;
 
     if (!defined('GEN_START')) {
@@ -468,8 +467,8 @@
             function toInsertStatement($tableName, $insertType = 'INSERT', $withBoundParams = true) {
                 $insertType = strtoupper($insertType);
                 if (!empty($this->data) && ($insertType == 'INSERT' || $insertType == 'REPLACE')) {
-                    $sql = $insertType . ' INTO `' . $tableName . '`(`' . implode('`,`', array_keys($this->data[0])) . '`)
-                         VALUES';
+                    $sql = $insertType . ' INTO `' . $tableName . '`(`' . implode('`,`', array_keys($this->data[0])) .
+                           '`) VALUES';
                     if ($withBoundParams) {
                         $params = [];
 

@@ -26,7 +26,7 @@
 
         function testDeleteInverse() {
             $this->reloadObj();
-            $this->obj->deleteWithKeyRegex('~^foo', true, true);
+            $this->obj->deleteWithKeyRegex('~^foo~', true, true);
 
             $this->assertEquals(['foo_1' => 1,
                                  'foo_2' => ['foo_3' => 1]], $this->obj->toArray());

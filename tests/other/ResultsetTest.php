@@ -24,10 +24,16 @@
             $resultset = new Resultset([['foo' => 'bar', 'bar' => 'foo'],
                                         ['foo' => 3, 'bar' => '']]);
 
-            $simpleExpect = 'INSERT INTO `phu`(`foo`,`bar`)
-                                 VALUES(\'bar\',\'foo\'),(3,NULL)';
+            $simpleExpect = 'INSERT INTO `phu`(`foo`,`bar`) VALUES(\'bar\',\'foo\'),(3,NULL)';
+            $advExpect    = ['REPLACE INTO `phu2`(`foo`,`bar`) VALUES(:r0cfoo,:r0cbar),(:r1cfoo,:r1cbar)',
+                             [':r0cfoo' => 'bar',
+                              ':r0cbar' => 'foo',
+                              ':r1cfoo' => 3,
+                              ':r1cbar' => '']];
 
             $this->assertEquals($simpleExpect, $resultset->toInsertStatement('phu', 'INSERT', false));
+            $this->assertEquals($advExpect, $resultset->toInsertStatement('phu2', 'REPLACE', true));
+
         }
 
         function testConstruct() {
