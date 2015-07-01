@@ -2,6 +2,8 @@
 
     namespace Alo;
 
+    use Exception;
+
     if (!defined('GEN_START')) {
         http_response_code(404);
     } else {
@@ -28,9 +30,7 @@
             protected static function injectCss() {
                 if (!self::$cssInjected) {
                     self::$cssInjected = true;
-                    echo '<style>';
                     include DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'error.css.php';
-                    echo '</style>';
                 }
             }
 
@@ -46,41 +46,53 @@
              */
             static function error($errno, $errstr, $errfile, $errline) {
                 self::injectCss();
-                $type = $errno;
+                $type = $label = $errno;
 
                 switch ($errno) {
                     case E_NOTICE:
                     case E_USER_NOTICE:
-                        $type = 'NOTICE';
+                        $type  = 'NOTICE';
+                        $label = 'info';
                         break;
                     case E_ERROR:
                     case E_USER_ERROR:
                     case E_COMPILE_ERROR:
                     case E_RECOVERABLE_ERROR:
                     case E_CORE_ERROR:
-                        $type = 'ERROR';
+                        $type  = 'ERROR';
+                        $label = 'danger';
                         break;
                     case E_WARNING:
                     case E_USER_WARNING:
                     case E_CORE_WARNING:
-                        $type = 'WARNING';
+                        $type  = 'WARNING';
+                        $label = 'warning';
                         break;
                 }
 
                 $f = explode(DIR_INDEX, $errfile);
                 $f = isset($f[1]) ? $f[1] : $f[0];
 
-                echo '<div class="alo-error-wrapper">' . '<div class="alo-error-container">' .
-                     '<div class="alo-error-type alo-bold">' . $type . ' : ' . $errstr . '</div>' .
-                     '<div>Raised in <span class="alo-bold">' . $f . ': ' . $errline . '</span></div>' .
-                     '<div>Backtrace:</div>';
+                echo '<div style="text-align:center">' //BEGIN outer container
+                     . '<div class="alo-err alert alert-' . $label . '">' //BEGIN inner container
+                     . '<div>' //BEGIN header
+                     . '<span
+class="alo-bold">' . $type . ': ' . '</span><span>' . $errstr . '</span></div>'//END header
+                     . '<div><span class="alo-bold">Raised in </span>' . '<span class="alo-uline">' . $f . '</span>';
+
+                if ($errline) {
+                    echo '<span> @ line </span><span class="alo-uline">' . $errline . '</span>';
+                }
+
+                echo '</div><span class="alo-bold">Backtrace:</span>';
 
                 $trace = array_reverse(debug_backtrace());
                 array_pop($trace);
 
                 self::echoTrace($trace);
 
-                echo '</div>' . '</div>';
+                echo '</div>'//END inner
+                     . '</div>'; //END outer
 
                 $trace = \debug_backtrace();
                 array_shift($trace);
@@ -117,9 +129,10 @@
              * @param null|\Exception $e The previous exception
              */
             protected static function echoPreviousExceptions($e) {
-                if ($e instanceof \Exception) {
-                    echo '<div></div>Preceded by <span style="font-weight: bold">' . $e->getCode() . ': ' .
-                         $e->getMessage() . ' @ ' . $e->getFile() . '\'s line ' . $e->getLine() . '.</span>';
+                if ($e instanceof Exception) {
+                    echo '<div><span class="alo-bold">Preceded by </span><span>[' . $e->getCode() . ']: ' .
+                         $e->getMessage() . ' @ <span class="alo-uline">' . $e->getFile() . '</span>\'s line ' .
+                         $e->getLine() . '.</span></div>';
 
                     self::echoPreviousExceptions($e->getPrevious());
                 }
@@ -133,9 +146,17 @@
              * @param array $trace The backtrace
              */
             protected static function echoTrace($trace) {
-                echo '<table cellpadding="2" border="1" class="alo-trace-table">' . '<thead>' . '<tr>' . '<th>#</th>' .
-                     '<th>Function</th>' . '<th>Args</th>' . '<th>Location</th>' . '<th>Line</th>' . '</tr>' .
-                     '</thead>' . '<tbody>';
+                echo '<table class="table" border="1" style="border-color:#ddd">'//BEGIN table
+                     . '<thead>'//BEGIN head
+                     . '<tr>'//BEGIN head row
+                     . '<th>#</th>'//Trace number
+                     . '<th>Method</th>'//Method used
+                     . '<th>Args</th>'//Method args
+                     . '<th>Location</th>'//File
+                     . '<th>Line</th>'//Line of code
+                     . '</tr>'//END head row
+                     . '</thead>'//END head
+                     . '<tbody>'; //BEGIN table
 
                 foreach ($trace as $k => $v) {
                     $func = $loc = $line = '';
@@ -154,16 +175,24 @@
                     }
 
                     if (isset($v['file'])) {
-                        $loc = \get(explode(DIR_INDEX, $v['file'])[1]);
+                        $loc = get(explode(DIR_INDEX, $v['file'])[1]);
                     }
                     if (isset($v['line'])) {
                         $line .= $v['line'];
                     }
 
-                    echo '<tr>' . '<td>' . $k . '</td>' . '<td>' . $func . '</td>' . '<td style="text-align:left">' .
-                         (isset($v['args']) && $v['args'] ?
-                             '<pre>' . preg_replace("/\n(\s*)(\t*)\(/i", "$1$2(", print_r($v['args'], true)) .
-                             '</pre>' : '') . '</td>' . '<td>' . $loc . '</td>' . '<td>' . $line . '</td>' . '</tr>';
+                    echo '<tr>' //BEGIN row
+                         . '<td>' . $k . '</td>' //Trace #
+                         . '<td>' . $func . '</td>' //Method used
+                         . '<td>' . //BEGIN args
+                         (get($v['args']) ? debugLite($v['args']) : '<span class="label label-default">NONE</span>') .
+                         '</td>' //END args
+                         . '<td>' //BEGIN location
+                         . ($loc ? $loc : '<span class="label label-default">???</span>') . '</td>'//END location
+                         . '<td>'//BEGIN line
+                         . ($line || $line == '0' ? $line : '<span class="label label-default">???</span>') . '</td>'
+                         //END line
+                         . '</tr>';
                 }
 
                 echo '</tbody>' . '</table>';
@@ -178,26 +207,24 @@
              */
             static function ecxeption(\Exception $e) {
                 self::injectCss();
-                $msg   = $e->getMessage();
-                $trace = $e->getTrace();
-                array_pop($trace);
 
-                echo '<div class="alo-error-wrapper">' . '<div class="alo-error-container">' .
-                     '<div class="alo-error-type alo-bold">' . '[' . $e->getCode() . '] uncaught exception: ' .
-                     $e->getMessage();
+                echo '<div style="text-align:center">' //BEGIN outer container
+                     . '<div class="alo-err alert alert-danger">'//BEGIN inner container
+                     . '<div>'//BEGIN header
+                     . '<span class="alo-bold">Uncaught exception: </span><span>' . $e->getMessage() . '</span></div>'
+                     //END header
+                     //BEGIN raised
+                     . '<div><span class="alo-bold">Raised in </span><span class="alo-uline">' . $e->getFile() .
+                     '</span> @ line ' . $e->getLine() . '</div>' . '<div><span class="alo-bold">Code: </span><span>' .
+                     $e->getCode() . '</span></div>';
 
                 self::echoPreviousExceptions($e->getPrevious());
 
-                echo '</div>' . '<div>Raised in <span class="alo-bold">' . $e->getFile() . ': ' . $e->getLine() .
-                     '</span></div>' . '<div>Backtrace:</div>';
+                echo '<span class="alo-bold">Backtrace:</span>';
 
-                self::echoTrace($trace);
+                self::echoTrace($e->getTrace());
 
-                echo '</div>' . '</div>';
-
-                $trace = $e->getTrace();
-                array_shift($trace);
-                \Log::error($msg, $trace);
+                echo '</div></div>'; //END inner/outer
             }
         }
     }

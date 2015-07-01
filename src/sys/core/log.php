@@ -168,8 +168,6 @@
                     flock($fp, LOCK_UN);
                     fclose($fp);
 
-                    @chmod($filepath, '0666');
-
                     return true;
                 }
             }
