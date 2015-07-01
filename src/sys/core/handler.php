@@ -48,7 +48,8 @@
              */
             static function error($errno, $errstr, $errfile, $errline) {
                 self::injectCss();
-                $type = $label = $errno;
+                $type  = $errno;
+                $label = 'warning';
 
                 switch ($errno) {
                     case E_NOTICE:
@@ -64,18 +65,21 @@
                         $type  = 'ERROR';
                         $label = 'danger';
                         break;
+                    case E_DEPRECATED:
+                    case E_USER_DEPRECATED:
+                        $type = 'DEPRECATED';
+                        break;
                     case E_WARNING:
                     case E_USER_WARNING:
                     case E_CORE_WARNING:
-                        $type  = 'WARNING';
-                        $label = 'warning';
+                        $type = 'WARNING';
                         break;
                 }
 
                 $f = explode(DIR_INDEX, $errfile);
                 $f = isset($f[1]) ? $f[1] : $f[0];
 
-                echo '<div style="text-align:center">' //BEGIN outer container
+                echo '<div class="text-center">' //BEGIN outer container
                      . '<div class="alo-err alert alert-' . $label . '">' //BEGIN inner container
                      . '<div>' //BEGIN header
                      . '<span
@@ -148,7 +152,7 @@ class="alo-bold">' . $type . ': ' . '</span><span>' . $errstr . '</span></div>'/
              * @param array $trace The backtrace
              */
             protected static function echoTrace($trace) {
-                echo '<table class="table" border="1" style="border-color:#ddd">'//BEGIN table
+                echo '<table class="table" border="1">'//BEGIN table
                      . '<thead>'//BEGIN head
                      . '<tr>'//BEGIN head row
                      . '<th>#</th>'//Trace number
@@ -210,7 +214,7 @@ class="alo-bold">' . $type . ': ' . '</span><span>' . $errstr . '</span></div>'/
             static function ecxeption(\Exception $e) {
                 self::injectCss();
 
-                echo '<div style="text-align:center">' //BEGIN outer container
+                echo '<div class="text-center">' //BEGIN outer container
                      . '<div class="alo-err alert alert-danger">'//BEGIN inner container
                      . '<div>'//BEGIN header
                      . '<span class="alo-bold">Uncaught exception: </span><span>' . $e->getMessage() . '</span></div>'

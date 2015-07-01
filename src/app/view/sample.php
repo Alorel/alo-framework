@@ -3,10 +3,10 @@
     use Alo\Exception\FileSystemException;
 
     echo 'some content';
-    phpNotice('f off');
-    $prevpewv = new FileSystemException('bad file bro', 11);
-    $prev     = new Exception('herp', 55, $prevpewv);
-    throw new Exception('derp', 666, $prev);
+    phpNotice('a notice');
+    phpWarning('a warning');
+    phpError('an error');
+    phpDeprecated('a deprecation');
 ?>
 <div>I am the sample view. If you pass me the variable 'foo' I will display its value here:<span
         style="font-weight:bold"><?= isset($foo) ? $foo : '' ?></span></div>
