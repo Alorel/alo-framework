@@ -1,13 +1,3 @@
-<?php
-
-    use Alo\Exception\FileSystemException;
-
-    echo 'some content';
-    phpNotice('a notice');
-    phpWarning('a warning');
-    phpError('an error');
-    phpDeprecated('a deprecation');
-?>
 <div>I am the sample view. If you pass me the variable 'foo' I will display its value here:<span
         style="font-weight:bold"><?= isset($foo) ? $foo : '' ?></span></div>
 <div>The sample router config file should contain the following:<pre>

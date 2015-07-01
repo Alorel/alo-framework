@@ -1,3 +1,7 @@
+# 2.1-beta.1 (pending) #
+
+* Thrown error/exception/notice/deprecation/warning message CSS made better
+
 # 2.1-alpha.3 (2015-06-26) #
 
 * ArrayObj, a more abstract version of SmartObj, was created. Locale now extends it instead.
