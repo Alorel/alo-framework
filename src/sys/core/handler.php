@@ -30,7 +30,9 @@
             protected static function injectCss() {
                 if (!self::$cssInjected) {
                     self::$cssInjected = true;
-                    include DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'error.css.php';
+                    echo '<style>';
+                    include DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'error.css';
+                    echo '</style>';
                 }
             }
 
