@@ -1,9 +1,8 @@
 ![Logo](https://cloud.githubusercontent.com/assets/4998038/7528096/370297ba-f51b-11e4-9c26-5d01ac66fc4d.png)
 
-[![License](https://poser.pugx.org/alorel/alo-framework/license)](LICENSE) [![NuGet release](http://img.shields.io/nuget/v/AloFramework.svg?label=nuget&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![Packagist release](https://img.shields.io/packagist/v/alorel/alo-framework.svg?style=plastic&label=packagist-stable)](https://packagist.org/packages/alorel/alo-framework) [![Packagist pre-release](https://img.shields.io/packagist/vpre/alorel/alo-framework.svg?style=plastic&label=Packagist-dev)](https://packagist.org/packages/alorel/alo-framework) [![NuGET downloads](http://img.shields.io/nuget/dt/AloFramework.svg?label=nuget&style=plastic)](https://www.nuget.org/packages/AloFramework/) [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=packagist)](https://packagist.org/packages/alorel/alo-framework)
+[![License](https://poser.pugx.org/alorel/alo-framework/license)](LICENSE) [![Packagist release](https://img.shields.io/packagist/v/alorel/alo-framework.svg?style=plastic&label=stable)](https://packagist.org/packages/alorel/alo-framework) [![Packagist pre-release](https://img.shields.io/packagist/vpre/alorel/alo-framework.svg?style=plastic&label=pre-release)](https://packagist.org/packages/alorel/alo-framework) [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=packagist%20downloads)](https://packagist.org/packages/alorel/alo-framework)
 
-
-2.0.1: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.0.1)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
+2.0.2: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.0.2)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
@@ -234,9 +233,9 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.0.1 (2015-06-24) ##
+## 2.0.2 (2015-07-02) ##
 
-Fixed a bug that would throw an error when NULL was passed on to AbstractController->loadView()
+Kint updated to 1.0.6
 
 
 

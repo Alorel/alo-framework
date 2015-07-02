@@ -328,7 +328,11 @@ abstract class kintParser extends kintVariableData
 
 
 				$extendedValue .= '<tr>';
-				$output = '<td>' . ( $isSequential ? '#' . ( $rowIndex + 1 ) : $rowIndex ) . '</td>';
+				if ( $isSequential ) {
+					$output = '<td>' . '#' . ( $rowIndex + 1 )  . '</td>';
+				} else {
+					$output = self::_decorateCell( kintParser::factory( $rowIndex ) );
+				}
 				if ( $firstRow ) {
 					$extendedValue .= '<th>&nbsp;</th>';
 				}
@@ -632,21 +636,6 @@ class kintVariableData
 	 * HELPERS
 	 */
 
-	private static $_supportedCharsets = array(
-		'UTF-8',
-		'Windows-1252', # Western; includes iso-8859-1
-		'euc-jp',       # Japanese
-
-		# all other charsets cannot be differentiated by PHP and/or are not supported by mb_* functions,
-		# I need a better means of detecting the codeset, no idea how though :(
-
-		//		'iso-8859-13',  # Baltic
-		//		'windows-1251', # Cyrillic
-		//		'windows-1250', # Central European
-		//		'shift_jis',    # Japanese
-		//		'iso-2022-jp',  # Japanese
-	);
-
 	protected static function _detectEncoding( $value )
 	{
 		$ret = null;
@@ -661,7 +650,7 @@ class kintVariableData
 		}
 
 		$md5 = md5( $value );
-		foreach ( self::$_supportedCharsets as $encoding ) {
+		foreach ( Kint::$charEncodings as $encoding ) {
 			# fuck knows why, //IGNORE and //TRANSLIT still throw notice
 			if ( md5( @iconv( $encoding, $encoding, $value ) ) === $md5 ) {
 				return $encoding;
