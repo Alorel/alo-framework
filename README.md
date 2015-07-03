@@ -236,6 +236,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 ## 2.1-beta.1 (pending) ##
 
 * Thrown error/exception/notice/deprecation/warning message CSS made better
+* MySQL ORM added in Alo\Db\Query\MySQLQuery
 
 
 
