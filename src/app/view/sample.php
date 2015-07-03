@@ -26,15 +26,32 @@
    ];
    </pre>
     So let's try visiting some of the URLs to see what they do! You'll find the sample controller files under
-    app/controllers.
-    <ul><?php
+    app/controllers. The URLs will differ depending on whether you've renamed <span style="font-weight:bold">
+        .htaccess.sample</span> to <span style="font-weight:bold">
+        .htaccess</span> or not.
+    <table border="1" cellpadding="1" cellspacing="1" style="border-collapse:collapse">
+        <thead>
+        <tr>
+            <th>.htaccess.sample</th>
+            <th>.htaccess</th>
+        </tr>
+        </thead>
+        <tbody><?php
             $urls = ['/cart/checkout',
                      '/cart/checkout/',
                      '/sample-me/',
                      '/sample-me/foo',
                      '/sample-me/foo/bar/',
                      '/sample/' . urlencode('THIS IS THE VALUE I WANT HERE') . '/bar/'];
+
             foreach ($urls as $url) {
-                echo '<li><a href="' . $url . '" target="_blank">' . $url . '</a></li>';
-            } ?></ul>
+                ?>
+                <tr>
+                    <td><a href="/index.php<?= $url ?>" target="_blank">/index.php<?= $url ?></a></td>
+                    <td><a href="<?= $url ?>" target="_blank"><?= $url ?></a></td>
+                </tr>
+            <?php
+            }
+        ?></tbody>
+    </table>
 </div>

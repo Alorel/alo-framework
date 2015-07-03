@@ -2,6 +2,7 @@
 
 * Thrown error/exception/notice/deprecation/warning message CSS made better
 * MySQL ORM added in Alo\Db\Query\MySQLQuery
+* Sample view now contains a table with URLs for when .htaccess is not configured
 
 # 2.1-alpha.3 (2015-06-26) #
 

@@ -33,7 +33,8 @@
              * @param string $second The second string to echo
              */
             function echoer($first = '[not supplied]', $second = '[not supplied]') {
-                echo 'Your first param was ' . $first . ' and your second was ' . $second;
+                echo 'Your first param was <span style="font-weight:bold">' . $first . '</span> and your second was ' .
+                     '<span style="font-weight:bold">' . $second . '</span>';
             }
 
             /**
@@ -42,7 +43,8 @@
              * @author Art <a.molcanovas@gmail.com>
              */
             function noclass() {
-                echo 'You\'re in the noclass method! Your routed args are ' . implode(', ', func_get_args());
+                echo 'You\'re in the noclass method! Your routed args are <span style="font-weight:bold">' .
+                     implode(',', func_get_args()) . '</span>';
             }
 
             /**
@@ -61,7 +63,9 @@
              */
             function paramed() {
                 $vars = func_get_args();
-                echo 'Your path params are' . ($vars ? ' ' . implode(', ', $vars) : '... not set.');
+                echo 'Your path params are' .
+                     ($vars ? ' <span style="font-weight:bold">' . implode(', ', $vars) . '</span>' : '
+                ... not set.');
             }
         }
     }

@@ -237,6 +237,7 @@ See [changelog.md](changelog.md) for a full changelog of previous versions.
 
 * Thrown error/exception/notice/deprecation/warning message CSS made better
 * MySQL ORM added in Alo\Db\Query\MySQLQuery
+* Sample view now contains a table with URLs for when .htaccess is not configured
 
 
 
