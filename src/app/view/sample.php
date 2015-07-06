@@ -1,3 +1,25 @@
+<?php
+
+    use Alo\Db\MySQL;
+    use Alo\Db\Query\MySQLQuery;
+
+    $db  = new MySQL();
+    $sql = new MySQLQuery($db);
+    $sql->select(['foo', 'bar', '`qux`'])
+        ->from('footable')
+        ->innerJoin('bartable', '`bartable`.`id`=`footable`.`id`')
+        ->andWhere('foo', '>', 5, false)
+        ->andWhere('`foo`', '<=', 10, false)
+        ->whereBracketOpen()
+        ->andWhere('bar', '!=', 4, false)
+        ->orWhere('qux', '=', 'val', false)
+        ->whereBracketClose()
+        ->orWhere('lastCol', '>=', 111, false)
+        ->limit(5, 4);
+
+    echo debug($sql, $sql->getBinds(), $sql->getSQL());
+
+?>
 <div>I am the sample view. If you pass me the variable 'foo' I will display its value here:<span
         style="font-weight:bold"><?= isset($foo) ? $foo : '' ?></span></div>
 <div>The sample router config file should contain the following:<pre>
