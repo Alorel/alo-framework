@@ -56,7 +56,13 @@
                 } elseif (!$this->from) {
                     throw new ORMEx('No source table', ORMEx::E_INVALID_QUERY);
                 } else {
-                    $sql .= 'SELECT ' . implode(',', $this->select) . ' FROM ' . $this->from;
+                    $sql .= 'SELECT ';
+
+                    foreach ($this->select as $i) {
+                        $sql .= $i . ',';
+                    }
+
+                    $sql = rtrim($sql, ',') . ' FROM ' . $this->from;
 
                     foreach ($this->joins as $j) {
                         $sql .= ' ' . $j['type'] . ' JOIN ' . $j['table'];
