@@ -24,6 +24,15 @@
              */
             protected $db;
 
+            /**
+             * Instantiates the MySQL ORM
+             * @author Art <a.molcanovas@gmail.com>
+             * @throws Libex When $db isn't supplied & Alo::$db isn't an instance of MySQL or PDO
+             *
+             * @param MySQL|PDO $db
+             *
+             * @throws Libex
+             */
             function __construct(&$db = null) {
                 if ($db && ($db instanceof MySQL || $db instanceof PDO)) {
                     $this->db = &$db;
@@ -47,7 +56,7 @@
                 } elseif (!$this->from) {
                     throw new ORMEx('No source table', ORMEx::E_INVALID_QUERY);
                 } else {
-                    $sql = 'SELECT ' . implode(',', $this->select) . ' FROM ' . $this->from;
+                    $sql .= 'SELECT ' . implode(',', $this->select) . ' FROM ' . $this->from;
 
                     foreach ($this->joins as $j) {
                         $sql .= ' ' . $j['type'] . ' JOIN ' . $j['table'];
