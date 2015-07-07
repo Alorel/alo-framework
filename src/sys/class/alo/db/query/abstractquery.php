@@ -63,6 +63,15 @@
                 return $this;
             }
 
+            /**
+             * Sets the table to select from
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $table Table name
+             *
+             * @return AbstractQuery
+             * @throws ORMEx When $table isn't scalar
+             */
             function from($table) {
                 if (is_string($table)) {
                     $this->from = $table;
@@ -80,10 +89,31 @@
              */
             abstract function getSQL();
 
+            /**
+             * Sets an INNER JOIN
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $table Table to join
+             * @param string $on    ON condition
+             *
+             * @return AbstractQuery
+             * @throws ORMException When $table or $on isn't a string
+             */
             function innerJoin($table, $on) {
                 return $this->abstractJoin($table, $on, 'INNER');
             }
 
+            /**
+             * The abstract joining method
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $table Table to join
+             * @param string $on    ON condition
+             * @param string $type  JOIN type
+             *
+             * @return AbstractQuery
+             * @throws ORMException When $table or $on isn't a string
+             */
             protected function abstractJoin($table, $on, $type) {
                 if (!is_string($table)) {
                     throw new ORMEx('$table must be a string', ORMEx::E_INVALID_DATATYPE);
@@ -98,28 +128,80 @@
                 return $this;
             }
 
+            /**
+             * Performs a CROSS JOIN
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $table Table to join
+             *
+             * @return AbstractQuery
+             * @throws ORMException When $table isn't a string
+             */
             function crossJoin($table) {
                 return $this->abstractJoin($table, null, 'CROSS');
             }
 
+            /**
+             * performs a LEFT JOIN
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $table Table to join
+             * @param string $on    ON condition
+             *
+             * @return AbstractQuery
+             * @throws ORMException When $table or $on isn't a string
+             */
             function leftJoin($table, $on) {
                 return $this->abstractJoin($table, $on, 'LEFT');
             }
 
+            /**
+             * performs a RIGHT JOIN
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $table Table to join
+             * @param string $on    ON condition
+             *
+             * @return AbstractQuery
+             * @throws ORMException When $table or $on isn't a string
+             */
             function rightJoin($table, $on) {
                 return $this->abstractJoin($table, $on, 'RIGHT');
             }
 
-            function andWhere($column, $modifier, $value, $parameterise = true) {
-                return $this->abstractWhere($column, $modifier, $value, $parameterise, 'AND');
+            /**
+             * Adds a WHERE clause. If it's not the first WHERE clause, they will be linked by AND
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $column   WHERE $column
+             * @param string $modifier WHERE $column $modifier
+             * @param string $value    WHERE $column $modifier $value
+             * @param bool   $bind     Whether to use PDO parameter binding. It is HIGHLY discouraged to set this to false.
+             *
+             * @return AbstractQuery
+             */
+            function andWhere($column, $modifier, $value, $bind = true) {
+                return $this->abstractWhere($column, $modifier, $value, $bind, 'AND');
             }
 
-            protected function abstractWhere($column, $modifier, $value, $parameterise, $kind) {
+            /**
+             * The abstract WHERE builder
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $column   WHERE $column
+             * @param string $modifier WHERE $column $modifier
+             * @param string $value    WHERE $column $modifier $value
+             * @param bool   $bind     Whether to use PDO parameter binding. It is HIGHLY discouraged to set this to false.
+             * @param string $kind     OR/AND (how to link multiple WHEREs)
+             *
+             * @return AbstractQuery
+             */
+            protected function abstractWhere($column, $modifier, $value, $bind, $kind) {
                 $add = ['col'  => $column,
                         'mod'  => $modifier,
                         'kind' => $kind];
 
-                if ($parameterise) {
+                if ($bind) {
                     $bind               = ':w' . md5($column . $modifier . $value);
                     $this->binds[$bind] = ['val'  => $value,
                                            'type' => is_numeric($value) && substr($value, 0, 1) != '0' ?
@@ -134,22 +216,52 @@
                 return $this;
             }
 
-            function orWhere($column, $modifier, $value, $parameterise = true) {
-                return $this->abstractWhere($column, $modifier, $value, $parameterise, 'OR');
+            /**
+             * Adds a WHERE clause. If it's not the first WHERE clause, they will be linked by OR
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string $column   WHERE $column
+             * @param string $modifier WHERE $column $modifier
+             * @param string $value    WHERE $column $modifier $value
+             * @param bool   $bind     Whether to use PDO parameter binding. It is HIGHLY discouraged to set this to false.
+             *
+             * @return AbstractQuery
+             */
+            function orWhere($column, $modifier, $value, $bind = true) {
+                return $this->abstractWhere($column, $modifier, $value, $bind, 'OR');
             }
 
+            /**
+             * Opens a bracket in the WHERE clause
+             * @author Art <a.molcanovas@gmail.com>
+             * @return AbstractQuery
+             */
             function whereBracketOpen() {
                 $this->where[] = '(';
 
                 return $this;
             }
 
+            /**
+             * Closes the bracket in the WHERE clause
+             * @author Art <a.molcanovas@gmail.com>
+             * @return AbstractQuery
+             */
             function whereBracketClose() {
                 $this->where[] = ')';
 
                 return $this;
             }
 
+            /**
+             * Adds a column or array of columns to the SELECT clause
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param string|array $col The column or array of columns
+             *
+             * @return AbstractQuery
+             * @throws ORMException When $col isn't a string or array of strings
+             */
             function select($col) {
                 if (is_array($col)) {
                     foreach ($col as $c) {
@@ -173,7 +285,7 @@
              * @param int|null $limit2 The max amount of rows to return
              *
              * @return AbstractQuery
-             * @throws ORMEx When $limit1 or $limit2 are not integers
+             * @throws ORMException When $limit1 or $limit2 are not integers
              */
             function limit($limit1, $limit2 = null) {
                 if (!is_numeric($limit1)) {
