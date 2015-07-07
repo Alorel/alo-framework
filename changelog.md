@@ -1,17 +1,34 @@
-# 2.1-beta.1 (pending) #
+# 2.1 (2015-07-07) #
+Moved global functions
+
+* escapeHTML5() was removed. Use Security::unXss()
+* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static 
+methods of **Alo**.
+
+Moved namespaces
+
+* The **Alo\Statics** namespace has been removed. All its classes are now found in the **Alo** namespace.
+
+Added items
+
+* Alo\Traversables\SmartObj added. The class currently hasn't got much functionality, but can be used to, for 
+example, recursively remove duplicate values from an array.
+* All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
+* Alo\Locale now extends Alo\Traversables\ArrayObj and therefore can be used as an array in many scenarios.
+* Added Alo\Db\Resultset - can be used to manipulate a SQL resultset array
 
 * Thrown error/exception/notice/deprecation/warning message CSS made better
 * MySQL ORM added in Alo\Db\Query\MySQLQuery
 * Sample view now contains a table with URLs for when .htaccess is not configured
 
-# 2.1-alpha.3 (2015-06-26) #
+## 2.1-alpha.3 (2015-06-26) ##
 
 * ArrayObj, a more abstract version of SmartObj, was created. Locale now extends it instead.
 * SmartObj now has a deleteWithRegex() method
 * Alo\Db\Resultset class added. It extends ArrayObj and can be used to manipulate a SQL resultset (or any array of 
 associative arrays)
 
-# 2.1-alpha.2 (2015-06-25) #
+## 2.1-alpha.2 (2015-06-25) ##
 
 Added items
 
@@ -22,7 +39,7 @@ example, recursively remove duplicate values from an array.
 * Fixed bugs from alpha.1 where old references to includeonceifexists() and escapeHTML5() were still in the code
 * Added Alo\Db\Resultset - can be used to manipulate a SQL resultset array
 
-# 2.1-alpha.1 (2015-06-22) #
+## 2.1-alpha.1 (2015-06-22) ##
 
 Moved global functions
 

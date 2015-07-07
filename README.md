@@ -2,7 +2,7 @@
 
 [![License](https://poser.pugx.org/alorel/alo-framework/license)](LICENSE) [![Packagist release](https://img.shields.io/packagist/v/alorel/alo-framework.svg?style=plastic&label=stable)](https://packagist.org/packages/alorel/alo-framework) [![Packagist pre-release](https://img.shields.io/packagist/vpre/alorel/alo-framework.svg?style=plastic&label=pre-release)](https://packagist.org/packages/alorel/alo-framework)  [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=packagist%20downloads)](https://packagist.org/packages/alorel/alo-framework)
 
-2.1-beta.1: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.1-beta.1)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
+2.1: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.1)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
@@ -233,7 +233,25 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.1-beta.1 (pending) ##
+## 2.1 (2015-07-07) ##
+
+Moved global functions
+
+* escapeHTML5() was removed. Use Security::unXss()
+* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static 
+methods of **Alo**.
+
+Moved namespaces
+
+* The **Alo\Statics** namespace has been removed. All its classes are now found in the **Alo** namespace.
+
+Added items
+
+* Alo\Traversables\SmartObj added. The class currently hasn't got much functionality, but can be used to, for 
+example, recursively remove duplicate values from an array.
+* All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
+* Alo\Locale now extends Alo\Traversables\ArrayObj and therefore can be used as an array in many scenarios.
+* Added Alo\Db\Resultset - can be used to manipulate a SQL resultset array
 
 * Thrown error/exception/notice/deprecation/warning message CSS made better
 * MySQL ORM added in Alo\Db\Query\MySQLQuery
