@@ -1,4 +1,5 @@
 <?php
+    //v2.1.1
 
     /** Microtime float when the script started */
     define('GEN_START', microtime(true));
