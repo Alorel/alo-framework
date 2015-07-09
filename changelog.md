@@ -1,8 +1,13 @@
+# 2.1.1 (2015-07-09) #
+
+* Constants' documentation has been shrunken for better readability
+* A lot of the constants in index.php have been moved into the **sys** directory
+
 # 2.1 (2015-07-07) #
 Moved global functions
 
-* escapeHTML5() was removed. Use Security::unXss()
-* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static 
+* **escapeHTML5()** was removed. Use **Security::unXss()**
+* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static
 methods of **Alo**.
 
 Moved namespaces
@@ -11,40 +16,37 @@ Moved namespaces
 
 Added items
 
-* Alo\Traversables\SmartObj added. The class currently hasn't got much functionality, but can be used to, for 
-example, recursively remove duplicate values from an array.
+* **Alo\Traversables\SmartObj** added. The class currently hasn't got much functionality, but can be used to, for example, recursively remove duplicate values from an array.
 * All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
-* Alo\Locale now extends Alo\Traversables\ArrayObj and therefore can be used as an array in many scenarios.
-* Added Alo\Db\Resultset - can be used to manipulate a SQL resultset array
+* **Alo\Locale** now extends **Alo\Traversables\ArrayObj** and therefore can be used as an array in many scenarios.
+* Added **Alo\Db\Resultset** - can be used to manipulate a SQL resultset array
 
 * Thrown error/exception/notice/deprecation/warning message CSS made better
-* MySQL ORM added in Alo\Db\Query\MySQLQuery
+* MySQL ORM added in **Alo\Db\Query\MySQLQuery**
 * Sample view now contains a table with URLs for when .htaccess is not configured
 
 ## 2.1-alpha.3 (2015-06-26) ##
 
-* ArrayObj, a more abstract version of SmartObj, was created. Locale now extends it instead.
-* SmartObj now has a deleteWithRegex() method
-* Alo\Db\Resultset class added. It extends ArrayObj and can be used to manipulate a SQL resultset (or any array of 
-associative arrays)
+* **ArrayObj**, a more abstract version of **SmartObj**, was created. **Locale** now extends it instead.
+* **SmartObj** now has a **deleteWithRegex()** method
+* **Alo\Db\Resultset** class added. It extends **ArrayObj** and can be used to manipulate a SQL resultset (or any array of associative arrays)
 
 ## 2.1-alpha.2 (2015-06-25) ##
 
 Added items
 
-* Alo\Traversables\SmartObj added. The class currently hasn't got much functionality, but can be used to, for 
-example, recursively remove duplicate values from an array.
+* **Alo\Traversables\SmartObj** added. The class currently hasn't got much functionality, but can be used to, for example, recursively remove duplicate values from an array.
 * All cache classes now implement the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php), [IteratorAggregate](http://php.net/manual/en/class.iteratoraggregate.php) and [Countable](http://php.net/manual/en/class.countable.php) interfaces allowing them to be used as arrays.
-* Alo\Locale now extends Alo\Traversables\SmartObj and therefore can be used as an array in many scenarios.
-* Fixed bugs from alpha.1 where old references to includeonceifexists() and escapeHTML5() were still in the code
-* Added Alo\Db\Resultset - can be used to manipulate a SQL resultset array
+* **Alo\Locale** now extends **Alo\Traversables\SmartObj** and therefore can be used as an array in many scenarios.
+* Fixed bugs from alpha.1 where old references to **includeonceifexists()** and **escapeHTML5()** were still in the code
+* Added **Alo\Db\Resultset** - can be used to manipulate a SQL resultset array
 
 ## 2.1-alpha.1 (2015-06-22) ##
 
 Moved global functions
 
-* escapeHTML5() was removed. Use Security::unXss()
-* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static 
+* **escapeHTML5()** was removed. Use **Security::unXss()**
+* **includeifexists()**, **includeonceifexists()** & **serverIsWindows()** have been removed and are now static
 methods of **Alo**.
 
 Moved namespaces
@@ -129,7 +131,7 @@ No code review required:
 	* phpWarning($msg)
 	* phpNotice($msg)
 	* phpDeprecated($msg)
-	
+
 **Major functionality changes**
 
 * Sessions
@@ -137,13 +139,13 @@ No code review required:
    * Sessions are now invoked via the handler's static init() method, e.g. to initialise a MySQL session you would call MySQLSession::init(). Any dependencies' instances, e.g. MySQL or RedisWrapper can be passed as a parameter or used from Alo::$db/Alo::$cache respectively
    * The session handler to be used will is now defined in config/session.php with ALO_SESSION_HANDLER
    * Sessions will now be used in the standard PHP way of $_SESSION. There is no need to do session_start(), only ::init().
-	
+
 **Removed deprecated items**
 
 * Alo\File
 * Testing suite
 * FileException
-	
+
 **Misc Functionality/feature changes**
 
 * PDO now uses ERRMODE_EXCEPTION instead of ERRMODE_WARNING
