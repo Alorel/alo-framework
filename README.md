@@ -233,9 +233,9 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.1.2 (2015-07-11) ##
+## dev ##
 
-Added the DIR_CONFIG, DIR_ERROR & DIR_LOGS constants.
+* Some config explanation added to the router config file
 
 
 

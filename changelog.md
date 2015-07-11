@@ -1,3 +1,7 @@
+# dev #
+
+* Some config explanation added to the router config file
+
 # 2.1.2 (2015-07-11) #
 Added the DIR_CONFIG, DIR_ERROR & DIR_LOGS constants.
 
