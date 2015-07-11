@@ -1,3 +1,6 @@
+# 2.1.2 (2015-07-11) #
+Added the DIR_CONFIG, DIR_ERROR & DIR_LOGS constants.
+
 # 2.1.1 (2015-07-09) #
 
 * Constants' documentation has been shrunken for better readability

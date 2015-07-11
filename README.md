@@ -2,7 +2,7 @@
 
 [![License](https://poser.pugx.org/alorel/alo-framework/license)](LICENSE) [![Packagist release](https://img.shields.io/packagist/v/alorel/alo-framework.svg?style=plastic&label=stable)](https://packagist.org/packages/alorel/alo-framework) [![Packagist pre-release](https://img.shields.io/packagist/vpre/alorel/alo-framework.svg?style=plastic&label=pre-release)](https://packagist.org/packages/alorel/alo-framework)  [![Packagist downloads](https://img.shields.io/packagist/dt/alorel/alo-framework.svg?style=plastic&label=packagist%20downloads)](https://packagist.org/packages/alorel/alo-framework)
 
-2.1.1: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.1.1)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
+2.1.2: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.1.2)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
@@ -233,10 +233,9 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.1.1 (2015-07-09) ##
+## 2.1.2 (2015-07-11) ##
 
-* Constants' documentation has been shrunken for better readability
-* A lot of the constants in index.php have been moved into the **sys** directory
+Added the DIR_CONFIG, DIR_ERROR & DIR_LOGS constants.
 
 
 

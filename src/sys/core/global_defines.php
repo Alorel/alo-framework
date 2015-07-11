@@ -33,5 +33,14 @@
     /** Controllers directory */
     define('DIR_CONTROLLERS', DIR_APP . 'controllers' . DIRECTORY_SEPARATOR);
 
+    /** Configuration directory */
+    define('DIR_CONFIG', DIR_APP . 'config' . DIRECTORY_SEPARATOR);
+
+    /** Error directory */
+    define('DIR_ERROR', DIR_APP . 'error' . DIRECTORY_SEPARATOR);
+
+    /** Log directory */
+    define('DIR_LOGS', DIR_APP . 'logs' . DIRECTORY_SEPARATOR);
+
     /** The minimum available PHP integer */
     define('PHP_INT_MIN', ~PHP_INT_MAX);

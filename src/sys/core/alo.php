@@ -122,8 +122,8 @@
              * @return string|bool The path is $returnPath is true, TRUE if it is false
              */
             static function loadConfig($path, $returnPath = false) {
-                $dir  = (defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS : DIR_APP) . 'config' .
-                        DIRECTORY_SEPARATOR;
+                $dir  = defined('ENVIRONMENT') && ENVIRONMENT === ENV_SETUP ? DIR_SYS . 'config' . DIRECTORY_SEPARATOR :
+                    DIR_CONFIG;
                 $path = strtolower($path);
                 if (substr($path, -4) == '.php') {
                     $path = substr($path, 0, -4);
