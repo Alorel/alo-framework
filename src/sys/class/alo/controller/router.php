@@ -109,7 +109,7 @@
              *
              * @var array
              */
-            protected $methodArgs;
+            protected $methodArgs = [];
             /**
              * The error controller name
              *
@@ -127,7 +127,7 @@
              *
              * @var array
              */
-            protected $routes;
+            protected $routes = [];
             /**
              * Whether we're dealing with a CLI request...
              *
@@ -169,8 +169,7 @@
                     $rc = new ReflectionClass(self::CONTROLLER_NAMESPACE . $this->controller);
 
                     //Must be abstract controller's subclass
-                    if (!$rc->isAbstract() && $rc->isSubclassOf('\Alo\Controller\AbstractController')
-                    ) {
+                    if (!$rc->isAbstract() && $rc->isSubclassOf('\Alo\Controller\AbstractController')) {
                         $rm = $rc->getMethod($this->method);
 
                         //And a public method
@@ -188,8 +187,13 @@
                 }
 
                 if ($init) {
-                    \Log::debug('Initialising controller ' . $this->controller . '->' . $this->method . '(' .
-                                implode(',', $this->methodArgs) . ')');
+                    \Log::debug('Initialising controller ' .
+                                $this->controller .
+                                '->' .
+                                $this->method .
+                                '(' .
+                                implode(',', $this->methodArgs) .
+                                ')');
                     $controllerName  = self::CONTROLLER_NAMESPACE . $this->controller;
                     Alo::$controller = new $controllerName;
                     call_user_func_array([Alo::$controller, $this->method], $this->methodArgs);
@@ -212,8 +216,15 @@
              */
             protected function forceError($msg = null) {
                 if ($this->controller != $this->errController) {
-                    \Log::debug('404\'d on path: ' . $this->path . '. Settings were as follows: dir: ' . $this->dir .
-                                ', class: ' . $this->controller . ', method: ' . $this->method . ', args: ' .
+                    \Log::debug('404\'d on path: ' .
+                                $this->path .
+                                '. Settings were as follows: dir: ' .
+                                $this->dir .
+                                ', class: ' .
+                                $this->controller .
+                                ', method: ' .
+                                $this->method .
+                                ', args: ' .
                                 json_encode($this->methodArgs));
 
                     $path = DIR_CONTROLLERS . strtolower($this->errController) . '.php';
@@ -226,7 +237,8 @@
                     $this->methodArgs = [404];
                     $this->tryCall();
                 } else {
-                    throw new CE('No route available and the error controller ' . 'is invalid.' .
+                    throw new CE('No route available and the error controller ' .
+                                 'is invalid.' .
                                  ($msg ? ' Exception message returned: ' . $msg : ''), CE::E_INVALID_ROUTE);
                 }
 
@@ -341,7 +353,9 @@
                     }
 
                     $filepath =
-                        DIR_CONTROLLERS . str_replace('/', DIRECTORY_SEPARATOR, $this->dir) . $this->controller .
+                        DIR_CONTROLLERS .
+                        str_replace('/', DIRECTORY_SEPARATOR, $this->dir) .
+                        $this->controller .
                         '.php';
 
                     if (file_exists($filepath)) {

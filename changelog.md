@@ -1,6 +1,7 @@
-# dev #
+# 2.1.3 (2015-07-16) #
 
 * Some config explanation added to the router config file
+* Fixed a small bug that would cause errors if the routes array is empty
 
 # 2.1.2 (2015-07-11) #
 Added the DIR_CONFIG, DIR_ERROR & DIR_LOGS constants.
