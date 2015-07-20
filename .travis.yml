@@ -5,6 +5,8 @@ php:
   - 5.5
   - 5.4
   - hhvm
+  - 7.0
+  - nightly
 env:
   - DB=mysql
 
@@ -12,15 +14,14 @@ services:
   - redis-server
   - memcached
 
-#before_install:
-#  - composer self-update
-#  - composer install --prefer-source --no-interaction --dev
+before_install:
+  - echo 'timezone = "UTC"' > travis.hhvm.ini
 
 before_script:
   - phpenv config-add phpunit.cnf.ini
   - mysql -e 'create database phpunit;'
 
-script: phpunit --stderr
+script: hhvm -c travis.hhvm.ini phpunit --stderr
 
 notifications:
   on_success: change
@@ -30,3 +31,5 @@ matrix:
   fast_finish: true
   allow_failures:
    - php: hhvm
+   - php: 7.0
+   - php: nightly
