@@ -42,5 +42,7 @@
     /** Log directory */
     define('DIR_LOGS', DIR_APP . 'logs' . DIRECTORY_SEPARATOR);
 
-    /** The minimum available PHP integer */
-    define('PHP_INT_MIN', ~PHP_INT_MAX);
+    if (!defined('PHP_INT_MIN')) {
+        /** The minimum available PHP integer */
+        define('PHP_INT_MIN', ~PHP_INT_MAX);
+    }

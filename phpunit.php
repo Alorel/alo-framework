@@ -29,7 +29,7 @@
                 _load_classes($file->getPathname());
             } elseif (substr($file->getFilename(), -4) === '.php') {
                 // save the class name / path of a .php file found
-                include_once $file->getPathname();
+                require_once $file->getPathname();
             }
         }
     }
