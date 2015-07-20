@@ -15,13 +15,13 @@ services:
   - memcached
 
 before_install:
-  - echo 'timezone = "UTC"' > travis.hhvm.ini
+  - mkdir -p /home/travis/.phpenv/versions/hhvm/etc
 
 before_script:
   - phpenv config-add phpunit.cnf.ini
   - mysql -e 'create database phpunit;'
 
-script: hhvm -c travis.hhvm.ini phpunit --stderr
+script: phpunit --stderr
 
 notifications:
   on_success: change
