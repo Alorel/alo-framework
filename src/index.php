@@ -11,7 +11,7 @@
 
     // ===== General setup BEGIN =====
 
-    /** The application environment. Valid values are "setup" "dev" */
+    /** The application environment. Valid values are ENV_SETUP, ENV_DEVELOPMENT and ENV_PRODUCTION */
     define('ENVIRONMENT', ENV_SETUP);
 
     /** Defines the log level. Valid values are LOG_LEVEL_NONE LOG_LEVEL_DEBUG, LOG_LEVEL_WARNING and LOG_LEVEL_ERROR */
