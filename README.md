@@ -2,7 +2,7 @@
 
 [![License](https://poser.pugx.org/alorel/alo-framework/license?format=plastic)](LICENSE) [![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/v/stable?format=plastic)](https://packagist.org/packages/alorel/alo-framework)  [![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads?format=plastic)](https://packagist.org/packages/alorel/alo-framework)
 
-2.1.3: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.1.3)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
+2.1.4: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.1.4)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
@@ -233,10 +233,9 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.1.3 (2015-07-16) ##
+## 2.1.4 (2015-07-22) ##
 
-* Some config explanation added to the router config file
-* Fixed a small bug that would cause errors if the routes array is empty
+Fixed a bug in the session handlers that would cause a new session to be initialised due to an invalid cookie path
 
 
 
