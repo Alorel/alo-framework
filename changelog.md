@@ -1,3 +1,7 @@
+# 2.1.4 (2015-07-22) #
+
+Fixed a bug in the session handlers that would cause a new session to be initialised due to an invalid cookie path
+
 # 2.1.3 (2015-07-16) #
 
 * Some config explanation added to the router config file

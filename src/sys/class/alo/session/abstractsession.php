@@ -45,7 +45,7 @@
              */
             protected static function initSession(&$dependcyObject = null, $handler = ALO_SESSION_HANDLER) {
                 if (session_status() !== PHP_SESSION_ACTIVE) {
-                    session_set_cookie_params(ALO_SESSION_TIMEOUT, null, null, ALO_SESSION_SECURE, true);
+                    session_set_cookie_params(ALO_SESSION_TIMEOUT, '/', null, ALO_SESSION_SECURE, true);
                     session_name(ALO_SESSION_COOKIE);
 
                     /** @var Alo\Session\AbstractSession $handler */
