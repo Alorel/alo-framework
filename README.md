@@ -233,9 +233,11 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.1.4 (2015-07-22) ##
+## 2.x-dev ##
 
-Fixed a bug in the session handlers that would cause a new session to be initialised due to an invalid cookie path
+Internal
+
+* Moved one of the default arrays used in Locale->fetch() to a class static, Locale::$arrGlobal
 
 
 

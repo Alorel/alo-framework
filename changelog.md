@@ -1,3 +1,9 @@
+# 2.x-dev #
+
+Internal
+
+* Moved one of the default arrays used in Locale->fetch() to a class static, Locale::$arrGlobal
+
 # 2.1.4 (2015-07-22) #
 
 Fixed a bug in the session handlers that would cause a new session to be initialised due to an invalid cookie path
