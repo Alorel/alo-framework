@@ -1,3 +1,7 @@
+# 2.1.5 (2015-07-26) #
+
+Fixed a bug in the form validator class that would add an invalid key to the array.
+
 # 2.1.4 (2015-07-22) #
 
 Fixed a bug in the session handlers that would cause a new session to be initialised due to an invalid cookie path
