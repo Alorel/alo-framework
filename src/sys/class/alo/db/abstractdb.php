@@ -91,11 +91,16 @@
             function __construct($cache) {
                 if (!\Alo::$cache) {
                     $this->cache = new $cache;
-                    Log::warning('Alo::$cache was not defined when ' . get_class($this) .
-                                 ' was instantiated and got assigned a ' . $cache);
+                    Log::warning('Alo::$cache was not defined when ' .
+                                 get_class($this) .
+                                 ' was instantiated and got assigned a ' .
+                                 $cache);
                 } elseif (!is_a(Alo::$cache, $cache)) {
                     $this->cache = new $cache;
-                    Log::warning('Alo::$cache wasn\'t an instance of ' . $cache . ' when ' . get_class($this) .
+                    Log::warning('Alo::$cache wasn\'t an instance of ' .
+                                 $cache .
+                                 ' when ' .
+                                 get_class($this) .
                                  ' was instantiates and was overwritten.');
                 } else {
                     $this->cache = &\Alo::$cache;
@@ -107,6 +112,14 @@
 
                 self::$this = &$this;
             }
+
+            /**
+             * Returns the last inserted auto-increment ID
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @return int
+             */
+            abstract function lastInsertID();
 
             /**
              * Returns the last hash generated

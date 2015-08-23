@@ -230,12 +230,10 @@
              * Returns the last inserted auto-increment ID
              * @author Art <a.molcanovas@gmail.com>
              *
-             * @param null|string $name Name of the sequence object from which the ID should be returned.
-             *
-             * @return string
+             * @return int
              */
-            function lastInsertID($name = null) {
-                return $this->pdo->lastInsertId($name);
+            function lastInsertID() {
+                return $this->pdo->lastInsertId();
             }
 
             /**
