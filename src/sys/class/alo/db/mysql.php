@@ -38,13 +38,19 @@
              * @param string $cache   Which cache interface to use
              * @param array  $options Connection options
              */
-            function __construct($ip = ALO_MYSQL_SERVER, $port = ALO_MYSQL_PORT, $user = ALO_MYSQL_USER,
-                                 $pw = ALO_MYSQL_PW, $db = ALO_MYSQL_DATABASE, $cache = ALO_MYSQL_CACHE,
+            function __construct($ip = ALO_MYSQL_SERVER,
+                                 $port = ALO_MYSQL_PORT,
+                                 $user = ALO_MYSQL_USER,
+                                 $pw = ALO_MYSQL_PW,
+                                 $db = ALO_MYSQL_DATABASE,
+                                 $cache = ALO_MYSQL_CACHE,
                                  array $options = null) {
 
                 $this->pdo =
                     new PDO('mysql:dbname=' . $db . ';host=' . $ip . ';charset=' . ALO_MYSQL_CHARSET . ';port=' . $port,
-                            $user, $pw, $options);
+                            $user,
+                            $pw,
+                            $options);
 
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -69,8 +75,12 @@
              *
              * @return MySQL
              */
-            static function mysql($ip = ALO_MYSQL_SERVER, $port = ALO_MYSQL_PORT, $user = ALO_MYSQL_USER,
-                                  $pw = ALO_MYSQL_PW, $db = ALO_MYSQL_DATABASE, $cache = ALO_MYSQL_CACHE,
+            static function mysql($ip = ALO_MYSQL_SERVER,
+                                  $port = ALO_MYSQL_PORT,
+                                  $user = ALO_MYSQL_USER,
+                                  $pw = ALO_MYSQL_PW,
+                                  $db = ALO_MYSQL_DATABASE,
+                                  $cache = ALO_MYSQL_CACHE,
                                   array $options = null) {
                 return new MySQL($ip, $port, $user, $pw, $db, $cache, $options);
             }
@@ -135,8 +145,9 @@
                 } else {
                     $pdo  = $this->pdo->prepare($sql);
                     $exec = $pdo->execute($params);
-                    $res  = stripos($sql, 'select') !== false ?
-                        $pdo->fetchAll($settings[self::V_FETCH_NUM] ? PDO::FETCH_NUM : PDO::FETCH_ASSOC) : $exec;
+                    $res  =
+                        stripos($sql, 'select') !== false ?
+                            $pdo->fetchAll($settings[self::V_FETCH_NUM] ? PDO::FETCH_NUM : PDO::FETCH_ASSOC) : $exec;
 
                     if ($settings[self::V_CACHE]) {
                         $this->cache->set($hash, $res, $settings[self::V_TIME]);
@@ -213,6 +224,18 @@
              */
             function transactionActive() {
                 return $this->pdo->inTransaction();
+            }
+
+            /**
+             * Returns the last inserted auto-increment ID
+             * @author Art <a.molcanovas@gmail.com>
+             *
+             * @param null|string $name Name of the sequence object from which the ID should be returned.
+             *
+             * @return string
+             */
+            function lastInsertID($name = null) {
+                return $this->pdo->lastInsertId($name);
             }
 
             /**
