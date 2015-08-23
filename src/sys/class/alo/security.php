@@ -16,6 +16,12 @@
         abstract class Security {
 
             /**
+             * Default hash algorithm to use
+             * @var string
+             */
+            const DEFAULT_HASH = 'sha256';
+
+            /**
              * Defines the ascii charset subset as "the entire set"
              *
              * @var int
@@ -172,7 +178,7 @@
              *
              * @return string The generated token
              */
-            static function tokenGet($tokenName, $hash = 'md5') {
+            static function tokenGet($tokenName, $hash = self::DEFAULT_HASH) {
                 $token = self::getUniqid($hash, 'token_' . $tokenName);
 
                 if (!AbstractSession::isActive()) {
@@ -195,21 +201,24 @@
              *
              * @return string
              */
-            static function getUniqid($hash = 'md5', $prefix = null, $entropy = 50) {
-                $str = uniqid(mt_rand(PHP_INT_MIN, PHP_INT_MAX) . json_encode([$_COOKIE,
-                                                                               $_REQUEST,
-                                                                               $_FILES,
-                                                                               $_ENV,
-                                                                               $_GET,
-                                                                               $_POST,
-                                                                               $_SERVER]), true) . $prefix .
-                       self::asciiRand($entropy)
-                ;
+            static function getUniqid($hash = self::DEFAULT_HASH, $prefix = null, $entropy = 200) {
+                $str = mt_rand(PHP_INT_MIN, PHP_INT_MAX) .
+                       json_encode([$_COOKIE,
+                                    $_REQUEST,
+                                    $_FILES,
+                                    $_ENV,
+                                    $_GET,
+                                    $_POST,
+                                    $_SERVER],
+                                   true) .
+                       uniqid() .
+                       $prefix .
+                       self::asciiRand($entropy);
 
                 if (function_exists('\openssl_random_pseudo_bytes')) {
                     $str .= \openssl_random_pseudo_bytes($entropy);
                 } else {
-                   phpWarning('The openssl extension is not enabled, therefore the unique ID is not cryptographically secure.');
+                    phpWarning('The openssl extension is not enabled, therefore the unique ID is not cryptographically secure.');
                 }
 
                 return hash($hash, $str);
@@ -268,7 +277,8 @@
                         $dataArray = $_POST;
                     }
 
-                    return $_SESSION[$tokenName] && \get($dataArray[$tokenName]) &&
+                    return $_SESSION[$tokenName] &&
+                           \get($dataArray[$tokenName]) &&
                            $_SESSION[$tokenName] == $dataArray[$tokenName];
                 }
             }
@@ -301,8 +311,12 @@
              * @return string
              */
             static function getFingerprint() {
-                return '$%c0hYlc$kn!rZF' . \get($_SERVER['HTTP_USER_AGENT']) . \get($_SERVER['HTTP_DNT']) .
-                       '^#J!kCRh&H4CKav' . \get($_SERVER['HTTP_ACCEPT_LANGUAGE']) . 'h0&ThYYxk4YOD!g' .
+                return '$%c0hYlc$kn!rZF' .
+                       \get($_SERVER['HTTP_USER_AGENT']) .
+                       \get($_SERVER['HTTP_DNT']) .
+                       '^#J!kCRh&H4CKav' .
+                       \get($_SERVER['HTTP_ACCEPT_LANGUAGE']) .
+                       'h0&ThYYxk4YOD!g' .
                        \get($_SERVER['REMOTE_ADDR']);
             }
 
