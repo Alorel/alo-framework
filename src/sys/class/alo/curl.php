@@ -76,10 +76,10 @@
                 } else {
                     $this->ch     = curl_init();
                     $this->isOpen = true;
-                    curl_setopt_array($this->ch, [CURLOPT_RETURNTRANSFER => true,
-                                                  CURLOPT_SSLVERSION     => 3,
-                                                  CURLOPT_SSL_VERIFYPEER => true,
-                                                  CURLOPT_FOLLOWLOCATION => true]);
+                    curl_setopt_array($this->ch,
+                                      [CURLOPT_RETURNTRANSFER => true,
+                                       CURLOPT_SSL_VERIFYPEER => true,
+                                       CURLOPT_FOLLOWLOCATION => true]);
 
                     Log::debug('Initialised Curl');
 
@@ -148,8 +148,9 @@
                 if (!is_callable($callable)) {
                     return false;
                 } else {
-                    curl_setopt_array($this->ch, [CURLOPT_NOPROGRESS       => false,
-                                                  CURLOPT_PROGRESSFUNCTION => $callable]);
+                    curl_setopt_array($this->ch,
+                                      [CURLOPT_NOPROGRESS       => false,
+                                       CURLOPT_PROGRESSFUNCTION => $callable]);
 
                     return true;
                 }

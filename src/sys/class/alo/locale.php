@@ -57,6 +57,12 @@
             protected $firstFetchDone = false;
 
             /**
+             * The default global key
+             * @var array
+             */
+            protected static $arrGlobal = ['global'];
+
+            /**
              * Instantiates the Locale handler
              *
              * @author Art <a.molcanovas@gmail.com>
@@ -106,19 +112,19 @@
              * @return Locale
              */
             function fetch(array $pages = null, $primaryLocale = null, $secondaryLocale = null) {
-                $arrGlobal = ['global'];
                 if (!$primaryLocale) {
                     $primaryLocale = ALO_LOCALE_DEFAULT;
                 }
 
                 if (!$this->firstFetchDone) {
-                    $pages                = is_array($pages) ? array_merge($arrGlobal, $pages) : $arrGlobal;
+                    $pages                =
+                        is_array($pages) ? array_unique(array_merge(self::$arrGlobal, $pages)) : self::$arrGlobal;
                     $this->firstFetchDone = true;
                 }
 
                 if ($pages !== null) {
                     if (!is_array($pages)) {
-                        $pages = $arrGlobal;
+                        $pages = self::$arrGlobal;
                     }
 
                     if ($secondaryLocale && $secondaryLocale !== $primaryLocale) {
@@ -146,10 +152,15 @@
                 $params = [':first'  => $primaryLocale,
                            ':second' => $secondaryLocale];
 
-                $sql = 'SELECT DISTINCT `default`.`key`,' . 'IFNULL(`loc`.`value`,`default`.`value`) AS `value` ' .
-                       'FROM `alo_locale` `default` ' . 'LEFT JOIN `alo_locale` `loc` ' . 'ON `loc`.`lang`=:second ' .
-                       'AND `loc`.`page` = `default`.`page` ' . 'AND `loc`.`key`=`default`.`key` ' .
-                       'WHERE `default`.`lang`=:first';
+                $sql =
+                    'SELECT DISTINCT `default`.`key`,' .
+                    'IFNULL(`loc`.`value`,`default`.`value`) AS `value` ' .
+                    'FROM `alo_locale` `default` ' .
+                    'LEFT JOIN `alo_locale` `loc` ' .
+                    'ON `loc`.`lang`=:second ' .
+                    'AND `loc`.`page` = `default`.`page` ' .
+                    'AND `loc`.`key`=`default`.`key` ' .
+                    'WHERE `default`.`lang`=:first';
 
                 if (!ALO_LOCALE_FETCH_ALL) {
                     $sql .= ' AND `default`.`page` IN (';

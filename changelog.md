@@ -1,6 +1,8 @@
-# 2.1.5 (2015-07-26) #
+# 2.x-dev #
 
-Fixed a bug in the form validator class that would add an invalid key to the array.
+Internal
+
+* Moved one of the default arrays used in Locale->fetch() to a class static, Locale::$arrGlobal
 
 # 2.1.4 (2015-07-22) #
 

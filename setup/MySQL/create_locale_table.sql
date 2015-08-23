@@ -4,9 +4,9 @@
 CREATE TABLE `alo_locale` (
   `id`    INT UNSIGNED                 NOT NULL AUTO_INCREMENT,
   `lang`  CHAR(2)
-          COLLATE `ascii_general_ci`   NOT NULL,
+          COLLATE `ascii_general_ci`   NOT NULL DEFAULT 'en',
   `page`  VARCHAR(25)
-          COLLATE `ascii_general_ci`   NOT NULL,
+          COLLATE `ascii_general_ci`   NOT NULL DEFAULT 'global',
   `key`   VARCHAR(25)
           COLLATE `ascii_general_ci`   NOT NULL,
   `value` TEXT

@@ -203,10 +203,13 @@
                                                                                $_GET,
                                                                                $_POST,
                                                                                $_SERVER]), true) . $prefix .
-                       self::asciiRand($entropy);
+                       self::asciiRand($entropy)
+                ;
 
                 if (function_exists('\openssl_random_pseudo_bytes')) {
                     $str .= \openssl_random_pseudo_bytes($entropy);
+                } else {
+                   phpWarning('The openssl extension is not enabled, therefore the unique ID is not cryptographically secure.');
                 }
 
                 return hash($hash, $str);
