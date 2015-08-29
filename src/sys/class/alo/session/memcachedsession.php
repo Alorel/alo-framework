@@ -40,7 +40,7 @@
             }
 
             /**
-             * Initialises a MySQLSession
+             * Initialises a Memcached session
              *
              * @author Art <a.molcanovas@gmail.com>
              *

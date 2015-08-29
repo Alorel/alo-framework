@@ -40,7 +40,7 @@
             }
 
             /**
-             * Initialises a MySQLSession
+             * Initialises a Redis session
              *
              * @author Art <a.molcanovas@gmail.com>
              *
