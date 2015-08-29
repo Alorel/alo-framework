@@ -2,7 +2,7 @@
 
 [![License](https://poser.pugx.org/alorel/alo-framework/license?format=plastic)](LICENSE) [![Latest Stable Version](https://poser.pugx.org/alorel/alo-framework/v/stable?format=plastic)](https://packagist.org/packages/alorel/alo-framework)  [![Total Downloads](https://poser.pugx.org/alorel/alo-framework/downloads?format=plastic)](https://packagist.org/packages/alorel/alo-framework)
 
-2.1.4: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.1.4)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
+2.1.6: [![Release build status](https://travis-ci.org/Alorel/alo-framework.svg?branch=2.1.6)](https://travis-ci.org/Alorel/alo-framework)  [![Release code quality](https://cloud.githubusercontent.com/assets/4998038/8272585/378efc2a-1841-11e5-9fd7-7af369c8b40b.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) develop: [![Dev Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=develop)](https://travis-ci.org/Alorel/alo-framework)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879/mini.png)](https://insight.sensiolabs.com/projects/3a3aec8e-7593-47ed-a0ae-19f428c0e879) master: [![Mater Build Status](https://travis-ci.org/Alorel/alo-framework.svg?branch=master)](https://travis-ci.org/Alorel/alo-framework)
 
 ----------
 
@@ -233,7 +233,22 @@ If testing sessions please use **phpunit --stderr** to the test status output do
 
 # Latest changes #
 See [changelog.md](changelog.md) for a full changelog of previous versions.
-## 2.x-dev ##
+## 2.1.6 (2015-08-29) ##
+
+Additions
+
+* lastInsertID() method added to AbstractDB as a wrapper for the equivalent PDO method
+
+Bugfixes
+
+* Autoloader file is now loaded after the router is initialised. This prevents possible errors in some operations, 
+such as Cookie::delete().
+
+Misc changes
+
+* Default hashing algorithm for the Security class changed to SHA256. It's now stored in a class constant.
+* Removed demand for SSLv3 from the Curl class
+* A warning is thrown in Security::uniqid() if the openssl extension is not enabled
 
 Internal
 

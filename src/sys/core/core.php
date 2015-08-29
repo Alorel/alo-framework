@@ -164,10 +164,11 @@
 
         require_once DIR_SYS . 'core' . DIRECTORY_SEPARATOR . 'alo.php';
 
-        Alo::includeonceifexists(DIR_APP . 'core' . DIRECTORY_SEPARATOR . 'autoload.php');
-
         if (!defined('PHPUNIT_RUNNING')) {
             Alo::$router = new Alo\Controller\Router();
+            Alo::includeonceifexists(DIR_APP . 'core' . DIRECTORY_SEPARATOR . 'autoload.php');
             Alo::$router->init();
+        } else {
+            Alo::includeonceifexists(DIR_APP . 'core' . DIRECTORY_SEPARATOR . 'autoload.php');
         }
     }

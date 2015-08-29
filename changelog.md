@@ -1,8 +1,27 @@
-# 2.x-dev #
+# 2.1.6 (2015-08-29) #
+
+Additions
+
+* lastInsertID() method added to AbstractDB as a wrapper for the equivalent PDO method
+
+Bugfixes
+
+* Autoloader file is now loaded after the router is initialised. This prevents possible errors in some operations, 
+such as Cookie::delete().
+
+Misc changes
+
+* Default hashing algorithm for the Security class changed to SHA256. It's now stored in a class constant.
+* Removed demand for SSLv3 from the Curl class
+* A warning is thrown in Security::uniqid() if the openssl extension is not enabled
 
 Internal
 
 * Moved one of the default arrays used in Locale->fetch() to a class static, Locale::$arrGlobal
+
+# 2.1.5 (2015-07-26) #
+
+Fixed a bug in the form validator class that would add an invalid key to the array.
 
 # 2.1.4 (2015-07-22) #
 
