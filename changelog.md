@@ -1,3 +1,7 @@
+# 2.1.7 (2015-08-30) #
+
+Fixed a bug that disallowed regex mathing in routes' methods.
+
 # 2.1.6 (2015-08-29) #
 
 Additions

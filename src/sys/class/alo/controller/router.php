@@ -305,7 +305,9 @@
                             array_shift($explode);
 
                             //Set method
-                            if ($dest['method'] != self::$routeDefaults['method']) {
+                            if (strpos($dest['method'], '$') !== false) {
+                                $this->method = preg_replace($regex, $dest['method'], $this->path);
+                            } elseif ($dest['method'] != self::$routeDefaults['method']) {
                                 $this->method = $dest['method'];
                             } elseif (isset($explode[0])) {
                                 $this->method = $explode[0];
